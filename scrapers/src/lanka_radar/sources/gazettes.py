@@ -9,8 +9,7 @@ Only gazettes from the groups that touch daily life become feed items: prices, t
 and imports; energy and utilities; wages and labour; elections. Each item's English and
 Tamil PDFs are read once (see pdfs.py) for the title on page 1 and, in price gazettes,
 the price table; a run reads at most PDF_BUDGET gazettes, newest first. When the reader
-learns to read more Tamil (READER), older readings without a Tamil title get their Tamil
-PDF read again.
+improves (READER), an older reading gets the PDFs it could gain from read again once.
 """
 
 from __future__ import annotations
@@ -40,9 +39,9 @@ ANSWER_ATTEMPTS = 3
 # PDFs read per run, newest first; history catches up over a few runs.
 PDF_BUDGET = 40
 PDF_STATE = "gazette-pdfs"
-# The PDF reader's version, kept with each reading. Version 2 reads the Tamil of Arial
-# Unicode PDFs, so an older reading without a Tamil title gets its Tamil PDF read again.
-READER = 2
+# The PDF reader's version, kept with each reading: 2 reads the Tamil of Arial Unicode
+# PDFs; 3 knows two more of its glyphs and gives shorter price labels.
+READER = 3
 HISTORY_START = date(2026, 1, 1)
 RECHECK = timedelta(days=21)
 
@@ -209,11 +208,13 @@ def read_pdfs(
     web: Web, gazette: Gazette, before: dict[str, Any] | None = None
 ) -> dict[str, Any] | None:
     """Titles (English and Tamil) and price numbers from one gazette's PDFs. With `before`,
-    an older reader's reading of the same files, only the Tamil PDF is read again. None
-    when a download failed, so the gazette is tried again on the next run."""
+    an older reader's reading of the same files, only the PDFs it could gain from are read
+    again (see `stale`). None when a download failed, so the gazette is tried again on the
+    next run."""
     reading: dict[str, Any] = dict(before) if before else {"files": gazette.files}
+    languages = stale(before, gazette.files) if before else ("en", "ta")
     reading["reader"] = READER
-    for language in ("ta",) if before else ("en", "ta"):
+    for language in languages:
         path = gazette.files.get(language)
         if not path:
             continue
@@ -223,6 +224,10 @@ def read_pdfs(
         except httpx.HTTPError:
             return None
         reading.pop(f"error_{language}", None)
+        if language == "en":
+            reading.pop("numbers", None)
+        else:
+            reading.pop("unknown_glyphs", None)
         try:
             found = pdfs.read(data, tamil=language == "ta")
         except Exception as error:
@@ -233,7 +238,23 @@ def read_pdfs(
         reading[f"title_{language}"] = found.title
         if found.numbers:
             reading["numbers"] = [number.to_json() for number in found.numbers]
+        if found.unknown:
+            # Glyphs to add to pdfs.ARIAL_TAMIL: until then this Tamil title stays out.
+            reading["unknown_glyphs"] = list(found.unknown)
     return reading
+
+
+def stale(reading: dict[str, Any], files: dict[str, str]) -> tuple[str, ...]:
+    """The PDFs to read again for a reading an older reader made: the Tamil one when it
+    gave no Tamil title, the English one when it gave prices (their labels improved)."""
+    if reading.get("reader", 1) >= READER:
+        return ()
+    languages = []
+    if "en" in files and reading.get("numbers"):
+        languages.append("en")
+    if "ta" in files and not reading.get("title_ta"):
+        languages.append("ta")
+    return tuple(languages)
 
 
 def fetch_page(web: Web, action: str, page: int) -> tuple[list[Gazette], int]:
@@ -309,10 +330,7 @@ def run(web: Web, store: Store, today: date) -> int:
         return readings.get(gazette.number, {}).get("files") != gazette.files
 
     def outdated(gazette: Gazette) -> bool:
-        """Read by an older reader, which found no Tamil title."""
-        reading = readings.get(gazette.number, {})
-        older = reading.get("reader", 1) < READER
-        return older and "ta" in gazette.files and not reading.get("title_ta")
+        return bool(stale(readings.get(gazette.number, {}), gazette.files))
 
     def waiting(gazette: Gazette) -> bool:
         return unread(gazette) or outdated(gazette)

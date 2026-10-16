@@ -6,6 +6,7 @@ from typing import Any
 import httpx
 import pytest
 
+from lanka_radar import pdfs
 from lanka_radar.sources import gazettes
 from lanka_radar.sources.gazettes import Gazette
 from lanka_radar.store import Store
@@ -324,6 +325,61 @@ def test_an_older_reading_gets_its_tamil_pdf_read_again(
     calls.clear()
     gazettes.run(web, store, date(2026, 10, 10))
     assert pdf_calls(calls) == []
+
+
+BOTH = {"en": "G 01 (E).pdf", "ta": "G 01 (T).pdf"}
+
+
+@pytest.mark.parametrize(
+    ("reading", "languages"),
+    [
+        ({"title_ta": None}, ("ta",)),
+        ({"title_ta": "x", "numbers": [{"label": "a"}]}, ("en",)),
+        ({"title_ta": None, "numbers": [{"label": "a"}]}, ("en", "ta")),
+        ({"title_ta": "x"}, ()),
+        ({"reader": 2, "title_ta": None}, ("ta",)),
+        ({"reader": gazettes.READER, "title_ta": None, "numbers": [{"label": "a"}]}, ()),
+    ],
+)
+def test_stale_names_the_pdfs_an_older_reading_gains_from(
+    reading: dict[str, Any], languages: tuple[str, ...]
+) -> None:
+    assert gazettes.stale({"files": BOTH, **reading}, BOTH) == languages
+
+
+def test_an_older_reading_with_prices_gets_its_english_pdf_read_again(
+    fixture_bytes: Callable[[str], bytes], store: Store
+) -> None:
+    gazette = row("2504/03", "2026-08-31", "Ministry of Energy", ("ENGLISH",))
+    files = {"en": "extra-gazette-content/G 03 (E).pdf"}
+    old = [{"label": "an old label", "value": 1.0, "unit": "LKR"}]
+    store.write_state(
+        "gazette-pdfs", {"2504/03": {"files": files, "title_en": "X", "numbers": old}}
+    )
+    web, calls = site(
+        {1: answer([gazette], 1)}, pdfs={"(E)": fixture_bytes("gazette-2504-03-en.pdf")}
+    )
+
+    gazettes.run(web, store, date(2026, 9, 1))
+
+    reading = (store.read_state("gazette-pdfs") or {})["2504/03"]
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 03 (E).pdf"]
+    assert reading["numbers"][0]["label"] == "Lanka Petrol 92 Octane"
+    assert reading["reader"] == gazettes.READER
+
+
+def test_unknown_tamil_glyphs_are_recorded(
+    fixture_bytes: Callable[[str], bytes], store: Store, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delitem(pdfs.ARIAL_TAMIL, 8065)
+    gazette = row("2509/59", "2026-10-08", "Election Commission", ("TAMIL",))
+    web, _ = site({1: answer([gazette], 1)}, pdfs={"(T)": fixture_bytes("gazette-2509-59-ta.pdf")})
+
+    gazettes.run(web, store, date(2026, 10, 9))
+
+    reading = (store.read_state("gazette-pdfs") or {})["2509/59"]
+    assert reading["title_ta"] is None
+    assert reading["unknown_glyphs"] == [8065]
 
 
 def test_a_routine_notice_shows_in_the_pdf_title() -> None:

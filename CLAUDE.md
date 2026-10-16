@@ -29,7 +29,7 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 - Scrapers write only to the `data` branch, through the scrape workflow. `main` holds code only.
 - One module per source in `scrapers/src/lanka_radar/sources/`, with a `NAME` and `run(web, store, today)`. Parsing lives in pure functions tested against saved responses in `scrapers/tests/fixtures/` (kept byte for byte: `-text` in `.gitattributes`). Shared code (HTTP client `web.py`, item model, `store.py`) lives in the package, not in the source modules.
 - Feed items are news (a price change, a big rate move, a gazette, an exam notice). Current values belong in `datasets/`, not in the feed.
-- Gazette PDFs are read in `pdfs.py`, once per gazette (cached in `state/gazette-pdfs.json`, read again only when its files change, or once when a reader version bump (`READER`) can read more of its Tamil), at most `PDF_BUDGET` per run. Tamil text is trusted from Bamini-encoded fonts (converted with Open-Tamil) and from Arial Unicode MS read by glyph ID (the PDFs' text maps for it are scrambled); Tamil in any other font is never used as a headline.
+- Gazette PDFs are read in `pdfs.py`, once per gazette (cached in `state/gazette-pdfs.json`, read again only when its files change, or once when a reader version bump (`READER`) can improve it: a missing Tamil title, price labels), at most `PDF_BUDGET` per run. Tamil text is trusted from Bamini-encoded fonts (converted with Open-Tamil) and from Arial Unicode MS read by glyph ID (the PDFs' text maps for it are scrambled); Tamil in any other font is never used as a headline.
 - GitHub's runners are abroad. Sources that only answer inside Sri Lanka (CEYPETCO's fuel prices, CBSL's rate search) are read by the app on the phone, never by the workflow. Items the app makes use the same IDs as the workflow's (only USD/LKR moves; fuel changes come in as gazettes). Before building a new source into the workflow, check it loads from servers abroad (check-host.net works).
 - Be polite to government sites: a user agent that names the project, retries with backoff, never re-download a PDF already seen.
 - Item IDs are stable and built from the source's own IDs. Changing the ID scheme needs a log entry in the plan.
@@ -59,5 +59,5 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 - UI: Material 3, minimal and calm, short labels, no explanatory paragraphs on screens.
 - Plain ASCII punctuation in code, comments, docs and commits: no em or en dashes, arrows, smart quotes or emoji.
 - Line endings are LF (enforced by `.gitattributes`).
-- Commits: small, imperative subject, no `Co-Authored-By` trailer. Never commit or push without asking.
+- Commits: small, imperative subject, ending with Claude's `Co-Authored-By: Claude <model> <noreply@anthropic.com>` line. Never commit or push without asking.
 - Git identity is `ThivaaVipul` with the GitHub noreply email (`114325514+ThivaaVipul@users.noreply.github.com`), set in this repo's git config. The repo is public, so no personal email in commits or files. Don't use `gh` or browser tools for GitHub.

@@ -12,9 +12,11 @@ from lanka_radar.pdfs import Line
 EXPECTED = "expected_titles.json"
 # Tamil letters built from code points, so this file stays plain ASCII.
 TAMIL = chr(0x0B9A) + chr(0x0BC1) + chr(0x0B99) + chr(0x0BCD) + chr(0x0B95)
-KA, TA, RA, SA = chr(0x0B95), chr(0x0BA4), chr(0x0BB0), chr(0x0BB8)
+KA, TTA, TA, PA = chr(0x0B95), chr(0x0B9F), chr(0x0BA4), chr(0x0BAA)
+RA, SA = chr(0x0BB0), chr(0x0BB8)
 AA_SIGN, I_SIGN, II_SIGN, U_SIGN = chr(0x0BBE), chr(0x0BBF), chr(0x0BC0), chr(0x0BC1)
-E_SIGN, EE_SIGN, OO_SIGN, VIRAMA = chr(0x0BC6), chr(0x0BC7), chr(0x0BCB), chr(0x0BCD)
+UU_SIGN, E_SIGN, EE_SIGN, OO_SIGN = chr(0x0BC2), chr(0x0BC6), chr(0x0BC7), chr(0x0BCB)
+VIRAMA = chr(0x0BCD)
 
 MASTHEAD = [
     Line("The Gazette of the Democratic Socialist Republic of Sri Lanka", 36.0, True),
@@ -88,8 +90,22 @@ def test_arial_unicode_glyph_ids_map_to_tamil() -> None:
     assert pdfs.ARIAL_TAMIL[1841] == AA_SIGN
     assert pdfs.ARIAL_TAMIL[1865] == chr(0x0BF2)  # the last of Unicode 3.0's Tamil
     assert pdfs.ARIAL_TAMIL[8065] == KA + U_SIGN
+    assert pdfs.ARIAL_TAMIL[8077] == TTA + UU_SIGN
+    assert pdfs.ARIAL_TAMIL[8088] == PA + UU_SIGN
     assert pdfs.ARIAL_TAMIL[8111] == SA + VIRAMA + RA + II_SIGN
     assert pdfs.ARIAL_TAMIL[8132] == SA + VIRAMA
+
+
+def test_an_unknown_glyph_keeps_the_tamil_title_out_and_is_reported(
+    fixture_bytes: Callable[[str], bytes], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # Ku (glyph 8065) is in the title's "vadakku"; pretend the table doesn't know it.
+    monkeypatch.delitem(pdfs.ARIAL_TAMIL, 8065)
+
+    reading = pdfs.read(fixture_bytes("gazette-2509-59-ta.pdf"), tamil=True)
+
+    assert reading.title is None
+    assert reading.unknown == (8065,)
 
 
 def test_glyphs_are_put_in_reading_order() -> None:
@@ -224,6 +240,31 @@ def test_a_revision_keeps_the_current_price_as_the_one_before() -> None:
     ]
 
     assert pdfs.price_numbers([table]) == [KeyNumber("Lanka Petrol 92 Octane", 399.0, "LKR", 414.0)]
+
+
+def test_price_labels_drop_latin_names_and_keep_the_net_weight() -> None:
+    # Gazette 2504/86 (CAA, canned fish), as pdfplumber reads its table; "l55g" is printed.
+    pack = "Net weight of {}g and\ndrained weight of {}g or\nabove"
+    table = [
+        ["Canned Fish Type", "Weight (Gram)", "Maximum Retail Price\n(Per Can)"],
+        [
+            "Tuna ( Katsuwonus pelamis , Auxis rochei,\nEuthynnus affinis and Auxis thazard)",
+            pack.format("155", "105"),
+            "Rs. 220/-",
+        ],
+        [None, pack.format("425", "280"), "Rs. 510/-"],
+        [
+            "Mackerel (Scomber scombrus, Scomber japonicus\nand Scomber australasicus)",
+            pack.format("l55", "105"),
+            "Rs. 240/-",
+        ],
+    ]
+
+    assert pdfs.price_numbers([table]) == [
+        KeyNumber("Tuna 155g", 220.0, "LKR"),
+        KeyNumber("Tuna 425g", 510.0, "LKR"),
+        KeyNumber("Mackerel 155g", 240.0, "LKR"),
+    ]
 
 
 def test_prices_with_thousands_separators() -> None:
