@@ -5,11 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/topics.dart';
+import 'package:lanka_radar/features/about/view/about_page.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/now_card.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
+import 'package:lanka_radar/features/sources/view/sources_page.dart';
 
 /// The feed: the Now card, topic chips, then the items newest first under month
 /// headings.
@@ -57,10 +59,33 @@ class _HomeViewState extends State<_HomeView> {
       appBar: AppBar(
         title: const Text('Lanka Radar'),
         actions: [
+          BlocSelector<HomeCubit, HomeState, bool>(
+            selector: (state) =>
+                state.health?.needsALook(DateTime.now()) ?? false,
+            builder: (context, needsALook) => needsALook
+                ? IconButton(
+                    tooltip: 'A source has gone quiet',
+                    icon: Icon(
+                      Icons.error_outline,
+                      color: Theme.of(context).colorScheme.tertiary,
+                    ),
+                    onPressed: () =>
+                        Navigator.of(context).push(SourcesPage.route()),
+                  )
+                : const SizedBox.shrink(),
+          ),
           IconButton(
             tooltip: 'Search',
             icon: const Icon(Icons.search),
             onPressed: () => Navigator.of(context).push(SearchPage.route()),
+          ),
+          PopupMenuButton<Route<void> Function()>(
+            tooltip: 'More',
+            onSelected: (route) => Navigator.of(context).push(route()),
+            itemBuilder: (context) => const [
+              PopupMenuItem(value: SourcesPage.route, child: Text('Sources')),
+              PopupMenuItem(value: AboutPage.route, child: Text('About')),
+            ],
           ),
         ],
       ),

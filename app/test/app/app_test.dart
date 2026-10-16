@@ -127,6 +127,36 @@ void main() {
     expect(find.text("Couldn't load the feed"), findsOneWidget);
     expect(find.text('Try again'), findsOneWidget);
   });
+
+  testWidgets('the menu opens Sources and About', (tester) async {
+    await open(tester);
+
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Sources'));
+    await settle(tester);
+    expect(find.text('Read by GitHub'), findsOneWidget);
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('About'));
+    await tester.pumpAndSettle();
+    expect(find.text('Lanka Radar'), findsOneWidget);
+    expect(find.text('Source code'), findsOneWidget);
+  });
+
+  testWidgets('warns in the app bar when the workflow has gone quiet', (
+    tester,
+  ) async {
+    remote.files['status.json'] =
+        '{"schema": 1, "checked": "2026-01-01T00:00:00Z", "sources": {}}';
+
+    await open(tester);
+
+    expect(find.byTooltip('A source has gone quiet'), findsOneWidget);
+  });
 }
 
 /// Lets the database and the fake branch answer, then the screen catch up.

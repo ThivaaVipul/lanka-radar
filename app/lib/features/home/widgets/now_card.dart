@@ -168,6 +168,9 @@ String fuelNote(NowData data, {required DateTime today}) {
   return changed == null ? '' : 'changed ${cardDate(changed, today: today)}';
 }
 
+/// Names too long for half the card's width; the fuel sheet has them in full.
+const _gridNames = {'Industrial kerosene': 'Ind. kerosene'};
+
 class _FuelPrice extends StatelessWidget {
   const _FuelPrice({required this.price});
 
@@ -180,7 +183,7 @@ class _FuelPrice extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            price.name,
+            _gridNames[price.name] ?? price.name,
             style: body,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
