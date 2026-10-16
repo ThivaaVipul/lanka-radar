@@ -36,7 +36,7 @@
       "issuer": "Department of Census and Statistics",
       "headline": {
         "en": "Department of Census and Statistics - National Consumer Price Index - April 2026",
-        "ta": null
+        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண் (அடிப்படை : 2021 = 100)"
       },
       "keyNumbers": [],
       "published": "2026-05-22",
@@ -54,7 +54,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
       },
       "alert": true
     },
@@ -65,7 +66,7 @@
       "issuer": "Elections Commission",
       "headline": {
         "en": "Elections Commission - Order Under sub Section 8 (9)\nParliamentary Elections Act No 10 of 1981",
-        "ta": null
+        "ta": "1981 ஆம் ஆண்டின் 1 ஆம் இலக்க பாராளுமன்றத் தேர்தல்கள் சட்டம் 8(9) ஆம் உப பிரிவின் கீழான கட்டளை"
       },
       "keyNumbers": [],
       "published": "2026-05-22",
@@ -83,7 +84,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "PARLIAMENTARY ELECTIONS ACT, No. 1 OF 1981 Order under Sub Section 8(9)"
       },
       "alert": true
     },
@@ -94,7 +96,7 @@
       "issuer": "Elections Commission",
       "headline": {
         "en": "Elections Commission - Revision of Electoral Registers",
-        "ta": null
+        "ta": "தேருநர் இடாப்பு மீளாய்வு பார்வையிட முடியும்."
       },
       "keyNumbers": [],
       "published": "2026-05-22",
@@ -112,7 +114,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "REVISION OF ELECTORAL REGISTERS check the registration"
       },
       "alert": true
     },
@@ -123,7 +126,7 @@
       "issuer": "Elections Commission",
       "headline": {
         "en": "Elections Commission - Filling of a Vacancy in the Office of member of the Vavuniya North p.s",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வவுனியா வடக்கு பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-05-21",
@@ -141,7 +144,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -168,7 +172,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notiﬁ cation WAGES BOARD FOR THE HOTEL AND CATERING TRADE"
       },
       "alert": true
     },
@@ -179,7 +184,7 @@
       "issuer": "Elections Commission",
       "headline": {
         "en": "Elections Commission - Filling of a Vacancy in the office of member of the Embilipitiya p.s",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ் எம்பிலிபிட்டிய பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-05-18",
@@ -197,7 +202,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE EMBILIPITIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -208,7 +214,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Galnewa p.s",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் கல்னேவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-05-18",
@@ -226,7 +232,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE GALNEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -237,7 +244,7 @@
       "issuer": "Elections Commission",
       "headline": {
         "en": "Elections Commission - Filling of a Vacancy in the office of member of the Minipe p.s",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் மினிப்பே பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-05-18",
@@ -255,7 +262,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MINIPE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -266,7 +274,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - filling of a Vacancy in the office of member of the Ibbagamuwa P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ் இப்பாகமுவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-05-18",
@@ -284,7 +292,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE IBBAGAMUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -295,7 +304,7 @@
       "issuer": "Department of Trade and Investment Policy",
       "headline": {
         "en": "Department of Trade and Investment Policy - Customs Ordinance (Chapter 235) under Section 10 (A)",
-        "ta": null
+        "ta": "சுங்க அறிவித்தல் சுங்க கட்டளைச் சட்டம் (அத்தியாயம் 235)"
       },
       "keyNumbers": [],
       "published": "2026-05-17",
@@ -313,7 +322,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CUSTOMS NOTIFICATION Customs Ordinance (Chapter 235)"
       },
       "alert": true
     },
@@ -324,7 +334,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - H.M. Sampath Anura Bandara Herath Elected as a Member of Kekirawa P.S",
-        "ta": null
+        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டம் (262 ஆம் அத்தியாயம்) 66 (2) ஆம் பிரிவின் கீழான அறிவித்தல்"
       },
       "keyNumbers": [],
       "published": "2026-05-15",
@@ -342,7 +352,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "LOCAL AUTHORITIES ELECTIONS ORDINANCE ( CHAPTER 262) Notice under Section 66(2)"
       },
       "alert": true
     },
@@ -353,7 +364,7 @@
       "issuer": "Department of trade and Investment Policy",
       "headline": {
         "en": "Department of trade and Investment Policy - The Customs Ordinance (Chapter 235) Order under Section 10A",
-        "ta": null
+        "ta": "சுங்க அறிவித்தல் சுங்கக் கட்டளைச் சட்டம் (அத்தியாயம் 235)"
       },
       "keyNumbers": [],
       "published": "2026-05-15",
@@ -371,7 +382,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CUSTOMS NOTIFICATION Customs Ordinance (Chapter 235) ORDER UNDER SECTION 10A"
       },
       "alert": true
     },
@@ -421,7 +433,8 @@
         "group": "labour",
         "languages": [
           "en"
-        ]
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT – CHAPTER 131"
       },
       "alert": true
     },
@@ -457,7 +470,7 @@
       "issuer": "Ministry of Labour",
       "headline": {
         "en": "Ministry of Labour - Wages Board Ordinance Wages Board for Garment Manufacturing Trade",
-        "ta": null
+        "ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவித்தல் ஆடை உற்பத்தித் தொழிலுக்கான சம்பளச்சபை"
       },
       "keyNumbers": [],
       "published": "2026-05-13",
@@ -475,7 +488,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notice WAGES BOARD FOR GARMENT MANUFACTURING TRADE"
       },
       "alert": true
     },

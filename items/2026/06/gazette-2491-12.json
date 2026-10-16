@@ -5,9 +5,40 @@
   "issuer": "Ministry of Energy",
   "headline": {
     "en": "Ministry of Energy - Order under Section 66 (1) (a) -Revise the Fuel Price",
-    "ta": null
+    "ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டத்தின் 66 1 (a) ஆம் பிரிவின் கீழான கட்டளைகள்"
   },
-  "keyNumbers": [],
+  "keyNumbers": [
+    {
+      "label": "Lanka Auto Diesel",
+      "value": 407.0,
+      "unit": "LKR",
+      "previous": 392.0
+    },
+    {
+      "label": "Lanka Super Diesel 4 Star Euro 4",
+      "value": 478.0,
+      "unit": "LKR",
+      "previous": 458.0
+    },
+    {
+      "label": "Lanka Kerosene",
+      "value": 285.0,
+      "unit": "LKR",
+      "previous": 265.0
+    },
+    {
+      "label": "Lanka Petrol 95 Octane Euro 4",
+      "value": 495.0,
+      "unit": "LKR",
+      "previous": 470.0
+    },
+    {
+      "label": "Lanka Petrol 92 Octane",
+      "value": 434.0,
+      "unit": "LKR",
+      "previous": 410.0
+    }
+  ],
   "published": "2026-06-01",
   "effective": null,
   "links": {
@@ -23,7 +54,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)"
   },
   "alert": true
 }

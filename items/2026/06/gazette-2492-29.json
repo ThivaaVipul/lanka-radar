@@ -5,9 +5,35 @@
   "issuer": "Consumer Affairs Authority",
   "headline": {
     "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 09 of 2003 (Amended)",
-    "ta": null
+    "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது) 20(5) ஆம் பிரிவின் கீழான கட்டளை"
   },
-  "keyNumbers": [],
+  "keyNumbers": [
+    {
+      "label": "500ml - 999 ml",
+      "value": 80.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "1 litre - 1.499 litre",
+      "value": 120.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "1.5 litre - 1.999 litre",
+      "value": 150.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "2 litre - 2.499 litre",
+      "value": 180.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "5 litre - 6.999 litre",
+      "value": 400.0,
+      "unit": "LKR"
+    }
+  ],
   "published": "2026-06-10",
   "effective": null,
   "links": {
@@ -23,7 +49,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Order under Section 20(5)"
   },
   "alert": true
 }

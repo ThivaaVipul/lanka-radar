@@ -4,7 +4,7 @@
   "topic": "gazettes",
   "issuer": "Minstry of Labour",
   "headline": {
-    "en": "Minstry of Labour",
+    "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON ( 1956 REVISED EDITION) Order under Section 4(1)",
     "ta": null
   },
   "keyNumbers": [],
@@ -19,7 +19,8 @@
     "group": "labour",
     "languages": [
       "en"
-    ]
+    ],
+    "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON ( 1956 REVISED EDITION) Order under Section 4(1)"
   },
   "alert": true
 }

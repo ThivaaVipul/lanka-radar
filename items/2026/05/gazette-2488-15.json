@@ -5,7 +5,7 @@
   "issuer": "Ministry of Labour",
   "headline": {
     "en": "Ministry of Labour - Wages Board Ordinance Wages Board for Garment Manufacturing Trade",
-    "ta": null
+    "ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவித்தல் ஆடை உற்பத்தித் தொழிலுக்கான சம்பளச்சபை"
   },
   "keyNumbers": [],
   "published": "2026-05-13",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notice WAGES BOARD FOR GARMENT MANUFACTURING TRADE"
   },
   "alert": true
 }
