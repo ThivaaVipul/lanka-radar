@@ -1,19 +1,17 @@
-"""USD/LKR from CBSL's own rate search, with Frankfurter's copy of the CBSL series as a fallback.
+"""USD/LKR as a backup series: Frankfurter's copy of CBSL's daily rate, often days behind.
 
-Every rate lands in datasets/usd-lkr.json. A feed item appears only when the rate
-moves 2% or more within a week, at most one item per week.
+CBSL's own rate search refuses most servers outside Sri Lanka, so the app reads it on
+the phone for the same-day rate. Every rate here lands in datasets/usd-lkr.json, and a
+feed item appears when the rate moves 2% or more within a week, at most one a week.
+The app makes the same items with the same IDs, so whichever copy arrives first wins.
 """
 
 from __future__ import annotations
 
 import bisect
-import re
 from dataclasses import dataclass
 from datetime import date, timedelta
-from html.parser import HTMLParser
 from typing import Any
-
-import httpx
 
 from lanka_radar.items import Item, KeyNumber
 from lanka_radar.store import Store
@@ -21,16 +19,13 @@ from lanka_radar.web import Web
 
 NAME = "rates"
 DATASET = "usd-lkr"
-CBSL_FORM = "https://www.cbsl.gov.lk/cbsl_custom/exrates/exrates_results.php"
-CBSL_PAGE = "https://www.cbsl.gov.lk/en/rates-and-indicators/exchange-rates"
 FRANKFURTER = "https://api.frankfurter.dev/v2/rates"
+CBSL_PAGE = "https://www.cbsl.gov.lk/en/rates-and-indicators/exchange-rates"
 ISSUER = "Central Bank of Sri Lanka"
 HISTORY_START = date(2026, 1, 1)
 RECHECK_DAYS = 14
 MOVE = 0.02
 WEEK = timedelta(days=7)
-
-_DAY = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 
 @dataclass(frozen=True)
@@ -44,32 +39,7 @@ class Move:
         return self.rate / self.week_ago - 1
 
 
-def cbsl_form(start: date, end: date) -> dict[str, str]:
-    return {
-        "lookupPage": "lookup_daily_exchange_rates.php",
-        "startRange": "2006-11-11",
-        "rangeType": "dates",
-        "txtStart": start.isoformat(),
-        "txtEnd": end.isoformat(),
-        "chk_cur[]": "USD~US Dollar",
-        "submit_button": "Submit",
-    }
-
-
-def parse_cbsl(html: str) -> dict[date, float]:
-    table = _TableRows()
-    table.feed(html)
-    rates = {
-        date.fromisoformat(row[0]): float(row[1])
-        for row in table.rows
-        if len(row) >= 2 and _DAY.fullmatch(row[0])
-    }
-    if not rates:
-        raise ValueError("no USD/LKR rows in the CBSL results")
-    return rates
-
-
-def parse_frankfurter(payload: list[dict[str, Any]]) -> dict[date, float]:
+def parse(payload: list[dict[str, Any]]) -> dict[date, float]:
     rates = {
         date.fromisoformat(row["date"]): float(row["rate"])
         for row in payload
@@ -111,62 +81,21 @@ def move_item(move: Move) -> Item:
     )
 
 
-def fetch(web: Web, start: date, end: date) -> tuple[str, dict[date, float]]:
-    """CBSL first; Frankfurter (the same CBSL series, sometimes days behind) if CBSL fails."""
-    try:
-        return "cbsl", parse_cbsl(web.post_form(CBSL_FORM, cbsl_form(start, end)).text)
-    except (httpx.HTTPError, ValueError):
-        params = {
-            "providers": "CBSL",
-            "base": "USD",
-            "quotes": "LKR",
-            "from": start.isoformat(),
-            "to": end.isoformat(),
-        }
-        return "frankfurter", parse_frankfurter(web.get(FRANKFURTER, params=params).json())
-
-
 def run(web: Web, store: Store, today: date) -> int:
     dataset = store.read_dataset(DATASET) or {}
     known = {date.fromisoformat(row["date"]): row["rate"] for row in dataset.get("rates", [])}
-    start = (
-        max(HISTORY_START, max(known) - timedelta(days=RECHECK_DAYS)) if known else HISTORY_START
-    )
-    origin, fresh = fetch(web, start, today)
+    start = HISTORY_START
+    if known:
+        start = max(HISTORY_START, max(known) - timedelta(days=RECHECK_DAYS))
+    params = {
+        "providers": "CBSL",
+        "base": "USD",
+        "quotes": "LKR",
+        "from": start.isoformat(),
+        "to": today.isoformat(),
+    }
+    fresh = parse(web.get(FRANKFURTER, params=params).json())
     rates = {day: rate for day, rate in {**known, **fresh}.items() if day >= HISTORY_START}
-    store.write_dataset(
-        DATASET,
-        {
-            "source": origin,
-            "rates": [{"date": day.isoformat(), "rate": rates[day]} for day in sorted(rates)],
-        },
-    )
+    rows = [{"date": day.isoformat(), "rate": rates[day]} for day in sorted(rates)]
+    store.write_dataset(DATASET, {"source": "frankfurter", "rates": rows})
     return sum(store.put_item(move_item(move)) for move in weekly_moves(rates))
-
-
-class _TableRows(HTMLParser):
-    """Collects the text of each table row's cells."""
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.rows: list[list[str]] = []
-        self._row: list[str] | None = None
-        self._cell: list[str] | None = None
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag == "tr":
-            self._row = []
-        elif tag in ("td", "th") and self._row is not None:
-            self._cell = []
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag in ("td", "th") and self._row is not None and self._cell is not None:
-            self._row.append(" ".join("".join(self._cell).split()))
-            self._cell = None
-        elif tag == "tr" and self._row is not None:
-            self.rows.append(self._row)
-            self._row = None
-
-    def handle_data(self, data: str) -> None:
-        if self._cell is not None:
-            self._cell.append(data)

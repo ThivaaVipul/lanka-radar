@@ -29,6 +29,7 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 - Scrapers write only to the `data` branch, through the scrape workflow. `main` holds code only.
 - One module per source in `scrapers/src/lanka_radar/sources/`, with a `NAME` and `run(web, store, today)`. Parsing lives in pure functions tested against saved responses in `scrapers/tests/fixtures/` (kept byte for byte: `-text` in `.gitattributes`). Shared code (HTTP client `web.py`, item model, `store.py`) lives in the package, not in the source modules.
 - Feed items are news (a price change, a big rate move, a gazette, an exam notice). Current values belong in `datasets/`, not in the feed.
+- GitHub's runners are abroad. Sources that only answer inside Sri Lanka (CEYPETCO's fuel prices, CBSL's rate search) are read by the app on the phone, never by the workflow, and the app uses the same item IDs. Before building a new source into the workflow, check it loads from servers abroad (check-host.net works).
 - Be polite to government sites: a user agent that names the project, retries with backoff, never re-download a PDF already seen.
 - Item IDs are stable and built from the source's own IDs. Changing the ID scheme needs a log entry in the plan.
 - The app reads only `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`. No tokens or keys in the app.

@@ -49,3 +49,12 @@ def test_exits_1_once_when_a_source_fails_three_runs_in_a_row(store: Store) -> N
     codes = [cli.run(store, None, ["b"], NOW + timedelta(hours=3 * n), sources) for n in range(4)]
 
     assert codes == [0, 0, 1, 0]
+
+
+def test_drops_the_status_of_a_removed_source(store: Store) -> None:
+    store.write_status({"sources": {"fuel": {"failures": 1}}}, NOW)
+
+    cli.run(store, None, ["b"], NOW, {"b": source(lambda web, store, today: 0)})
+
+    report = json.loads((store.root / "status.json").read_text(encoding="utf-8"))
+    assert list(report["sources"]) == ["b"]

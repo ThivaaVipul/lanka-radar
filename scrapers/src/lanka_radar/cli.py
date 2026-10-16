@@ -51,6 +51,10 @@ def run(
         else:
             print(f"{name}: ok, {changed} new or changed items")
             status.record(report, name, now, None)
+    # A source that was removed must not look broken forever.
+    report["sources"] = {
+        name: entry for name, entry in report.get("sources", {}).items() if name in sources
+    }
     store.write_latest()
     store.write_status(report, now)
     if alerting:
