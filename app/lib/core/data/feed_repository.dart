@@ -31,13 +31,31 @@ class FeedRepository {
   final DataBranch _branch;
   final DateTime Function() _now;
 
+  static const _lastVisit = 'lastVisit';
+
   /// Every stored item, newest first.
-  Stream<List<FeedItem>> watchItems() => _db.watchItems().map(
-    (rows) => [
-      for (final row in rows)
-        FeedItem.fromJson(jsonDecode(row.json) as Map<String, Object?>),
-    ],
-  );
+  Stream<List<FeedItem>> watchItems() =>
+      _db.watchItems().map((rows) => [for (final row in rows) _item(row)]);
+
+  /// Stored items whose headlines, issuer or number contain every word of
+  /// [query], in any case; newest first.
+  Future<List<FeedItem>> search(String query) async {
+    final words = query.toLowerCase().split(RegExp(r'\s+'))
+      ..removeWhere((word) => word.isEmpty);
+    if (words.isEmpty) {
+      return const [];
+    }
+    return [for (final row in await _db.search(words)) _item(row)];
+  }
+
+  /// When the feed was last left, if ever: items that arrived after it are new.
+  Future<DateTime?> lastVisit() async {
+    final value = await _db.setting(_lastVisit);
+    return value == null ? null : DateTime.parse(value);
+  }
+
+  Future<void> saveVisit(DateTime time) =>
+      _db.saveSetting(_lastVisit, time.toIso8601String());
 
   /// When the last refresh finished, if one ever did.
   Future<DateTime?> lastRefresh() async =>
@@ -100,6 +118,11 @@ class FeedRepository {
       ),
     );
   }
+
+  static FeedItem _item(ItemRow row) => FeedItem.fromJson(
+    jsonDecode(row.json) as Map<String, Object?>,
+    firstSeen: row.firstSeen,
+  );
 
   static List<({String month, String hash})> _months(String body) {
     final json = jsonDecode(body) as Map<String, Object?>;

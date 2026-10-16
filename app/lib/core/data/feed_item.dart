@@ -40,9 +40,11 @@ final class FeedItem extends Equatable {
     this.links = const {},
     this.data = const {},
     this.alert = false,
+    this.firstSeen,
   });
 
-  factory FeedItem.fromJson(Map<String, Object?> json) {
+  /// [firstSeen] comes from the phone's database, not the published item.
+  factory FeedItem.fromJson(Map<String, Object?> json, {DateTime? firstSeen}) {
     final headline = json['headline']! as Map<String, Object?>;
     final numbers = (json['keyNumbers'] as List<Object?>?) ?? const [];
     final links = (json['links'] as Map<String, Object?>?) ?? const {};
@@ -66,6 +68,7 @@ final class FeedItem extends Equatable {
       },
       data: (json['data'] as Map<String, Object?>?) ?? const {},
       alert: json['alert'] as bool? ?? false,
+      firstSeen: firstSeen,
     );
   }
 
@@ -88,6 +91,9 @@ final class FeedItem extends Equatable {
   final Map<String, Object?> data;
   final bool alert;
 
+  /// When the phone first stored the item.
+  final DateTime? firstSeen;
+
   @override
   List<Object?> get props => [
     id,
@@ -102,5 +108,6 @@ final class FeedItem extends Equatable {
     links,
     data,
     alert,
+    firstSeen,
   ];
 }

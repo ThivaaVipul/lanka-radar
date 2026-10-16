@@ -148,4 +148,64 @@ void main() {
       'filling of a vacancy\nta\nelection commission\n2510/20',
     );
   });
+
+  group('search', () {
+    setUp(() async {
+      remote.putMonth('2026-10', [
+        item(
+          'gazette-2510-20',
+          '2026-10-12',
+          headline: 'FILLING OF A VACANCY IN UDAPALATHA',
+          tamil: 'ABCD',
+          number: '2510/20',
+        ),
+        item(
+          'exam-2479',
+          '2026-10-01',
+          topic: 'exams',
+          headline: 'G.C.E. (O/L) 100% Time Table',
+          issuer: 'Department of Examinations',
+        ),
+      ]);
+      await feed.refresh();
+    });
+
+    Future<List<String>> found(String query) async => [
+      for (final item in await feed.search(query)) item.id,
+    ];
+
+    test('matches every word, in any case, in headlines, issuer and '
+        'number', () async {
+      expect(await found('vacancy udapalatha'), ['gazette-2510-20']);
+      expect(await found('EXAMINATIONS'), ['exam-2479']);
+      expect(await found('2510/20'), ['gazette-2510-20']);
+      expect(await found('abc'), ['gazette-2510-20']);
+      expect(await found('vacancy examinations'), isEmpty);
+    });
+
+    test('wildcards in a query match only themselves', () async {
+      expect(await found('100%'), ['exam-2479']);
+      expect(await found('%'), ['exam-2479']);
+      expect(await found('_'), isEmpty);
+    });
+
+    test('an empty query finds nothing', () async {
+      expect(await found('   '), isEmpty);
+    });
+  });
+
+  test('remembers when the feed was last left', () async {
+    expect(await feed.lastVisit(), isNull);
+
+    await feed.saveVisit(DateTime(2026, 10, 16, 10, 30));
+
+    expect(await feed.lastVisit(), DateTime(2026, 10, 16, 10, 30));
+  });
+
+  test('items carry when the phone first saw them', () async {
+    await feed.refresh();
+
+    final items = await feed.watchItems().first;
+    expect(items.map((item) => item.firstSeen), everyElement(now));
+  });
 }
