@@ -43,12 +43,31 @@ class Files extends Table {
   Set<Column> get primaryKey => {path};
 }
 
-@DriftDatabase(tables: [Items, Files])
+/// Small values the app keeps for itself, such as when the feed was last left.
+@DataClassName('SettingRow')
+class Settings extends Table {
+  TextColumn get key => text()();
+  TextColumn get value => text()();
+
+  @override
+  Set<Column> get primaryKey => {key};
+}
+
+@DriftDatabase(tables: [Items, Files, Settings])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _open());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onUpgrade: (migrator, from, to) async {
+      if (from < 2) {
+        await migrator.createTable(settings);
+      }
+    },
+  );
 
   static QueryExecutor _open() => driftDatabase(
     name: 'lanka_radar',
@@ -64,6 +83,29 @@ class AppDatabase extends _$AppDatabase {
             (row) => OrderingTerm.desc(row.id),
           ]))
           .watch();
+
+  /// Items whose search text holds every one of [words] (lower case), newest
+  /// first.
+  Future<List<ItemRow>> search(List<String> words) {
+    final query = select(items)
+      ..orderBy([
+        (row) => OrderingTerm.desc(row.published),
+        (row) => OrderingTerm.desc(row.id),
+      ]);
+    for (final word in words) {
+      query.where(
+        (row) => row.search.like('%${_escape(word)}%', escapeChar: _likeEscape),
+      );
+    }
+    return query.get();
+  }
+
+  Future<String?> setting(String key) async => (await (select(
+    settings,
+  )..where((row) => row.key.equals(key))).getSingleOrNull())?.value;
+
+  Future<void> saveSetting(String key, String value) =>
+      into(settings).insertOnConflictUpdate(SettingRow(key: key, value: value));
 
   Future<FileRow?> file(String path) =>
       (select(files)..where((row) => row.path.equals(path))).getSingleOrNull();
@@ -115,6 +157,15 @@ class AppDatabase extends _$AppDatabase {
   });
 
   static String monthPath(String month) => 'months/$month.json';
+
+  static const _likeEscape = '!';
+
+  /// A word with LIKE's wildcards (and the escape mark) escaped, so it matches
+  /// only itself.
+  static String _escape(String word) => word.replaceAllMapped(
+    RegExp('[!%_]'),
+    (match) => '$_likeEscape${match[0]}',
+  );
 
   static String _monthOf(String path) =>
       path.substring('months/'.length, path.length - '.json'.length);
