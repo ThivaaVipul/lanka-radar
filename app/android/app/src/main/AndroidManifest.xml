@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Reads the feed from GitHub. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Alerts for new items (asked once, after the first sync). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:label="Lanka Radar"

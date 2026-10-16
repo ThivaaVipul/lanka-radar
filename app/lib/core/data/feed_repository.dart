@@ -48,6 +48,19 @@ class FeedRepository {
     return [for (final row in await _db.search(words)) _item(row)];
   }
 
+  Future<FeedItem?> item(String id) async {
+    final row = await _db.item(id);
+    return row == null ? null : _item(row);
+  }
+
+  /// Items first stored at or after [time] (by a refresh that started then).
+  Future<List<FeedItem>> itemsSeenSince(DateTime time) async => [
+    for (final row in await _db.itemsSeenSince(time)) _item(row),
+  ];
+
+  /// Re-reads the stored items, which a background sync may have changed.
+  void notifyExternalChanges() => _db.notifyExternalChanges();
+
   /// When the feed was last left, if ever: items that arrived after it are new.
   Future<DateTime?> lastVisit() async {
     final value = await _db.setting(_lastVisit);

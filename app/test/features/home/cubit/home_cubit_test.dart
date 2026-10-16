@@ -1,9 +1,13 @@
+import 'dart:io';
+
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 
 import '../../../helpers/fake_branch.dart';
+import '../../../helpers/fake_notifier.dart';
 import '../../../helpers/fake_sources.dart';
 
 void main() {
@@ -12,6 +16,7 @@ void main() {
   late DateTime now;
   late FeedRepository feed;
   late HomeCubit cubit;
+  late FakeNotifier notifier;
 
   setUp(() {
     database = memoryDatabase();
@@ -26,9 +31,11 @@ void main() {
       remote: remote.branch,
       now: () => now,
     );
+    notifier = FakeNotifier();
     cubit = HomeCubit(
       feed,
       FakeSources().repository(database, now: () => now),
+      fakeAlerts(database, notifier),
       now: () => now,
     );
   });
@@ -110,5 +117,57 @@ void main() {
     await cubit.leave();
     await cubit.resume();
     expect(cubit.state.items!.where(cubit.state.isNew), isEmpty);
+  });
+
+  test('asks for the notification permission once, after a refresh that '
+      'brings the feed', () async {
+    remote.offline = true;
+    await cubit.watch();
+    expect(notifier.permissionRequests, 0);
+
+    remote.offline = false;
+    await cubit.refresh();
+    await cubit.refresh();
+
+    expect(notifier.permissionRequests, 1);
+  });
+
+  test('coming back shows items a background sync stored', () async {
+    // The background sync opens the same file through its own connection,
+    // whose writes the app's queries don't see by themselves.
+    final folder = await Directory.systemTemp.createTemp('lanka_radar_');
+    final path = '${folder.path}/lanka_radar.sqlite';
+    final app = AppDatabase(NativeDatabase(File(path)));
+    final background = AppDatabase(NativeDatabase(File(path)));
+    final home = HomeCubit(
+      FeedRepository(database: app, remote: remote.branch, now: () => now),
+      FakeSources().repository(app, now: () => now),
+      fakeAlerts(app),
+      now: () => now,
+    );
+    addTearDown(() async {
+      await home.close();
+      await app.close();
+      await background.close();
+      await folder.delete(recursive: true);
+    });
+    await home.watch();
+    await home.leave();
+    remote.putMonth('2026-10', [
+      item('gazette-2510-21', '2026-10-15'),
+      item('gazette-2510-20', '2026-10-12'),
+      item('exam-2479', '2026-10-01', topic: 'exams'),
+    ]);
+    now = now.add(const Duration(hours: 3));
+    await FeedRepository(
+      database: background,
+      remote: remote.branch,
+      now: () => now,
+    ).refresh();
+
+    await home.resume();
+    await pumpEventQueue();
+
+    expect(home.state.items, hasLength(3));
   });
 }
