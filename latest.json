@@ -7,7 +7,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDAPALATHA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -24,7 +24,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDAPALATHA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -48,35 +49,6 @@
         "number": "2510/19",
         "group": "elections",
         "languages": [
-          "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2510-01",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Sri Lanka Customs",
-      "headline": {
-        "en": "Sri Lanka Customs",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-10-12",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(E)_1791958408.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(S)_1791958368.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(T)_1791958380.pdf"
-      },
-      "data": {
-        "number": "2510/01",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
           "ta"
         ]
       },
@@ -111,7 +83,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -130,7 +102,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -140,7 +113,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDADUMBARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -157,7 +130,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDADUMBARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -167,7 +141,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VALIKAMAM SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -184,7 +158,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VALIKAMAM SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -194,7 +169,7 @@
       "topic": "prices",
       "issuer": "Consumer Affairs Authority",
       "headline": {
-        "en": "Consumer Affairs Authority",
+        "en": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (Amended) Direction under Section 12 (2)",
         "ta": null
       },
       "keyNumbers": [],
@@ -213,7 +188,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (Amended) Direction under Section 12 (2)"
       },
       "alert": true
     },
@@ -248,7 +224,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE COLOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -267,7 +243,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE COLOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -277,7 +254,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PUTTALAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -294,7 +271,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PUTTALAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -323,7 +301,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THALAWAKELLE LINDULA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -340,7 +318,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THALAWAKELLE LINDULA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -350,7 +329,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SOORIYAWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -369,7 +348,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SOORIYAWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -379,7 +359,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KURUWITA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -398,7 +378,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KURUWITA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -408,7 +389,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -425,36 +406,8 @@
         "languages": [
           "en",
           "si"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2509-01",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Sri Lanka Customs",
-      "headline": {
-        "en": "Sri Lanka Customs",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-10-05",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048061%20(E)_1791274552.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048061%20(S)_1791274526.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048061%20(T)_1791274535.pdf"
-      },
-      "data": {
-        "number": "2509/01",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -483,7 +436,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thumpane Pradeshiya Sabha"
       },
       "alert": true
     },
@@ -512,7 +466,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kalpitiya Pradeshiya Sabha"
       },
       "alert": true
     },
@@ -541,7 +496,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kalpitiya Pradeshiya Sabha"
       },
       "alert": true
     },
@@ -551,7 +507,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PANADURA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -570,7 +526,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PANADURA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -599,7 +556,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "MONETARY POLICY FRAMEWORK AGREEMENT BETWEEN THE MINISTER OF FINANCE AND THE CENTRAL BANK OF SRI LANKA October 01, 2026"
       },
       "alert": true
     },
@@ -628,7 +586,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969"
       },
       "alert": true
     },
@@ -680,7 +639,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JA-ELA URBAN COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -707,7 +667,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WELIGEPOLA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -717,7 +678,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI WEST (VAVUNATHEEVU) PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -736,36 +697,8 @@
           "en",
           "si",
           "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2508-01",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Sri Lanka Customs",
-      "headline": {
-        "en": "Sri Lanka Customs",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-09-28",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048046%20(E)_1790750141.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048046%20(S)_1790750159.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048046%20(T)%20I-I%20Foriegn%20Exchange%2028.09.2026_1790750178.pdf"
-      },
-      "data": {
-        "number": "2508/01",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI WEST (VAVUNATHEEVU) PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -794,7 +727,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MILLANIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -804,7 +738,7 @@
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "Ministry of Labour",
+        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
         "ta": null
       },
       "keyNumbers": [],
@@ -821,7 +755,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
       },
       "alert": true
     },
@@ -831,7 +766,7 @@
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "Ministry of Labour",
+        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
         "ta": null
       },
       "keyNumbers": [],
@@ -848,7 +783,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
       },
       "alert": true
     },
@@ -858,7 +794,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -877,7 +813,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -887,7 +824,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JAFFNA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -906,7 +843,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JAFFNA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -916,7 +854,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THAMBALAGAMUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -935,7 +873,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THAMBALAGAMUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -945,7 +884,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE LANKAPURA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -964,7 +903,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE LANKAPURA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -974,7 +914,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ANAMADUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -993,7 +933,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ANAMADUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1003,7 +944,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MORAWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -1022,7 +963,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MORAWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1032,7 +974,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE HAPUTALE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -1049,7 +991,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE HAPUTALE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1059,7 +1002,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -1078,7 +1021,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1088,7 +1032,7 @@
       "topic": "gazettes",
       "issuer": "Elections Commission",
       "headline": {
-        "en": "Elections Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARUWALAGASWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -1107,7 +1051,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARUWALAGASWEWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1117,7 +1062,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WADAMARACHCHI SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -1136,7 +1081,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WADAMARACHCHI SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1192,7 +1138,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "PARLIAMENTARY ELECTIONS ACT No. 1 OF 1981 Filling of a Vacancy under Section 64 (5)"
       },
       "alert": true
     },
@@ -5581,6 +5528,93 @@
       "data": {
         "number": "2496/07",
         "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2495-61",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Central Bank of Sri Lanka",
+      "headline": {
+        "en": "Central Bank of Sri Lanka - Extension of the Term of the Administrator Appointed to Nation Lanka PLC",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-07-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_E_1786417655.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_S_1786417636.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_T_1786417645.pdf"
+      },
+      "data": {
+        "number": "2495/61",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2495-57",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-07-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_E_1784568269.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_S_1784568268.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_T_1784568268.pdf"
+      },
+      "data": {
+        "number": "2495/57",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2495-26",
+      "source": "gazettes",
+      "topic": "prices",
+      "issuer": "Consumer Affairs Authority",
+      "headline": {
+        "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 9 of 2003 (Amended) Direction under Section 10(1)(b)(ii)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-07-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_E_1784568268.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_S_1784568268.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_T_1784568268.pdf"
+      },
+      "data": {
+        "number": "2495/26",
+        "group": "prices-taxes",
         "languages": [
           "en",
           "si",
