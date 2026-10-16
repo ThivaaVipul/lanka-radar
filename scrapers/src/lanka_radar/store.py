@@ -35,6 +35,13 @@ class Store:
     def has_item(self, item_id: str) -> bool:
         return any(self.root.glob(f"items/*/*/{item_id}.json"))
 
+    def drop_item(self, item_id: str) -> bool:
+        """Removes an item that turned out not to belong in the feed; True if one was there."""
+        paths = list(self.root.glob(f"items/*/*/{item_id}.json"))
+        for path in paths:
+            path.unlink()
+        return bool(paths)
+
     def write_latest(self) -> bool:
         items = [_read_json(path) for path in self.root.glob("items/*/*/*.json")]
         items.sort(key=lambda item: (item["published"], item["id"]), reverse=True)

@@ -6,7 +6,9 @@ the action's ID reads the list 100 gazettes at a time. A rebuild of the site cha
 that ID; the scraper then finds the new one in the site's scripts and keeps it in state/.
 
 Only gazettes from the groups that touch daily life become feed items: prices, taxes
-and imports; energy and utilities; wages and labour; elections.
+and imports; energy and utilities; wages and labour; elections. Each item's English and
+Tamil PDFs are read once (see pdfs.py) for the title on page 1 and, in price gazettes,
+the price table; a run reads at most PDF_BUDGET gazettes, newest first.
 """
 
 from __future__ import annotations
@@ -20,7 +22,8 @@ from urllib.parse import quote
 
 import httpx
 
-from lanka_radar.items import Item
+from lanka_radar import pdfs
+from lanka_radar.items import Item, KeyNumber
 from lanka_radar.store import Store
 from lanka_radar.web import Web
 
@@ -32,6 +35,9 @@ ENDPOINT = "http://gvp-api:4500/website-data/extra-gazette/get-all"
 KNOWN_ACTION = "40f4893d604b59b307fb0473d42e9ac093be1e1655"
 PAGE_SIZE = 100
 ANSWER_ATTEMPTS = 3
+# PDFs read per run, newest first; history catches up over a few runs.
+PDF_BUDGET = 40
+PDF_STATE = "gazette-pdfs"
 HISTORY_START = date(2026, 1, 1)
 RECHECK = timedelta(days=21)
 
@@ -134,26 +140,90 @@ def group_of(gazette: Gazette) -> str | None:
     return next((group.name for group in GROUPS if group.matches(gazette)), None)
 
 
+def routine(gazette: Gazette, title: str | None) -> bool:
+    """True when the PDF's title shows a routine notice the list didn't (a weekly customs
+    exchange-rate notice listed only as "Sri Lanka Customs")."""
+    if not title:
+        return False
+    described = Gazette(gazette.number, gazette.day, f"{gazette.description} - {title}")
+    return group_of(described) is None
+
+
+def item_id(gazette: Gazette) -> str:
+    return f"gazette-{gazette.number.replace('/', '-')}"
+
+
 def pdf_link(path: str) -> str:
     return f"{SITE}/api/content-file-proxy?file=/{quote(path, safe='/()')}"
 
 
-def item_for(gazette: Gazette, group: str) -> Item:
+def headline(gazette: Gazette, title: str | None) -> str:
+    """The list's description when it names a subject ("Ministry of Energy - Revise the
+    Fuel Price"), otherwise the PDF's own title, otherwise whatever the list has."""
+    if " - " in gazette.description:
+        return gazette.description
+    if title:
+        return title
+    if gazette.description in ("", gazette.number):
+        return f"Extraordinary gazette {gazette.number}"
+    return gazette.description
+
+
+def item_for(gazette: Gazette, group: str, reading: dict[str, Any] | None = None) -> Item:
+    """The feed item; `reading` holds what the PDFs gave (titles and price numbers)."""
+    reading = reading or {}
     text = gazette.description.lower()
     plain = gazette.description in ("", gazette.number)
+    numbers = [KeyNumber(**number) for number in reading.get("numbers", [])]
+    # A price table in the PDF makes it a price gazette even when the list only names
+    # the issuer ("Ministry of Energy" for a fuel price revision).
+    priced = "consumer affairs" in text or "price" in text or bool(numbers)
+    topic = "prices" if priced else "gazettes"
     links = {"page": LIST_PAGE}
     links |= {f"pdf_{language}": pdf_link(path) for language, path in sorted(gazette.files.items())}
+    data: dict[str, Any] = {"number": gazette.number, "group": group}
+    data["languages"] = sorted(gazette.files)
+    if reading.get("title_en"):
+        data["title"] = reading["title_en"]
     return Item(
-        id=f"gazette-{gazette.number.replace('/', '-')}",
+        id=item_id(gazette),
         source=NAME,
-        topic="prices" if "consumer affairs" in text or "price" in text else "gazettes",
+        topic=topic,
         issuer=None if plain else gazette.issuer,
-        headline_en=f"Extraordinary gazette {gazette.number}" if plain else gazette.description,
+        headline_en=headline(gazette, reading.get("title_en")),
+        headline_ta=reading.get("title_ta"),
         published=gazette.day,
         links=links,
-        data={"number": gazette.number, "group": group, "languages": sorted(gazette.files)},
+        key_numbers=numbers,
+        data=data,
         alert=True,
     )
+
+
+def read_pdfs(web: Web, gazette: Gazette) -> dict[str, Any] | None:
+    """Titles (English and Tamil) and price numbers from one gazette's PDFs. None when a
+    download failed, so the gazette is tried again on the next run."""
+    reading: dict[str, Any] = {"files": gazette.files}
+    for language in ("en", "ta"):
+        path = gazette.files.get(language)
+        if not path:
+            continue
+        web.pause(1.0)
+        try:
+            data = web.get(pdf_link(path)).content
+        except httpx.HTTPError:
+            return None
+        try:
+            found = pdfs.read(data, tamil=language == "ta")
+        except Exception as error:
+            # A broken PDF must not stop the run. It is recorded and not retried
+            # until the gazette's files change.
+            reading[f"error_{language}"] = f"{type(error).__name__}: {error}"[:200]
+            continue
+        reading[f"title_{language}"] = found.title
+        if found.numbers:
+            reading["numbers"] = [number.to_json() for number in found.numbers]
+    return reading
 
 
 def fetch_page(web: Web, action: str, page: int) -> tuple[list[Gazette], int]:
@@ -201,7 +271,12 @@ def run(web: Web, store: Store, today: date) -> int:
     state = store.read_state(NAME) or {}
     action = state.get("action", KNOWN_ACTION)
     newest = date.fromisoformat(state["newest"]) if state.get("newest") else None
-    stop = HISTORY_START if newest is None else max(HISTORY_START, newest - RECHECK)
+    # While older gazettes still wait for their PDFs, the whole year is read again so
+    # they come back into view.
+    if newest is None or state.get("backlog"):
+        stop = HISTORY_START
+    else:
+        stop = max(HISTORY_START, newest - RECHECK)
 
     try:
         found, pages = fetch_page(web, action, 1)
@@ -216,13 +291,37 @@ def run(web: Web, store: Store, today: date) -> int:
         found += fetch_page(web, action, page)[0]
 
     gazettes = [gazette for gazette in merge(found) if gazette.day >= stop]
+    picked = [(gazette, group) for gazette in gazettes if (group := group_of(gazette))]
+
+    readings = store.read_state(PDF_STATE) or {}
+
+    def unread(gazette: Gazette) -> bool:
+        return readings.get(gazette.number, {}).get("files") != gazette.files
+
+    waiting = sorted((g for g, _ in picked if unread(g)), key=lambda g: g.day, reverse=True)
+    for gazette in waiting[:PDF_BUDGET]:
+        reading = read_pdfs(web, gazette)
+        if reading is not None:
+            readings[gazette.number] = reading
+    store.write_state(PDF_STATE, readings)
+
     changed = 0
-    for gazette in gazettes:
-        group = group_of(gazette)
-        if group:
-            changed += store.put_item(item_for(gazette, group))
+    for gazette, group in picked:
+        reading = readings.get(gazette.number)
+        if routine(gazette, (reading or {}).get("title_en")):
+            changed += store.drop_item(item_id(gazette))
+        else:
+            changed += store.put_item(item_for(gazette, group, reading))
     days = [gazette.day for gazette in gazettes] + ([newest] if newest else [])
-    store.write_state(NAME, {"action": action, "newest": max(days).isoformat() if days else None})
+    backlog = sum(1 for gazette, _ in picked if unread(gazette))
+    store.write_state(
+        NAME,
+        {
+            "action": action,
+            "newest": max(days).isoformat() if days else None,
+            "backlog": backlog,
+        },
+    )
     return changed
 
 

@@ -15,7 +15,7 @@ ANSWER = "documents_gov_extra_gazettes.txt"
 NEW_ACTION = "a" * 42
 
 
-def row(number: str, day: str, description: str, languages: Sequence[str] = ("ENGLISH",)) -> dict:
+def row(number: str, day: str, description: str, languages: Sequence[str] = ()) -> dict:
     return {
         "gazetteNoText": number,
         "date": f"{day}T00:00:00.000Z",
@@ -36,12 +36,20 @@ def answer(rows: list[dict], pages: int) -> str:
 
 
 def site(
-    pages: dict[int, str], actions: tuple[str, ...] = (gazettes.KNOWN_ACTION,)
+    pages: dict[int, str],
+    actions: tuple[str, ...] = (gazettes.KNOWN_ACTION,),
+    pdfs: dict[str, bytes] | None = None,
 ) -> tuple[Web, list[Any]]:
-    """A fake documents.gov.lk: the list action answers pages for the known action IDs."""
+    """A fake documents.gov.lk: the list action answers pages for the known action IDs,
+    and a PDF is served when its file name holds one of the keys of `pdfs`."""
     calls: list[Any] = []
 
     def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/api/content-file-proxy":
+            name = request.url.params["file"]
+            calls.append(name)
+            match = next((data for key, data in (pdfs or {}).items() if key in name), None)
+            return httpx.Response(200, content=match) if match else httpx.Response(404)
         if request.method == "POST":
             action = request.headers["next-action"]
             page = json.loads(request.content)[0]["page"]
@@ -188,7 +196,11 @@ def test_reads_back_to_january_then_rechecks_three_weeks(store: Store) -> None:
     assert not store.has_item("gazette-2470-05")
     assert not store.has_item("gazette-2468-10")
     assert calls == [(gazettes.KNOWN_ACTION, 1), (gazettes.KNOWN_ACTION, 2)]
-    assert store.read_state("gazettes") == {"action": gazettes.KNOWN_ACTION, "newest": "2026-03-10"}
+    assert store.read_state("gazettes") == {
+        "action": gazettes.KNOWN_ACTION,
+        "newest": "2026-03-10",
+        "backlog": 0,
+    }
 
     calls.clear()
     assert gazettes.run(web, store, date(2026, 3, 12)) == 0
@@ -225,3 +237,100 @@ def test_finds_the_new_action_id_after_a_rebuild(store: Store) -> None:
     state = store.read_state("gazettes")
     assert state is not None
     assert state["action"] == NEW_ACTION
+
+
+def pdf_calls(calls: list[Any]) -> list[str]:
+    return [call for call in calls if isinstance(call, str) and call.endswith(".pdf")]
+
+
+def test_titles_and_prices_come_from_the_pdfs(
+    fixture_bytes: Callable[[str], bytes], store: Store
+) -> None:
+    gazette = row("2504/03", "2026-08-31", "Ministry of Energy", ("ENGLISH", "TAMIL", "SINHALA"))
+    served = {
+        "(E)": fixture_bytes("gazette-2504-03-en.pdf"),
+        "(T)": fixture_bytes("gazette-2504-03-ta.pdf"),
+    }
+    web, calls = site({1: answer([gazette], 1)}, pdfs=served)
+    expected = json.loads(fixture_bytes("expected_titles.json"))
+
+    assert gazettes.run(web, store, date(2026, 9, 1)) == 1
+
+    item = json.loads((store.root / "items/2026/08/gazette-2504-03.json").read_text("utf-8"))
+    assert item["topic"] == "prices"
+    assert item["headline"] == {
+        "en": expected["gazette-2504-03-en.pdf"],
+        "ta": expected["gazette-2504-03-ta.pdf"],
+    }
+    assert item["keyNumbers"][0] == {
+        "label": "Lanka Petrol 92 Octane",
+        "value": 399.0,
+        "unit": "LKR",
+        "previous": 414.0,
+    }
+    assert pdf_calls(calls) == [
+        "/extra-gazette-content/G 03 (E).pdf",
+        "/extra-gazette-content/G 03 (T).pdf",
+    ]
+
+    calls.clear()
+    gazettes.run(web, store, date(2026, 9, 2))
+    assert pdf_calls(calls) == []
+
+
+def test_older_gazettes_get_their_pdfs_read_on_later_runs(
+    fixture_bytes: Callable[[str], bytes], store: Store, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(gazettes, "PDF_BUDGET", 1)
+    rows = [
+        row("2504/03", "2026-08-31", "Ministry of Energy", ("ENGLISH",)),
+        row("2470/05", "2026-02-01", "Election Commission", ("ENGLISH",)),
+    ]
+    web, calls = site({1: answer(rows, 1)}, pdfs={"(E)": fixture_bytes("gazette-2504-03-en.pdf")})
+
+    gazettes.run(web, store, date(2026, 9, 1))
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 03 (E).pdf"]
+    assert (store.read_state("gazettes") or {})["backlog"] == 1
+
+    calls.clear()
+    gazettes.run(web, store, date(2026, 9, 2))
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 05 (E).pdf"]
+    assert (store.read_state("gazettes") or {})["backlog"] == 0
+
+
+def test_a_routine_notice_shows_in_the_pdf_title() -> None:
+    customs = Gazette("2510/01", date(2026, 10, 12), "Sri Lanka Customs")
+
+    assert gazettes.routine(customs, "CUSTOMS NOTIFICATION (GENERAL) RATES OF EXCHANGE")
+    assert not gazettes.routine(customs, "CUSTOMS NOTIFICATION (GENERAL) CESS ON IMPORTS")
+    assert not gazettes.routine(customs, None)
+
+
+def test_an_item_that_turns_out_routine_is_dropped(
+    store: Store, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    gazette = row("2510/01", "2026-10-12", "Sri Lanka Customs", ("ENGLISH",))
+    web, _ = site({1: answer([gazette], 1)})
+    monkeypatch.setattr(gazettes, "read_pdfs", lambda web, gazette: {"files": gazette.files})
+    gazettes.run(web, store, date(2026, 10, 13))
+    assert store.has_item("gazette-2510-01")
+
+    readings = store.read_state("gazette-pdfs") or {}
+    readings["2510/01"]["title_en"] = "CUSTOMS NOTIFICATION (GENERAL) RATES OF EXCHANGE"
+    store.write_state("gazette-pdfs", readings)
+    gazettes.run(web, store, date(2026, 10, 14))
+
+    assert not store.has_item("gazette-2510-01")
+
+
+def test_a_broken_pdf_is_recorded_and_not_read_again(store: Store) -> None:
+    gazette = row("2504/03", "2026-08-31", "Ministry of Energy", ("ENGLISH",))
+    web, calls = site({1: answer([gazette], 1)}, pdfs={"(E)": b"not a pdf"})
+
+    gazettes.run(web, store, date(2026, 9, 1))
+    readings = store.read_state("gazette-pdfs") or {}
+    assert "error_en" in readings["2504/03"]
+
+    calls.clear()
+    gazettes.run(web, store, date(2026, 9, 2))
+    assert pdf_calls(calls) == []
