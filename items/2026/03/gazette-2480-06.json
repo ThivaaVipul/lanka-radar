@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2480-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between\nP.V Bandula Padmasiri and Sri Lanka Transport Board,\nM.A.Premachandra perera and Sri Lanka Transport Board.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-16",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-06_E_1784568034.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-06_S_1784568034.pdf"
+  },
+  "data": {
+    "number": "2480/06",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

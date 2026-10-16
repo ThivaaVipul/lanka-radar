@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2499-52",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Under Section 10 A (1) (a) Ceased to be a member of the vavuniya South Tamil P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-30",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-52_E_1786348409.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-52_S_1786348386.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-52_T_1786348400.pdf"
+  },
+  "data": {
+    "number": "2499/52",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

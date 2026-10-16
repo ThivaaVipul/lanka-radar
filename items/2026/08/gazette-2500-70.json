@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2500-70",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Filling the Vacancy of the Deputy Mayor in the Negombo Municiple Council",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-05",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_E_1786340010.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_S_1786339986.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_T_1786339996.pdf"
+  },
+  "data": {
+    "number": "2500/70",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

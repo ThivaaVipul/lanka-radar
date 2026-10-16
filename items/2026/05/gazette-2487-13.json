@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2487-13",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Wages Board for textile Manufacturing Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-05",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-13_E_1784568171.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-13_S_1784568170.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-13_T_1784568170.pdf"
+  },
+  "data": {
+    "number": "2487/13",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

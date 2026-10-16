@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2472-24",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Public Utilities Commission of Sri Lanka",
+  "headline": {
+    "en": "Public Utilities Commission of Sri Lanka - Sri Lanka Electricity Act, No. 20 of 2009 Electricity (Procedure for Review and Adjustment of Tariffs) Rules No. 01 of 2006)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-21",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-24_E_1784567874.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-24_S_1784567873.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-24_T_1784567873.pdf"
+  },
+  "data": {
+    "number": "2472/24",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

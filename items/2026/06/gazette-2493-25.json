@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2493-25",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission filling of a vacancy in the official of member of the Baddulla P.S.",
+  "headline": {
+    "en": "Election Commission filling of a vacancy in the official of member of the Baddulla P.S.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-17",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-25_E_1784568251.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-25_S_1784568251.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-25_T_1784568251.pdf"
+  },
+  "data": {
+    "number": "2493/25",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

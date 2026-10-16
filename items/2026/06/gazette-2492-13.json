@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2492-13",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Minstry of Labour",
+  "headline": {
+    "en": "Minstry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-13_E_1784568240.pdf"
+  },
+  "data": {
+    "number": "2492/13",
+    "group": "labour",
+    "languages": [
+      "en"
+    ]
+  },
+  "alert": true
+}

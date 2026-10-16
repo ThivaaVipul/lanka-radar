@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2507-105",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-25",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48022(E)(C)%20%20%5BI%20-%20I%5D_1791871314.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48022(S)(C)%20%20%5BI%20-%20I%5D_1791871306.pdf"
+  },
+  "data": {
+    "number": "2507/105",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

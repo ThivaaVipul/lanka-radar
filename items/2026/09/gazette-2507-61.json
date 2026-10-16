@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2507-61",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Labour",
+  "headline": {
+    "en": "Department of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48016(E)(C)%20%20%5BI%20-%20I%5D_1790760858.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48016(S)(C)%20%20%5BI%20-%20I%5D_1790760846.pdf"
+  },
+  "data": {
+    "number": "2507/61",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

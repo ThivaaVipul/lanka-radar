@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2477-21",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Fiscal Policy",
+  "headline": {
+    "en": "Department of Fiscal Policy - The Inland Revenue Act, No 24 of 2017 - Sukhitha Welfare Society",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-24",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-21_E_1784567972.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-21_S_1784567972.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-21_T_1784567972.pdf"
+  },
+  "data": {
+    "number": "2477/21",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

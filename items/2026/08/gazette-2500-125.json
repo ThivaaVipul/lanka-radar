@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2500-125",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice Under Section 10 A (1) (a) Ceased to be a member of the Walikamam East P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-07",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20(E)_1786603565.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20(S)_1786603549.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20%20(T)_1787294484.pdf"
+  },
+  "data": {
+    "number": "2500/125",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

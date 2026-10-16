@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2480-09",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between M.R.M.P.B. Ratnayake and Mahaweli Authority of S/L \nGroup Including Mr. R.T.M.S. Pushpakumara and Central Cultural Fund",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-16",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-09_E_1784568035.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-09_S_1784568035.pdf"
+  },
+  "data": {
+    "number": "2480/09",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

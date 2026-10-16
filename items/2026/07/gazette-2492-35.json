@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2492-35",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-35_E_1785732568.pdf"
+  },
+  "data": {
+    "number": "2492/35",
+    "group": "labour",
+    "languages": [
+      "en"
+    ]
+  },
+  "alert": true
+}

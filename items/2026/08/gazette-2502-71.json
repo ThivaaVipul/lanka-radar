@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2502-71",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Census and Statistics",
+  "headline": {
+    "en": "Department of Census and Statistics",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-22",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(E)_1787653270.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(S)_1787653255.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(T)_1787730057.pdf"
+  },
+  "data": {
+    "number": "2502/71",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2474-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between B. Kulathunga Arachchi and Rural Development Bank",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-06_S_1784567911.pdf"
+  },
+  "data": {
+    "number": "2474/06",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

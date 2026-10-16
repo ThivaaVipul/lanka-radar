@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2473-12",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy - Petroleum Resources Act, No. of 2021 Petroleum Resources Argument Regulations No, 01 of 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-27",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-12_E_1784567899.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-12_S_1784567899.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-12_T_1784567899.pdf"
+  },
+  "data": {
+    "number": "2473/12",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

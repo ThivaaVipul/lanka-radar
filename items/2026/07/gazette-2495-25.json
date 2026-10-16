@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2495-25",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Central Bank of Sri Lanka",
+  "headline": {
+    "en": "Central Bank of Sri Lanka - Cancellation of the Licence Issued to Nation Lanka Finance PLC",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-03",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_E_1786418063.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_S_1786418046.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_T_1786418054.pdf"
+  },
+  "data": {
+    "number": "2495/25",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

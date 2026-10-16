@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2481-09",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Central Bank of Sri Lanka",
+  "headline": {
+    "en": "Central Bank of Sri Lanka - Rules on Reserve Requirement No. 01 of 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-24",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-09_E_1784568053.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-09_S_1784568053.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-09_T_1784568053.pdf"
+  },
+  "data": {
+    "number": "2481/09",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

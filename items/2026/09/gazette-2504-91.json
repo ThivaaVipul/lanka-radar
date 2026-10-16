@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2504-91",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48129%20(S)(RC)%20%20%5BSec.%204%5D%20131_1790593439.pdf"
+  },
+  "data": {
+    "number": "2504/91",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

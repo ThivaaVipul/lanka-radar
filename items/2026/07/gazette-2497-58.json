@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2497-58",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a Vacancy in the office of memeber of the Akkaraipatty M.C",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-17",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-58_E_1786350662.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-58_S_1786350640.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-58_T_1786350650.pdf"
+  },
+  "data": {
+    "number": "2497/58",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

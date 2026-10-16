@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2495-03",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy - Revise the Fuel Price",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-30",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047221%20(E)_1786514637.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047221%20(S)_1786514620.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047221%20(T)%20Fuel_1786610692.pdf"
+  },
+  "data": {
+    "number": "2495/03",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

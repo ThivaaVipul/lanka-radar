@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2493-39",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Imports and Exports (Control) Act, 01 of 1969",
+  "headline": {
+    "en": "Imports and Exports (Control) Act, 01 of 1969",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-18",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-39_E_1784568253.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-39_S_1784568253.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-39_T_1784568253.pdf"
+  },
+  "data": {
+    "number": "2493/39",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

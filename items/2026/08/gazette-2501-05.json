@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2501-05",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-10",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47623(E)%20%20%5BI%20-%20I%5D%20Revised%20edition_1787210226.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47673(S)%20%20%5BI%20-%20I%5D%20%20-%20%5BIndustrial%20Disputes%20%5D_1787210313.pdf"
+  },
+  "data": {
+    "number": "2501/05",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

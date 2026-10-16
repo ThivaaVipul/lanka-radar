@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2494-16",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Census and Statistics",
+  "headline": {
+    "en": "Department of Census and Statistics - The Census Ordinance (Chapter 143)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-25",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2494-16_E_1784568261.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2494-16_S_1784568261.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047123%20%20%20(T)%20I%20-%20I_1787559587.pdf"
+  },
+  "data": {
+    "number": "2494/16",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

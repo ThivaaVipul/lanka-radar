@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2504-86",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Consumer Affairs Authority",
+  "headline": {
+    "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 09 of 2003 (Amended) Order under Section 20 (5)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207960-%20I%20(I)%20(E)%20PRESS_1788524170.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207960%20(S)_1788524144.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207960%20(T)%20I-I%20PRESS_1788524159.pdf"
+  },
+  "data": {
+    "number": "2504/86",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2473-10",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Public Utilities Commission of Sri Lanka",
+  "headline": {
+    "en": "Public Utilities Commission of Sri Lanka - The Sri Lanka Electricity Act, No. 20 of 2009 (Amended) Issuance of Certificate of Exemption Harbour Village (Pvt) Ltd and 02 other Companies",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-26",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-10_E_1784567899.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-10_S_1784567898.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-10_T_1784567898.pdf"
+  },
+  "data": {
+    "number": "2473/10",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

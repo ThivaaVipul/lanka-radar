@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2504-90",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2504/90",
+    "group": "labour",
+    "languages": []
+  },
+  "alert": true
+}

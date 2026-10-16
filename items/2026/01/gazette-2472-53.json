@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2472-53",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Vacated his Office of Member of Vellanai Pradeshiya Sabha",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-53_E_1784567884.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-53_S_1784567883.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-53_T_1784567884.pdf"
+  },
+  "data": {
+    "number": "2472/53",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

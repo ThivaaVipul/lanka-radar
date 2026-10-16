@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2505-96",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a vacancy - Thambalagamuwa P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-10",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207985%20(E)_1789474247.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207985%20(S)_1789474227.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207985%20%20(T)_1789474238.pdf"
+  },
+  "data": {
+    "number": "2505/96",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

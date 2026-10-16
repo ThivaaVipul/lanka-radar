@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2494-02",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice under Section 10 A ( 1) ( a) Embilipitiya Urban Council",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-22",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2494-02_E_1784568257.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2494-02_S_1784568257.pdf"
+  },
+  "data": {
+    "number": "2494/02",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

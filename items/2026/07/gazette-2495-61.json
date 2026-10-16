@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2495-61",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Central Bank of Sri Lanka",
+  "headline": {
+    "en": "Central Bank of Sri Lanka - Extension of the Term of the Administrator Appointed to Nation Lanka PLC",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_E_1786417655.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_S_1786417636.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_T_1786417645.pdf"
+  },
+  "data": {
+    "number": "2495/61",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

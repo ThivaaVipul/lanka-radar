@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2507-74",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208015%20(E)_1790765531.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208015%20(S)_1790765520.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208015%20(T)_1791191419.pdf"
+  },
+  "data": {
+    "number": "2507/74",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

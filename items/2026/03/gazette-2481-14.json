@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2481-14",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Filling of a vacancy in the Office of Member of the Chavakachcheri P.S\nFilling of a Vacancy in the office of member of the Valikamam East P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-26",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-14_E_1784568055.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-14_S_1784568055.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-14_T_1784568055.pdf"
+  },
+  "data": {
+    "number": "2481/14",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

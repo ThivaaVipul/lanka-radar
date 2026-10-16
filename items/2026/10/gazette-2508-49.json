@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2508-49",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Notice under Section 10 A (1) Thumpane P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208045%20(E)_1791274723.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208045%20(S)_1791274714.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208045%20%20(T)_1791278407.pdf"
+  },
+  "data": {
+    "number": "2508/49",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

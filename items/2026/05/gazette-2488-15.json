@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2488-15",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Wages Board Ordinance Wages Board for Garment Manufacturing Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-13",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-15_E_1784568186.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-15_S_1784568186.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-15_T_1784568186.pdf"
+  },
+  "data": {
+    "number": "2488/15",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2488-48",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between\n1) Supun sachintha Kannangara and Rural Development Bank\n2) J.Upul Ranjith and Natioanl Housing Development Authority",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-14",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-48_S_1784568194.pdf"
+  },
+  "data": {
+    "number": "2488/48",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

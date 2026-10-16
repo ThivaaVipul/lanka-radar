@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2501-79",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Mirigama P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-13",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(E)_1786968298.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(S)_1786968290.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(T)_1787129678.pdf"
+  },
+  "data": {
+    "number": "2501/79",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

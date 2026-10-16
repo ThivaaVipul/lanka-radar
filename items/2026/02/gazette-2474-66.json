@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2474-66",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Fiscal Policy",
+  "headline": {
+    "en": "Department of Fiscal Policy - The Strategic Development Project ACT No. 14 of 2008",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-08",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-66_E_1784567932.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-66_S_1784567932.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-66_T_1784567932.pdf"
+  },
+  "data": {
+    "number": "2474/66",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

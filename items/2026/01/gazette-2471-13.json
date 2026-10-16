@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2471-13",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between G.W. Nimal Kumara and Mahaweli Authority of Sri Lanka",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-13",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2471-13_S_1784567839.pdf"
+  },
+  "data": {
+    "number": "2471/13",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

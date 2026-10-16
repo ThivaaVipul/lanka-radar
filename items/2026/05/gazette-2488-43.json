@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2488-43",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between Associated Motorways (PVT) Limited and Free Trade Zones and General Service Employees Union",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-14",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-43_E_1784568193.pdf"
+  },
+  "data": {
+    "number": "2488/43",
+    "group": "labour",
+    "languages": [
+      "en"
+    ]
+  },
+  "alert": true
+}

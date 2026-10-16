@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2478-23",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a vacancy in the office of Member of the Ambalangoda Pradeshiya Sabha.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-23_E_1784567996.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-23_S_1784567995.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-23_T_1784567995.pdf"
+  },
+  "data": {
+    "number": "2478/23",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

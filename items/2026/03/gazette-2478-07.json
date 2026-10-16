@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2478-07",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Fiscal Policy",
+  "headline": {
+    "en": "Department of Fiscal Policy - Order made Under Section 2 A of the Value added Tax No 14 of 2002",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-03",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-07_E_1784567989.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-07_S_1784567989.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-07_T_1784567989.pdf"
+  },
+  "data": {
+    "number": "2478/07",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

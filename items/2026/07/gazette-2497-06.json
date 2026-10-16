@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2497-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment policy",
+  "headline": {
+    "en": "Department of Trade and Investment policy - Notification under the Customs Ordinance Revenue Protection order No. 01/2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-14",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047258%20%20-%20Customs%20(E)_1787389259.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047258%20%20-%20Customs%20(S)_1787389247.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047258%20%20%20(T)%20Trade%20Investment_1789622900.pdf"
+  },
+  "data": {
+    "number": "2497/06",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

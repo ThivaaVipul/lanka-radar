@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2498-57",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute Between\nC.P.S Kaluarachchi and Mobitel (pvt) Ltd\nDhammika Rajapaksha and Lanka Salt Limited\nInter Company Employees Union and Ceylon Grain Elevators Ltd\nGlobal Engineering And Supplies",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2498-57_E_1786349281.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2498-57_S_1786349253.pdf"
+  },
+  "data": {
+    "number": "2498/57",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2472-05",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute Between H.P.M.S.H..K. Podinilame and Construction Industrial Development Authority\nP. Sisira and Sri Lanka Transport Board.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-20",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-05_S_1784567867.pdf"
+  },
+  "data": {
+    "number": "2472/05",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

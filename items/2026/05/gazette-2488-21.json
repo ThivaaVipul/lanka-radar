@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2488-21",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between I.P.P. Upul Kumara and National Housing Development Authority",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-13",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-21_S_1784568187.pdf"
+  },
+  "data": {
+    "number": "2488/21",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

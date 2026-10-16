@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2477-22",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Fiscal Policy",
+  "headline": {
+    "en": "Department of Fiscal Policy - Stamp Duty ( Special Provisions ) Act No 12 of 2006",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-24",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-22_E_1784567973.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-22_S_1784567973.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-22_T_1784567973.pdf"
+  },
+  "data": {
+    "number": "2477/22",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

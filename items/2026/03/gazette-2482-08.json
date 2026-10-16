@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2482-08",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Imports and Exports Control Department",
+  "headline": {
+    "en": "Imports and Exports Control Department - Imports and Exports (Control) Regulations No, 02 of 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-31",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-08_E_1784568074.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-08_S_1784568074.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-08_T_1784568074.pdf"
+  },
+  "data": {
+    "number": "2482/08",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

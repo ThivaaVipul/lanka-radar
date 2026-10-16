@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2484-02",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Labour",
+  "headline": {
+    "en": "Department of Labour - Wages Boards Ordinance wages Board for the Coconut Growing Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-15",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_E_1784568119.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_S_1784568119.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_T_1784568119.pdf"
+  },
+  "data": {
+    "number": "2484/02",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

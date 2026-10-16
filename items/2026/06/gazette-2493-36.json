@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2493-36",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment Policy",
+  "headline": {
+    "en": "Department of Trade and Investment Policy - Foreign Exchange ( Overseas Investments) made by Persons Resident in Sri Lanka",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-18",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-36_E_1786364537.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2493-36_S_1786364528.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207754%20%20(T)%20I%20-%20I%20PRESS_1786364445.pdf"
+  },
+  "data": {
+    "number": "2493/36",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

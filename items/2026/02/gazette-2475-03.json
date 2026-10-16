@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2475-03",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between Y. Jayaratne and Elpitiya Plantattaions PLC",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2475-03_E_1784567932.pdf"
+  },
+  "data": {
+    "number": "2475/03",
+    "group": "labour",
+    "languages": [
+      "en"
+    ]
+  },
+  "alert": true
+}

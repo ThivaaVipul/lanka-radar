@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2481-08",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Department of Census and Statistics",
+  "headline": {
+    "en": "Department of Census and Statistics - National Consumer Price Index - February 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-24",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-08_E_1784568053.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-08_S_1784568053.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-08_T_1784568053.pdf"
+  },
+  "data": {
+    "number": "2481/08",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

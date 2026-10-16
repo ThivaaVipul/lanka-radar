@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2479-52",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry Of Energy",
+  "headline": {
+    "en": "Ministry Of Energy - Renewable Energy Resource Development plan 2025-2030",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-52_E_1784568031.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-52_S_1784568030.pdf"
+  },
+  "data": {
+    "number": "2479/52",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2497-59",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of Vacancy in the office of Deputy Mayor of the Akkaraipatta M/C",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-17",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-59_E_1786350616.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-59_S_1786350593.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-59_T_1786350605.pdf"
+  },
+  "data": {
+    "number": "2497/59",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

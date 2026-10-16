@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2489-47",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a Vacancy in the Office of member of the Vavuniya North p.s",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-21",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2489-47_E_1784568214.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2489-47_S_1784568214.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2489-47_T_1784568214.pdf"
+  },
+  "data": {
+    "number": "2489/47",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

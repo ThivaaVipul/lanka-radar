@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2502-21",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment Policy",
+  "headline": {
+    "en": "Department of Trade and Investment Policy - The Custom ordinance Order Under Section 19 A",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-18",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20I-I%20%20Custom%20(E)_1791353826.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20-%20Custom%20-%20I-I%20-%20(S)_1790574151.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20(T)_1790248101.pdf"
+  },
+  "data": {
+    "number": "2502/21",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

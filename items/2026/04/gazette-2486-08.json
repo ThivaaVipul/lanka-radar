@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2486-08",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between\n1) Cmu and show to show (PVT) (LTD)\n2) A.D.Gihan Thilina Madushanka and Cristal Villas (PVT) LTD\n3) Refusal of Award",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-28",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-08_S_1784568162.pdf"
+  },
+  "data": {
+    "number": "2486/08",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

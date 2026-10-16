@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2492-14",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a vacancy in the office of member of the Mamunai south and Eruvil pattu p.s \nFilling of a vacancy in the office of member of the Neluwa p.s",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-14_E_1784568241.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-14_S_1784568241.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-14_T_1784568241.pdf"
+  },
+  "data": {
+    "number": "2492/14",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

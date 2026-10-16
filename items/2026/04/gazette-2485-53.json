@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2485-53",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Department of Census and Statistics",
+  "headline": {
+    "en": "Department of Census and Statistics - National Consumer Price Index - March 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-22",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_E_1784568157.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_S_1784568157.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_T_1784568157.pdf"
+  },
+  "data": {
+    "number": "2485/53",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

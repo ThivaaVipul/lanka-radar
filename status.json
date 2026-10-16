@@ -1,16 +1,22 @@
 {
   "schema": 1,
-  "checked": "2026-10-16T06:09:39Z",
+  "checked": "2026-10-16T06:40:49Z",
   "sources": {
     "holidays": {
-      "lastRun": "2026-10-16T06:09:39Z",
-      "lastSuccess": "2026-10-16T06:09:39Z",
+      "lastRun": "2026-10-16T06:40:49Z",
+      "lastSuccess": "2026-10-16T06:40:49Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-10-16T06:09:39Z",
-      "lastSuccess": "2026-10-16T06:09:39Z",
+      "lastRun": "2026-10-16T06:40:49Z",
+      "lastSuccess": "2026-10-16T06:40:49Z",
+      "lastError": null,
+      "failures": 0
+    },
+    "gazettes": {
+      "lastRun": "2026-10-16T06:40:49Z",
+      "lastSuccess": "2026-10-16T06:40:49Z",
       "lastError": null,
       "failures": 0
     }

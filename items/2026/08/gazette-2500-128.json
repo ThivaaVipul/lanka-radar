@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2500-128",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commision",
+  "headline": {
+    "en": "Elections Commision - Filling of a Vacancy in the Office of member of the Delft P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-07",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20(E)_1786525400.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20%20(S)_1786525381.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20%20(T)_1787040331.pdf"
+  },
+  "data": {
+    "number": "2500/128",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

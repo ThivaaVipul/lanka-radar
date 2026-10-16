@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2506-144",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-19",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2506/144",
+    "group": "energy",
+    "languages": []
+  },
+  "alert": true
+}

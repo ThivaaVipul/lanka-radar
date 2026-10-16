@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2495-26",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Consumer Affairs Authority",
+  "headline": {
+    "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 9 of 2003 (Amended) Direction under Section 10(1)(b)(ii)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-03",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_E_1784568268.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_S_1784568268.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_T_1784568268.pdf"
+  },
+  "data": {
+    "number": "2495/26",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

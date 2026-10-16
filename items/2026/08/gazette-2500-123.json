@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2500-123",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice under Section 10 A 91) (a) Ceased to be a member of the walikamam South west P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-07",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20(E)_1786603416.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20(S)_1786603388.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20%20(T)_1786611040.pdf"
+  },
+  "data": {
+    "number": "2500/123",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

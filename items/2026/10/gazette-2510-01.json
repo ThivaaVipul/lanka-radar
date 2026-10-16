@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2510-01",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Sri Lanka Customs",
+  "headline": {
+    "en": "Sri Lanka Customs",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(E)_1791958408.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(S)_1791958368.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048274%20(T)_1791958380.pdf"
+  },
+  "data": {
+    "number": "2510/01",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

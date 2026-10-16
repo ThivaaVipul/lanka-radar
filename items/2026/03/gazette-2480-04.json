@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2480-04",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between S. Liyanage and Mahaweli Authority of S/L",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-16",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-04_S_1784568034.pdf"
+  },
+  "data": {
+    "number": "2480/04",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

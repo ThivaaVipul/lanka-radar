@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2483-15",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a Vacancy in the Office at Memder of the Matale M/C Filling of a Vacancy in the Office of memeber of the Mirigama Pradeshiya Sabha",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-10",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_E_1784568092.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_S_1784568092.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_T_1784568092.pdf"
+  },
+  "data": {
+    "number": "2483/15",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

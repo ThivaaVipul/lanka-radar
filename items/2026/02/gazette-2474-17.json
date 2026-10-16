@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2474-17",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Public Utilities Commission of Sri Lanka",
+  "headline": {
+    "en": "Public Utilities Commission of Sri Lanka - Direction Issued under Section 18 (9) (a) of Public Utilities Commission of Sri Lanka (E Only)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-17_E_1784567915.pdf"
+  },
+  "data": {
+    "number": "2474/17",
+    "group": "energy",
+    "languages": [
+      "en"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2507-99",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling a vacancy in the office Memeber of the Millaniya P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-25",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208024%20(E)_1790850924.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208024%20(S)_1790850914.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208024%20(T)_1791274667.pdf"
+  },
+  "data": {
+    "number": "2507/99",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

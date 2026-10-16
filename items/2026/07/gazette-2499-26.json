@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2499-26",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice under Section 10 A (1) (a) Kotmale P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-28",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-26_E_1786332660.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-26_S_1786332634.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-26_T_1786332646.pdf"
+  },
+  "data": {
+    "number": "2499/26",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

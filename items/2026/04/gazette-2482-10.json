@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2482-10",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between L.P. Jayasundara and Central Engineering Consultancy Bureay\nS.A. Gunarathna and Nimrod Systems ( Pvt) Ltd.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_E_1784568075.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_S_1784568075.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_T_1784568075.pdf"
+  },
+  "data": {
+    "number": "2482/10",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

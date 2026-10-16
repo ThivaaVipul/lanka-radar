@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2470-31",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Appointments Accordance with the Provisions of 66 C (4) L.A.E.O Post of Chairman and Vice Chairman of Anamaduwa P S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-08",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2470-31_E_1784567817.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2470-31_S_1784567817.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2470-31_T_1784567817.pdf"
+  },
+  "data": {
+    "number": "2470/31",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

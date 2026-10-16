@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2477-42",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Filling the Vacancy in the Office of Member of the Manthai East Pradeshiya Sabha",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-27",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-42_E_1784567980.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-42_S_1784567980.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2477-42_T_1784567980.pdf"
+  },
+  "data": {
+    "number": "2477/42",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

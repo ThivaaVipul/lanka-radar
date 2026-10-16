@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2488-12",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between\n1 . M.A. Indikaratne and Tea Small Holdings Development Authority\n2. C.H. Ratiyala and Janatha Estates Development Board\n3. S.H.T. Krishani and Construction Industry Development Authority",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-12_E_1784568185.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-12_S_1784568185.pdf"
+  },
+  "data": {
+    "number": "2488/12",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

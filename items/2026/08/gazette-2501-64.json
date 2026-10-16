@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2501-64",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "M/of Labour",
+  "headline": {
+    "en": "M/of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-08-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47680(E)(C)%20%20%5BI%20-%20I%5D_1787294082.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47680(S)(C)%20%20%5BI%20-%20I%5D_1787294073.pdf"
+  },
+  "data": {
+    "number": "2501/64",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

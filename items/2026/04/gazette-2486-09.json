@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2486-09",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Wages Boards Ordinance Wages Board for Security Service Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-28",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_E_1784568163.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_S_1784568162.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_T_1784568162.pdf"
+  },
+  "data": {
+    "number": "2486/09",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

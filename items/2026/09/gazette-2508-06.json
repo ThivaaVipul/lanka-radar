@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2508-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of vacancy - Ja -ela U.C",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-29",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208034%20(E)_1791016143.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208034%20(S)_1791016134.pdf"
+  },
+  "data": {
+    "number": "2508/06",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

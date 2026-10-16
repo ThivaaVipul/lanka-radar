@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2482-12",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Imports and Exports Control Department",
+  "headline": {
+    "en": "Imports and Exports Control Department - Imports and Exports",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-04-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_E_1784568075.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_S_1784568075.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_T_1784568075.pdf"
+  },
+  "data": {
+    "number": "2482/12",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

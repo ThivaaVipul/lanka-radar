@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2488-68",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - H.M. Sampath Anura Bandara Herath Elected as a Member of Kekirawa P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-15",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-68_E_1784568201.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-68_S_1784568201.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-68_T_1784568201.pdf"
+  },
+  "data": {
+    "number": "2488/68",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

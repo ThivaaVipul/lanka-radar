@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2478-42",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy - National Electricity Policy and National Tariff Policy",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-42_E_1784568003.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-42_S_1784568003.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2478-42_T_1784568003.pdf"
+  },
+  "data": {
+    "number": "2478/42",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

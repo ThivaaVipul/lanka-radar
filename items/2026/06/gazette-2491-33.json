@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2491-33",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Wages Board for Garment manufacturing Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-06-03",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2491-33_E_1784568228.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2491-33_S_1784568228.pdf"
+  },
+  "data": {
+    "number": "2491/33",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

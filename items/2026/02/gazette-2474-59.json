@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2474-59",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between 1). Employees Including Mrs.D.M.P.M Alwis and National Insurance Trust Found 2)M.K Abeynayake and Mahaweli Authority of Sri Lanka 3)K.B.N Priyantha and Mahaweli Authority of Sri Lanka",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-07",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-59_E_1784567929.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-59_S_1784567929.pdf"
+  },
+  "data": {
+    "number": "2474/59",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

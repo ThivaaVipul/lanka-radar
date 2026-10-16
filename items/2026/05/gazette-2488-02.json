@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2488-02",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment Policy",
+  "headline": {
+    "en": "Department of Trade and Investment Policy - Regulations Under Section 101 ( chapter 235) of the Customs Ordinance",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-02_E_1784568181.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-02_S_1784568181.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-02_T_1784568181.pdf"
+  },
+  "data": {
+    "number": "2488/02",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

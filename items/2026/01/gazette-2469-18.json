@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2469-18",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice under Section 12 (1) Revision of the Electoral Registers - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-01",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2469-18_E_1784567791.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2469-18_S_1784567791.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2469-18_T_1784567791.pdf"
+  },
+  "data": {
+    "number": "2469/18",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

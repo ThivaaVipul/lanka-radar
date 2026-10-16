@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2487-02",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Trade and Investment Policy",
+  "headline": {
+    "en": "Ministry of Trade and Investment Policy - Special Commodity Levy Act, No. 48 of 2007",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-02_E_1784568167.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-02_S_1784568167.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-02_T_1784568167.pdf"
+  },
+  "data": {
+    "number": "2487/02",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2474-50",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Labour Special Allowance Payable to Workers in the Cocoa Cardamom and Pepper Growing and Manufacturing Trade",
+  "headline": {
+    "en": "Department of Labour Special Allowance Payable to Workers in the Cocoa Cardamom and Pepper Growing and Manufacturing Trade",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-50_E_1784567926.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-50_S_1784567926.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-50_T_1784567926.pdf"
+  },
+  "data": {
+    "number": "2474/50",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

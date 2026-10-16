@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2488-05",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - 1). Filling of a Vacancy in the Office of Member of the Vavuniya South Tamil P.S 2). Filling of a Vacancy in the Office of Member of the Sri Jayawardenepura Kotta M.C",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-05_E_1784568182.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-05_S_1784568182.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2488-05_T_1784568182.pdf"
+  },
+  "data": {
+    "number": "2488/05",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

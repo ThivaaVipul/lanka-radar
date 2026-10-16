@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2472-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between D.S. Aththanayake and Lanka Sugar Company (Pvt) Ltd.",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-20",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-06_S_1784567867.pdf"
+  },
+  "data": {
+    "number": "2472/06",
+    "group": "labour",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}

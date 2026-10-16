@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2505-60",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "M/ of Labour",
+  "headline": {
+    "en": "M/ of Labour - Industrial Dispute",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-08",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47826%20%20(E)%20I-I%20%20%20-%20%20%5BIndustrial%20Disputes%5D_1791871119.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47826%20(S)(PM)%20%20%5BI%20-%20I%5D%20%20-%20Industrial%20Disputes%20-%20Extraordinary_1791871105.pdf"
+  },
+  "data": {
+    "number": "2505/60",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

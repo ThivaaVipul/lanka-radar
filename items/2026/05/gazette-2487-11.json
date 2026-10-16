@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2487-11",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Revision of Electoral Registers - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-05",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2487/11",
+    "group": "elections",
+    "languages": []
+  },
+  "alert": true
+}

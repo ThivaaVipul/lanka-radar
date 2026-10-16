@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2473-31",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment",
+  "headline": {
+    "en": "Department of Trade and Investment - The Customs Ordinance (Chapter 235) Order under Section 10 A",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-31",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-31_E_1784567908.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-31_S_1784567907.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-31_T_1784567907.pdf"
+  },
+  "data": {
+    "number": "2473/31",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

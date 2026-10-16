@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2480-05",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour - Industrial Dispute between \nH.B. Upawansha and Lanka Salt Limited\nA.T.K.P.  Fernando and Sri Lanka Tea Board",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-16",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-05_E_1784568034.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2480-05_S_1784568034.pdf"
+  },
+  "data": {
+    "number": "2480/05",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

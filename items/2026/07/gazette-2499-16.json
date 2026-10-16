@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2499-16",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Filling of a Vacancy in the office of member of the Pathaweheta P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-27",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-16_E_1786331979.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-16_S_1786331952.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-16_T_1786331964.pdf"
+  },
+  "data": {
+    "number": "2499/16",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

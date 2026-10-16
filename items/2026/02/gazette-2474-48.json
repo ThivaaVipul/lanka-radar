@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2474-48",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Elected to the 03 Members of Nochchiyagama Pradeshuya Sabha",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-02-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-48_E_1784567925.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-48_S_1784567925.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2474-48_T_1784567925.pdf"
+  },
+  "data": {
+    "number": "2474/48",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2481-02",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Imports and Exports Control Department",
+  "headline": {
+    "en": "Imports and Exports Control Department - Imports and Exports Control Act No 01 of 1969 Imports and Exports ( Control) Regulations No 01 of 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-03-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-02_E_1784568051.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-02_S_1784568051.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2481-02_T_1784568051.pdf"
+  },
+  "data": {
+    "number": "2481/02",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

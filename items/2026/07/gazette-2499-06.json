@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2499-06",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Commission of Elections",
+  "headline": {
+    "en": "Commission of Elections - Filling member vacancy of Kekirawa Pradeshiya Sabha and Elpitiya P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-07-27",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-06_E_1786328020.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-06_S_1786327997.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2499-06_T_1786328009.pdf"
+  },
+  "data": {
+    "number": "2499/06",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

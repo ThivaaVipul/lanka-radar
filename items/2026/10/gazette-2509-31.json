@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2509-31",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Consumer Affairs Authority",
+  "headline": {
+    "en": "Consumer Affairs Authority",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-07",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208054%20(E)_1791631244.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208054%20(S)_1791867783.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208054%20(T)_1791779858.pdf"
+  },
+  "data": {
+    "number": "2509/31",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

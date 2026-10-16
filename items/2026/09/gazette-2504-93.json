@@ -1,0 +1,27 @@
+{
+  "id": "gazette-2504-93",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "Ministry of Labour",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48131(E)(C)%20%20%5BI%20-%20I%5D%20%20%5BIndustrial%20Disputes%5D_1789981161.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48131(S)%20%5BI%20-%20I%5D%20%20-%20%5BIndustrial%20Disputes%5D_1789981151.pdf"
+  },
+  "data": {
+    "number": "2504/93",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ]
+  },
+  "alert": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2487-06",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Ministry 0f Energy",
+  "headline": {
+    "en": "Ministry 0f Energy - Order under Section 66 (1) (a) Revise the Fuel Price",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-05-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-06_E_1784568168.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-06_S_1784568168.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2487-06_T_1784568168.pdf"
+  },
+  "data": {
+    "number": "2487/06",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

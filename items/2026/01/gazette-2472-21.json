@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2472-21",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Notice under Section 8 (9) of the Parliamentary Elections Act, No. 01 of 1981",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-21",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-21_E_1784567872.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-21_S_1784567872.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2472-21_T_1784567872.pdf"
+  },
+  "data": {
+    "number": "2472/21",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}
