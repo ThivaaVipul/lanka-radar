@@ -41,6 +41,8 @@ def test_one_broken_source_does_not_stop_the_others(store: Store) -> None:
     }
     latest = json.loads((store.root / "latest.json").read_text(encoding="utf-8"))
     assert [entry["id"] for entry in latest["items"]] == ["x-1"]
+    month = json.loads((store.root / "months" / "2026-10.json").read_text(encoding="utf-8"))
+    assert [entry["id"] for entry in month["items"]] == ["x-1"]
 
 
 def test_exits_1_once_when_a_source_fails_three_runs_in_a_row(store: Store) -> None:

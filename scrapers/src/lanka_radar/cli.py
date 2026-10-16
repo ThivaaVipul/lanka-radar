@@ -56,6 +56,7 @@ def run(
         name: entry for name, entry in report.get("sources", {}).items() if name in sources
     }
     store.write_latest()
+    store.write_months()
     store.write_status(report, now)
     if alerting:
         runs = status.FAILURES_BEFORE_ALERT
