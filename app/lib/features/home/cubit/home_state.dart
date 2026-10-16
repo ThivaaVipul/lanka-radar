@@ -8,6 +8,7 @@ final class HomeState extends Equatable {
     this.topic,
     this.newSince,
     this.nowCard,
+    this.health,
   });
 
   /// How far back a new item may have been published: history filling in is
@@ -30,6 +31,9 @@ final class HomeState extends Equatable {
 
   /// The Now card's values; null until first loaded.
   final NowData? nowCard;
+
+  /// Every source's health, for the app bar's warning.
+  final Health? health;
 
   List<FeedItem>? get visibleItems => topic == null
       ? items
@@ -54,6 +58,7 @@ final class HomeState extends Equatable {
     String? Function()? topic,
     DateTime? Function()? newSince,
     NowData? nowCard,
+    Health? health,
   }) => HomeState(
     items: items ?? this.items,
     refreshing: refreshing ?? this.refreshing,
@@ -61,6 +66,7 @@ final class HomeState extends Equatable {
     topic: topic != null ? topic() : this.topic,
     newSince: newSince != null ? newSince() : this.newSince,
     nowCard: nowCard ?? this.nowCard,
+    health: health ?? this.health,
   );
 
   @override
@@ -71,5 +77,6 @@ final class HomeState extends Equatable {
     topic,
     newSince,
     nowCard,
+    health,
   ];
 }

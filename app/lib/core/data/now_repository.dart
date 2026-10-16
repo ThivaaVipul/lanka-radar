@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/format/dates.dart';
@@ -127,6 +128,27 @@ class NowRepository {
       items: items,
     );
   }
+
+  /// Every source's health: the workflow's, from its status.json, and the two
+  /// the phone reads itself.
+  Future<Health> health() async {
+    final workflow = parseWorkflowStatus((await _db.file('status.json'))?.body);
+    return Health(
+      workflowRan: workflow.ran,
+      github: workflow.sources,
+      phone: [
+        _health('Fuel prices', await status(ceypetcoSource)),
+        _health('USD/LKR', await status(cbslSource)),
+      ],
+    );
+  }
+
+  static SourceHealth _health(String name, SourceStatus status) => SourceHealth(
+    name: name,
+    lastRun: status.lastRun,
+    lastSuccess: status.lastSuccess,
+    lastError: status.lastError,
+  );
 
   Future<void> _read(String source, Future<void> Function() read) async {
     final before = await status(source);

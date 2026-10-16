@@ -50,6 +50,15 @@ String cardDate(DateTime day, {required DateTime today}) =>
     ? '${day.day} ${_months[day.month - 1]}'
     : shortDate(day);
 
+/// 16 Oct, 09:30 in local time (with the year when it isn't this one).
+String dayTime(DateTime time, {required DateTime today}) {
+  final local = time.toLocal();
+  final clock =
+      '${local.hour.toString().padLeft(2, '0')}:'
+      '${local.minute.toString().padLeft(2, '0')}';
+  return '${cardDate(local, today: today)}, $clock';
+}
+
 /// October 2026, for the feed's month headings.
 String monthHeading(DateTime day) =>
     '${_monthNames[day.month - 1]} ${day.year}';

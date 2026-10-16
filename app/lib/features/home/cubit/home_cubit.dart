@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 
@@ -88,8 +89,9 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> _loadNowCard() async {
     final card = await _phone.load(state.items ?? const []);
+    final health = await _phone.health();
     if (!isClosed) {
-      emit(state.copyWith(nowCard: card));
+      emit(state.copyWith(nowCard: card, health: health));
     }
   }
 

@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M4b merged, the `data` branch is live. Next: M5 (app), grilled on 2026-10-16 and planned below; its first piece, monthly item files (M5a), is on `feat/monthly-items`.**
+Status: **M0 to M5d merged, the `data` branch is live and the app shows the feed, the Now card and search; M5e (Sources and About) built on `feat/sources-and-about`. Next: M6 (alerts).**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -169,7 +169,7 @@ Five pull requests, each with its tests:
 - [x] M5b, app foundation: Zen Mode's theme with teal and Albert Sans, the drift database, the refresh (index, changed months, datasets, status, ETags), the INTERNET permission; Home is a plain list of headlines until M5c
 - [x] M5c, feed and item: Home feed with month headings, cards, title case, new-item dots, topic chips and pull to refresh; the item screen with PDF buttons; search
 - [x] M5d, Now card: CEYPETCO fuel and CBSL rates read on the phone with local history (tests on the saved M1 responses), the detail sheets, holidays with Tamil names, LP gas and the exam timetable; the phone's own USD/LKR move items moved to M6
-- [ ] M5e, health and finish: Sources and About screens, stale warnings, empty and error states; checked on a real phone
+- [x] M5e, health and finish: Sources and About screens, stale warnings, empty and error states; checked on a real phone
 
 ### M6: Alerts
 
@@ -226,3 +226,4 @@ None right now.
 | 2026-10-16 | M5b: drift 2.34 with SQLite bundled by the `sqlite3` package's build hooks, so tests run on any desktop with no extra setup. Each item is stored as its JSON plus columns to sort, filter and search by, and keeps the time the phone first saw it (for M5c's new-item dots). Search is a LIKE over a lower-case search column instead of the trigram index first planned: about 500 items a year scan instantly, and it matches Tamil too. A refresh reads the month index and downloads only changed months; a refresh that fails part way keeps what it stored and asks for the index again next time. The generated drift code is committed. |
 | 2026-10-16 | M5c: the feed has cards (topic and issuer, date, headline in up to 3 lines, up to 3 key numbers with the price before), month headings, topic chips, new-item dots (items first seen after the feed was last left and published within 14 days, so history filling in is never marked) and search as you type. Two display rules came from the real data: a headline that starts with its issuer's name ("Department of Census and Statistics - The Census Ordinance") drops it, since the card's top line names the issuer; and a gazette with neither an English nor a Tamil title shows its number ("Gazette 2509/28"). Fuel labels shorten to their common names ("Lanka Petrol 92 Octane" reads "Petrol 92"). Links open in the browser through url_launcher. |
 | 2026-10-16 | M5d: the Now card. The phone reads CEYPETCO's active prices and CBSL's rate search itself (both checked live from Sri Lanka), keeps a price history per fuel and the daily rates, and records each source's last run, success and error for the Sources screen (M5e). A fuel price's "before" comes from the phone's history or, on a fresh install, from the latest fuel revision gazette; until CEYPETCO first answers, the fuel prices come from that gazette, marked "as of" its date. USD/LKR falls back to the workflow's copy when CBSL hasn't answered. Holiday names in Tamil come from a table bundled with the app (`assets/holidays_ta.json`). The phone making its own USD/LKR move items moved to M6, where same-day alerts need them. |
+| 2026-10-16 | M5e: a Sources screen (menu) lists what GitHub reads, with the workflow's last run, and what the phone reads, each with its last success and last error. A source with no success for a day, or a workflow that hasn't run for a day, puts a warning in the app bar that opens it. About has the version (package_info_plus), a line on where the data comes from, the source code and the licenses. M5 is complete apart from this pull request. |
