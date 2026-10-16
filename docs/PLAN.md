@@ -41,7 +41,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Flutter with one Cubit per screen, like Zen Mode, and an offline copy you can search.
 - GitHub Actions builds the signed APK; you install it from GitHub Releases. No Play Store.
 - Each source records its last successful run. The app flags a source that has gone quiet, and GitHub emails you when a run fails.
-- Nothing git-related happens without your OK at each step. Commits have no `Co-Authored-By` trailer.
+- Nothing git-related happens without your OK at each step. Commits end with Claude's `Co-Authored-By` line (since 2026-10-16; earlier ones have none).
 - Git identity `ThivaaVipul` with the GitHub noreply email only (set in this repo's git config, since the repo is public); no `gh` or browser tools for GitHub.
 - Versions and APIs are checked against current docs (Context7) before a dependency or GitHub Action is added or upgraded.
 
@@ -92,7 +92,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Each gazette item's English and Tamil PDFs are read once (`pdfs.py`), 40 gazettes a run at most, newest first; while a backlog remains, runs read the list back to January so older items come into view. Results are cached in `state/gazette-pdfs.json` and read again only when a gazette's files change. A broken PDF is recorded and not retried.
 - Page 1's title is the bold, capitals or larger block right after the masthead (which ends with the last line of 13.5 pt or more), skipping a reference line above it (DGC/A877/PL305., Order No.: 97).
 - English headline: the list's description when it names a subject ("Ministry of Energy - Revise the Fuel Price"), otherwise the PDF title, otherwise the description. Tamil headline: the Tamil PDF's title, only when its text is trusted (see the decision above).
-- Price tables (a header naming a price column) become key numbers; a table with a current and a revised price (fuel revisions) gives the revised price with the current one as before. A price table also puts the item under Prices.
+- Price tables (a header naming a price column) become key numbers; a table with a current and a revised price (fuel revisions) gives the revised price with the current one as before. A price table also puts the item under Prices. Labels drop Latin names in brackets, and a sentence about a pack becomes its first quantity ("Tuna 155g").
 - The group rules are checked again against the PDF title, so a routine notice listed only by its issuer (a weekly customs exchange-rate notice) is dropped.
 
 **App**
@@ -158,6 +158,7 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 - [x] Bold drawn as a second, outline-only copy is skipped (one copy was set 4 points off its text) and marks the line bold
 - [x] A line is trusted only when every glyph is known and every vowel sign follows a letter
 - [x] Older readings without a Tamil title get their Tamil PDF read once more; English PDFs aren't downloaded again
+- [x] A glyph not in the table yet keeps its line untrusted and is recorded with the reading (`unknown_glyphs`), so the table can grow; two more were added after the first full runs (8077 and 8088)
 - OCR not needed; moved to Later in case a Tamil PDF in another font shows up
 
 ### M5: App
@@ -220,3 +221,4 @@ None right now.
 | 2026-10-16 | M4b: the scrambled Arial Unicode Tamil turned out to be readable without OCR. These PDFs keep Arial Unicode MS's glyph IDs, and that font's glyph order never changed, so the Tamil comes from the glyph IDs: letters and signs through the font's own cmap (found in a copy one PDF embeds), ligatures as seen in 24 PDFs, signs drawn left of their letter moved after it, and look-alike glyphs fixed (aa drawn for ra before i). All 24 Tamil PDFs of the first M4 run got their titles, checked by eye against the rendered pages, and the titles of 40 English and Bamini PDFs are unchanged. Decision: decode instead of OCR, which moved to Later. Bold drawn as an outline copy is skipped, and a bold paragraph after a larger title ends the title. |
 | 2026-10-16 | M4b merged (PR #7). Its first run on GitHub gave a Tamil title to all 35 gazettes read so far that have a Tamil PDF; 32 feed items carry one (the other 3 are customs notices dropped as routine). |
 | 2026-10-16 | M5 grilled; the decisions are under "App (M5 grilling)". Fuel price changes now come only from fuel revision gazettes, which carry the old and new prices; CEYPETCO, which gives only each product's active price, fills the Now card instead of making items, so a change shows (and later alerts) once. History reaches the app as monthly item files with an index, so later fixes to older items reach the phone too. M5 is split into five pull requests, M5a to M5e. |
+| 2026-10-16 | M5a merged (PR #8): the `data` branch has month files for January to October (408 items). The first price table to come in (CAA canned fish, 2504/86) showed long labels with Latin names that cut off before the pack size, so labels now drop bracketed Latin names and keep the net weight ("Tuna 155g"). Two Tamil notices had no title because of two glyphs not yet in the table (the shapes of tuu and puu); they were added, and an unknown glyph is now recorded with the reading. Reader version 3 reads the affected PDFs again once. |

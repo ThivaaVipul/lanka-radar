@@ -67,10 +67,10 @@ _ARIAL_TAMIL_RANGES = (
 # leaves its line untrusted.
 _ARIAL_LIGATURES = """
     8065 KA U, 8066 KA UU, 8070 CA U, 8071 CA UU, 8074 TTA I, 8075 TTA II, 8076 TTA U,
-    8080 TA U, 8082 NA U, 8084 NNNA U, 8086 PA II, 8087 PA U, 8089 MA U, 8090 MA UU,
-    8092 YA U, 8093 YA UU, 8094 RA U, 8095 RA UU, 8096 RRA U, 8098 LA I, 8099 LA II,
-    8100 LA U, 8102 LLA U, 8103 LLA UU, 8104 LLLA U, 8106 VA II, 8107 VA U, 8109 SA I,
-    8111 SA VIRAMA RA II
+    8077 TTA UU, 8080 TA U, 8082 NA U, 8084 NNNA U, 8086 PA II, 8087 PA U, 8088 PA UU,
+    8089 MA U, 8090 MA UU, 8092 YA U, 8093 YA UU, 8094 RA U, 8095 RA UU, 8096 RRA U,
+    8098 LA I, 8099 LA II, 8100 LA U, 8102 LLA U, 8103 LLA UU, 8104 LLLA U, 8106 VA II,
+    8107 VA U, 8109 SA I, 8111 SA VIRAMA RA II
 """
 # From 8112 on: these letters with pulli, in this order.
 _ARIAL_PULLI = "KA NGA CA JA NYA TTA NNA TA NA NNNA PA MA YA RA RRA LA LLA LLLA VA SSA SA"
@@ -85,6 +85,12 @@ _ILAKKAM = _IL + chr(0x0B95) + chr(0x0BCD) + chr(0x0B95) + chr(0x0BAE) + chr(0x0
 _TAMIL_NUMBERED = re.compile(rf"(?:^|\s)(?:{_ILAKKAM}|{_IL}\.?)\s*:?\s*\d+\.?$")
 _NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
 _OLD_PRICE = ("current", "existing", "present", "old")
+# Price labels: Latin names in brackets go ("Tuna ( Katsuwonus pelamis ...)"), a sentence
+# about a pack becomes its first quantity, and "l55g" (a printed typo) reads 155g.
+_BRACKETS_WITHOUT_NUMBERS = re.compile(r"\s*\([^()\d]*\)")
+_QUANTITY = re.compile(r"\d+(?:\.\d+)?\s*(?:kg|g|ml|l)\b", re.IGNORECASE)
+_L_FOR_ONE = re.compile(r"\bl(?=\d+(?:\.\d+)?\s*(?:kg|g|ml)\b)")
+_LONG_DETAIL = 20
 # An opening bracket set against the word before it and apart from the one after, as a
 # misplaced copy of the text leaves it: "word( 262" reads "word (262".
 _OPEN_BRACKET_SPACE = re.compile(r"(?<=\S)\( ")
@@ -123,6 +129,8 @@ class Line:
 class Reading:
     title: str | None
     numbers: list[KeyNumber] = field(default_factory=list)
+    # Arial Unicode Tamil glyphs not in ARIAL_TAMIL yet; their lines are not trusted.
+    unknown: tuple[int, ...] = ()
 
 
 def read(data: bytes, tamil: bool) -> Reading:
@@ -130,9 +138,10 @@ def read(data: bytes, tamil: bool) -> Reading:
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         if not pdf.pages:
             return Reading(None)
-        heading = title(lines_of(page_chars(pdf.pages[0])), tamil)
+        chars = page_chars(pdf.pages[0])
+        heading = title(lines_of(chars), tamil)
         if tamil:
-            return Reading(heading)
+            return Reading(heading, unknown=unknown_glyphs(chars))
         tables = [table for page in pdf.pages[:TABLE_PAGES] for table in page.extract_tables()]
         return Reading(heading, price_numbers(tables))
 
@@ -160,11 +169,24 @@ def page_chars(page: Page) -> list[dict[str, Any]]:
                 "top": layout.y1 - char.y1,
                 "bottom": layout.y1 - char.y0,
                 "doctop": layout.y1 - char.y1,
+                "cid": char.cid,
                 "glyph": glyph,
                 "outline": char.mode in OUTLINE_MODES,
             }
         )
     return dedupe_chars(chars, extra_attrs=("fontname", "size", "outline"))
+
+
+def unknown_glyphs(chars: Iterable[dict[str, Any]]) -> tuple[int, ...]:
+    """Glyph IDs of Arial Unicode Tamil that ARIAL_TAMIL doesn't list yet."""
+    found = {
+        char["cid"]
+        for char in chars
+        if ARIAL_UNICODE in char["fontname"].lower()
+        and not char.get("glyph")
+        and _has_tamil(char["text"])
+    }
+    return tuple(sorted(found))
 
 
 def lines_of(chars: Iterable[dict[str, Any]]) -> list[Line]:
@@ -219,8 +241,9 @@ def price_numbers(tables: Sequence[Sequence[Sequence[str | None]]]) -> list[KeyN
         first = ""
         for row in table[1:]:
             cells = [_clean(cell) for cell in row]
-            first = cells[labels[0]] or first
-            label = " ".join(part for part in [first, *(cells[i] for i in labels[1:])] if part)
+            first = _name(cells[labels[0]]) or first
+            parts = [first, *(_detail(cells[i]) for i in labels[1:])]
+            label = " ".join(part for part in parts if part)
             value = _number(cells[new])
             if label and value is not None:
                 before = _number(cells[old]) if old is not None else None
@@ -394,6 +417,19 @@ def _reference(text: str, tamil: bool) -> bool:
     if not tamil or len(text) > 30:
         return False
     return not _has_tamil(text.replace(_AYTHAM, "")) or bool(_TAMIL_NUMBERED.search(text))
+
+
+def _name(cell: str) -> str:
+    """A price label's item name, without Latin names in brackets."""
+    return " ".join(_BRACKETS_WITHOUT_NUMBERS.sub(" ", cell).split())
+
+
+def _detail(cell: str) -> str:
+    """A price label's other cells; a sentence about a pack ("Net weight of 155g and
+    drained weight of 105g or above") becomes its first quantity."""
+    cell = _L_FOR_ONE.sub("1", cell)
+    quantity = _QUANTITY.search(cell)
+    return quantity.group() if quantity and len(cell) > _LONG_DETAIL else cell
 
 
 def _clean(cell: str | None) -> str:
