@@ -1,22 +1,16 @@
 {
   "schema": 1,
-  "checked": "2026-10-16T05:53:45Z",
+  "checked": "2026-10-16T06:09:39Z",
   "sources": {
-    "fuel": {
-      "lastRun": "2026-10-16T05:53:45Z",
-      "lastSuccess": null,
-      "lastError": "ConnectTimeout: timed out",
-      "failures": 1
-    },
     "holidays": {
-      "lastRun": "2026-10-16T05:53:45Z",
-      "lastSuccess": "2026-10-16T05:53:45Z",
+      "lastRun": "2026-10-16T06:09:39Z",
+      "lastSuccess": "2026-10-16T06:09:39Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-10-16T05:53:45Z",
-      "lastSuccess": "2026-10-16T05:53:45Z",
+      "lastRun": "2026-10-16T06:09:39Z",
+      "lastSuccess": "2026-10-16T06:09:39Z",
       "lastError": null,
       "failures": 0
     }
