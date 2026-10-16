@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 and M1 done and merged; the `data` branch is live. Next: M2 (gazettes).**
+Status: **M0 and M1 merged, the `data` branch is live; M2 (gazettes) built on `feat/gazettes`. Next: M3 (exams and LP gas).**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -19,6 +19,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - **Alerts:** price changes, exam dates and results, holiday reminders, other daily-life gazettes and USD/LKR moves over 2% in a week. Every topic has its own on/off switch.
 - **Name:** Lanka Radar. Repo `lanka-radar`, app ID `app.lankaradar`.
 - **Parked:** Lanka MCP, Sinhala, public posting (Facebook Page, WhatsApp Channel), a web page.
+- **Gazette groups (2026-10-16):** prices, taxes and imports; energy and utilities; wages and labour; elections. Each becomes a feed item with an alert; everything else (land title settlement, land acquisition and so on) is skipped.
 
 ### Defaults (accepted 2026-10-16)
 
@@ -45,7 +46,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 | Source | How to read it | Notes |
 | --- | --- | --- |
-| Extraordinary gazettes | `documents.gov.lk/web/extra_gazettes` is a Next.js page that fills its table (number, date, issuer, language buttons) through a server action, so read it with Playwright. Each language button opens `/api/content-file-proxy?file=/extra-gazette-content/<file>.pdf`, and those PDFs download with plain HTTP. | The old `/view/extra-gazettes/...` links all return 404. Not every gazette has a Tamil or English version. The page has year, month and day filters. Loads from servers abroad, the USA included. |
+| Extraordinary gazettes | `documents.gov.lk/web/extra_gazettes` is a Next.js page whose table loads through a server action, `TableDataAction`. A plain POST to the page with its `next-action` ID and the body `[{"apiEndpoint": ".../extra-gazette/get-all", "page": N, "limit": 100, ...}]` answers with JSON: number, date, descriptions, and the PDF file per language. PDFs download from `/api/content-file-proxy?file=/extra-gazette-content/<file>.pdf`. No browser needed. | The action ID is defined in one of the site's scripts as `createServerReference("<id>", ..., "TableDataAction")`, so a rebuild that changes it is found again automatically. 2,249 gazettes in 2026 up to mid-October; 91 numbers are listed twice (merged by number); 72 have no PDF; the "Tamil" description is English text. Loads from servers abroad. |
 | CAA price controls | Same list, issuer "Consumer Affairs Authority" (e.g. 2509/31, 7 Oct 2026). | Prices are in the PDF text. |
 | Fuel | CEYPETCO JSON: `api.ceypetco.gov.lk/api/admin/fuel-prices/active?limit=100` (product, price in LKR, effective date). Read by the app on the phone. | Only answers inside Sri Lanka: connections from every foreign test server failed (USA, Germany, Singapore and more). |
 | LP gas | Litro: `litrogas.com/price-list/` shows the list as one image whose file name carries the date (e.g. `Price-List-06.10.2026.webp`). | A new file name means new prices. v1 shows the image; reading the numbers comes later. |
@@ -57,7 +58,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **Repo layout (`main`)**
 
-- `scrapers/`: Python 3.12 package, one module per source. A shared HTTP client (retries, polite user agent, never downloads a known PDF twice). PDF text through pdfplumber; Tesseract OCR (Tamil and English) only when a PDF has no text layer. Tests run on saved fixtures, not live sites.
+- `scrapers/`: Python 3.12 package, one module per source. A shared HTTP client (retries, polite user agent, a pause between pages, never downloads a known PDF twice). From M4: PDF text through pdfplumber; Tesseract OCR (Tamil and English) only when a PDF has no text layer. Tests run on saved fixtures, not live sites.
 - `app/`: Flutter, Android only.
 - `scripts/release/`: works out the next version and the release notes (Python, standard library only, with tests).
 - `.github/workflows/`: `scrape.yml` (every 3 hours, commits to `data`), `ci.yml` (Python and Flutter checks), `release.yml` (signed APK to GitHub Releases), `pr-title.yml` (Conventional Commit titles).
@@ -68,6 +69,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - `items/<yyyy>/<mm>/<id>.json`: one file per feed item. Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. IDs are stable, e.g. `gazette-2510-36`, `fuel-2026-09-30`, `rates-usd-lkr-2026-06-08`, `exam-2468`.
 - `latest.json`: the newest 200 items, small enough to fetch on every sync. It changes only when items do.
 - `datasets/<name>.json`: values for the "now" strip and reminders: `usd-lkr` (Frankfurter's copy of the daily rate since 1 January 2026, a backup for the phone's same-day CBSL rate) and `holidays` (public holidays from 2026 on). Fuel prices live on the phone, which reads them itself.
+- `state/<name>.json`: the scrapers' own bookkeeping, not for the app (e.g. the gazette action ID and the newest gazette seen).
 - `status.json`: when the last run happened, and per source the last run, last success, last error and failures in a row. A source that fails 3 runs in a row fails the workflow once (one email); later failures are only recorded, and the app flags the source.
 - Item fields: `id`, `source`, `topic` (`prices`, `gazettes`, `rates`, `holidays`, `exams`), `issuer`, `headline` (en, ta), `keyNumbers`, `published`, `effective`, `links` (pdf_en, pdf_ta, pdf_si, image, page), `data` (structured values, e.g. old and new fuel price), `alert`.
 - The app reads `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`: public, no token.
@@ -112,10 +114,12 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 ### M2: Gazettes
 
-- [ ] Playwright reader for the extraordinary gazette list, using the year and month filters for history
-- [ ] PDF download (English and Tamil where they exist), text extraction, OCR fallback
-- [ ] Topics by issuer; CAA price-control gazettes go to Prices
-- [ ] History from 1 January 2026
+- [x] Reader for the extraordinary gazette list through the site's `TableDataAction` (plain HTTP, 100 a page, a pause between pages); no Playwright needed
+- [x] The action ID is found again in the site's scripts after a rebuild, and kept in `state/gazettes.json`
+- [x] Copies of one gazette merged by number (PDFs combined, fuller description kept); an answer without data is retried
+- [x] Daily-life groups matched on the issuer: prices, taxes and imports (weekly customs exchange-rate notices skipped); energy and utilities; wages and labour; elections. Any gazette mentioning a price goes to the Prices topic (CAA orders, fuel price revisions, the monthly consumer price index)
+- [x] History from 1 January 2026: 393 items in a 31-second first run; later runs read one page
+- PDF download and text moved to M4, where their text is first used
 
 ### M3: Exams and LP gas
 
@@ -124,6 +128,7 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 ### M4: Headlines and topics
 
+- [ ] PDF download (English and Tamil where they exist) for gazette items, text extraction, OCR fallback; only for items, a few per run, newest first
 - [ ] Headline extraction from English and Tamil PDFs (text layer or OCR), tested on a sample of real gazettes
 - [ ] CAA price tables read into key numbers where possible
 - [ ] Daily-life topics by issuer and headline keywords
@@ -131,6 +136,7 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 ### M5: App
 
 - [ ] Feed from `latest.json`, local database with search, item screen, PDF links
+- [ ] History for a fresh install: `latest.json` holds only the newest 200 items (about three months of gazettes), so the workflow adds monthly item files for the app to backfill from
 - [ ] Phone-side sources: fuel (CEYPETCO) and USD/LKR (CBSL), with local history and the same item IDs as the workflow; tests on saved responses (the M1 fixtures are in git history)
 - [ ] "Now" strip, topic chips, pull to refresh, source health
 
@@ -173,3 +179,4 @@ None right now.
 | 2026-10-16 | GitHub pauses schedules after 60 days without activity on the default branch, and `data` commits don't count, so the scrape workflow re-enables itself through the API on every run. |
 | 2026-10-16 | First GitHub run: CEYPETCO refused the connection and CBSL's rate search answered 403. Tests from servers in 8 countries (check-host.net) showed CEYPETCO only answers inside Sri Lanka and CBSL refuses most servers abroad, while the gazette list, the exam JSON, Litro and Google all load. Decision: the app reads fuel and CBSL on the phone; the workflow keeps Frankfurter's rates as a backup with the same item IDs. This resolves the runner-IP question for exams. |
 | 2026-10-16 | CI on `main` failed once in the debug APK build with no app change (it passed minutes earlier on the PR), most likely a download hiccup. Workflows now pin `ubuntu-24.04` (`ubuntu-latest` moves to Ubuntu 26 on 19 October 2026) and cache Gradle downloads. |
+| 2026-10-16 | M2: the gazette table's server action answers with JSON (PDF file names included), so the reader is a plain POST instead of Playwright; its ID is found again in the site's scripts after a rebuild. Gazette groups chosen: prices, taxes and imports; energy and utilities; wages and labour; elections (390 of 2,157 gazettes in 2026). PDF download moved to M4. Two live-run bugs fixed: `splitlines()` cut rows at characters like U+2028 inside descriptions, and a brief answer without data is now retried. |

@@ -3,8 +3,9 @@
 Layout:
   items/<yyyy>/<mm>/<id>.json   one feed item per file
   latest.json                   the newest items, newest first
-  datasets/<name>.json          current values the app shows (fuel prices, USD/LKR, holidays)
+  datasets/<name>.json          values the app shows (USD/LKR, holidays)
   status.json                   per-source run history
+  state/<name>.json             the scrapers' own bookkeeping, not for the app
 """
 
 from __future__ import annotations
@@ -47,6 +48,13 @@ class Store:
 
     def write_dataset(self, name: str, payload: dict[str, Any]) -> bool:
         return _write_json(self.root / "datasets" / f"{name}.json", {"schema": SCHEMA, **payload})
+
+    def read_state(self, name: str) -> dict[str, Any] | None:
+        path = self.root / "state" / f"{name}.json"
+        return _read_json(path) if path.exists() else None
+
+    def write_state(self, name: str, payload: dict[str, Any]) -> bool:
+        return _write_json(self.root / "state" / f"{name}.json", payload)
 
     def read_status(self) -> dict[str, Any]:
         path = self.root / "status.json"

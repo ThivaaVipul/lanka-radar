@@ -69,10 +69,27 @@ def test_raises_after_three_dropped_connections() -> None:
         web.get("https://example.org/")
 
 
-def test_post_form_sends_url_encoded_fields() -> None:
+def test_post_sends_form_fields() -> None:
     web, requests, _ = make([200])
 
-    web.post_form("https://example.org/", {"chk_cur[]": "USD~US Dollar"})
+    web.post("https://example.org/", form={"chk_cur[]": "USD~US Dollar"})
 
     assert requests[0].headers["Content-Type"] == "application/x-www-form-urlencoded"
     assert requests[0].content == b"chk_cur%5B%5D=USD~US+Dollar"
+
+
+def test_post_sends_raw_content_with_headers() -> None:
+    web, requests, _ = make([200])
+
+    web.post("https://example.org/", content='[{"page":1}]', headers={"next-action": "abc"})
+
+    assert requests[0].headers["next-action"] == "abc"
+    assert requests[0].content == b'[{"page":1}]'
+
+
+def test_pause_uses_the_injected_sleep() -> None:
+    web, _, sleeps = make([])
+
+    web.pause(1.0)
+
+    assert sleeps == [1.0]
