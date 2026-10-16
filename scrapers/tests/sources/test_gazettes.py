@@ -298,6 +298,34 @@ def test_older_gazettes_get_their_pdfs_read_on_later_runs(
     assert (store.read_state("gazettes") or {})["backlog"] == 0
 
 
+def test_an_older_reading_gets_its_tamil_pdf_read_again(
+    fixture_bytes: Callable[[str], bytes], store: Store
+) -> None:
+    gazette = row("2509/59", "2026-10-08", "Election Commission", ("ENGLISH", "TAMIL"))
+    files = {
+        "en": "extra-gazette-content/G 59 (E).pdf",
+        "ta": "extra-gazette-content/G 59 (T).pdf",
+    }
+    before = {"files": files, "title_en": "FILLING OF A VACANCY", "title_ta": None}
+    store.write_state("gazette-pdfs", {"2509/59": before})
+    web, calls = site(
+        {1: answer([gazette], 1)}, pdfs={"(T)": fixture_bytes("gazette-2509-59-ta.pdf")}
+    )
+    tamil = json.loads(fixture_bytes("expected_titles.json"))["gazette-2509-59-ta.pdf"]
+
+    gazettes.run(web, store, date(2026, 10, 9))
+
+    reading = (store.read_state("gazette-pdfs") or {})["2509/59"]
+    item = json.loads((store.root / "items/2026/10/gazette-2509-59.json").read_text("utf-8"))
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 59 (T).pdf"]
+    assert reading["title_en"] == "FILLING OF A VACANCY"
+    assert reading["title_ta"] == item["headline"]["ta"] == tamil
+
+    calls.clear()
+    gazettes.run(web, store, date(2026, 10, 10))
+    assert pdf_calls(calls) == []
+
+
 def test_a_routine_notice_shows_in_the_pdf_title() -> None:
     customs = Gazette("2510/01", date(2026, 10, 12), "Sri Lanka Customs")
 

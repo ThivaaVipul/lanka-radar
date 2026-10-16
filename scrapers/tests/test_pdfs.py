@@ -2,6 +2,7 @@ import json
 from collections.abc import Callable
 from typing import Any
 
+import pytest
 from tamil.txt2unicode import bamini2unicode
 
 from lanka_radar import pdfs
@@ -11,6 +12,9 @@ from lanka_radar.pdfs import Line
 EXPECTED = "expected_titles.json"
 # Tamil letters built from code points, so this file stays plain ASCII.
 TAMIL = chr(0x0B9A) + chr(0x0BC1) + chr(0x0B99) + chr(0x0BCD) + chr(0x0B95)
+KA, TA, RA, SA = chr(0x0B95), chr(0x0BA4), chr(0x0BB0), chr(0x0BB8)
+AA_SIGN, I_SIGN, II_SIGN, U_SIGN = chr(0x0BBE), chr(0x0BBF), chr(0x0BC0), chr(0x0BC1)
+E_SIGN, EE_SIGN, OO_SIGN, VIRAMA = chr(0x0BC6), chr(0x0BC7), chr(0x0BCB), chr(0x0BCD)
 
 MASTHEAD = [
     Line("The Gazette of the Democratic Socialist Republic of Sri Lanka", 36.0, True),
@@ -41,6 +45,11 @@ def chars(text: str, font: str, x: float = 0.0, size: float = 10.0) -> list[dict
     ]
 
 
+def glyphs(text: str, x: float = 0.0) -> list[dict[str, Any]]:
+    """Arial Unicode MS characters read from their glyph IDs, in drawing order."""
+    return [{**char, "glyph": True} for char in chars(text, "ArialUnicodeMS", x)]
+
+
 def test_reads_the_english_title_and_the_fuel_prices(fixture_bytes: Callable[[str], bytes]) -> None:
     reading = pdfs.read(fixture_bytes("gazette-2504-03-en.pdf"), tamil=False)
 
@@ -56,6 +65,59 @@ def test_reads_the_tamil_title_from_a_bamini_font(fixture_bytes: Callable[[str],
 
     assert reading.title == json.loads(fixture_bytes(EXPECTED))["gazette-2504-03-ta.pdf"]
     assert reading.numbers == []
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "gazette-2509-59-ta.pdf",  # an election notice: ra drawn as aa, bold drawn as outline
+        "gazette-2508-31-ta.pdf",  # an outline copy set 4 points off its filled text
+        "gazette-2509-31-ta.pdf",  # a direction number printed above the title
+    ],
+)
+def test_reads_arial_unicode_tamil_from_the_glyph_ids(
+    name: str, fixture_bytes: Callable[[str], bytes]
+) -> None:
+    reading = pdfs.read(fixture_bytes(name), tamil=True)
+
+    assert reading.title == json.loads(fixture_bytes(EXPECTED))[name]
+
+
+def test_arial_unicode_glyph_ids_map_to_tamil() -> None:
+    assert pdfs.ARIAL_TAMIL[1819] == KA
+    assert pdfs.ARIAL_TAMIL[1841] == AA_SIGN
+    assert pdfs.ARIAL_TAMIL[1865] == chr(0x0BF2)  # the last of Unicode 3.0's Tamil
+    assert pdfs.ARIAL_TAMIL[8065] == KA + U_SIGN
+    assert pdfs.ARIAL_TAMIL[8111] == SA + VIRAMA + RA + II_SIGN
+    assert pdfs.ARIAL_TAMIL[8132] == SA + VIRAMA
+
+
+def test_glyphs_are_put_in_reading_order() -> None:
+    # The e and ee signs are drawn before their letter, and ra before i with the aa glyph.
+    row = glyphs(E_SIGN + TA + AA_SIGN + I_SIGN) + glyphs(EE_SIGN + KA + AA_SIGN, x=40.0)
+
+    [line] = pdfs.lines_of(row)
+
+    assert line.text == TA + E_SIGN + RA + I_SIGN + " " + KA + OO_SIGN
+    assert line.trusted
+
+
+def test_glyphs_that_make_no_tamil_word_are_not_trusted() -> None:
+    [line] = pdfs.lines_of(glyphs(I_SIGN + KA))
+
+    assert not line.trusted
+
+
+def test_an_outline_copy_marks_the_line_bold_and_is_not_read() -> None:
+    filled = chars("Filling of a Vacancy", "ArialUnicodeMS")
+    outline = [
+        {**char, "x0": char["x0"] + 3.9, "x1": char["x1"] + 3.9, "outline": True} for char in filled
+    ]
+
+    [line] = pdfs.lines_of(filled + outline)
+
+    assert line.text == "Filling of a Vacancy"
+    assert line.bold
 
 
 def test_bamini_runs_are_converted_and_latin_runs_kept_as_they_are() -> None:
@@ -79,10 +141,13 @@ def test_sinhala_runs_are_dropped() -> None:
     assert [line.text for line in pdfs.lines_of(row)] == ["EXTRAORDINARY"]
 
 
-def test_unicode_tamil_from_another_font_is_not_trusted() -> None:
-    [line] = pdfs.lines_of(chars(TAMIL, "ArialUnicodeMS"))
+def test_tamil_from_a_text_map_is_not_trusted() -> None:
+    # Only Bamini fonts and Arial Unicode MS glyph IDs give Tamil that can be trusted.
+    [latha] = pdfs.lines_of(chars(TAMIL, "Latha"))
+    [arial] = pdfs.lines_of(chars(TAMIL, "ArialUnicodeMS"))
 
-    assert not line.trusted
+    assert not latha.trusted
+    assert not arial.trusted
 
 
 def test_title_is_the_block_after_the_masthead() -> None:
@@ -109,6 +174,20 @@ def test_title_skips_an_order_number() -> None:
     ]
 
     assert pdfs.title(lines, tamil=False) == "CONSUMER AFFAIRS AUTHORITY ACT, NO 9 OF 2003"
+
+
+def test_title_stops_at_a_bold_paragraph_set_smaller() -> None:
+    paragraph = (
+        "Mrs. M. J. Beebi, a member of the Kalpitiya Pradeshiya Sabha, has ceased to be a member"
+    )
+    lines = [
+        *MASTHEAD,
+        Line("NOTICE UNDER SECTION 10A(1)(a)", 11.0, True),
+        Line(paragraph, 10.0, True),
+        *BODY * 3,
+    ]
+
+    assert pdfs.title(lines, tamil=False) == "NOTICE UNDER SECTION 10A(1)(a)"
 
 
 def test_no_title_without_a_masthead() -> None:
