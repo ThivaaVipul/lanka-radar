@@ -4,6 +4,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 
 import '../../../helpers/fake_branch.dart';
+import '../../../helpers/fake_sources.dart';
 
 void main() {
   late AppDatabase database;
@@ -25,7 +26,11 @@ void main() {
       remote: remote.branch,
       now: () => now,
     );
-    cubit = HomeCubit(feed, now: () => now);
+    cubit = HomeCubit(
+      feed,
+      FakeSources().repository(database, now: () => now),
+      now: () => now,
+    );
   });
 
   tearDown(() async {

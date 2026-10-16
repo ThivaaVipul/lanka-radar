@@ -6,19 +6,20 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/topics.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
+import 'package:lanka_radar/features/home/widgets/now_card.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
-/// The feed: topic chips, then the items newest first under month headings.
-/// The Now card comes above them in M5d.
+/// The feed: the Now card, topic chips, then the items newest first under month
+/// headings.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(context.read())..watch(),
+      create: (context) => HomeCubit(context.read(), context.read())..watch(),
       child: const _HomeView(),
     );
   }
@@ -129,7 +130,18 @@ class _Feed extends StatelessWidget {
       itemCount: rows.length + 1,
       itemBuilder: (context, index) {
         if (index == 0) {
-          return _TopicChips(selected: state.topic, empty: rows.isEmpty);
+          final card = state.nowCard;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (card != null)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                  child: NowCard(data: card),
+                ),
+              _TopicChips(selected: state.topic, empty: rows.isEmpty),
+            ],
+          );
         }
         return switch (rows[index - 1]) {
           _Heading(:final month) => _MonthHeading(month: month),

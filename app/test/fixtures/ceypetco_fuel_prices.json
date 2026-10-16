@@ -1,0 +1,113 @@
+{
+  "success": true,
+  "data": [
+    {
+      "effectiveDate": "2026-09-30T00:00:00.000Z",
+      "product": "Lanka Auto Diesel",
+      "price": 392,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "category": "White Oil",
+      "_id": "3F3BF414-4424-4194-9F43-DEE7BE5FA652",
+      "createdAt": "2026-08-27T11:17:32.372Z",
+      "updatedAt": "2026-10-14T15:27:55.410Z"
+    },
+    {
+      "product": "Lanka Petrol 95 Octane Euro 4",
+      "category": "White Oil",
+      "effectiveDate": "2026-09-30T00:00:00.000Z",
+      "price": 475,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "_id": "51F914A7-6C8E-4085-9644-B006B8B0E3DD",
+      "createdAt": "2026-08-28T05:06:24.668Z",
+      "updatedAt": "2026-10-14T15:28:52.511Z"
+    },
+    {
+      "product": "Lanka Super Diesel 4 Star Euro 4",
+      "category": "White Oil",
+      "effectiveDate": "2026-09-30T00:00:00.000Z",
+      "price": 528,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "_id": "84035EF3-9CB7-48F9-B403-37EB86F7D258",
+      "createdAt": "2026-08-28T05:06:24.734Z",
+      "updatedAt": "2026-10-14T15:29:01.652Z"
+    },
+    {
+      "effectiveDate": "2026-09-30T00:00:00.000Z",
+      "product": "Lanka Petrol 92 Octane",
+      "price": 414,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "category": "White Oil",
+      "_id": "BE60E5C4-8D3A-4D26-89C6-B113B691036B",
+      "createdAt": "2026-08-27T11:17:32.372Z",
+      "updatedAt": "2026-10-14T15:30:26.047Z"
+    },
+    {
+      "product": "Lanka Kerosene",
+      "category": "White Oil",
+      "effectiveDate": "2026-05-30T00:00:00.000Z",
+      "price": 285,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "_id": "D8786ADE-22BC-41E3-A62C-751C5EDDA9BC",
+      "createdAt": "2026-08-28T05:06:24.600Z",
+      "updatedAt": "2026-09-21T05:03:54.905Z"
+    },
+    {
+      "product": "Lanka Fuel Oil 1500 Sec. · High Sulphur",
+      "category": "Black Oil",
+      "effectiveDate": "2026-04-01T00:00:00.000Z",
+      "price": 332,
+      "status": "active",
+      "type": "other",
+      "unit": "LKR",
+      "_id": "A1C7B4B3-961C-4F85-BB13-9321C5C38069",
+      "createdAt": "2026-08-28T05:06:24.967Z",
+      "updatedAt": "2026-09-21T05:06:28.473Z"
+    },
+    {
+      "product": "Lanka Fuel Oil Super",
+      "category": "Black Oil",
+      "effectiveDate": "2026-04-01T00:00:00.000Z",
+      "price": 332,
+      "status": "active",
+      "type": "other",
+      "unit": "LKR",
+      "_id": "C01C463E-111F-42F1-9E7D-9498228E6813",
+      "createdAt": "2026-08-28T05:06:24.885Z",
+      "updatedAt": "2026-09-21T05:06:05.030Z"
+    },
+    {
+      "product": "Lanka Fuel Oil 1500 Sec. · Low Sulphur",
+      "category": "Black Oil",
+      "effectiveDate": "2026-04-01T00:00:00.000Z",
+      "price": 332,
+      "status": "active",
+      "type": "other",
+      "unit": "LKR",
+      "_id": "F3B91238-E726-4A1F-9920-FE47FA963C69",
+      "createdAt": "2026-08-28T05:06:25.064Z",
+      "updatedAt": "2026-09-21T05:06:41.690Z"
+    },
+    {
+      "product": "Lanka Industrial Kerosene",
+      "category": "White Oil",
+      "effectiveDate": "2026-04-01T00:00:00.000Z",
+      "price": 434,
+      "status": "active",
+      "type": "fuel",
+      "unit": "LKR",
+      "_id": "FE7DD2B9-D1EE-43CE-9A0E-7F6CA4E0DACB",
+      "createdAt": "2026-08-28T05:06:24.802Z",
+      "updatedAt": "2026-09-21T05:05:49.255Z"
+    }
+  ]
+}
