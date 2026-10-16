@@ -1271,7 +1271,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POONAKARY PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பூநகரி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-10",
@@ -1421,7 +1421,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POONAKARY PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பூநகரி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-10",
@@ -1869,32 +1869,32 @@
       },
       "keyNumbers": [
         {
-          "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+          "label": "Tuna 155g",
           "value": 220.0,
           "unit": "LKR"
         },
         {
-          "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+          "label": "Tuna 425g",
           "value": 510.0,
           "unit": "LKR"
         },
         {
-          "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+          "label": "Mackerel 155g",
           "value": 240.0,
           "unit": "LKR"
         },
         {
-          "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+          "label": "Mackerel 425g",
           "value": 540.0,
           "unit": "LKR"
         },
         {
-          "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 155g and drained weigh",
+          "label": "Jack Macke-rel 155g",
           "value": 260.0,
           "unit": "LKR"
         },
         {
-          "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 425g and drained weigh",
+          "label": "Jack Macke-rel 425g",
           "value": 600.0,
           "unit": "LKR"
         }
@@ -2103,8 +2103,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MASKELIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மஸ்கெலியா பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-01",
@@ -2122,7 +2122,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MASKELIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -2132,8 +2133,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் நானாட்டான் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-01",
@@ -2151,7 +2152,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -2191,8 +2193,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BULATHKOHUPITIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் புளத்கொஹுபிட்டிய பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-01",
@@ -2210,7 +2212,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BULATHKOHUPITIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -2250,8 +2253,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடுநுவர பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-09-01",
@@ -2269,7 +2272,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },

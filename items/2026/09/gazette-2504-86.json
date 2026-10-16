@@ -9,32 +9,32 @@
   },
   "keyNumbers": [
     {
-      "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+      "label": "Tuna 155g",
       "value": 220.0,
       "unit": "LKR"
     },
     {
-      "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+      "label": "Tuna 425g",
       "value": 510.0,
       "unit": "LKR"
     },
     {
-      "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+      "label": "Mackerel 155g",
       "value": 240.0,
       "unit": "LKR"
     },
     {
-      "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+      "label": "Mackerel 425g",
       "value": 540.0,
       "unit": "LKR"
     },
     {
-      "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 155g and drained weigh",
+      "label": "Jack Macke-rel 155g",
       "value": 260.0,
       "unit": "LKR"
     },
     {
-      "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 425g and drained weigh",
+      "label": "Jack Macke-rel 425g",
       "value": 600.0,
       "unit": "LKR"
     }
