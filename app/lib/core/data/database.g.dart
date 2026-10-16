@@ -1016,17 +1016,497 @@ class SettingsCompanion extends UpdateCompanion<SettingRow> {
   }
 }
 
+class $FuelPricesTable extends FuelPrices
+    with TableInfo<$FuelPricesTable, FuelPriceRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FuelPricesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _productMeta = const VerificationMeta(
+    'product',
+  );
+  @override
+  late final GeneratedColumn<String> product = GeneratedColumn<String>(
+    'product',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _effectiveMeta = const VerificationMeta(
+    'effective',
+  );
+  @override
+  late final GeneratedColumn<String> effective = GeneratedColumn<String>(
+    'effective',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _priceMeta = const VerificationMeta('price');
+  @override
+  late final GeneratedColumn<double> price = GeneratedColumn<double>(
+    'price',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [product, effective, price];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'fuel_prices';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FuelPriceRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('product')) {
+      context.handle(
+        _productMeta,
+        product.isAcceptableOrUnknown(data['product']!, _productMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_productMeta);
+    }
+    if (data.containsKey('effective')) {
+      context.handle(
+        _effectiveMeta,
+        effective.isAcceptableOrUnknown(data['effective']!, _effectiveMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_effectiveMeta);
+    }
+    if (data.containsKey('price')) {
+      context.handle(
+        _priceMeta,
+        price.isAcceptableOrUnknown(data['price']!, _priceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_priceMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {product, effective};
+  @override
+  FuelPriceRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FuelPriceRow(
+      product: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}product'],
+      )!,
+      effective: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}effective'],
+      )!,
+      price: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}price'],
+      )!,
+    );
+  }
+
+  @override
+  $FuelPricesTable createAlias(String alias) {
+    return $FuelPricesTable(attachedDatabase, alias);
+  }
+}
+
+class FuelPriceRow extends DataClass implements Insertable<FuelPriceRow> {
+  final String product;
+
+  /// yyyy-MM-dd
+  final String effective;
+  final double price;
+  const FuelPriceRow({
+    required this.product,
+    required this.effective,
+    required this.price,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['product'] = Variable<String>(product);
+    map['effective'] = Variable<String>(effective);
+    map['price'] = Variable<double>(price);
+    return map;
+  }
+
+  FuelPricesCompanion toCompanion(bool nullToAbsent) {
+    return FuelPricesCompanion(
+      product: Value(product),
+      effective: Value(effective),
+      price: Value(price),
+    );
+  }
+
+  factory FuelPriceRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FuelPriceRow(
+      product: serializer.fromJson<String>(json['product']),
+      effective: serializer.fromJson<String>(json['effective']),
+      price: serializer.fromJson<double>(json['price']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'product': serializer.toJson<String>(product),
+      'effective': serializer.toJson<String>(effective),
+      'price': serializer.toJson<double>(price),
+    };
+  }
+
+  FuelPriceRow copyWith({String? product, String? effective, double? price}) =>
+      FuelPriceRow(
+        product: product ?? this.product,
+        effective: effective ?? this.effective,
+        price: price ?? this.price,
+      );
+  FuelPriceRow copyWithCompanion(FuelPricesCompanion data) {
+    return FuelPriceRow(
+      product: data.product.present ? data.product.value : this.product,
+      effective: data.effective.present ? data.effective.value : this.effective,
+      price: data.price.present ? data.price.value : this.price,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FuelPriceRow(')
+          ..write('product: $product, ')
+          ..write('effective: $effective, ')
+          ..write('price: $price')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(product, effective, price);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FuelPriceRow &&
+          other.product == this.product &&
+          other.effective == this.effective &&
+          other.price == this.price);
+}
+
+class FuelPricesCompanion extends UpdateCompanion<FuelPriceRow> {
+  final Value<String> product;
+  final Value<String> effective;
+  final Value<double> price;
+  final Value<int> rowid;
+  const FuelPricesCompanion({
+    this.product = const Value.absent(),
+    this.effective = const Value.absent(),
+    this.price = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FuelPricesCompanion.insert({
+    required String product,
+    required String effective,
+    required double price,
+    this.rowid = const Value.absent(),
+  }) : product = Value(product),
+       effective = Value(effective),
+       price = Value(price);
+  static Insertable<FuelPriceRow> custom({
+    Expression<String>? product,
+    Expression<String>? effective,
+    Expression<double>? price,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (product != null) 'product': product,
+      if (effective != null) 'effective': effective,
+      if (price != null) 'price': price,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FuelPricesCompanion copyWith({
+    Value<String>? product,
+    Value<String>? effective,
+    Value<double>? price,
+    Value<int>? rowid,
+  }) {
+    return FuelPricesCompanion(
+      product: product ?? this.product,
+      effective: effective ?? this.effective,
+      price: price ?? this.price,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (product.present) {
+      map['product'] = Variable<String>(product.value);
+    }
+    if (effective.present) {
+      map['effective'] = Variable<String>(effective.value);
+    }
+    if (price.present) {
+      map['price'] = Variable<double>(price.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FuelPricesCompanion(')
+          ..write('product: $product, ')
+          ..write('effective: $effective, ')
+          ..write('price: $price, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $RatesTable extends Rates with TableInfo<$RatesTable, RateRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $RatesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _dayMeta = const VerificationMeta('day');
+  @override
+  late final GeneratedColumn<String> day = GeneratedColumn<String>(
+    'day',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rateMeta = const VerificationMeta('rate');
+  @override
+  late final GeneratedColumn<double> rate = GeneratedColumn<double>(
+    'rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [day, rate];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'rates';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<RateRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('day')) {
+      context.handle(
+        _dayMeta,
+        day.isAcceptableOrUnknown(data['day']!, _dayMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dayMeta);
+    }
+    if (data.containsKey('rate')) {
+      context.handle(
+        _rateMeta,
+        rate.isAcceptableOrUnknown(data['rate']!, _rateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rateMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {day};
+  @override
+  RateRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return RateRow(
+      day: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}day'],
+      )!,
+      rate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}rate'],
+      )!,
+    );
+  }
+
+  @override
+  $RatesTable createAlias(String alias) {
+    return $RatesTable(attachedDatabase, alias);
+  }
+}
+
+class RateRow extends DataClass implements Insertable<RateRow> {
+  /// yyyy-MM-dd
+  final String day;
+  final double rate;
+  const RateRow({required this.day, required this.rate});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['day'] = Variable<String>(day);
+    map['rate'] = Variable<double>(rate);
+    return map;
+  }
+
+  RatesCompanion toCompanion(bool nullToAbsent) {
+    return RatesCompanion(day: Value(day), rate: Value(rate));
+  }
+
+  factory RateRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return RateRow(
+      day: serializer.fromJson<String>(json['day']),
+      rate: serializer.fromJson<double>(json['rate']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'day': serializer.toJson<String>(day),
+      'rate': serializer.toJson<double>(rate),
+    };
+  }
+
+  RateRow copyWith({String? day, double? rate}) =>
+      RateRow(day: day ?? this.day, rate: rate ?? this.rate);
+  RateRow copyWithCompanion(RatesCompanion data) {
+    return RateRow(
+      day: data.day.present ? data.day.value : this.day,
+      rate: data.rate.present ? data.rate.value : this.rate,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RateRow(')
+          ..write('day: $day, ')
+          ..write('rate: $rate')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(day, rate);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is RateRow && other.day == this.day && other.rate == this.rate);
+}
+
+class RatesCompanion extends UpdateCompanion<RateRow> {
+  final Value<String> day;
+  final Value<double> rate;
+  final Value<int> rowid;
+  const RatesCompanion({
+    this.day = const Value.absent(),
+    this.rate = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  RatesCompanion.insert({
+    required String day,
+    required double rate,
+    this.rowid = const Value.absent(),
+  }) : day = Value(day),
+       rate = Value(rate);
+  static Insertable<RateRow> custom({
+    Expression<String>? day,
+    Expression<double>? rate,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (day != null) 'day': day,
+      if (rate != null) 'rate': rate,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  RatesCompanion copyWith({
+    Value<String>? day,
+    Value<double>? rate,
+    Value<int>? rowid,
+  }) {
+    return RatesCompanion(
+      day: day ?? this.day,
+      rate: rate ?? this.rate,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (day.present) {
+      map['day'] = Variable<String>(day.value);
+    }
+    if (rate.present) {
+      map['rate'] = Variable<double>(rate.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RatesCompanion(')
+          ..write('day: $day, ')
+          ..write('rate: $rate, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $ItemsTable items = $ItemsTable(this);
   late final $FilesTable files = $FilesTable(this);
   late final $SettingsTable settings = $SettingsTable(this);
+  late final $FuelPricesTable fuelPrices = $FuelPricesTable(this);
+  late final $RatesTable rates = $RatesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [items, files, settings];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    items,
+    files,
+    settings,
+    fuelPrices,
+    rates,
+  ];
 }
 
 typedef $$ItemsTableCreateCompanionBuilder =
@@ -1589,6 +2069,296 @@ typedef $$SettingsTableProcessedTableManager =
       SettingRow,
       PrefetchHooks Function()
     >;
+typedef $$FuelPricesTableCreateCompanionBuilder =
+    FuelPricesCompanion Function({
+      required String product,
+      required String effective,
+      required double price,
+      Value<int> rowid,
+    });
+typedef $$FuelPricesTableUpdateCompanionBuilder =
+    FuelPricesCompanion Function({
+      Value<String> product,
+      Value<String> effective,
+      Value<double> price,
+      Value<int> rowid,
+    });
+
+class $$FuelPricesTableFilterComposer
+    extends Composer<_$AppDatabase, $FuelPricesTable> {
+  $$FuelPricesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get product => $composableBuilder(
+    column: $table.product,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get effective => $composableBuilder(
+    column: $table.effective,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get price => $composableBuilder(
+    column: $table.price,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FuelPricesTableOrderingComposer
+    extends Composer<_$AppDatabase, $FuelPricesTable> {
+  $$FuelPricesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get product => $composableBuilder(
+    column: $table.product,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get effective => $composableBuilder(
+    column: $table.effective,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get price => $composableBuilder(
+    column: $table.price,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FuelPricesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FuelPricesTable> {
+  $$FuelPricesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get product =>
+      $composableBuilder(column: $table.product, builder: (column) => column);
+
+  GeneratedColumn<String> get effective =>
+      $composableBuilder(column: $table.effective, builder: (column) => column);
+
+  GeneratedColumn<double> get price =>
+      $composableBuilder(column: $table.price, builder: (column) => column);
+}
+
+class $$FuelPricesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FuelPricesTable,
+          FuelPriceRow,
+          $$FuelPricesTableFilterComposer,
+          $$FuelPricesTableOrderingComposer,
+          $$FuelPricesTableAnnotationComposer,
+          $$FuelPricesTableCreateCompanionBuilder,
+          $$FuelPricesTableUpdateCompanionBuilder,
+          (
+            FuelPriceRow,
+            BaseReferences<_$AppDatabase, $FuelPricesTable, FuelPriceRow>,
+          ),
+          FuelPriceRow,
+          PrefetchHooks Function()
+        > {
+  $$FuelPricesTableTableManager(_$AppDatabase db, $FuelPricesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FuelPricesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FuelPricesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FuelPricesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> product = const Value.absent(),
+                Value<String> effective = const Value.absent(),
+                Value<double> price = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FuelPricesCompanion(
+                product: product,
+                effective: effective,
+                price: price,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String product,
+                required String effective,
+                required double price,
+                Value<int> rowid = const Value.absent(),
+              }) => FuelPricesCompanion.insert(
+                product: product,
+                effective: effective,
+                price: price,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FuelPricesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FuelPricesTable,
+      FuelPriceRow,
+      $$FuelPricesTableFilterComposer,
+      $$FuelPricesTableOrderingComposer,
+      $$FuelPricesTableAnnotationComposer,
+      $$FuelPricesTableCreateCompanionBuilder,
+      $$FuelPricesTableUpdateCompanionBuilder,
+      (
+        FuelPriceRow,
+        BaseReferences<_$AppDatabase, $FuelPricesTable, FuelPriceRow>,
+      ),
+      FuelPriceRow,
+      PrefetchHooks Function()
+    >;
+typedef $$RatesTableCreateCompanionBuilder =
+    RatesCompanion Function({
+      required String day,
+      required double rate,
+      Value<int> rowid,
+    });
+typedef $$RatesTableUpdateCompanionBuilder =
+    RatesCompanion Function({
+      Value<String> day,
+      Value<double> rate,
+      Value<int> rowid,
+    });
+
+class $$RatesTableFilterComposer extends Composer<_$AppDatabase, $RatesTable> {
+  $$RatesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get rate => $composableBuilder(
+    column: $table.rate,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$RatesTableOrderingComposer
+    extends Composer<_$AppDatabase, $RatesTable> {
+  $$RatesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get rate => $composableBuilder(
+    column: $table.rate,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$RatesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $RatesTable> {
+  $$RatesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get day =>
+      $composableBuilder(column: $table.day, builder: (column) => column);
+
+  GeneratedColumn<double> get rate =>
+      $composableBuilder(column: $table.rate, builder: (column) => column);
+}
+
+class $$RatesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $RatesTable,
+          RateRow,
+          $$RatesTableFilterComposer,
+          $$RatesTableOrderingComposer,
+          $$RatesTableAnnotationComposer,
+          $$RatesTableCreateCompanionBuilder,
+          $$RatesTableUpdateCompanionBuilder,
+          (RateRow, BaseReferences<_$AppDatabase, $RatesTable, RateRow>),
+          RateRow,
+          PrefetchHooks Function()
+        > {
+  $$RatesTableTableManager(_$AppDatabase db, $RatesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$RatesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RatesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RatesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> day = const Value.absent(),
+                Value<double> rate = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RatesCompanion(day: day, rate: rate, rowid: rowid),
+          createCompanionCallback:
+              ({
+                required String day,
+                required double rate,
+                Value<int> rowid = const Value.absent(),
+              }) => RatesCompanion.insert(day: day, rate: rate, rowid: rowid),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$RatesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $RatesTable,
+      RateRow,
+      $$RatesTableFilterComposer,
+      $$RatesTableOrderingComposer,
+      $$RatesTableAnnotationComposer,
+      $$RatesTableCreateCompanionBuilder,
+      $$RatesTableUpdateCompanionBuilder,
+      (RateRow, BaseReferences<_$AppDatabase, $RatesTable, RateRow>),
+      RateRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -1599,4 +2369,8 @@ class $AppDatabaseManager {
       $$FilesTableTableManager(_db, _db.files);
   $$SettingsTableTableManager get settings =>
       $$SettingsTableTableManager(_db, _db.settings);
+  $$FuelPricesTableTableManager get fuelPrices =>
+      $$FuelPricesTableTableManager(_db, _db.fuelPrices);
+  $$RatesTableTableManager get rates =>
+      $$RatesTableTableManager(_db, _db.rates);
 }

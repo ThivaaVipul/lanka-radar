@@ -53,18 +53,47 @@ class Settings extends Table {
   Set<Column> get primaryKey => {key};
 }
 
-@DriftDatabase(tables: [Items, Files, Settings])
+/// CEYPETCO's prices as the phone has seen them: a row per product and the day a
+/// price started, so the price before stays known.
+@DataClassName('FuelPriceRow')
+class FuelPrices extends Table {
+  TextColumn get product => text()();
+
+  /// yyyy-MM-dd
+  TextColumn get effective => text()();
+  RealColumn get price => real()();
+
+  @override
+  Set<Column> get primaryKey => {product, effective};
+}
+
+/// USD/LKR by day, from CBSL's rate search.
+@DataClassName('RateRow')
+class Rates extends Table {
+  /// yyyy-MM-dd
+  TextColumn get day => text()();
+  RealColumn get rate => real()();
+
+  @override
+  Set<Column> get primaryKey => {day};
+}
+
+@DriftDatabase(tables: [Items, Files, Settings, FuelPrices, Rates])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _open());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onUpgrade: (migrator, from, to) async {
       if (from < 2) {
         await migrator.createTable(settings);
+      }
+      if (from < 3) {
+        await migrator.createTable(fuelPrices);
+        await migrator.createTable(rates);
       }
     },
   );
@@ -106,6 +135,21 @@ class AppDatabase extends _$AppDatabase {
 
   Future<void> saveSetting(String key, String value) =>
       into(settings).insertOnConflictUpdate(SettingRow(key: key, value: value));
+
+  Future<List<FuelPriceRow>> allFuelPrices() => select(fuelPrices).get();
+
+  Future<void> saveFuelPrices(List<FuelPriceRow> rows) =>
+      batch((batch) => batch.insertAllOnConflictUpdate(fuelPrices, rows));
+
+  /// Rates from [from] (yyyy-MM-dd) on, newest first.
+  Future<List<RateRow>> ratesSince(String from) =>
+      (select(rates)
+            ..where((row) => row.day.isBiggerOrEqualValue(from))
+            ..orderBy([(row) => OrderingTerm.desc(row.day)]))
+          .get();
+
+  Future<void> saveRates(List<RateRow> rows) =>
+      batch((batch) => batch.insertAllOnConflictUpdate(rates, rows));
 
   Future<FileRow?> file(String path) =>
       (select(files)..where((row) => row.path.equals(path))).getSingleOrNull();

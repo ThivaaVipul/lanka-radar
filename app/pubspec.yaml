@@ -30,6 +30,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/fonts/albert_sans/OFL.txt
+    - assets/holidays_ta.json
   fonts:
     - family: Albert Sans
       fonts:

@@ -8,6 +8,7 @@ import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
 import '../helpers/fake_branch.dart';
+import '../helpers/fake_sources.dart';
 
 void main() {
   late AppDatabase database;
@@ -22,7 +23,8 @@ void main() {
 
   Future<void> open(WidgetTester tester) async {
     final feed = FeedRepository(database: database, remote: remote.branch);
-    await tester.pumpWidget(LankaRadarApp(feed: feed));
+    final now = FakeSources().repository(database);
+    await tester.pumpWidget(LankaRadarApp(feed: feed, now: now));
     await settle(tester);
   }
 

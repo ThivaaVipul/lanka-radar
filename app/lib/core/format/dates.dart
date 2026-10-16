@@ -28,6 +28,18 @@ const _monthNames = [
   'December',
 ];
 
+const _weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+/// 2026-10-12, as the data branch writes days.
+String isoDay(DateTime day) =>
+    '${day.year.toString().padLeft(4, '0')}-'
+    '${day.month.toString().padLeft(2, '0')}-'
+    '${day.day.toString().padLeft(2, '0')}';
+
+/// Sat 8 Nov, for lists of days.
+String weekdayDate(DateTime day) =>
+    '${_weekdays[day.weekday - 1]} ${day.day} ${_months[day.month - 1]}';
+
 /// 12 Oct 2026, the same on every phone whatever its language.
 String shortDate(DateTime day) =>
     '${day.day} ${_months[day.month - 1]} ${day.year}';

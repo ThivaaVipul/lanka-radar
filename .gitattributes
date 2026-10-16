@@ -6,6 +6,7 @@
 
 # Saved source responses stay byte for byte as the sources sent them.
 scrapers/tests/fixtures/** -text
+app/test/fixtures/** -text
 
 *.png binary
 *.jpg binary
