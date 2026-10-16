@@ -60,16 +60,18 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and comm
 | --- | --- |
 | `latest.json` | the newest 200 feed items, newest first |
 | `items/<yyyy>/<mm>/<id>.json` | every feed item, one file each |
+| `months/<yyyy>-<mm>.json` | every feed item of that month, newest first: the app's history |
+| `months/index.json` | each month's item count and file hash, so the app downloads only the months that changed |
 | `datasets/usd-lkr.json` | Frankfurter's copy of CBSL's daily USD/LKR rate since 1 January 2026, a backup that often runs days behind |
 | `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
 | `status.json` | each source's last run, last success and last error |
 | `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
 
-Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices. A new Litro price list is an item too.
+Feed items are news: a gazette (fuel price revisions included), a USD/LKR move of 2% or more in a week, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices. A new Litro price list is an item too.
 
 Each gazette item's PDFs are read once: the title on page 1 becomes the headline when the list only names the issuer, and in price gazettes (CAA orders, fuel revisions) the price table becomes key numbers. Tamil titles come from an old Bamini-encoded font, converted to Unicode with Open-Tamil, or from Arial Unicode MS, whose text in these PDFs is scrambled, so it is read from the glyph IDs instead.
 
-CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync and makes the same fuel and rate items, with the same IDs, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
+CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync: the fuel prices fill its Now card (fuel price changes reach the feed as fuel revision gazettes), and the same-day USD/LKR rate makes the same rate items, with the same IDs, as the workflow's backup copy, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 
 ## Git workflow
 

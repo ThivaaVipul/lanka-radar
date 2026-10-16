@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M4 merged, the `data` branch is live; M4b (Tamil titles from glyph IDs) built on `feat/tamil-ocr`. Next: M5 (app).**
+Status: **M0 to M4b merged, the `data` branch is live. Next: M5 (app), grilled on 2026-10-16 and planned below; its first piece, monthly item files (M5a), is on `feat/monthly-items`.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -10,18 +10,28 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - **Purpose:** personal side project, built in the open. For now it is only for you: nothing is posted anywhere.
 - **Content (v1):** price controls and fuel (CAA price-control gazettes, CEYPETCO fuel, LP gas), daily-life extraordinary gazettes, holidays and USD/LKR rates, exam notices.
 - **USD/LKR:** the app reads CBSL's own site on the phone (the same-day official rate); the workflow keeps Frankfurter's copy as a backup.
-- **Sri Lanka-only sources (decided after the first GitHub run):** CEYPETCO's fuel prices and CBSL's rate search refuse GitHub's servers abroad, so the app fetches both on the phone during its sync and makes the same items, with the same IDs, as the workflow would.
+- **Sri Lanka-only sources (decided after the first GitHub run):** CEYPETCO's fuel prices and CBSL's rate search refuse GitHub's servers abroad, so the app fetches both on the phone during its sync. CBSL's same-day rate also makes the rare USD/LKR items, with the same IDs as the workflow's. Fuel makes no items on the phone (decided in the M5 grilling): fuel price changes arrive as fuel revision gazettes, which carry the old and new prices, and CEYPETCO's live prices fill the Now card.
 - **LP gas:** alert when Litro posts a new price-list image, and show that image. Reading the numbers comes later.
 - **Moving parts:** only GitHub and the app. No Claude, Firebase, servers or other accounts.
 - **Scrapers:** Python on GitHub Actions; results saved as JSON in the repo.
 - **Text:** no AI. Each item uses its official headline, taken from the first page of its English and Tamil PDFs. (GitHub Models, the first choice, was retired on 30 July 2026.)
-- **App:** Android (Flutter). English menus; each item shows the English headline with the Tamil one a tap away, plus the official PDF in each language that exists.
+- **App:** Android (Flutter). English menus; each item shows the English headline with the Tamil one a tap away, plus the official PDF in each language that exists. Details in the M5 decisions below.
 - **Alerts:** price changes, exam dates and results, holiday reminders, other daily-life gazettes and USD/LKR moves over 2% in a week. Every topic has its own on/off switch.
 - **Name:** Lanka Radar. Repo `lanka-radar`, app ID `app.lankaradar`.
 - **Parked:** Lanka MCP, Sinhala, public posting (Facebook Page, WhatsApp Channel), a web page.
 - **Gazette groups (2026-10-16):** prices, taxes and imports; energy and utilities; wages and labour; elections. Each becomes a feed item with an alert; everything else (land title settlement, land acquisition and so on) is skipped.
 - **Tamil gazette titles (2026-10-16):** Tamil PDFs come in two kinds. Bamini-encoded fonts (GP-Rasanji, Bamini, Tharmini) convert cleanly to Unicode with Open-Tamil. The rest, about 8 in 9 (election and CAA notices), use Arial Unicode MS with scrambled text maps; their Tamil is read from the glyph IDs instead, which gives the exact text (M4b). OCR was the first plan for them and turned out not to be needed.
 - **Exam notices (2026-10-16):** school exams (O/L, A/L, Grade 5 scholarship, GIT), their timetables, and the department's own press releases and notices. Admission cards for institutional exams, religious and Piriven exams, recruitment exams and the monthly exam calendars are left out.
+- **App (M5 grilling, 2026-10-16):**
+  - Feed card: topic and issuer with the date, the headline in up to 3 lines, and on price items the first key numbers with the price before. Titles in capitals are shown in title case (small words in lower case; acronyms, numbers and roman numerals kept); the data keeps the official text. When the English headline is only the issuer (no English PDF), the card shows the Tamil title.
+  - Feed: newest first, a quiet month heading where the month changes, the date on each card. A dot marks items that arrived since the last visit; older history filling in is never marked.
+  - Item screen: the English headline with the Tamil one under it, key numbers, the gazette number and dates, English and Tamil PDF buttons (Sinhala only when it is the only PDF) and the official page. PDFs open in the browser.
+  - Search: English and Tamil headlines, issuer and number, over all history, offline.
+  - History: a fresh install shows the newest items first and loads the rest of 2026 in the background.
+  - Now card above the feed: all six CEYPETCO fuel prices, USD/LKR, the next holiday, LP gas (the price list's date) and the latest exam timetable. Tapping opens small sheets: fuel prices with the date each started and the price before; USD/LKR over the last 30 days; the year's remaining holidays with the Tamil name under each; Litro's price-list image; the exam item.
+  - Refresh on opening when the last refresh is over 15 minutes old, and on pull to refresh (background sync is M6).
+  - Health: nothing extra while all is well. A source with no success for a day puts a warning in the app bar, and a stale Now value shows its own date ("as of 14 Oct"). A Sources screen lists each source's last success and error.
+  - Look: Zen Mode's style (Albert Sans, rounded cards, motion, dark mode following the system) with the teal accent; Tamil uses the phone's Tamil font.
 
 ### Defaults (accepted 2026-10-16)
 
@@ -68,12 +78,13 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **Data branch (`data`)**
 
-- `items/<yyyy>/<mm>/<id>.json`: one file per feed item. Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. IDs are stable, e.g. `gazette-2510-36`, `fuel-2026-09-30`, `rates-usd-lkr-2026-06-08`, `exam-2468`.
+- `items/<yyyy>/<mm>/<id>.json`: one file per feed item. Feed items are news: a gazette (fuel price revisions included), a new LP gas price list, a USD/LKR move of 2% or more in a week, an exam notice. IDs are stable, e.g. `gazette-2510-36`, `gas-litro-2026-10-06`, `rates-usd-lkr-2026-06-08`, `exam-2468`.
 - `latest.json`: the newest 200 items, small enough to fetch on every sync. It changes only when items do.
+- `months/<yyyy-mm>.json` (from M5): every item published in that month, for the app's history and so that later fixes to older items (a Tamil title found by a re-read) reach the phone. `months/index.json` lists each month with its item count and a hash of its file, so the app downloads only the months that changed.
 - `datasets/<name>.json`: values for the "now" strip and reminders: `usd-lkr` (Frankfurter's copy of the daily rate since 1 January 2026, a backup for the phone's same-day CBSL rate) and `holidays` (public holidays from 2026 on). Fuel prices live on the phone, which reads them itself.
 - `state/<name>.json`: the scrapers' own bookkeeping, not for the app (e.g. the gazette action ID and the newest gazette seen).
 - `status.json`: when the last run happened, and per source the last run, last success, last error and failures in a row. A source that fails 3 runs in a row fails the workflow once (one email); later failures are only recorded, and the app flags the source.
-- Item fields: `id`, `source`, `topic` (`prices`, `gazettes`, `rates`, `holidays`, `exams`), `issuer`, `headline` (en, ta), `keyNumbers`, `published`, `effective`, `links` (pdf_en, pdf_ta, pdf_si, image, page), `data` (structured values, e.g. old and new fuel price), `alert`.
+- Item fields: `id`, `source`, `topic` (`prices`, `gazettes`, `rates`, `holidays`, `exams`), `issuer`, `headline` (en, ta), `keyNumbers`, `published`, `effective`, `links` (pdf_en, pdf_ta, pdf_si, image, page), `data` (structured values, e.g. a gazette's number and group), `alert`.
 - The app reads `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`: public, no token.
 
 **Headlines (from M4)**
@@ -86,13 +97,17 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **App**
 
-- Home: a "now" strip (fuel prices, USD/LKR, next holiday, the latest exam timetable) above the feed, with topic chips.
-- Item: English headline, Tamil a tap away, key numbers where the source has them, the PDF in English or Tamil.
-- Settings: an alert switch per topic, quiet hours, source health.
-- Sync: WorkManager about every 3 hours on any network. It compares `latest.json` with the local database (drift, with full-text search) and notifies for new alert items, outside quiet hours only.
-- Phone-side sources, in the same sync: CEYPETCO's fuel feed and CBSL's rate search, which only answer inside Sri Lanka. The app keeps the fuel price history and the daily rate locally and makes `fuel-<date>` and `rates-usd-lkr-<date>` items exactly as the workflow did, so items from either side merge by ID. If CBSL can't be reached, the "now" rate falls back to `datasets/usd-lkr.json`.
-- Holiday reminders: local notifications scheduled for the evening before (inexact, so no exact-alarm permission).
-- The notification permission is asked once, after the first sync.
+- Screens: Home (the Now card, topic chips and the feed), Item, Search, Sources and About, with a plain `Navigator` like Zen Mode. Topic chips: All, Prices, Gazettes, Exams, Rates (holidays are not feed items).
+- Data: drift (SQLite) holds the items, with a trigram full-text index over the English and Tamil headlines, issuer and number, so Tamil words match too. A refresh reads `months/index.json` and downloads only the months that changed, newest first, plus `datasets/holidays.json`, `datasets/usd-lkr.json` and `status.json`; ETags keep unchanged files from downloading again.
+- Headlines: title case for words in capitals is applied on screen only. A card shows the Tamil headline when the English one is only the issuer.
+- Phone-side sources, in the same refresh: CEYPETCO's active fuel prices (one row per product, no history) and CBSL's rate search, which only answer inside Sri Lanka. The app keeps each fuel product's price history and the daily rate. A fuel price's "before" comes from that history, otherwise from the latest fuel revision gazette; until CEYPETCO first answers, the fuel part of the Now card shows that gazette's prices with its date. CBSL's rates make `rates-usd-lkr-<date>` items exactly as the workflow does from Frankfurter, so both sides merge by ID; if CBSL can't be reached, the rate falls back to `datasets/usd-lkr.json`.
+- Holidays: Tamil names come from a small table in the app; a name missing from it stays English only.
+- Health: `status.json` for the workflow's sources, and the app's own record for CEYPETCO and CBSL.
+- The app declares the INTERNET permission in its main manifest (release builds have none yet), in M5.
+- Settings (M6): an alert switch per topic, quiet hours.
+- Background sync (M6): WorkManager about every 3 hours on any network; notifies for new alert items, outside quiet hours only.
+- Holiday reminders (M6): local notifications scheduled for the evening before (inexact, so no exact-alarm permission).
+- The notification permission is asked once, after the first sync (M6).
 
 ## Milestones
 
@@ -147,10 +162,13 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 ### M5: App
 
-- [ ] Feed from `latest.json`, local database with search, item screen, PDF links
-- [ ] History for a fresh install: `latest.json` holds only the newest 200 items (about three months of gazettes), so the workflow adds monthly item files for the app to backfill from
-- [ ] Phone-side sources: fuel (CEYPETCO) and USD/LKR (CBSL), with local history and the same item IDs as the workflow; tests on saved responses (the M1 fixtures are in git history)
-- [ ] "Now" strip, topic chips, pull to refresh, source health
+Five pull requests, each with its tests:
+
+- [x] M5a, workflow: monthly item files and their index (`months/`), written from the stored items on every run
+- [ ] M5b, app foundation: Zen Mode's theme with teal and Albert Sans, the drift database with its search index, the refresh (index, changed months, datasets, status, ETags), the INTERNET permission
+- [ ] M5c, feed and item: Home feed with month headings, cards, title case, new-item dots, topic chips and pull to refresh; the item screen with PDF buttons; search
+- [ ] M5d, Now card: CEYPETCO fuel and CBSL rates on the phone with local history (tests on saved responses; the M1 fixtures are in git history), the detail sheets, holidays with Tamil names, LP gas and the exam timetable
+- [ ] M5e, health and finish: Sources and About screens, stale warnings, empty and error states; checked on a real phone
 
 ### M6: Alerts
 
@@ -178,6 +196,8 @@ None right now.
 - Exam dates read from the timetable PDFs, for a "next exam" in the now strip
 - Weekly gazettes, Acts and Bills; water and power interruptions; Laugfs gas
 - OCR (Tesseract, on GitHub's servers) for Tamil PDFs in a font the reader doesn't know, if one shows up
+- Search inside the gazettes' text (the workflow would keep each PDF's text)
+- An in-app PDF viewer that keeps offline copies
 
 ## Log
 
@@ -198,3 +218,5 @@ None right now.
 | 2026-10-16 | M4: gazette PDFs read with pdfplumber. English gazettes have a fixed masthead followed by a bold or capitals title block; English titles were found in 37 of 37 PDFs. Tamil PDFs use either Bamini-encoded fonts (converted with Open-Tamil; Latin runs inside them kept as they are) or Arial Unicode with scrambled text, which turned out to be about 8 in 9 rather than the half first estimated, so Tamil OCR became its own step (M4b). Price tables from CAA orders and fuel revisions became key numbers. The group rules now also run on the PDF title, which drops weekly customs exchange-rate notices listed only as "Sri Lanka Customs". |
 | 2026-10-16 | M4 merged (PR #6). Its first run on GitHub read 40 gazettes in under 3 minutes: English titles for all 37 with an English PDF. The only Bamini Tamil PDFs were 3 customs notices, dropped as routine, so no feed item had a Tamil headline yet. The state saved before M4 had no backlog count, so that run looked at only the last 3 weeks; it left 3 gazettes waiting, which switches the next runs to the whole year. |
 | 2026-10-16 | M4b: the scrambled Arial Unicode Tamil turned out to be readable without OCR. These PDFs keep Arial Unicode MS's glyph IDs, and that font's glyph order never changed, so the Tamil comes from the glyph IDs: letters and signs through the font's own cmap (found in a copy one PDF embeds), ligatures as seen in 24 PDFs, signs drawn left of their letter moved after it, and look-alike glyphs fixed (aa drawn for ra before i). All 24 Tamil PDFs of the first M4 run got their titles, checked by eye against the rendered pages, and the titles of 40 English and Bamini PDFs are unchanged. Decision: decode instead of OCR, which moved to Later. Bold drawn as an outline copy is skipped, and a bold paragraph after a larger title ends the title. |
+| 2026-10-16 | M4b merged (PR #7). Its first run on GitHub gave a Tamil title to all 35 gazettes read so far that have a Tamil PDF; 32 feed items carry one (the other 3 are customs notices dropped as routine). |
+| 2026-10-16 | M5 grilled; the decisions are under "App (M5 grilling)". Fuel price changes now come only from fuel revision gazettes, which carry the old and new prices; CEYPETCO, which gives only each product's active price, fills the Now card instead of making items, so a change shows (and later alerts) once. History reaches the app as monthly item files with an index, so later fixes to older items reach the phone too. M5 is split into five pull requests, M5a to M5e. |

@@ -1,3 +1,4 @@
+import hashlib
 import json
 from datetime import UTC, date, datetime, timedelta
 
@@ -37,6 +38,55 @@ def test_latest_lists_the_newest_200_first(store: Store) -> None:
     assert latest["schema"] == 1
     assert len(latest["items"]) == 200
     assert [entry["id"] for entry in latest["items"][:2]] == ["i204", "i203"]
+
+
+def test_months_hold_their_items_newest_first_with_an_index(store: Store) -> None:
+    store.put_item(item("a", date(2026, 9, 3)))
+    store.put_item(item("b", date(2026, 9, 28)))
+    store.put_item(item("c", date(2026, 10, 2)))
+
+    assert store.write_months()
+
+    folder = store.root / "months"
+    september = json.loads((folder / "2026-09.json").read_text(encoding="utf-8"))
+    assert september["schema"] == 1
+    assert september["month"] == "2026-09"
+    assert [entry["id"] for entry in september["items"]] == ["b", "a"]
+    index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
+    assert [(month["month"], month["count"]) for month in index["months"]] == [
+        ("2026-10", 1),
+        ("2026-09", 2),
+    ]
+    digest = hashlib.sha256((folder / "2026-09.json").read_bytes()).hexdigest()[:16]
+    assert index["months"][1]["hash"] == digest
+
+
+def test_months_change_only_with_their_items(store: Store) -> None:
+    store.put_item(item("a", date(2026, 9, 3)))
+    store.put_item(item("c", date(2026, 10, 2)))
+    store.write_months()
+    index = json.loads((store.root / "months" / "index.json").read_text(encoding="utf-8"))
+
+    assert not store.write_months()
+
+    store.put_item(item("a", date(2026, 9, 3), headline="corrected"))
+    assert store.write_months()
+    after = json.loads((store.root / "months" / "index.json").read_text(encoding="utf-8"))
+    assert after["months"][0] == index["months"][0]
+    assert after["months"][1]["hash"] != index["months"][1]["hash"]
+
+
+def test_a_month_without_items_loses_its_file(store: Store) -> None:
+    store.put_item(item("a", date(2026, 9, 3)))
+    store.put_item(item("c", date(2026, 10, 2)))
+    store.write_months()
+
+    store.drop_item("a")
+
+    assert store.write_months()
+    assert not (store.root / "months" / "2026-09.json").exists()
+    index = json.loads((store.root / "months" / "index.json").read_text(encoding="utf-8"))
+    assert [month["month"] for month in index["months"]] == ["2026-10"]
 
 
 def test_datasets_carry_the_schema_and_skip_unchanged_writes(store: Store) -> None:

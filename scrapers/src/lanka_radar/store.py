@@ -3,6 +3,8 @@
 Layout:
   items/<yyyy>/<mm>/<id>.json   one feed item per file
   latest.json                   the newest items, newest first
+  months/<yyyy>-<mm>.json       every item of a month, newest first, for the app's history
+  months/index.json             each month's item count and file hash
   datasets/<name>.json          values the app shows (USD/LKR, holidays)
   status.json                   per-source run history
   state/<name>.json             the scrapers' own bookkeeping, not for the app
@@ -10,6 +12,7 @@ Layout:
 
 from __future__ import annotations
 
+import hashlib
 import json
 from datetime import datetime
 from pathlib import Path
@@ -44,10 +47,34 @@ class Store:
 
     def write_latest(self) -> bool:
         items = [_read_json(path) for path in self.root.glob("items/*/*/*.json")]
-        items.sort(key=lambda item: (item["published"], item["id"]), reverse=True)
+        items.sort(key=_by_date, reverse=True)
         return _write_json(
             self.root / "latest.json", {"schema": SCHEMA, "items": items[:LATEST_COUNT]}
         )
+
+    def write_months(self) -> bool:
+        """One file per month with every item published in it, and an index of each
+        month's item count and file hash, so the app downloads only the months that
+        changed. A month left without items loses its file. True when anything changed."""
+        months: dict[str, list[dict[str, Any]]] = {}
+        for path in self.root.glob("items/*/*/*.json"):
+            month = f"{path.parent.parent.name}-{path.parent.name}"
+            months.setdefault(month, []).append(_read_json(path))
+        folder = self.root / "months"
+        changed = False
+        index = []
+        for month, items in sorted(months.items(), reverse=True):
+            items.sort(key=_by_date, reverse=True)
+            path = folder / f"{month}.json"
+            changed |= _write_json(path, {"schema": SCHEMA, "month": month, "items": items})
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+            index.append({"month": month, "count": len(items), "hash": digest})
+        for path in folder.glob("*-*.json"):
+            if path.stem not in months:
+                path.unlink()
+                changed = True
+        changed |= _write_json(folder / "index.json", {"schema": SCHEMA, "months": index})
+        return changed
 
     def read_dataset(self, name: str) -> dict[str, Any] | None:
         path = self.root / "datasets" / f"{name}.json"
@@ -70,6 +97,10 @@ class Store:
     def write_status(self, report: dict[str, Any], now: datetime) -> bool:
         payload = {"schema": SCHEMA, "checked": stamp(now), "sources": report.get("sources", {})}
         return _write_json(self.root / "status.json", payload)
+
+
+def _by_date(item: dict[str, Any]) -> tuple[str, str]:
+    return item["published"], item["id"]
 
 
 def _read_json(path: Path) -> Any:
