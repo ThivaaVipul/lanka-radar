@@ -19,6 +19,14 @@ def test_put_item_reports_new_changed_and_unchanged(store: Store) -> None:
     assert not store.has_item("b")
 
 
+def test_drop_item_removes_it(store: Store) -> None:
+    store.put_item(item("a", date(2026, 3, 1)))
+
+    assert store.drop_item("a")
+    assert not store.has_item("a")
+    assert not store.drop_item("a")
+
+
 def test_latest_lists_the_newest_200_first(store: Store) -> None:
     for n in range(205):
         store.put_item(item(f"i{n:03d}", date(2026, 1, 1) + timedelta(days=n)))

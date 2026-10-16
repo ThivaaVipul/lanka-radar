@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M2 merged, the `data` branch is live; M3 (exams and LP gas) built on `feat/exams-gas`. Next: M4 (headlines and topics).**
+Status: **M0 to M3 merged, the `data` branch is live; M4 (headlines and price tables) built on `feat/headlines`. Next: M4b (Tamil OCR), then M5 (app).**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -20,6 +20,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - **Name:** Lanka Radar. Repo `lanka-radar`, app ID `app.lankaradar`.
 - **Parked:** Lanka MCP, Sinhala, public posting (Facebook Page, WhatsApp Channel), a web page.
 - **Gazette groups (2026-10-16):** prices, taxes and imports; energy and utilities; wages and labour; elections. Each becomes a feed item with an alert; everything else (land title settlement, land acquisition and so on) is skipped.
+- **Tamil gazette titles (2026-10-16):** Tamil PDFs come in two kinds. Bamini-encoded fonts (GP-Rasanji, Bamini, Tharmini) convert cleanly to Unicode with Open-Tamil; Arial Unicode ones have scrambled text, and in practice that is about 8 in 9 (election and CAA notices). M4 ships with English-only headlines for those; OCR for them is the next step (M4b), tested on GitHub's servers first.
 - **Exam notices (2026-10-16):** school exams (O/L, A/L, Grade 5 scholarship, GIT), their timetables, and the department's own press releases and notices. Admission cards for institutional exams, religious and Piriven exams, recruitment exams and the monthly exam calendars are left out.
 
 ### Defaults (accepted 2026-10-16)
@@ -75,12 +76,13 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Item fields: `id`, `source`, `topic` (`prices`, `gazettes`, `rates`, `holidays`, `exams`), `issuer`, `headline` (en, ta), `keyNumbers`, `published`, `effective`, `links` (pdf_en, pdf_ta, pdf_si, image, page), `data` (structured values, e.g. old and new fuel price), `alert`.
 - The app reads `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`: public, no token.
 
-**Headlines**
+**Headlines (from M4)**
 
-- A gazette's headline is the title block on the first page of its PDF, below the masthead, read separately from the English and the Tamil PDF. A missing language means a missing headline in that language.
-- If no title block is found, the headline falls back to the list's description (often just the issuer).
-- Key numbers come from rules where the source is structured: fuel prices from the JSON, CAA prices from the price table where it can be read.
-- Daily-life gazettes are picked by issuer (Consumer Affairs Authority, Customs, Inland Revenue, Excise, Motor Traffic, Election Commission...) and by keywords in the headline.
+- Each gazette item's English and Tamil PDFs are read once (`pdfs.py`), 40 gazettes a run at most, newest first; while a backlog remains, runs read the list back to January so older items come into view. Results are cached in `state/gazette-pdfs.json` and read again only when a gazette's files change. A broken PDF is recorded and not retried.
+- Page 1's title is the bold, capitals or larger block right after the masthead (which ends with the last line of 13.5 pt or more), skipping a reference line above it (DGC/A877/PL305., Order No.: 97).
+- English headline: the list's description when it names a subject ("Ministry of Energy - Revise the Fuel Price"), otherwise the PDF title, otherwise the description. Tamil headline: the Tamil PDF's title, only when its text is trusted (see the decision above).
+- Price tables (a header naming a price column) become key numbers; a table with a current and a revised price (fuel revisions) gives the revised price with the current one as before. A price table also puts the item under Prices.
+- The group rules are checked again against the PDF title, so a routine notice listed only by its issuer (a weekly customs exchange-rate notice) is dropped.
 
 **App**
 
@@ -129,10 +131,17 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 ### M4: Headlines and topics
 
-- [ ] PDF download (English and Tamil where they exist) for gazette items, text extraction, OCR fallback; only for items, a few per run, newest first
-- [ ] Headline extraction from English and Tamil PDFs (text layer or OCR), tested on a sample of real gazettes
-- [ ] CAA price tables read into key numbers where possible
-- [ ] Daily-life topics by issuer and headline keywords
+- [x] PDF download (English and Tamil where they exist) for gazette items, 40 a run, newest first, with the backlog read on later runs
+- [x] Title block from page 1; English titles found in 37 of 37 English PDFs in a live run
+- [x] Tamil titles from Bamini-encoded fonts (Open-Tamil); scrambled Arial Unicode text is never used
+- [x] Price tables read into key numbers: CAA orders (canned fish, bottled water) and fuel revisions (with the price before)
+- [x] Routine notices caught by their PDF title are dropped (weekly customs exchange rates)
+
+### M4b: Tamil OCR
+
+- [ ] Tesseract with the Tamil model in the scrape workflow, reading the title area of Tamil PDFs whose text is scrambled
+- [ ] Tried on GitHub's servers against real gazettes and checked by eye before it is trusted
+- [ ] Only used when the Bamini path gives nothing; the result must be mostly Tamil letters
 
 ### M5: App
 
@@ -183,3 +192,4 @@ None right now.
 | 2026-10-16 | CI on `main` failed once in the debug APK build with no app change (it passed minutes earlier on the PR), most likely a download hiccup. Workflows now pin `ubuntu-24.04` (`ubuntu-latest` moves to Ubuntu 26 on 19 October 2026) and cache Gradle downloads. |
 | 2026-10-16 | M2: the gazette table's server action answers with JSON (PDF file names included), so the reader is a plain POST instead of Playwright; its ID is found again in the site's scripts after a rebuild. Gazette groups chosen: prices, taxes and imports; energy and utilities; wages and labour; elections (390 of 2,157 gazettes in 2026). PDF download moved to M4. Two live-run bugs fixed: `splitlines()` cut rows at characters like U+2028 inside descriptions, and a brief answer without data is now retried. |
 | 2026-10-16 | M3: exam notices from the CMS news feed plus timetables from its exam calendar (type `EXCA`), chosen as school exams and the department's notices; these items are the first with real Tamil headlines. The calendar holds PDFs rather than dates, so "next exam date" in the now strip became "the latest exam timetable", and reading dates from the PDFs moved to Later. Litro's price list became an item, keyed by the date in the image's file name. |
+| 2026-10-16 | M4: gazette PDFs read with pdfplumber. English gazettes have a fixed masthead followed by a bold or capitals title block; English titles were found in 37 of 37 PDFs. Tamil PDFs use either Bamini-encoded fonts (converted with Open-Tamil; Latin runs inside them kept as they are) or Arial Unicode with scrambled text, which turned out to be about 8 in 9 rather than the half first estimated, so Tamil OCR became its own step (M4b). Price tables from CAA orders and fuel revisions became key numbers. The group rules now also run on the PDF title, which drops weekly customs exchange-rate notices listed only as "Sri Lanka Customs". |
