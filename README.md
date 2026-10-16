@@ -40,6 +40,7 @@ flutter run
 | App analyze | `flutter analyze` |
 | App tests | `flutter test` |
 | App debug build | `flutter build apk --debug` |
+| Regenerate the database code | `dart run build_runner build` (in `app/`, after changing the drift tables) |
 
 CI (`.github/workflows/ci.yml`) runs all of these on every push to `main` and every pull request.
 

@@ -19,6 +19,7 @@ dart format lib test          # CI fails on unformatted code
 flutter analyze               # strict mode, must be clean
 flutter test
 flutter build apk --debug
+dart run build_runner build   # after changing the drift tables; the generated code is committed
 ```
 
 Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/tests/fixtures/`, never on live sites. Dart tests mirror `lib/` under `app/test/`.
