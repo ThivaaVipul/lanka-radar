@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment Policy",
   "headline": {
     "en": "Department of Trade and Investment Policy - Order Under Sec. 2and 5 of the Special Commodity Levy Act No, 48 of 2007",
-    "ta": null
+    "ta": "2007 ஆம் ஆண்டின் 48 ஆம் இலக்க, சிறப்புப் பண்ட அறவீட்டுச் சட்டம் பிரிவு 2 மற்றும் 5 இன் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-03-31",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "SPECIAL COMMODITY LEVY ACT, No. 48 oF 2007 Order under Section 2 and 5"
   },
   "alert": true
 }

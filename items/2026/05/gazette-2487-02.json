@@ -5,7 +5,7 @@
   "issuer": "Ministry of Trade and Investment Policy",
   "headline": {
     "en": "Ministry of Trade and Investment Policy - Special Commodity Levy Act, No. 48 of 2007",
-    "ta": null
+    "ta": "அமைச்சரவை விஞ்ஞாபனம் 2007 ஆம் ஆண்டின் 48 ஆம் இலக்க விசேட வியாபாரப் பண்ட அறவீட்டுச் சட்டம் பிரிவு 2 இன் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-05-04",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "SPECIAL COMMODITY LEVY ACT, No. 48 oF 2007 Order under Section 2"
   },
   "alert": true
 }

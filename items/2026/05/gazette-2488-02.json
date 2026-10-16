@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment Policy",
   "headline": {
     "en": "Department of Trade and Investment Policy - Regulations Under Section 101 ( chapter 235) of the Customs Ordinance",
-    "ta": null
+    "ta": "சுங்க அறிவித்தல் சுங்கக் கட்டளைச்சட்டத்தின் (அத்தியாயம் 235) பிரிவு 101 இன் கீழான ஒழுங்குவிதிகள்"
   },
   "keyNumbers": [],
   "published": "2026-05-11",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CUSTOMS NOTIFICATIONS Regulations under Section 101 (Chapter 235) of the Customs Ordinance"
   },
   "alert": true
 }

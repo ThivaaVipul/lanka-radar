@@ -5,7 +5,7 @@
   "issuer": "Ministry of Labour",
   "headline": {
     "en": "Ministry of Labour - Wages Boards Ordinance Wages Board for Security Service Trade",
-    "ta": null
+    "ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவித்தல் பாதுகாப்புச் சேவைத் தொழிலுக்கான சம்பளச் சபை"
   },
   "keyNumbers": [],
   "published": "2026-04-28",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notice WAGES BOARD FOR SECURITY SERVICE TRADE"
   },
   "alert": true
 }

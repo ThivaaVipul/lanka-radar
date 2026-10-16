@@ -5,7 +5,7 @@
   "issuer": "Department of Labour",
   "headline": {
     "en": "Department of Labour - Special Allowance Payable to Workers March - 2026",
-    "ta": null
+    "ta": "கொக்கோ, ஏலக்காய், மிளகு என்பன பயிரிடுதல் மற்றும் உற்பத்தி செய்தல் தொழில்களில் உள்ள வேலையாட்களுக்கு வழங்கப்பட வேண்டிய விசேடபடிகள்"
   },
   "keyNumbers": [],
   "published": "2026-05-07",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
   },
   "alert": true
 }

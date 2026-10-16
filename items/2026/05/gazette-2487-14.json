@@ -5,7 +5,7 @@
   "issuer": "Ministry of Labour",
   "headline": {
     "en": "Ministry of Labour - Wages Board for Janitorial Service Trade",
-    "ta": null
+    "ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவில்தல் சுத்திகரிப்புச் சேவைத் தொழிலுக்கான சம்பளச் சபை"
   },
   "keyNumbers": [],
   "published": "2026-05-05",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notice WAGES BOARD FOR JANITORIAL SERVICE TRADE"
   },
   "alert": true
 }
