@@ -5,7 +5,7 @@
   "issuer": "Department of Census and Statistics",
   "headline": {
     "en": "Department of Census and Statistics - The Census Ordinance (Chapter 143)",
-    "ta": null
+    "ta": "தொகைமதிப்புக் கட்டளைச் சட்டம் (அத்தியாயம் 143)"
   },
   "keyNumbers": [],
   "published": "2026-06-25",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "THE CENSUS ORDINANCE (CHAPTER 143)"
   },
   "alert": true
 }

@@ -4,8 +4,8 @@
   "topic": "gazettes",
   "issuer": "Election Commission- Appointed M. P. Mecansi Mendis for Moratuwa M.C",
   "headline": {
-    "en": "Election Commission- Appointed M. P. Mecansi Mendis for Moratuwa M.C",
-    "ta": null
+    "en": "LOCAL AUTHORITIES ELECTIONS ORDINANCE ( CHAPTER 262) Notice under Section 66(2)",
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டம் (262 ஆம் அத்தியாயம்) 66 (2) ஆம் பிரிவின் கீழான அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-07-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "LOCAL AUTHORITIES ELECTIONS ORDINANCE ( CHAPTER 262) Notice under Section 66(2)"
   },
   "alert": true
 }

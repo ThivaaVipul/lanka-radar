@@ -4,8 +4,8 @@
   "topic": "gazettes",
   "issuer": "Imports and Exports (Control) Act, 01 of 1969",
   "headline": {
-    "en": "Imports and Exports (Control) Act, 01 of 1969",
-    "ta": null
+    "en": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969",
+    "ta": "1969 ஆம் ஆண்டின் 1 ஆம் இலக்கம் கொண்ட இறக்குமதி மற்றும் ஏற்றுமதி (கட்டுப்பாட்டு)ச் சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-06-18",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969"
   },
   "alert": true
 }

@@ -9,7 +9,7 @@
       "issuer": "Department of Census and Statistics",
       "headline": {
         "en": "Department of Census and Statistics - The Census Ordinance (Chapter 143)",
-        "ta": null
+        "ta": "தொகைமதிப்புக் கட்டளைச் சட்டம் (அத்தியாயம் 143)"
       },
       "keyNumbers": [],
       "published": "2026-06-25",
@@ -27,7 +27,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "THE CENSUS ORDINANCE (CHAPTER 143)"
       },
       "alert": true
     },
@@ -38,7 +39,7 @@
       "issuer": "Department of Census and Statistics",
       "headline": {
         "en": "Department of Census and Statistics - National Consumer Price Index - May 2026",
-        "ta": null
+        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண் (அடிப்படை : 2021 = 100)"
       },
       "keyNumbers": [],
       "published": "2026-06-23",
@@ -56,7 +57,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
       },
       "alert": true
     },
@@ -67,7 +69,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of vacancy in the office of member of the Ja -ela p.s",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் ஜா எல பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-06-23",
@@ -85,7 +87,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JA - ELA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -112,7 +115,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WELIGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -139,7 +143,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Embilipitiya Urban Council"
       },
       "alert": true
     },
@@ -168,7 +173,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ERAVUR PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -200,8 +206,8 @@
       "topic": "gazettes",
       "issuer": "Imports and Exports (Control) Act, 01 of 1969",
       "headline": {
-        "en": "Imports and Exports (Control) Act, 01 of 1969",
-        "ta": null
+        "en": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969",
+        "ta": "1969 ஆம் ஆண்டின் 1 ஆம் இலக்கம் கொண்ட இறக்குமதி மற்றும் ஏற்றுமதி (கட்டுப்பாட்டு)ச் சட்டம்"
       },
       "keyNumbers": [],
       "published": "2026-06-18",
@@ -219,7 +225,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969"
       },
       "alert": true
     },

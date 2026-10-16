@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment policy",
   "headline": {
     "en": "Department of Trade and Investment policy - Notification under the Customs Ordinance Revenue Protection order No. 01/2026",
-    "ta": null
+    "ta": "சுங்கக் கட்டளைச் சட்டத்தின் கீழான அறிவித்தல் (அரசிறைப் பாதுகாப்புக் கட்டளை இல. 01/2026)"
   },
   "keyNumbers": [],
   "published": "2026-07-14",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTIFICATION UNDER THE CUSTOMS ORDINANCE (Revenue Protection Order - No. 01/2026)"
   },
   "alert": true
 }
