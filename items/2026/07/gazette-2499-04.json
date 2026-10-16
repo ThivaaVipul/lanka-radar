@@ -5,7 +5,7 @@
   "issuer": "Ministry of Labour",
   "headline": {
     "en": "Ministry of Labour - Special Allowance payable to workers in the Cocoa Cardamom and pepper Growing and Manufacturing Trade - Month of June",
-    "ta": null
+    "ta": "கொக்கோ, ஏலம், மிளகு பயிரிடுதலுக்கும் உற்பத்திக்குமான தொழிலின் வேலையாட்களுக்கு செலுத்தத்தக்க விசேட படி"
   },
   "keyNumbers": [],
   "published": "2026-07-27",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
   },
   "alert": true
 }

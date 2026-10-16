@@ -5,7 +5,7 @@
   "issuer": "Inland Revenue Department",
   "headline": {
     "en": "Inland Revenue Department - Value Added Tax Act No 14 of 2002",
-    "ta": null
+    "ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க, பெறுமதி சேர் வரிச் சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-08-06",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "VALUE ADDED TAX ACT, No. 14 of 2002"
   },
   "alert": true
 }

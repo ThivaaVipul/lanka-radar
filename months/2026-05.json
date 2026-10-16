@@ -923,12 +923,15 @@
       "published": "2026-05-05",
       "effective": null,
       "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes"
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207690%20(T)_1792146325.pdf"
       },
       "data": {
         "number": "2487/11",
         "group": "elections",
-        "languages": []
+        "languages": [
+          "ta"
+        ]
       },
       "alert": true
     },

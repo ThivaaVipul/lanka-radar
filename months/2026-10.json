@@ -3,6 +3,56 @@
   "month": "2026-10",
   "items": [
     {
+      "id": "gazette-2510-44",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கலிகமுவ பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208070%20(T)_1792146463.pdf"
+      },
+      "data": {
+        "number": "2510/44",
+        "group": "elections",
+        "languages": [
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-43",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மன்னார் நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208069%20(T)_1792146427.pdf"
+      },
+      "data": {
+        "number": "2510/43",
+        "group": "elections",
+        "languages": [
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2510-20",
       "source": "gazettes",
       "topic": "gazettes",

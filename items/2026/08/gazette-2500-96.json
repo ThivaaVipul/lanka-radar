@@ -1,0 +1,30 @@
+{
+  "id": "gazette-2500-96",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission - Filling of a vacancy in the office of Memeber of the Dehiaththakandiya P.S",
+    "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் தெஹிஅத்தகண்டிய பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "keyNumbers": [],
+  "published": "2026-08-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207876%20(E)_1786525260.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207876%20(S)_1786525244.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207876%20(T)%20New_1786610823.pdf"
+  },
+  "data": {
+    "number": "2500/96",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DEHIATHTHAKANDIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "alert": true
+}

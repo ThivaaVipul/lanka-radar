@@ -1,0 +1,29 @@
+{
+  "id": "gazette-2473-30",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Central Bank of Sri Lanka",
+  "headline": {
+    "en": "Central Bank of Sri Lanka - Central Bank of Sri Lanka Act, No 16 of 2023",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-01-30",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-30_E_1784567907.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-30_S_1784567907.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2473-30_T_1784567907.pdf"
+  },
+  "data": {
+    "number": "2473/30",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ]
+  },
+  "alert": true
+}

@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Notice under Section 10 A 91) (a) Ceased to be a member of the walikamam South west P.S",
-    "ta": null
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வலிகாமம் தென்மேற்கு பிரதேச சபை"
   },
   "keyNumbers": [],
   "published": "2026-08-07",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Walikamam South West Pradeshiya Sabha"
   },
   "alert": true
 }

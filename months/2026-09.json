@@ -1829,6 +1829,32 @@
       "alert": true
     },
     {
+      "id": "gazette-2504-89",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48127%20%5BSec%20I-I%5D%20E_1791977327.pdf"
+      },
+      "data": {
+        "number": "2504/89",
+        "group": "labour",
+        "languages": [
+          "en"
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2504-88",
       "source": "gazettes",
       "topic": "gazettes",

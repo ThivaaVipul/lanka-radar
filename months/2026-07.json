@@ -78,7 +78,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Deraniyala P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், தெரணியகலை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
       },
       "keyNumbers": [],
       "published": "2026-07-30",
@@ -96,7 +96,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DERANIYAGALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -107,7 +108,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Under Section 10 A (1) (a) Ceased to be a member of the vavuniya South Tamil P.S",
-        "ta": null
+        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வவுனியா தெற்கு தமிழ் பிரதேச சபை"
       },
       "keyNumbers": [],
       "published": "2026-07-30",
@@ -125,7 +126,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Vavuniya South Tamil Pradeshiya Sabha"
       },
       "alert": true
     },
@@ -136,9 +138,22 @@
       "issuer": "Ministry of Energy",
       "headline": {
         "en": "Ministry of Energy - Revise the Fuel Price",
-        "ta": null
+        "ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டத்தின் 66 1 (a) ஆம் பிரிவின் கீழான கட்டளைகள்"
       },
-      "keyNumbers": [],
+      "keyNumbers": [
+        {
+          "label": "Lanka Auto Diesel",
+          "value": 382.0,
+          "unit": "LKR",
+          "previous": 407.0
+        },
+        {
+          "label": "Lanka Petrol 92 Octane",
+          "value": 414.0,
+          "unit": "LKR",
+          "previous": 434.0
+        }
+      ],
       "published": "2026-07-30",
       "effective": null,
       "links": {
@@ -154,7 +169,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)"
       },
       "alert": true
     },
@@ -165,7 +181,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Notice under Section 10 A (1) (a) Kotmale P.S",
-        "ta": null
+        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் கொத்மலை பிரதேச சபை"
       },
       "keyNumbers": [],
       "published": "2026-07-28",
@@ -183,7 +199,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kothmale Pradeshiya Sabha"
       },
       "alert": true
     },
@@ -194,7 +211,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the kotapola P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் கொட்டபொல பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-28",
@@ -212,7 +229,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KOTAPOLA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -223,7 +241,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Verugal P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், வெருகல் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
       },
       "keyNumbers": [],
       "published": "2026-07-28",
@@ -248,7 +266,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling a vacancy in the office of Chairman of the Akkaraipatttu P.Sz",
-        "ta": null
+        "ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்ட உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 66ஆ(2) என்னும் பிரிவின் கீழ், அக்கரைப்பற்று பிரதேச சபையின் தவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
       },
       "keyNumbers": [],
       "published": "2026-07-28",
@@ -266,7 +284,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF CHAIRMAN OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66B (2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017"
       },
       "alert": true
     },
@@ -277,7 +296,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling the Vacancy in the Post of Chairman of the Kinniya U/S and Addakachenai P.S",
-        "ta": null
+        "ta": "2012 ஆம் ஆண்டின் 22 ஆம் இலக்க, உள்ளூர் அதிகார சபைகள் (திருத்தச்) சட்டத்தினால் திருத்தி அமைக்கப்பட்ட (262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66(எ) ஆம் பிரிவின் கீழ் கிண்ணியா நகர சபை மற்றும் அட்டாளைச்சேனை பிரதேச சபையின் உபதவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-28",
@@ -295,7 +314,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING THE VACANCY IN THE POST OF VICE CHAIRMAN OF THE KINNIYA URBAN COUNCIL AND ADDALAICHENAI PRADESHIYA SABHA UNDER SECTION (66)(G) OF THE LOCAL AUTHORITIES (ELECTIONS) ACT, 2012 (CHAPTER 262) AS AMENDED BY THE LOCAL AUTHORITIES (ELECTIONS) ACT, No. 22 OF 2012"
       },
       "alert": true
     },
@@ -306,7 +326,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Pathaweheta P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பாத்தஹேவாஹெட்ட பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -324,7 +344,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PATHAHEWAHETA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -335,7 +356,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in  the office of member of Minipe Pradeshiya Sabha and Valikam East Pradeshiya Sabha",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், மினிப்பே பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -353,7 +374,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MINIPE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -364,7 +386,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Akkaraipattu P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் அக்கரைப்பற்று பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -382,7 +404,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -393,7 +416,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of Member of Jaffna M/C",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் யாழ்ப்பாணம் மாநகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -411,7 +434,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JAFFNA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -421,7 +445,7 @@
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "Ministry of Labour",
+        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
         "ta": null
       },
       "keyNumbers": [],
@@ -438,7 +462,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
       },
       "alert": true
     },
@@ -465,7 +490,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MAYOR OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66B (2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTION (AMENDMENT) ACT, No. 16 OF 2017"
       },
       "alert": true
     },
@@ -476,7 +502,7 @@
       "issuer": "Commission of Elections",
       "headline": {
         "en": "Commission of Elections - Filling member vacancy of Kekirawa Pradeshiya Sabha and Elpitiya P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கெக்கிராவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -494,7 +520,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KEKIRAWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -505,7 +532,7 @@
       "issuer": "Ministry of Labour",
       "headline": {
         "en": "Ministry of Labour - Special Allowance payable to workers in the Cocoa Cardamom and pepper Growing and Manufacturing Trade - Month of June",
-        "ta": null
+        "ta": "கொக்கோ, ஏலம், மிளகு பயிரிடுதலுக்கும் உற்பத்திக்குமான தொழிலின் வேலையாட்களுக்கு செலுத்தத்தக்க விசேட படி"
       },
       "keyNumbers": [],
       "published": "2026-07-27",
@@ -523,7 +550,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
       },
       "alert": true
     },
@@ -533,8 +561,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE COLOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் கொழும்பு மாநகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-24",
@@ -552,7 +580,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE COLOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -562,8 +591,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KATANA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) ஆம் பிரிவின் கீழ் கட்டானை பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-24",
@@ -581,7 +610,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KATANA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -591,8 +621,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KINNIYA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கிண்ணியா நகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-24",
@@ -610,7 +640,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KINNIYA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -637,7 +668,8 @@
         "languages": [
           "en",
           "si"
-        ]
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
       },
       "alert": true
     },
@@ -672,8 +704,8 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
-        "ta": null
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE RATTOTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் இரத்தோட்டை பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-07-22",
@@ -691,7 +723,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE RATTOTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -730,8 +763,8 @@
       "topic": "gazettes",
       "issuer": "Department of Census and Statistics",
       "headline": {
-        "en": "Department of Census and Statistics",
-        "ta": null
+        "en": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)",
+        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண்"
       },
       "keyNumbers": [],
       "published": "2026-07-22",
@@ -749,7 +782,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
       },
       "alert": true
     },
@@ -1475,6 +1509,35 @@
       "alert": true
     },
     {
+      "id": "gazette-2495-56",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission- Appointed M. P. Mecansi Mendis for Moratuwa M.C",
+      "headline": {
+        "en": "Election Commission- Appointed M. P. Mecansi Mendis for Moratuwa M.C",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-07-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-56_E_1784568268.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-56_S_1784568268.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-56_T_1784568268.pdf"
+      },
+      "data": {
+        "number": "2495/56",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2495-26",
       "source": "gazettes",
       "topic": "prices",
@@ -1524,6 +1587,35 @@
       "data": {
         "number": "2495/25",
         "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2495-22",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission filling of a vacancy in the official of member of the Maritimepattu P.S.",
+      "headline": {
+        "en": "Election Commission filling of a vacancy in the official of member of the Maritimepattu P.S.",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-07-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-22_E_1784568267.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-22_S_1784568267.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-22_T_1784568267.pdf"
+      },
+      "data": {
+        "number": "2495/22",
+        "group": "elections",
         "languages": [
           "en",
           "si",
