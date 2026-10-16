@@ -1,0 +1,23 @@
+{
+  "id": "exam-2465",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "General Information Technology Examination - 2026",
+    "ta": "பொதுத் தகவல் தொழில்நுட்பப் பரீட்சை - 2026"
+  },
+  "keyNumbers": [],
+  "published": "2026-09-18",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727822221.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727844158.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727847864.pdf"
+  },
+  "data": {
+    "kind": "school"
+  },
+  "alert": true
+}

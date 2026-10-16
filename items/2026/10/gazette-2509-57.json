@@ -12,12 +12,14 @@
   "effective": null,
   "links": {
     "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208055%20(E)_1792132850.pdf",
     "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208055%20%20(S)_1792132006.pdf"
   },
   "data": {
     "number": "2509/57",
     "group": "elections",
     "languages": [
+      "en",
       "si"
     ]
   },

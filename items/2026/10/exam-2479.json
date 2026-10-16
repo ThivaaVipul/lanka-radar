@@ -1,0 +1,23 @@
+{
+  "id": "exam-2479",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "General Certificate of Education (Ordinary Level) Examination – 2026 Time Table",
+    "ta": "கல்விப் பொதுத் தராதரப் பத்திர (சாதாரண நிலை)ப் பரீட்சை – 2026 கால அட்டவணை"
+  },
+  "keyNumbers": [],
+  "published": "2026-10-12",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/examcalendar",
+    "pdf_en": "https://www.doenets.lk/images/resources/EXCA/OL%20timetable%20English%20-%202026_1791794467174.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/EXCA/OL%20Time%20Table%20Sinhala%202026_1791794478728.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/EXCA/OL%20TAMIL%20TIME%20TABLE%202026_1791794445485.pdf"
+  },
+  "data": {
+    "kind": "timetable"
+  },
+  "alert": true
+}

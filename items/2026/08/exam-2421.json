@@ -1,0 +1,23 @@
+{
+  "id": "exam-2421",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "General Certificate of Education (Advanced Level) Examination - 2026 (Amended)",
+    "ta": "கல்விப் பொதுத் தராதரப் பத்திர (உயர்தர)ப் பரீடசை - 2026 (திருத்தப்பட்டது)"
+  },
+  "keyNumbers": [],
+  "published": "2026-08-07",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138793924.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138797788.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138801966.pdf"
+  },
+  "data": {
+    "kind": "school"
+  },
+  "alert": true
+}

@@ -1,0 +1,22 @@
+{
+  "id": "exam-2340",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Press Release",
+    "ta": "ஊடக அறிவிப்பு"
+  },
+  "keyNumbers": [],
+  "published": "2026-03-26",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/allmedia032426-03242026144528%20%283%29_1774502281545.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/allmedia032426-03242026144528%20%283%29_1774502287423.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}

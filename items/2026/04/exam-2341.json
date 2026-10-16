@@ -1,0 +1,23 @@
+{
+  "id": "exam-2341",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "MEDIA NOTICE G.C.E. (A/L) EXAMINATION – 2025 Re-scrutiny of Results Calling Applications for Re-scrutiny of Results (For schools and private applicants)",
+    "ta": "ஊடக அறிவித்தல் க.பொ.த. (உ/தர)ப் பரீட்சை – 2025 பெறுபேறு மீள்பரிசீலனை பெறுபேறு மீள்பரிசீலனைக்கான விண்ணப்பப்படிவம் (பாடசாலை மற்றும் தனிப்பட்ட பரீட்சார்த்திகளுக்கு)"
+  },
+  "keyNumbers": [],
+  "published": "2026-04-06",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479342716.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479356359.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479363032.pdf"
+  },
+  "data": {
+    "kind": "school"
+  },
+  "alert": true
+}

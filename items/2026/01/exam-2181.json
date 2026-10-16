@@ -1,0 +1,22 @@
+{
+  "id": "exam-2181",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Press Release - 2025.12.10",
+    "ta": "ஊடக அறிவிப்பு - 2025.12.10"
+  },
+  "keyNumbers": [],
+  "published": "2026-01-02",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/Media%2020251210%20%282%29_1765377706209.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Media%2020251210%20%282%29_1765377716699.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}

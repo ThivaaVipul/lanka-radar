@@ -1,0 +1,23 @@
+{
+  "id": "exam-2378",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Grade 5 Scholarship Examinations - 2026",
+    "ta": "5ம் தர புலமைப்பரிசல் பரீட்சை - 2026"
+  },
+  "keyNumbers": [],
+  "published": "2026-06-12",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/Grade%205%20TimeTable%202026_1781236977928.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/Grade%205%20TimeTable%202026_1781236985381.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Grade%205%20TimeTable%202026_1781236991428.pdf"
+  },
+  "data": {
+    "kind": "school"
+  },
+  "alert": true
+}

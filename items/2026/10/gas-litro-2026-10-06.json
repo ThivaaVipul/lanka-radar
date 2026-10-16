@@ -1,0 +1,19 @@
+{
+  "id": "gas-litro-2026-10-06",
+  "source": "gas",
+  "topic": "prices",
+  "issuer": "Litro Gas Lanka",
+  "headline": {
+    "en": "Litro gas prices from 6 Oct 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-06",
+  "effective": "2026-10-06",
+  "links": {
+    "image": "https://www.litrogas.com/wp-content/uploads/2026/10/Price-List-06.10.2026.webp",
+    "page": "https://www.litrogas.com/price-list/"
+  },
+  "data": {},
+  "alert": true
+}

@@ -1,0 +1,22 @@
+{
+  "id": "exam-2310",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Press Release",
+    "ta": "ஊடக அறிவிப்பு"
+  },
+  "keyNumbers": [],
+  "published": "2026-02-11",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/FINAL%2001%20ENG_1770782421985.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/FINAL%2001%20SINHALA_1770782450141.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}

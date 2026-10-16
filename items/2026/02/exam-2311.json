@@ -1,0 +1,22 @@
+{
+  "id": "exam-2311",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Press Release",
+    "ta": "ஊடக அறிவிப்பு"
+  },
+  "keyNumbers": [],
+  "published": "2026-02-11",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/2_1770784198597.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/3_1770784223498.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}

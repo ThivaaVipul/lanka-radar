@@ -15,12 +15,14 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208065%20(E)_1792132899.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208065%20%20(S)_1792132119.pdf"
       },
       "data": {
         "number": "2510/20",
         "group": "elections",
         "languages": [
+          "en",
           "si"
         ]
       },
@@ -77,6 +79,29 @@
           "si",
           "ta"
         ]
+      },
+      "alert": true
+    },
+    {
+      "id": "exam-2479",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "General Certificate of Education (Ordinary Level) Examination – 2026 Time Table",
+        "ta": "கல்விப் பொதுத் தராதரப் பத்திர (சாதாரண நிலை)ப் பரீட்சை – 2026 கால அட்டவணை"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/examcalendar",
+        "pdf_en": "https://www.doenets.lk/images/resources/EXCA/OL%20timetable%20English%20-%202026_1791794467174.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/EXCA/OL%20Time%20Table%20Sinhala%202026_1791794478728.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/EXCA/OL%20TAMIL%20TIME%20TABLE%202026_1791794445485.pdf"
+      },
+      "data": {
+        "kind": "timetable"
       },
       "alert": true
     },
@@ -150,12 +175,14 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208055%20(E)_1792132850.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208055%20%20(S)_1792132006.pdf"
       },
       "data": {
         "number": "2509/57",
         "group": "elections",
         "languages": [
+          "en",
           "si"
         ]
       },
@@ -269,6 +296,25 @@
           "si"
         ]
       },
+      "alert": true
+    },
+    {
+      "id": "gas-litro-2026-10-06",
+      "source": "gas",
+      "topic": "prices",
+      "issuer": "Litro Gas Lanka",
+      "headline": {
+        "en": "Litro gas prices from 6 Oct 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-06",
+      "effective": "2026-10-06",
+      "links": {
+        "image": "https://www.litrogas.com/wp-content/uploads/2026/10/Price-List-06.10.2026.webp",
+        "page": "https://www.litrogas.com/price-list/"
+      },
+      "data": {},
       "alert": true
     },
     {
@@ -1334,6 +1380,29 @@
         "number": "2506/116",
         "group": "prices-taxes",
         "languages": []
+      },
+      "alert": true
+    },
+    {
+      "id": "exam-2465",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "General Information Technology Examination - 2026",
+        "ta": "பொதுத் தகவல் தொழில்நுட்பப் பரீட்சை - 2026"
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/news",
+        "pdf_en": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727822221.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727844158.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727847864.pdf"
+      },
+      "data": {
+        "kind": "school"
       },
       "alert": true
     },
@@ -3910,6 +3979,29 @@
       "alert": true
     },
     {
+      "id": "exam-2421",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "General Certificate of Education (Advanced Level) Examination - 2026 (Amended)",
+        "ta": "கல்விப் பொதுத் தராதரப் பத்திர (உயர்தர)ப் பரீடசை - 2026 (திருத்தப்பட்டது)"
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/news",
+        "pdf_en": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138793924.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138797788.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138801966.pdf"
+      },
+      "data": {
+        "kind": "school"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2500-98",
       "source": "gazettes",
       "topic": "gazettes",
@@ -5489,122 +5581,6 @@
       "data": {
         "number": "2496/07",
         "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2495-61",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Central Bank of Sri Lanka",
-      "headline": {
-        "en": "Central Bank of Sri Lanka - Extension of the Term of the Administrator Appointed to Nation Lanka PLC",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-04",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_E_1786417655.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_S_1786417636.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-61_T_1786417645.pdf"
-      },
-      "data": {
-        "number": "2495/61",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2495-57",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "Election Commission",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-03",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_E_1784568269.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_S_1784568268.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-57_T_1784568268.pdf"
-      },
-      "data": {
-        "number": "2495/57",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2495-26",
-      "source": "gazettes",
-      "topic": "prices",
-      "issuer": "Consumer Affairs Authority",
-      "headline": {
-        "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 9 of 2003 (Amended) Direction under Section 10(1)(b)(ii)",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-03",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_E_1784568268.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_S_1784568268.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-26_T_1784568268.pdf"
-      },
-      "data": {
-        "number": "2495/26",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2495-25",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Central Bank of Sri Lanka",
-      "headline": {
-        "en": "Central Bank of Sri Lanka - Cancellation of the Licence Issued to Nation Lanka Finance PLC",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-03",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_E_1786418063.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_S_1786418046.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2495-25_T_1786418054.pdf"
-      },
-      "data": {
-        "number": "2495/25",
-        "group": "prices-taxes",
         "languages": [
           "en",
           "si",

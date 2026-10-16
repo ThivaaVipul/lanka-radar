@@ -1,0 +1,23 @@
+{
+  "id": "exam-2314",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Special Notice",
+    "ta": "விசேட அறிவித்தல்"
+  },
+  "keyNumbers": [],
+  "published": "2026-03-04",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/Special%20notice%20%E0%B7%80%E0%B7%92%E0%B6%AF%E0%B7%9A%E0%B7%81%20%E0%B7%80%E0%B7%92%E0%B6%B7%E0%B7%8F%E0%B6%9C%E0%B6%BA_1772608492049.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/Special%20notice%20%E0%B7%80%E0%B7%92%E0%B6%AF%E0%B7%9A%E0%B7%81%20%E0%B7%80%E0%B7%92%E0%B6%B7%E0%B7%8F%E0%B6%9C%E0%B6%BA_1772608499089.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Special%20notice%20%E0%B7%80%E0%B7%92%E0%B6%AF%E0%B7%9A%E0%B7%81%20%E0%B7%80%E0%B7%92%E0%B6%B7%E0%B7%8F%E0%B6%9C%E0%B6%BA_1772608504633.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}

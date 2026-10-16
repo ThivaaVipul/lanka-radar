@@ -1,0 +1,23 @@
+{
+  "id": "exam-2309",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Special Notice",
+    "ta": "விஷேட அறிவித்தல்"
+  },
+  "keyNumbers": [],
+  "published": "2026-02-10",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/%E0%B7%80%E0%B7%92%E0%B7%81%E0%B7%9A%E0%B7%82%20%E0%B6%B1%E0%B7%92%E0%B7%80%E0%B7%9A%E0%B6%AF%E0%B6%B1%E0%B6%BA%E0%B6%BA%E0%B7%92%202_1770716359699.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/%E0%B7%80%E0%B7%92%E0%B7%81%E0%B7%9A%E0%B7%82%20%E0%B6%B1%E0%B7%92%E0%B7%80%E0%B7%9A%E0%B6%AF%E0%B6%B1%E0%B6%BA%E0%B6%BA%E0%B7%92%202_1770716364544.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/%E0%B7%80%E0%B7%92%E0%B7%81%E0%B7%9A%E0%B7%82%20%E0%B6%B1%E0%B7%92%E0%B7%80%E0%B7%9A%E0%B6%AF%E0%B6%B1%E0%B6%BA%E0%B6%BA%E0%B7%92%202_1770716369532.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}
