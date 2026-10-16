@@ -53,6 +53,11 @@ class FeedRepository {
     return row == null ? null : _item(row);
   }
 
+  /// The stored items among [ids]; those no longer stored are left out.
+  Future<List<FeedItem>> items(List<String> ids) async => ids.isEmpty
+      ? const []
+      : [for (final row in await _db.itemsWithIds(ids)) _item(row)];
+
   /// Items first stored at or after [time] (by a refresh that started then).
   Future<List<FeedItem>> itemsSeenSince(DateTime time) async => [
     for (final row in await _db.itemsSeenSince(time)) _item(row),

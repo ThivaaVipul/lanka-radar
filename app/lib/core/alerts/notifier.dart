@@ -11,6 +11,9 @@ abstract interface class Notifier {
 
   /// Asks Android (13 and later) to let the app post notifications.
   Future<void> requestPermission();
+
+  /// Whether Android lets the app post notifications.
+  Future<bool> enabled();
 }
 
 /// The payload a tapped item notification carries.
@@ -133,10 +136,15 @@ class LocalNotifier implements Notifier {
 
   @override
   Future<void> requestPermission() async {
-    await _plugin
-        .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin
-        >()
-        ?.requestNotificationsPermission();
+    await _android?.requestNotificationsPermission();
   }
+
+  @override
+  Future<bool> enabled() async =>
+      await _android?.areNotificationsEnabled() ?? true;
+
+  AndroidFlutterLocalNotificationsPlugin? get _android => _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
 }

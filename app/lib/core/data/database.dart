@@ -169,6 +169,13 @@ class AppDatabase extends _$AppDatabase {
   Future<ItemRow?> item(String id) =>
       (select(items)..where((row) => row.id.equals(id))).getSingleOrNull();
 
+  /// The items among [ids], newest first.
+  Future<List<ItemRow>> itemsWithIds(Iterable<String> ids) =>
+      (select(items)
+            ..where((row) => row.id.isIn(ids))
+            ..orderBy([(row) => OrderingTerm.desc(row.published)]))
+          .get();
+
   /// Items first stored at or after [time], newest first.
   Future<List<ItemRow>> itemsSeenSince(DateTime time) =>
       (select(items)

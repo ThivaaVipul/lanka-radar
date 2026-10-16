@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M5 merged: the `data` branch is live and the app shows the feed, the Now card, search and source health. Now: M6 (alerts), grilled on 2026-10-16 and planned below; M6a (background alerts) is done, M6b (the Alerts screen) is next.**
+Status: **M0 to M5 merged: the `data` branch is live and the app shows the feed, the Now card, search and source health. Now: M6 (alerts), grilled on 2026-10-16 and planned below; M6a (background alerts) and M6b (the Alerts screen) are done, M6c (the phone's own alerts) is next.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -184,7 +184,7 @@ Five pull requests, each with its tests:
 Three pull requests, each with its tests:
 
 - [x] M6a, background alerts: WorkManager sync about every 3 hours (the app's refresh in the background), a notification per new item with the default switches, the permission asked once after the first sync, nothing for history or while the app is open
-- [ ] M6b, Alerts screen: the switches (gazettes by group), quiet hours with adjustable times and held alerts, the battery row and the last background sync; Alerts in the menu
+- [x] M6b, Alerts screen: the switches (gazettes by group), quiet hours with adjustable times and held alerts, the battery row and the last background sync; Alerts in the menu
 - [ ] M6c, the phone's own alerts: CEYPETCO fuel changes (and fuel gazettes only when new), `rates-usd-lkr-<date>` items from CBSL's same-day rates (the workflow's IDs, kept through the month files' refresh), holiday reminders at 19:00 the evening before
 
 ### M7: Releases and field test
@@ -238,3 +238,4 @@ None right now.
 | 2026-10-16 | M5e: a Sources screen (menu) lists what GitHub reads, with the workflow's last run, and what the phone reads, each with its last success and last error. A source with no success for a day, or a workflow that hasn't run for a day, puts a warning in the app bar that opens it. About has the version (package_info_plus), a line on where the data comes from, the source code and the licenses. M5 is complete apart from this pull request. |
 | 2026-10-16 | M6 grilled; the decisions are under "Alerts (M6 grilling)". One notification per item; gazette switches by group with election notices off by default; fuel changes alert from CEYPETCO the day they happen, and a fuel gazette only if its prices are new to the phone; adjustable quiet hours; holiday reminders at 19:00 the evening before; a battery row for Xiaomi's background limits. M6 is split into three pull requests, M6a to M6c. |
 | 2026-10-16 | M6a: the background sync runs in its own Flutter engine with its own database connection, so the database uses write-ahead logging and a 10 second busy timeout, and the feed reads its items again when the app comes back. The app marks itself in front while the feed is on screen; a mark older than 12 hours counts as gone, for an app that was stopped without leaving. The first background run comes a full period after install, since opening the app has just refreshed. Notifications go out one per item in a group with a summary, IDs from the item ID so a re-sent item replaces its own; a tap opens the item, also when it starts the app. On a phone, the sync ran in the background in about 5 seconds. |
+| 2026-10-16 | M6b: an Alerts screen (in the menu) with the switches in two groups (topics, and gazettes by group), quiet hours (on, 22:00 to 06:00, times picked on a 24-hour clock like the rest of the app) and a Battery row that opens the app's page in Android's settings and shows when the background sync last ran, in the warning colour after 12 hours. A row at the top says when notifications are off and opens their settings. Android's settings pages open through a small method channel in MainActivity rather than a package. A background sync in quiet hours keeps the IDs of what would have alerted; the first sync after them posts those whose switch is still on, and opening the app drops them, since the feed marks them new. Each sync records when it started, even if its refresh then fails. The Holiday reminders switch comes with the reminders in M6c. |

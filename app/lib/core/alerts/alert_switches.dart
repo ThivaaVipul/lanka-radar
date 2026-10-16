@@ -23,6 +23,21 @@ enum AlertSwitch {
   String get key => 'alert.$name';
 }
 
+/// The Alerts screen's switches for feed topics.
+const topicSwitches = [
+  AlertSwitch.prices,
+  AlertSwitch.exams,
+  AlertSwitch.rates,
+];
+
+/// The Alerts screen's switches for gazettes, by group.
+const gazetteSwitches = [
+  AlertSwitch.taxes,
+  AlertSwitch.energy,
+  AlertSwitch.labour,
+  AlertSwitch.elections,
+];
+
 /// The switch an item's alert falls under: its topic, or for a gazette without
 /// prices, its group. Null for items that never alert.
 AlertSwitch? switchFor(FeedItem item) => switch (item.topic) {
