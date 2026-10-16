@@ -2,7 +2,7 @@
 
 Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, the USD/LKR rate, holidays and exam notices.
 
-A GitHub Actions workflow checks the sources every 3 hours and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. No servers, no accounts.
+A GitHub Actions workflow checks the sources every 3 hours and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
 
 **Status:** in development (v1), Android only, for personal use. See [docs/PLAN.md](docs/PLAN.md).
 
@@ -60,12 +60,13 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and comm
 | --- | --- |
 | `latest.json` | the newest 200 feed items, newest first |
 | `items/<yyyy>/<mm>/<id>.json` | every feed item, one file each |
-| `datasets/fuel.json` | fuel prices per product, with their history |
-| `datasets/usd-lkr.json` | the daily USD/LKR rate since 1 January 2026 |
+| `datasets/usd-lkr.json` | Frankfurter's copy of CBSL's daily USD/LKR rate since 1 January 2026, a backup that often runs days behind |
 | `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
 | `status.json` | each source's last run, last success and last error |
 
-Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
+Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice.
+
+CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync and makes the same fuel and rate items, with the same IDs, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 
 ## Git workflow
 
