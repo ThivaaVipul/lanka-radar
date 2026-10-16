@@ -1,0 +1,27 @@
+{
+  "id": "rates-usd-lkr-2026-05-22",
+  "source": "rates",
+  "topic": "rates",
+  "issuer": "Central Bank of Sri Lanka",
+  "headline": {
+    "en": "USD/LKR up 2.9% in a week, to 333.99",
+    "ta": null
+  },
+  "keyNumbers": [
+    {
+      "label": "USD/LKR",
+      "value": 333.9925,
+      "unit": "LKR",
+      "previous": 324.7184
+    }
+  ],
+  "published": "2026-05-22",
+  "effective": null,
+  "links": {
+    "page": "https://www.cbsl.gov.lk/en/rates-and-indicators/exchange-rates"
+  },
+  "data": {
+    "change": 0.0286
+  },
+  "alert": true
+}
