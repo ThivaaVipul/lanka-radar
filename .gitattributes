@@ -4,6 +4,9 @@
 *.bat text eol=crlf
 *.cmd text eol=crlf
 
+# Saved source responses stay byte for byte as the sources sent them.
+scrapers/tests/fixtures/** -text
+
 *.png binary
 *.jpg binary
 *.jpeg binary

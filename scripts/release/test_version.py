@@ -1,4 +1,5 @@
 import pytest
+
 from version import (
     Commit,
     build_number,
