@@ -12,9 +12,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# Every workflow pins ubuntu-24.04. Moving to a newer image is its own change,
+# tested first, so a new image never breaks a build by surprise.
 jobs:
   python:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
@@ -35,7 +37,7 @@ jobs:
         run: pytest scripts/release
 
   app:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -47,6 +49,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+          cache: gradle # dependencies and the Gradle wrapper, keyed on the *.gradle* files
 
       - uses: subosito/flutter-action@v2
         with:

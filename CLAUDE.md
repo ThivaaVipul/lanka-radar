@@ -45,6 +45,7 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 ## Constraints
 
 - Fully free: public repo, GitHub-hosted standard runners, no paid services, nothing that needs a card.
+- Workflows pin `ubuntu-24.04`. Moving to a newer runner image is its own change, tested first.
 - Android only.
 - Add a package (pip or pub) only in the change that first uses it.
 - Declare an Android permission only in the change that uses it.
