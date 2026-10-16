@@ -21,6 +21,7 @@ Map<String, Object?> item(
   String? tamil,
   String? issuer = 'Election Commission',
   String? number,
+  String? group,
 }) => {
   'id': id,
   'source': 'gazettes',
@@ -31,7 +32,7 @@ Map<String, Object?> item(
   'published': published,
   'effective': null,
   'links': {'page': 'https://documents.gov.lk/web/extra_gazettes'},
-  'data': {'number': ?number},
+  'data': {'number': ?number, 'group': ?group},
   'alert': true,
 };
 

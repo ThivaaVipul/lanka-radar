@@ -87,6 +87,13 @@ class AppDatabase extends _$AppDatabase {
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
+    // The app and the background sync (another Flutter engine) open the file
+    // separately: write-ahead logging lets one read while the other writes,
+    // and a writer waits for the other's lock instead of failing.
+    beforeOpen: (details) async {
+      await customSelect('PRAGMA journal_mode = WAL').get();
+      await customStatement('PRAGMA busy_timeout = 10000');
+    },
     onUpgrade: (migrator, from, to) async {
       if (from < 2) {
         await migrator.createTable(settings);
@@ -104,6 +111,11 @@ class AppDatabase extends _$AppDatabase {
       databaseDirectory: getApplicationSupportDirectory,
     ),
   );
+
+  /// Makes the item and file queries read again, after the background sync
+  /// (which streams can't see) may have changed them.
+  void notifyExternalChanges() =>
+      notifyUpdates({TableUpdate.onTable(items), TableUpdate.onTable(files)});
 
   /// Every item, newest first.
   Stream<List<ItemRow>> watchItems() =>
@@ -133,6 +145,9 @@ class AppDatabase extends _$AppDatabase {
     settings,
   )..where((row) => row.key.equals(key))).getSingleOrNull())?.value;
 
+  Future<void> deleteSetting(String key) =>
+      (delete(settings)..where((row) => row.key.equals(key))).go();
+
   Future<void> saveSetting(String key, String value) =>
       into(settings).insertOnConflictUpdate(SettingRow(key: key, value: value));
 
@@ -150,6 +165,16 @@ class AppDatabase extends _$AppDatabase {
 
   Future<void> saveRates(List<RateRow> rows) =>
       batch((batch) => batch.insertAllOnConflictUpdate(rates, rows));
+
+  Future<ItemRow?> item(String id) =>
+      (select(items)..where((row) => row.id.equals(id))).getSingleOrNull();
+
+  /// Items first stored at or after [time], newest first.
+  Future<List<ItemRow>> itemsSeenSince(DateTime time) =>
+      (select(items)
+            ..where((row) => row.firstSeen.isBiggerOrEqualValue(time))
+            ..orderBy([(row) => OrderingTerm.desc(row.published)]))
+          .get();
 
   Future<FileRow?> file(String path) =>
       (select(files)..where((row) => row.path.equals(path))).getSingleOrNull();

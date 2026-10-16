@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M5d merged, the `data` branch is live and the app shows the feed, the Now card and search; M5e (Sources and About) built on `feat/sources-and-about`. Next: M6 (alerts).**
+Status: **M0 to M5 merged: the `data` branch is live and the app shows the feed, the Now card, search and source health. Now: M6 (alerts), grilled on 2026-10-16 and planned below; M6a (background alerts) is done, M6b (the Alerts screen) is next.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -32,6 +32,14 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
   - Refresh on opening when the last refresh is over 15 minutes old, and on pull to refresh (background sync is M6).
   - Health: nothing extra while all is well. A source with no success for a day puts a warning in the app bar, and a stale Now value shows its own date ("as of 14 Oct"). A Sources screen lists each source's last success and error.
   - Look: Zen Mode's style (Albert Sans, rounded cards, motion, dark mode following the system) with the teal accent; Tamil uses the phone's Tamil font.
+- **Alerts (M6 grilling, 2026-10-16):**
+  - One notification per new item, stacked under Lanka Radar, with its headline (and key numbers on price items); tapping it opens the item.
+  - Switches: Prices, Exams, USD/LKR moves, Holiday reminders, and gazettes by group (Taxes and imports, Energy and utilities, Wages and labour, Elections). All start on except Elections, which is most gazettes (about 1 to 3 a day). A gazette with prices counts as Prices.
+  - Fuel: a change in CEYPETCO's prices alerts right away ("Fuel prices changed: Petrol 92 399 (was 414)"; tapping opens the fuel prices). A fuel revision gazette then alerts only if its prices are new to the phone.
+  - Quiet hours: a switch with adjustable start and end, 22:00 to 06:00 to begin with; anything found then waits for the first sync after the end.
+  - Holiday reminders at about 19:00 the evening before every public holiday, Poya days included, with tentative dates marked and the Tamil name.
+  - Battery: the Alerts screen has a row that opens the app's system settings (battery No restrictions, Autostart on Xiaomi phones), and shows when the last background sync ran.
+  - Nothing alerts for a fresh install's history or while the app is open (the dots cover that). Android channels: New items, Fuel prices, Holiday reminders. The menu has Alerts, Sources and About.
 
 ### Defaults (accepted 2026-10-16)
 
@@ -104,9 +112,9 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Holidays: Tamil names come from a small table in the app; a name missing from it stays English only.
 - Health: `status.json` for the workflow's sources, and the app's own record for CEYPETCO and CBSL.
 - The app declares the INTERNET permission in its main manifest (release builds have none yet), in M5.
-- Settings (M6): an alert switch per topic, quiet hours.
-- Background sync (M6): WorkManager about every 3 hours on any network; notifies for new alert items, outside quiet hours only.
-- Holiday reminders (M6): local notifications scheduled for the evening before (inexact, so no exact-alarm permission).
+- Alerts screen (M6): the switches, quiet hours, a battery row and the last background sync. Notifications are posted per item into three channels (New items, Fuel prices, Holiday reminders); a tap opens the item, the fuel prices or the holidays.
+- Background sync (M6): WorkManager about every 3 hours on any network runs the same refresh as opening the app (month files, datasets, status, CEYPETCO, CBSL), then notifies for items first seen in that sync that are on, recent (published in the last 14 days) and outside quiet hours; held items go out after quiet hours. Nothing is posted while the app is in front.
+- Holiday reminders (M6): inexact local notifications at about 19:00 the evening before (no exact-alarm permission), scheduled again after each refresh of `datasets/holidays.json`.
 - The notification permission is asked once, after the first sync (M6).
 
 ## Milestones
@@ -173,10 +181,11 @@ Five pull requests, each with its tests:
 
 ### M6: Alerts
 
-- [ ] Background sync about every 3 hours, notifications for new alert items
-- [ ] The phone makes `rates-usd-lkr-<date>` items from CBSL's same-day rates (the workflow's IDs), so a 2% move alerts the same day; items the phone makes survive the month files' refresh
-- [ ] Per-topic switches, quiet hours 22:00 to 06:00
-- [ ] Holiday reminders the evening before
+Three pull requests, each with its tests:
+
+- [x] M6a, background alerts: WorkManager sync about every 3 hours (the app's refresh in the background), a notification per new item with the default switches, the permission asked once after the first sync, nothing for history or while the app is open
+- [ ] M6b, Alerts screen: the switches (gazettes by group), quiet hours with adjustable times and held alerts, the battery row and the last background sync; Alerts in the menu
+- [ ] M6c, the phone's own alerts: CEYPETCO fuel changes (and fuel gazettes only when new), `rates-usd-lkr-<date>` items from CBSL's same-day rates (the workflow's IDs, kept through the month files' refresh), holiday reminders at 19:00 the evening before
 
 ### M7: Releases and field test
 
@@ -227,3 +236,5 @@ None right now.
 | 2026-10-16 | M5c: the feed has cards (topic and issuer, date, headline in up to 3 lines, up to 3 key numbers with the price before), month headings, topic chips, new-item dots (items first seen after the feed was last left and published within 14 days, so history filling in is never marked) and search as you type. Two display rules came from the real data: a headline that starts with its issuer's name ("Department of Census and Statistics - The Census Ordinance") drops it, since the card's top line names the issuer; and a gazette with neither an English nor a Tamil title shows its number ("Gazette 2509/28"). Fuel labels shorten to their common names ("Lanka Petrol 92 Octane" reads "Petrol 92"). Links open in the browser through url_launcher. |
 | 2026-10-16 | M5d: the Now card. The phone reads CEYPETCO's active prices and CBSL's rate search itself (both checked live from Sri Lanka), keeps a price history per fuel and the daily rates, and records each source's last run, success and error for the Sources screen (M5e). A fuel price's "before" comes from the phone's history or, on a fresh install, from the latest fuel revision gazette; until CEYPETCO first answers, the fuel prices come from that gazette, marked "as of" its date. USD/LKR falls back to the workflow's copy when CBSL hasn't answered. Holiday names in Tamil come from a table bundled with the app (`assets/holidays_ta.json`). The phone making its own USD/LKR move items moved to M6, where same-day alerts need them. |
 | 2026-10-16 | M5e: a Sources screen (menu) lists what GitHub reads, with the workflow's last run, and what the phone reads, each with its last success and last error. A source with no success for a day, or a workflow that hasn't run for a day, puts a warning in the app bar that opens it. About has the version (package_info_plus), a line on where the data comes from, the source code and the licenses. M5 is complete apart from this pull request. |
+| 2026-10-16 | M6 grilled; the decisions are under "Alerts (M6 grilling)". One notification per item; gazette switches by group with election notices off by default; fuel changes alert from CEYPETCO the day they happen, and a fuel gazette only if its prices are new to the phone; adjustable quiet hours; holiday reminders at 19:00 the evening before; a battery row for Xiaomi's background limits. M6 is split into three pull requests, M6a to M6c. |
+| 2026-10-16 | M6a: the background sync runs in its own Flutter engine with its own database connection, so the database uses write-ahead logging and a 10 second busy timeout, and the feed reads its items again when the app comes back. The app marks itself in front while the feed is on screen; a mark older than 12 hours counts as gone, for an app that was stopped without leaving. The first background run comes a full period after install, since opening the app has just refreshed. Notifications go out one per item in a group with a summary, IDs from the item ID so a re-sent item replaces its own; a tap opens the item, also when it starts the app. On a phone, the sync ran in the background in about 5 seconds. |

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/app/app.dart';
+import 'package:lanka_radar/app/notification_router.dart';
+import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/format/dates.dart';
@@ -8,6 +10,7 @@ import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
 import '../helpers/fake_branch.dart';
+import '../helpers/fake_notifier.dart';
 import '../helpers/fake_sources.dart';
 
 void main() {
@@ -21,10 +24,17 @@ void main() {
 
   tearDown(() => database.close());
 
-  Future<void> open(WidgetTester tester) async {
+  Future<void> open(WidgetTester tester, {NotificationRouter? router}) async {
     final feed = FeedRepository(database: database, remote: remote.branch);
     final now = FakeSources().repository(database);
-    await tester.pumpWidget(LankaRadarApp(feed: feed, now: now));
+    await tester.pumpWidget(
+      LankaRadarApp(
+        feed: feed,
+        now: now,
+        alerts: fakeAlerts(database),
+        navigatorKey: router?.navigatorKey,
+      ),
+    );
     await settle(tester);
   }
 
@@ -88,6 +98,47 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ItemPage), findsOneWidget);
+  });
+
+  testWidgets('a tapped notification opens its item', (tester) async {
+    remote.putMonth('2026-10', [
+      item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
+    ]);
+    final router = NotificationRouter(
+      FeedRepository(database: database, remote: remote.branch),
+    );
+    await open(tester, router: router);
+
+    await tester.runAsync(() => router.open('other'));
+    await tester.runAsync(() => router.open(itemPayload('gazette-2510-99')));
+    await tester.pumpAndSettle();
+    expect(find.byType(ItemPage), findsNothing);
+
+    await tester.runAsync(() => router.open(itemPayload('gazette-2510-20')));
+    await tester.pumpAndSettle();
+    expect(find.byType(ItemPage), findsOneWidget);
+  });
+
+  testWidgets('a notification that started the app opens its item once', (
+    tester,
+  ) async {
+    remote.putMonth('2026-10', [
+      item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
+    ]);
+    final router = NotificationRouter(
+      FeedRepository(database: database, remote: remote.branch),
+    )..pending = itemPayload('gazette-2510-20');
+    await open(tester, router: router);
+
+    await tester.runAsync(router.openPending);
+    await tester.pumpAndSettle();
+    expect(find.byType(ItemPage), findsOneWidget);
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.runAsync(router.openPending);
+    await tester.pumpAndSettle();
+    expect(find.byType(ItemPage), findsNothing);
   });
 
   testWidgets('search finds stored items as you type', (tester) async {
