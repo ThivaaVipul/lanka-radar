@@ -8,7 +8,9 @@ that ID; the scraper then finds the new one in the site's scripts and keeps it i
 Only gazettes from the groups that touch daily life become feed items: prices, taxes
 and imports; energy and utilities; wages and labour; elections. Each item's English and
 Tamil PDFs are read once (see pdfs.py) for the title on page 1 and, in price gazettes,
-the price table; a run reads at most PDF_BUDGET gazettes, newest first.
+the price table; a run reads at most PDF_BUDGET gazettes, newest first. When the reader
+learns to read more Tamil (READER), older readings without a Tamil title get their Tamil
+PDF read again.
 """
 
 from __future__ import annotations
@@ -38,6 +40,9 @@ ANSWER_ATTEMPTS = 3
 # PDFs read per run, newest first; history catches up over a few runs.
 PDF_BUDGET = 40
 PDF_STATE = "gazette-pdfs"
+# The PDF reader's version, kept with each reading. Version 2 reads the Tamil of Arial
+# Unicode PDFs, so an older reading without a Tamil title gets its Tamil PDF read again.
+READER = 2
 HISTORY_START = date(2026, 1, 1)
 RECHECK = timedelta(days=21)
 
@@ -200,11 +205,15 @@ def item_for(gazette: Gazette, group: str, reading: dict[str, Any] | None = None
     )
 
 
-def read_pdfs(web: Web, gazette: Gazette) -> dict[str, Any] | None:
-    """Titles (English and Tamil) and price numbers from one gazette's PDFs. None when a
-    download failed, so the gazette is tried again on the next run."""
-    reading: dict[str, Any] = {"files": gazette.files}
-    for language in ("en", "ta"):
+def read_pdfs(
+    web: Web, gazette: Gazette, before: dict[str, Any] | None = None
+) -> dict[str, Any] | None:
+    """Titles (English and Tamil) and price numbers from one gazette's PDFs. With `before`,
+    an older reader's reading of the same files, only the Tamil PDF is read again. None
+    when a download failed, so the gazette is tried again on the next run."""
+    reading: dict[str, Any] = dict(before) if before else {"files": gazette.files}
+    reading["reader"] = READER
+    for language in ("ta",) if before else ("en", "ta"):
         path = gazette.files.get(language)
         if not path:
             continue
@@ -213,6 +222,7 @@ def read_pdfs(web: Web, gazette: Gazette) -> dict[str, Any] | None:
             data = web.get(pdf_link(path)).content
         except httpx.HTTPError:
             return None
+        reading.pop(f"error_{language}", None)
         try:
             found = pdfs.read(data, tamil=language == "ta")
         except Exception as error:
@@ -298,9 +308,21 @@ def run(web: Web, store: Store, today: date) -> int:
     def unread(gazette: Gazette) -> bool:
         return readings.get(gazette.number, {}).get("files") != gazette.files
 
-    waiting = sorted((g for g, _ in picked if unread(g)), key=lambda g: g.day, reverse=True)
-    for gazette in waiting[:PDF_BUDGET]:
-        reading = read_pdfs(web, gazette)
+    def outdated(gazette: Gazette) -> bool:
+        """Read by an older reader, which found no Tamil title."""
+        reading = readings.get(gazette.number, {})
+        older = reading.get("reader", 1) < READER
+        return older and "ta" in gazette.files and not reading.get("title_ta")
+
+    def waiting(gazette: Gazette) -> bool:
+        return unread(gazette) or outdated(gazette)
+
+    queue = sorted((g for g, _ in picked if waiting(g)), key=lambda g: g.day, reverse=True)
+    for gazette in queue[:PDF_BUDGET]:
+        if unread(gazette):
+            reading = read_pdfs(web, gazette)
+        else:
+            reading = read_pdfs(web, gazette, before=readings[gazette.number])
         if reading is not None:
             readings[gazette.number] = reading
     store.write_state(PDF_STATE, readings)
@@ -313,7 +335,7 @@ def run(web: Web, store: Store, today: date) -> int:
         else:
             changed += store.put_item(item_for(gazette, group, reading))
     days = [gazette.day for gazette in gazettes] + ([newest] if newest else [])
-    backlog = sum(1 for gazette, _ in picked if unread(gazette))
+    backlog = sum(1 for gazette, _ in picked if waiting(gazette))
     store.write_state(
         NAME,
         {

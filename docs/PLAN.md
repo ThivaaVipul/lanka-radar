@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 to M3 merged, the `data` branch is live; M4 (headlines and price tables) built on `feat/headlines`. Next: M4b (Tamil OCR), then M5 (app).**
+Status: **M0 to M4 merged, the `data` branch is live; M4b (Tamil titles from glyph IDs) built on `feat/tamil-ocr`. Next: M5 (app).**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -20,7 +20,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - **Name:** Lanka Radar. Repo `lanka-radar`, app ID `app.lankaradar`.
 - **Parked:** Lanka MCP, Sinhala, public posting (Facebook Page, WhatsApp Channel), a web page.
 - **Gazette groups (2026-10-16):** prices, taxes and imports; energy and utilities; wages and labour; elections. Each becomes a feed item with an alert; everything else (land title settlement, land acquisition and so on) is skipped.
-- **Tamil gazette titles (2026-10-16):** Tamil PDFs come in two kinds. Bamini-encoded fonts (GP-Rasanji, Bamini, Tharmini) convert cleanly to Unicode with Open-Tamil; Arial Unicode ones have scrambled text, and in practice that is about 8 in 9 (election and CAA notices). M4 ships with English-only headlines for those; OCR for them is the next step (M4b), tested on GitHub's servers first.
+- **Tamil gazette titles (2026-10-16):** Tamil PDFs come in two kinds. Bamini-encoded fonts (GP-Rasanji, Bamini, Tharmini) convert cleanly to Unicode with Open-Tamil. The rest, about 8 in 9 (election and CAA notices), use Arial Unicode MS with scrambled text maps; their Tamil is read from the glyph IDs instead, which gives the exact text (M4b). OCR was the first plan for them and turned out not to be needed.
 - **Exam notices (2026-10-16):** school exams (O/L, A/L, Grade 5 scholarship, GIT), their timetables, and the department's own press releases and notices. Admission cards for institutional exams, religious and Piriven exams, recruitment exams and the monthly exam calendars are left out.
 
 ### Defaults (accepted 2026-10-16)
@@ -60,7 +60,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **Repo layout (`main`)**
 
-- `scrapers/`: Python 3.12 package, one module per source. A shared HTTP client (retries, polite user agent, a pause between pages, never downloads a known PDF twice). From M4: PDF text through pdfplumber; Tesseract OCR (Tamil and English) only when a PDF has no text layer. Tests run on saved fixtures, not live sites.
+- `scrapers/`: Python 3.12 package, one module per source. A shared HTTP client (retries, polite user agent, a pause between pages, never downloads a known PDF twice). From M4: PDF text through pdfplumber, with pdfminer for the glyph IDs of Arial Unicode Tamil. No OCR: every gazette so far has a text layer. Tests run on saved fixtures, not live sites.
 - `app/`: Flutter, Android only.
 - `scripts/release/`: works out the next version and the release notes (Python, standard library only, with tests).
 - `.github/workflows/`: `scrape.yml` (every 3 hours, commits to `data`), `ci.yml` (Python and Flutter checks), `release.yml` (signed APK to GitHub Releases), `pr-title.yml` (Conventional Commit titles).
@@ -133,15 +133,17 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 - [x] PDF download (English and Tamil where they exist) for gazette items, 40 a run, newest first, with the backlog read on later runs
 - [x] Title block from page 1; English titles found in 37 of 37 English PDFs in a live run
-- [x] Tamil titles from Bamini-encoded fonts (Open-Tamil); scrambled Arial Unicode text is never used
+- [x] Tamil titles from Bamini-encoded fonts (Open-Tamil); scrambled Arial Unicode text is never used (M4b reads it from the glyph IDs)
 - [x] Price tables read into key numbers: CAA orders (canned fish, bottled water) and fuel revisions (with the price before)
 - [x] Routine notices caught by their PDF title are dropped (weekly customs exchange rates)
 
-### M4b: Tamil OCR
+### M4b: Tamil titles from glyph IDs
 
-- [ ] Tesseract with the Tamil model in the scrape workflow, reading the title area of Tamil PDFs whose text is scrambled
-- [ ] Tried on GitHub's servers against real gazettes and checked by eye before it is trusted
-- [ ] Only used when the Bamini path gives nothing; the result must be mostly Tamil letters
+- [x] Arial Unicode MS Tamil read from the glyph IDs, since the PDFs' own text maps are scrambled, and put back in reading order; titles for all 24 such PDFs of the first M4 run, checked by eye against the page images
+- [x] Bold drawn as a second, outline-only copy is skipped (one copy was set 4 points off its text) and marks the line bold
+- [x] A line is trusted only when every glyph is known and every vowel sign follows a letter
+- [x] Older readings without a Tamil title get their Tamil PDF read once more; English PDFs aren't downloaded again
+- OCR not needed; moved to Later in case a Tamil PDF in another font shows up
 
 ### M5: App
 
@@ -175,6 +177,7 @@ None right now.
 - LP gas prices read from Litro's image
 - Exam dates read from the timetable PDFs, for a "next exam" in the now strip
 - Weekly gazettes, Acts and Bills; water and power interruptions; Laugfs gas
+- OCR (Tesseract, on GitHub's servers) for Tamil PDFs in a font the reader doesn't know, if one shows up
 
 ## Log
 
@@ -193,3 +196,5 @@ None right now.
 | 2026-10-16 | M2: the gazette table's server action answers with JSON (PDF file names included), so the reader is a plain POST instead of Playwright; its ID is found again in the site's scripts after a rebuild. Gazette groups chosen: prices, taxes and imports; energy and utilities; wages and labour; elections (390 of 2,157 gazettes in 2026). PDF download moved to M4. Two live-run bugs fixed: `splitlines()` cut rows at characters like U+2028 inside descriptions, and a brief answer without data is now retried. |
 | 2026-10-16 | M3: exam notices from the CMS news feed plus timetables from its exam calendar (type `EXCA`), chosen as school exams and the department's notices; these items are the first with real Tamil headlines. The calendar holds PDFs rather than dates, so "next exam date" in the now strip became "the latest exam timetable", and reading dates from the PDFs moved to Later. Litro's price list became an item, keyed by the date in the image's file name. |
 | 2026-10-16 | M4: gazette PDFs read with pdfplumber. English gazettes have a fixed masthead followed by a bold or capitals title block; English titles were found in 37 of 37 PDFs. Tamil PDFs use either Bamini-encoded fonts (converted with Open-Tamil; Latin runs inside them kept as they are) or Arial Unicode with scrambled text, which turned out to be about 8 in 9 rather than the half first estimated, so Tamil OCR became its own step (M4b). Price tables from CAA orders and fuel revisions became key numbers. The group rules now also run on the PDF title, which drops weekly customs exchange-rate notices listed only as "Sri Lanka Customs". |
+| 2026-10-16 | M4 merged (PR #6). Its first run on GitHub read 40 gazettes in under 3 minutes: English titles for all 37 with an English PDF. The only Bamini Tamil PDFs were 3 customs notices, dropped as routine, so no feed item had a Tamil headline yet. The state saved before M4 had no backlog count, so that run looked at only the last 3 weeks; it left 3 gazettes waiting, which switches the next runs to the whole year. |
+| 2026-10-16 | M4b: the scrambled Arial Unicode Tamil turned out to be readable without OCR. These PDFs keep Arial Unicode MS's glyph IDs, and that font's glyph order never changed, so the Tamil comes from the glyph IDs: letters and signs through the font's own cmap (found in a copy one PDF embeds), ligatures as seen in 24 PDFs, signs drawn left of their letter moved after it, and look-alike glyphs fixed (aa drawn for ra before i). All 24 Tamil PDFs of the first M4 run got their titles, checked by eye against the rendered pages, and the titles of 40 English and Bamini PDFs are unchanged. Decision: decode instead of OCR, which moved to Later. Bold drawn as an outline copy is skipped, and a bold paragraph after a larger title ends the title. |
