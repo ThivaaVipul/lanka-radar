@@ -5,7 +5,7 @@
   "issuer": "Elections Commission",
   "headline": {
     "en": "Elections Commission - Revision of Electoral Registers",
-    "ta": null
+    "ta": "தேருநர் இடாப்பு மீளாய்வு பார்வையிட முடியும்."
   },
   "keyNumbers": [],
   "published": "2026-09-15",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "REVISION OF ELECTORAL REGISTERS check the registration"
   },
   "alert": true
 }

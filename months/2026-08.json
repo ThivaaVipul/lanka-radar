@@ -1,0 +1,1343 @@
+{
+  "schema": 1,
+  "month": "2026-08",
+  "items": [
+    {
+      "id": "gazette-2504-03",
+      "source": "gazettes",
+      "topic": "prices",
+      "issuer": "Ministry of Energy",
+      "headline": {
+        "en": "Ministry of Energy - Revise the Fuel Price",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-31",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20%20%20(E)_1789115277.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20(S)%20New_1789384074.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20(T)_1789039371.pdf"
+      },
+      "data": {
+        "number": "2504/03",
+        "group": "energy",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2503-16",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-26",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(E)_1788177446.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(S)_1788177437.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(T)_1788263805.pdf"
+      },
+      "data": {
+        "number": "2503/16",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-71",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Census and Statistics",
+      "headline": {
+        "en": "Department of Census and Statistics",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-22",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(E)_1787653270.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(S)_1787653255.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(T)_1787730057.pdf"
+      },
+      "data": {
+        "number": "2502/71",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-56",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47720(E)(C)%20%20%5BI%20-%20I%5D_1788858551.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47720(S)(C)%20%20%5BI%20-%20I%5D_1788858537.pdf"
+      },
+      "data": {
+        "number": "2502/56",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-54",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Department of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(E)_1787995572.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(S)_1787995557.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(T)_1788263785.pdf"
+      },
+      "data": {
+        "number": "2502/54",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-52",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47719(S(C))%20%20%5BI%20-%20I%5D_1788858500.pdf"
+      },
+      "data": {
+        "number": "2502/52",
+        "group": "labour",
+        "languages": [
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-49",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20(E)_1787737816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20%20(S)_1787737805.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20%20(T)_1787730207.pdf"
+      },
+      "data": {
+        "number": "2502/49",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-48",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20(E)_1787995977.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20(S)_1787995962.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20%20(T)_1788510359.pdf"
+      },
+      "data": {
+        "number": "2502/48",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-47",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20(E)_1787995889.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20%20(S)_1787995876.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20%20(T)_1788510342.pdf"
+      },
+      "data": {
+        "number": "2502/47",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-46",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207929%20(E)_1787653708.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207929%20%20(S)_1787653699.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207929%20%20(T)_1787730158.pdf"
+      },
+      "data": {
+        "number": "2502/46",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-39",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Notice Under Section 10 A (1) (a) Ukuwela P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-20",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207923%20(E)_1787314311.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207923%20%20(S)_1787314279.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207923%20(T)_1787314296.pdf"
+      },
+      "data": {
+        "number": "2502/39",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-38",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the office of member of the Mulatiyana P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-20",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207922%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy_1787653586.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207922%20-%20Filling%20Vacancy%20-%20IV-B%20(S)_1787653577.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207922%20(T)_1787641946.pdf"
+      },
+      "data": {
+        "number": "2502/38",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-37",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Pitabeddara P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-20",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207921%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy_1787294599.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207921%20-%20Filling%20Vacancy%20-%20IV-B%20(S)_1787294590.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207921%20(T)_1787730138.pdf"
+      },
+      "data": {
+        "number": "2502/37",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-36",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Notice Under Section 10 A (1) (a) Peliyagoda U.C",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-20",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207920%20(E)_1787306589.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207920%20(S)_1787306575.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207920%20%20(T)_1787314232.pdf"
+      },
+      "data": {
+        "number": "2502/36",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2502-21",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Trade and Investment Policy",
+      "headline": {
+        "en": "Department of Trade and Investment Policy - The Custom ordinance Order Under Section 19 A",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-18",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20I-I%20%20Custom%20(E)_1791353826.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20-%20Custom%20-%20I-I%20-%20(S)_1790574151.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207919%20(T)_1790248101.pdf"
+      },
+      "data": {
+        "number": "2502/21",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-96",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a vacancy in the Office of member of the Attanagalla P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-14",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207907%20(E)_1786963764.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207907%20(S)_1786963753.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207907%20(T)_1787040127.pdf"
+      },
+      "data": {
+        "number": "2501/96",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-95",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a vacancy in the office of member of the Devinuwara P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-14",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207906%20(E)_1786968352.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207906%20(S)_1786968343.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207906%20(T)_1787040094.pdf"
+      },
+      "data": {
+        "number": "2501/95",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-94",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Kinniya U.C",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-14",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(E)_1787129790.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(S)_1787129775.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(T)%20IV(B)_1787559695.pdf"
+      },
+      "data": {
+        "number": "2501/94",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-88",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Trade and Investment",
+      "headline": {
+        "en": "Department of Trade and Investment - Customs Ordinance (Chapter 235) Order under Section 10A Customs Import Duty",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-14",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207908%20(E)_1789381225.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207908%20%20%5BS%5D%20I-I%20%20-Custom_1789450490.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207908%20(T)%20I-I_1789115316.pdf"
+      },
+      "data": {
+        "number": "2501/88",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-79",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Mirigama P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(E)_1786968298.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(S)_1786968290.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207902%20(T)_1787129678.pdf"
+      },
+      "data": {
+        "number": "2501/79",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-78",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Mirigama P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207901%20(E)_1787129656.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207901%20(S)_1787129643.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207901%20(T)_1787384700.pdf"
+      },
+      "data": {
+        "number": "2501/78",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-77",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission -Filling of a Vacancy in the Office of member of the Mirigama P.S",
+      "headline": {
+        "en": "Election Commission -Filling of a Vacancy in the Office of member of the Mirigama P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207900%20(E)_1786950279.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207900%20%20(S)_1787040354.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207900%20(T)_1787653342.pdf"
+      },
+      "data": {
+        "number": "2501/77",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-76",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the office of member of the Padiyathalawa P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207899%20(E)_1786963702.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207899%20%20(S)_1786963689.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207899%20%20(T)_1788868340.pdf"
+      },
+      "data": {
+        "number": "2501/76",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-66",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47681(E)%20(131)%20%20Industrial%20Disputes_1788758671.pdf"
+      },
+      "data": {
+        "number": "2501/66",
+        "group": "labour",
+        "languages": [
+          "en"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-64",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "M/of Labour",
+      "headline": {
+        "en": "M/of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47680(E)(C)%20%20%5BI%20-%20I%5D_1787294082.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47680(S)(C)%20%20%5BI%20-%20I%5D_1787294073.pdf"
+      },
+      "data": {
+        "number": "2501/64",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-60",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a vacancy in the office of member of the kinniya P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207898%20(E)_1786950249.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207898%20(S)_1786950239.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207898%20(T)_1787219195.pdf"
+      },
+      "data": {
+        "number": "2501/60",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-59",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Notice Under Section10 A (1) (a) Maskeliya P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207897%20(E)_1786950204.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207897%20%20(S)_1786950195.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207897%20%20(T)_1787052153.pdf"
+      },
+      "data": {
+        "number": "2501/59",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-55",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the office of member  of the  Mulatiyana P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207893%20(E)_1786963489.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207893%20(S)_1786963478.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207893%20(T)_1786950136.pdf"
+      },
+      "data": {
+        "number": "2501/55",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-05",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Industrial Dispute",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47623(E)%20%20%5BI%20-%20I%5D%20Revised%20edition_1787210226.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47673(S)%20%20%5BI%20-%20I%5D%20%20-%20%5BIndustrial%20Disputes%20%5D_1787210313.pdf"
+      },
+      "data": {
+        "number": "2501/05",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-03",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47620(S)(C)%20%20%5BI%20-%20I%5D_1789116585.pdf"
+      },
+      "data": {
+        "number": "2501/03",
+        "group": "labour",
+        "languages": [
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2501-02",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Industrial dispute",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47619(E)C)%20%20%5BI%20-%20I%5D_1786704406.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47619(S)(C)%20%20%5BI%20-%20I%5D_1786704392.pdf"
+      },
+      "data": {
+        "number": "2501/02",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-131",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the office of member of the Walikamam South P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207887%20(E)_1786525531.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207887%20(S)_1786525513.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207887%20%20(T)_1786611200.pdf"
+      },
+      "data": {
+        "number": "2500/131",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-128",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commision",
+      "headline": {
+        "en": "Elections Commision - Filling of a Vacancy in the Office of member of the Delft P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20(E)_1786525400.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20%20(S)_1786525381.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207886%20%20(T)_1787040331.pdf"
+      },
+      "data": {
+        "number": "2500/128",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-127",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a vacancy in the office of member of the walikamam south P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207885%20(E)_1786611176.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207885%20%20(S)_1786611164.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207885%20(T)_1787567551.pdf"
+      },
+      "data": {
+        "number": "2500/127",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-126",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Walikamam South west P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207884%20(E)_1786603621.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207884%20(S)_1786603609.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207884%20(T)_1787294501.pdf"
+      },
+      "data": {
+        "number": "2500/126",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-125",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Notice Under Section 10 A (1) (a) Ceased to be a member of the Walikamam East P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20(E)_1786603565.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20(S)_1786603549.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207883%20%20(T)_1787294484.pdf"
+      },
+      "data": {
+        "number": "2500/125",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-124",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207882%20(E)_1786603513.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207882%20(S)_1786603473.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207882%20%20(T)_1786611060.pdf"
+      },
+      "data": {
+        "number": "2500/124",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-123",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Notice under Section 10 A 91) (a) Ceased to be a member of the walikamam South west P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20(E)_1786603416.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20(S)_1786603388.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207880%20%20(T)_1786611040.pdf"
+      },
+      "data": {
+        "number": "2500/123",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-122",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Walikamam South West P.S.",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207879%20(E)_1786603282.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207879%20(S)_1786603268.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207879%20(T)_1787730095.pdf"
+      },
+      "data": {
+        "number": "2500/122",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "exam-2421",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "General Certificate of Education (Advanced Level) Examination - 2026 (Amended)",
+        "ta": "கல்விப் பொதுத் தராதரப் பத்திர (உயர்தர)ப் பரீடசை - 2026 (திருத்தப்பட்டது)"
+      },
+      "keyNumbers": [],
+      "published": "2026-08-07",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/news",
+        "pdf_en": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138793924.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138797788.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/AL_Time_Table%20_2026_Ameded_1785138801966.pdf"
+      },
+      "data": {
+        "kind": "school"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-98",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Mannar P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-06",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207878%20(E)_1786532062.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207878%20(S)_1786532046.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207878%20(T)_1786610864.pdf"
+      },
+      "data": {
+        "number": "2500/98",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-97",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the west P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-06",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207877%20(E)_1786603205.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207877%20(S)_1786603194.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207877%20(T)_1787567391.pdf"
+      },
+      "data": {
+        "number": "2500/97",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-106",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Inland Revenue Department",
+      "headline": {
+        "en": "Inland Revenue Department - Value Added Tax Act No 14 of 2002",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-06",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047610%20(E)_1786536095.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047610%20(S)_1786536084.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047610%20%20%20(T)_1786535870.pdf"
+      },
+      "data": {
+        "number": "2500/106",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-71",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-05",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207872%20(E)_1786531976.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207872%20%20(S)_1786531989.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207872%20%20(T)_1787055302.pdf"
+      },
+      "data": {
+        "number": "2500/71",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-70",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling the Vacancy of the Deputy Mayor in the Negombo Municiple Council",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-05",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_E_1786340010.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_S_1786339986.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_T_1786339996.pdf"
+      },
+      "data": {
+        "number": "2500/70",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-42",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a Vacancy in the office of member of the Puttalam M.C",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-42_E_1786339402.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-42_S_1786339382.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-42_T_1786339392.pdf"
+      },
+      "data": {
+        "number": "2500/42",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2500-16",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of vacancy in the office of member of the vavuniya South Tamil P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-08-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207863%20(E)_1787032340.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207863%20(S)_1787032328.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-16_T_1786339354.pdf"
+      },
+      "data": {
+        "number": "2500/16",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    }
+  ]
+}

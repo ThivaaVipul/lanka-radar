@@ -5,9 +5,40 @@
   "issuer": "Consumer Affairs Authority",
   "headline": {
     "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 09 of 2003 (Amended) Order under Section 20 (5)",
-    "ta": null
+    "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது) 20(5) ஆம் பிரிவின் கீழான கட்டளை"
   },
-  "keyNumbers": [],
+  "keyNumbers": [
+    {
+      "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+      "value": 220.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "Tuna ( Katsuwonus pelamis , Auxis rochei, Euthynnus affinis and Auxis thazard) N",
+      "value": 510.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+      "value": 240.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "Mackerel (Scomber scombrus, Scomber japonicus and Scomber australasicus) Net wei",
+      "value": 540.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 155g and drained weigh",
+      "value": 260.0,
+      "unit": "LKR"
+    },
+    {
+      "label": "Jack Macke-rel (Linna -Decapterus russelli) Net weight of 425g and drained weigh",
+      "value": 600.0,
+      "unit": "LKR"
+    }
+  ],
   "published": "2026-09-04",
   "effective": null,
   "links": {
@@ -23,7 +54,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CONSUMER AFFAIRS AUTHORITY ACT, NO 9 OF 2003 (Amended) Order under Section 20(5)"
   },
   "alert": true
 }

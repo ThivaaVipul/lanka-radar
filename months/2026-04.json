@@ -1,0 +1,485 @@
+{
+  "schema": 1,
+  "month": "2026-04",
+  "items": [
+    {
+      "id": "gazette-2486-15",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-15_E_1784568165.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-15_S_1784568164.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-15_T_1784568165.pdf"
+      },
+      "data": {
+        "number": "2486/15",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2486-09",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Wages Boards Ordinance Wages Board for Security Service Trade",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_E_1784568163.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_S_1784568162.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-09_T_1784568162.pdf"
+      },
+      "data": {
+        "number": "2486/09",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2486-08",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Industrial Dispute between\n1) Cmu and show to show (PVT) (LTD)\n2) A.D.Gihan Thilina Madushanka and Cristal Villas (PVT) LTD\n3) Refusal of Award",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2486-08_S_1784568162.pdf"
+      },
+      "data": {
+        "number": "2486/08",
+        "group": "labour",
+        "languages": [
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2485-62",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Vacated Post by a Member of Kurunegala",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-24",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-62_E_1784568160.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-62_S_1784568159.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-62_T_1784568159.pdf"
+      },
+      "data": {
+        "number": "2485/62",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2485-60",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Vacated Office by a member of maritime Pattu pradeshiya sabha",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-24",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-60_E_1784568159.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-60_S_1784568159.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-60_T_1784568159.pdf"
+      },
+      "data": {
+        "number": "2485/60",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2485-57",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the Office Member of Kayts Pradeshiya Sabha\nFilling of a vacancy in the Office of Member of the Chavakachcheri Pradeshiya Sabah",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-57_E_1784568158.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-57_S_1784568158.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-57_T_1784568158.pdf"
+      },
+      "data": {
+        "number": "2485/57",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2485-53",
+      "source": "gazettes",
+      "topic": "prices",
+      "issuer": "Department of Census and Statistics",
+      "headline": {
+        "en": "Department of Census and Statistics - National Consumer Price Index - March 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-22",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_E_1784568157.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_S_1784568157.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2485-53_T_1784568157.pdf"
+      },
+      "data": {
+        "number": "2485/53",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2484-04",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Department of Labour - Special Allowance Payable to Workers",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-04_E_1784568120.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-04_S_1784568120.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-04_T_1784568120.pdf"
+      },
+      "data": {
+        "number": "2484/04",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2484-02",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Department of Labour - Wages Boards Ordinance wages Board for the Coconut Growing Trade",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-15",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_E_1784568119.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_S_1784568119.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2484-02_T_1784568119.pdf"
+      },
+      "data": {
+        "number": "2484/02",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2483-16",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the Office of Member of the Mutur Pradeshiya Sabha",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-16_E_1784568093.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-16_S_1784568092.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-16_T_1784568093.pdf"
+      },
+      "data": {
+        "number": "2483/16",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2483-15",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the Office at Memder of the Matale M/C Filling of a Vacancy in the Office of memeber of the Mirigama Pradeshiya Sabha",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_E_1784568092.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_S_1784568092.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-15_T_1784568092.pdf"
+      },
+      "data": {
+        "number": "2483/15",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2483-05",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the office at member of the Alawwa Pradeshiya Sabha",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-05_E_1784568089.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-05_S_1784568089.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-05_T_1784568089.pdf"
+      },
+      "data": {
+        "number": "2483/05",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2483-04",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a Vacancy in the Office of Member of the Baruwala Urban Council",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-04_E_1784568089.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-04_S_1784568088.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2483-04_T_1784568088.pdf"
+      },
+      "data": {
+        "number": "2483/04",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "exam-2341",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "MEDIA NOTICE G.C.E. (A/L) EXAMINATION – 2025 Re-scrutiny of Results Calling Applications for Re-scrutiny of Results (For schools and private applicants)",
+        "ta": "ஊடக அறிவித்தல் க.பொ.த. (உ/தர)ப் பரீட்சை – 2025 பெறுபேறு மீள்பரிசீலனை பெறுபேறு மீள்பரிசீலனைக்கான விண்ணப்பப்படிவம் (பாடசாலை மற்றும் தனிப்பட்ட பரீட்சார்த்திகளுக்கு)"
+      },
+      "keyNumbers": [],
+      "published": "2026-04-06",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/news",
+        "pdf_en": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479342716.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479356359.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/DOC040626-04062026180954_1775479363032.pdf"
+      },
+      "data": {
+        "kind": "school"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2482-12",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Imports and Exports Control Department",
+      "headline": {
+        "en": "Imports and Exports Control Department - Imports and Exports",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_E_1784568075.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_S_1784568075.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-12_T_1784568075.pdf"
+      },
+      "data": {
+        "number": "2482/12",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2482-11",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Industrial Dispute between\nH.W.M.B.S. Rahubadda and National Housing Development Authority\nA.D. jaya Singhe and Lanka Fisheries Harbour Cor -operation",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-11_S_1784568075.pdf"
+      },
+      "data": {
+        "number": "2482/11",
+        "group": "labour",
+        "languages": [
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2482-10",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "Ministry of Labour - Industrial Dispute between L.P. Jayasundara and Central Engineering Consultancy Bureay\nS.A. Gunarathna and Nimrod Systems ( Pvt) Ltd.",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-04-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_E_1784568075.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_S_1784568075.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2482-10_T_1784568075.pdf"
+      },
+      "data": {
+        "number": "2482/10",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ]
+      },
+      "alert": true
+    }
+  ]
+}

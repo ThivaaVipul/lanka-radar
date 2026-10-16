@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "months": [
+    {
+      "month": "2026-10",
+      "count": 21,
+      "hash": "ac9cc9197d41017b"
+    },
+    {
+      "month": "2026-09",
+      "count": 79,
+      "hash": "d492056bc8ab1cfa"
+    },
+    {
+      "month": "2026-08",
+      "count": 47,
+      "hash": "e694e937e22a5c3b"
+    },
+    {
+      "month": "2026-07",
+      "count": 59,
+      "hash": "5c7731e7787129f8"
+    },
+    {
+      "month": "2026-06",
+      "count": 37,
+      "hash": "c7f7ac4bd5a7a46a"
+    },
+    {
+      "month": "2026-05",
+      "count": 38,
+      "hash": "f89c801673461a4b"
+    },
+    {
+      "month": "2026-04",
+      "count": 17,
+      "hash": "ee30bbc7986546e2"
+    },
+    {
+      "month": "2026-03",
+      "count": 39,
+      "hash": "6a84132d8f1dee7f"
+    },
+    {
+      "month": "2026-02",
+      "count": 34,
+      "hash": "1484df41804edec2"
+    },
+    {
+      "month": "2026-01",
+      "count": 37,
+      "hash": "f73fcea6742d9771"
+    }
+  ]
+}
