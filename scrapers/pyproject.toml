@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lanka-radar-scrapers"
+version = "0.1.0"
+description = "Collects Sri Lankan official updates for Lanka Radar."
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1",
+    "ruff>=0.17",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest]
+minversion = "9.0"
+testpaths = ["tests"]
+addopts = ["-ra"]

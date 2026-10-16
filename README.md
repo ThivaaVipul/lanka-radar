@@ -1,0 +1,110 @@
+# Lanka Radar
+
+Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, the USD/LKR rate, holidays and exam notices.
+
+A GitHub Actions workflow checks the sources every 3 hours and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. No servers, no accounts.
+
+**Status:** in development (v1), Android only, for personal use. See [docs/PLAN.md](docs/PLAN.md).
+
+## Requirements
+
+- Python 3.12 or newer
+- Flutter 3.44 (stable channel), Dart 3.12
+- JDK 17 or newer
+- Android SDK
+
+## Getting started
+
+```bash
+git clone <repo-url> lanka-radar
+cd lanka-radar
+python -m venv scrapers/.venv
+source scrapers/.venv/bin/activate      # Windows (Git Bash): source scrapers/.venv/Scripts/activate
+pip install -e "scrapers[dev]"
+
+cd app
+flutter pub get
+flutter run
+```
+
+## Development
+
+| Task | Command |
+| --- | --- |
+| Python format | `ruff format .` (repo root) |
+| Python lint | `ruff check .` |
+| Scraper tests | `pytest scrapers` |
+| Release tooling tests | `pytest scripts/release` |
+| App format | `dart format lib test` (in `app/`) |
+| App analyze | `flutter analyze` |
+| App tests | `flutter test` |
+| App debug build | `flutter build apk --debug` |
+
+CI (`.github/workflows/ci.yml`) runs all of these on every push to `main` and every pull request.
+
+## Layout
+
+```text
+scrapers/          Python package that reads the sources (runs on GitHub Actions)
+app/               Flutter app, Android only
+scripts/release/   works out the next version and release notes
+docs/              plan
+```
+
+## Git workflow
+
+- `main` is always releasable. Work happens on short branches named `feat/...`, `fix/...`, `docs/...` or `chore/...` and lands through a pull request once CI passes.
+- Pull requests are squash-merged, so each becomes one commit on `main` whose message is the PR title. Titles follow [Conventional Commits](https://www.conventionalcommits.org/), checked by `.github/workflows/pr-title.yml`.
+- The `data` branch belongs to the scrape workflow. Never commit to it by hand or merge it into `main`.
+- Version tags (`vX.Y.Z`) are created only by the release workflow.
+
+## Releases
+
+Every push to `main` that ships a change publishes a release (`.github/workflows/release.yml`). The commit types since the last tag decide the version:
+
+| Commit type | Release |
+| --- | --- |
+| `fix`, `perf`, `revert` | patch (0.1.1) |
+| `feat` | minor (0.2.0) |
+| `feat!:` or a `BREAKING CHANGE:` footer | major (1.0.0) |
+| `docs`, `chore`, `ci`, `test`, `refactor`, `style`, `build` | none |
+
+- The first release uses the version in `app/pubspec.yaml` once there is a `feat` or `fix` to ship. A pubspec version above the computed one wins, so a version can still be forced by hand.
+- The Android version code is `major * 1000000 + minor * 1000 + patch`, so it always grows.
+- Each release carries the signed `lanka-radar-X.Y.Z.apk` and `SHA256SUMS.txt`. Notes come from `CHANGELOG.md` when it has a section for the version, otherwise from the commits.
+
+### Signing key (one time)
+
+Android only installs an update signed with the same key as the installed app, so every release uses one key. Create it once and keep a backup somewhere safe:
+
+```bash
+keytool -genkeypair -v -keystore lanka-radar-upload.jks -alias upload -keyalg RSA -keysize 4096 -validity 10000
+```
+
+Then add four repository secrets (Settings > Secrets and variables > Actions):
+
+| Secret | Value |
+| --- | --- |
+| `ANDROID_KEYSTORE_BASE64` | output of `base64 -w0 lanka-radar-upload.jks` |
+| `ANDROID_KEYSTORE_PASSWORD` | the keystore password |
+| `ANDROID_KEY_ALIAS` | `upload` |
+| `ANDROID_KEY_PASSWORD` | the key password |
+
+Until they exist, a release that is due is skipped with a warning instead of failing. For local release builds, create `app/android/key.properties` (gitignored):
+
+```properties
+storePassword=...
+keyPassword=...
+keyAlias=upload
+storeFile=/absolute/path/to/lanka-radar-upload.jks
+```
+
+Without that file, release builds are signed with the debug key.
+
+## Sources
+
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

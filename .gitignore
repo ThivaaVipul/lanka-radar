@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Kotlin compiler sessions (created by Gradle builds)
+.kotlin/
+
+# Release workflow output
+release-notes.md
+dist/
+
+# Signing keys never enter the repo
+*.jks
+*.keystore
+key.properties
+
+# Editors and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
