@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
@@ -196,6 +197,18 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Lanka Radar'), findsOneWidget);
     expect(find.text('Source code'), findsOneWidget);
+  });
+
+  testWidgets('the menu opens Alerts', (tester) async {
+    await open(tester);
+
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Alerts'));
+    await settle(tester);
+
+    expect(find.byType(AlertsPage), findsOneWidget);
+    expect(find.text('Prices'), findsOneWidget);
   });
 
   testWidgets('warns in the app bar when the workflow has gone quiet', (

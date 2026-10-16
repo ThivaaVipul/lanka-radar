@@ -53,11 +53,14 @@ String cardDate(DateTime day, {required DateTime today}) =>
 /// 16 Oct, 09:30 in local time (with the year when it isn't this one).
 String dayTime(DateTime time, {required DateTime today}) {
   final local = time.toLocal();
-  final clock =
-      '${local.hour.toString().padLeft(2, '0')}:'
-      '${local.minute.toString().padLeft(2, '0')}';
-  return '${cardDate(local, today: today)}, $clock';
+  return '${cardDate(local, today: today)}, '
+      '${clock(local.hour * 60 + local.minute)}';
 }
+
+/// 06:30 for [minutes] after midnight: the app's clock is always 24-hour.
+String clock(int minutes) =>
+    '${(minutes ~/ 60).toString().padLeft(2, '0')}:'
+    '${(minutes % 60).toString().padLeft(2, '0')}';
 
 /// October 2026, for the feed's month headings.
 String monthHeading(DateTime day) =>

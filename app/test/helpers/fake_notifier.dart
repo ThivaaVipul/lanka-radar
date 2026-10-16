@@ -7,6 +7,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 class FakeNotifier implements Notifier {
   final shown = <List<FeedItem>>[];
   var permissionRequests = 0;
+  var allowed = true;
 
   List<String> get shownIds => [
     for (final batch in shown)
@@ -18,6 +19,9 @@ class FakeNotifier implements Notifier {
 
   @override
   Future<void> requestPermission() async => permissionRequests++;
+
+  @override
+  Future<bool> enabled() async => allowed;
 }
 
 AlertsRepository fakeAlerts(AppDatabase database, [FakeNotifier? notifier]) =>

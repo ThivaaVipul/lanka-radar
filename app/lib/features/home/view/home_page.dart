@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/topics.dart';
 import 'package:lanka_radar/features/about/view/about_page.dart';
+import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/now_card.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
@@ -84,6 +85,7 @@ class _HomeViewState extends State<_HomeView> {
             tooltip: 'More',
             onSelected: (route) => Navigator.of(context).push(route()),
             itemBuilder: (context) => const [
+              PopupMenuItem(value: AlertsPage.route, child: Text('Alerts')),
               PopupMenuItem(value: SourcesPage.route, child: Text('Sources')),
               PopupMenuItem(value: AboutPage.route, child: Text('About')),
             ],
