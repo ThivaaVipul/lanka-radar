@@ -65,7 +65,7 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and comm
 | `status.json` | each source's last run, last success and last error |
 | `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
 
-Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections.
+Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices. A new Litro price list is an item too.
 
 CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync and makes the same fuel and rate items, with the same IDs, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 

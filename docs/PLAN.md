@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-16.
-Status: **M0 and M1 merged, the `data` branch is live; M2 (gazettes) built on `feat/gazettes`. Next: M3 (exams and LP gas).**
+Status: **M0 to M2 merged, the `data` branch is live; M3 (exams and LP gas) built on `feat/exams-gas`. Next: M4 (headlines and topics).**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -20,6 +20,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - **Name:** Lanka Radar. Repo `lanka-radar`, app ID `app.lankaradar`.
 - **Parked:** Lanka MCP, Sinhala, public posting (Facebook Page, WhatsApp Channel), a web page.
 - **Gazette groups (2026-10-16):** prices, taxes and imports; energy and utilities; wages and labour; elections. Each becomes a feed item with an alert; everything else (land title settlement, land acquisition and so on) is skipped.
+- **Exam notices (2026-10-16):** school exams (O/L, A/L, Grade 5 scholarship, GIT), their timetables, and the department's own press releases and notices. Admission cards for institutional exams, religious and Piriven exams, recruitment exams and the monthly exam calendars are left out.
 
 ### Defaults (accepted 2026-10-16)
 
@@ -49,10 +50,10 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 | Extraordinary gazettes | `documents.gov.lk/web/extra_gazettes` is a Next.js page whose table loads through a server action, `TableDataAction`. A plain POST to the page with its `next-action` ID and the body `[{"apiEndpoint": ".../extra-gazette/get-all", "page": N, "limit": 100, ...}]` answers with JSON: number, date, descriptions, and the PDF file per language. PDFs download from `/api/content-file-proxy?file=/extra-gazette-content/<file>.pdf`. No browser needed. | The action ID is defined in one of the site's scripts as `createServerReference("<id>", ..., "TableDataAction")`, so a rebuild that changes it is found again automatically. 2,249 gazettes in 2026 up to mid-October; 91 numbers are listed twice (merged by number); 72 have no PDF; the "Tamil" description is English text. Loads from servers abroad. |
 | CAA price controls | Same list, issuer "Consumer Affairs Authority" (e.g. 2509/31, 7 Oct 2026). | Prices are in the PDF text. |
 | Fuel | CEYPETCO JSON: `api.ceypetco.gov.lk/api/admin/fuel-prices/active?limit=100` (product, price in LKR, effective date). Read by the app on the phone. | Only answers inside Sri Lanka: connections from every foreign test server failed (USA, Germany, Singapore and more). |
-| LP gas | Litro: `litrogas.com/price-list/` shows the list as one image whose file name carries the date (e.g. `Price-List-06.10.2026.webp`). | A new file name means new prices. v1 shows the image; reading the numbers comes later. |
+| LP gas | Litro: `litrogas.com/price-list/` shows the list as one image whose file name carries the date (e.g. `Price-List-06.10.2026.webp`). | A new file name means new prices. The full-size image is the shortest URL (resized copies end in e.g. `-300x374`). v1 shows the image; reading the numbers comes later. |
 | USD/LKR | CBSL's rate search: a plain form POST to `cbsl.gov.lk/cbsl_custom/exrates/exrates_results.php` (`chk_cur[]=USD~US Dollar`, `txtStart`, `txtEnd`) returns a table of daily rates; read by the app on the phone. The workflow keeps Frankfurter's copy, `api.frankfurter.dev/v2/rates?providers=CBSL&base=USD&quotes=LKR&from=...&to=...`, as a backup. | CBSL's results page answers 403 to most servers abroad (the USA, Spain, Israel, Kazakhstan). Frankfurter's copy was a week behind (latest 2026-10-09 on 2026-10-16) but has the same numbers. |
 | Holidays | Google's public Sri Lanka holiday calendar (ICS feed, no key). | Has Poya days, but also observances like Mother's Day, so only events marked "Public holiday" are kept; tentative dates are flagged. The Tamil calendar (`ta.lk`) still has English names, so Tamil holiday names come from the app (M5). |
-| Exam notices | Department of Examinations JSON: `doenets.lk/cms/api/resources?isEnabled=1&rowCount=N&type=NEWS` (titles in English, Sinhala and Tamil, one PDF per language). Also `/examcalendar`. | The homepage refuses plain HTTP (403), but the JSON answered, from servers abroad too. Results are per-candidate lookups, so alerts cover "results released" notices only. |
+| Exam notices | Department of Examinations JSON: `doenets.lk/cms/api/resources?isEnabled=1&rowCount=N&type=NEWS` for news and `type=EXCA` for the exam calendar (timetables and monthly calendars), with titles in English, Sinhala and Tamil (real Tamil) and one PDF per language. The calendar is PDFs, not dates. | The homepage refuses plain HTTP (403), but the JSON answered, from servers abroad too. Results are per-candidate lookups, so alerts cover "results released" notices only. |
 
 ## Design
 
@@ -83,7 +84,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **App**
 
-- Home: a "now" strip (fuel prices, USD/LKR, next holiday, next exam date) above the feed, with topic chips.
+- Home: a "now" strip (fuel prices, USD/LKR, next holiday, the latest exam timetable) above the feed, with topic chips.
 - Item: English headline, Tamil a tap away, key numbers where the source has them, the PDF in English or Tamil.
 - Settings: an alert switch per topic, quiet hours, source health.
 - Sync: WorkManager about every 3 hours on any network. It compares `latest.json` with the local database (drift, with full-text search) and notifies for new alert items, outside quiet hours only.
@@ -123,8 +124,8 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 
 ### M3: Exams and LP gas
 
-- [ ] Exam notices from the JSON feed; exam calendar
-- [ ] Litro: spot a new price-list image by its dated file name, and keep the image for the app
+- [x] Exam notices from the news feed and timetables from the exam calendar: school exams and the department's notices (12 items in 2026), with the Tamil titles
+- [x] Litro: a new price-list image, spotted by its dated file name, becomes a Prices item linking the full-size image
 
 ### M4: Headlines and topics
 
@@ -163,6 +164,7 @@ None right now.
 - AI summaries, if headlines turn out not to be enough (a small model inside the workflow, or a free API key)
 - Public channels (Facebook Page, WhatsApp Channel) and a web page
 - LP gas prices read from Litro's image
+- Exam dates read from the timetable PDFs, for a "next exam" in the now strip
 - Weekly gazettes, Acts and Bills; water and power interruptions; Laugfs gas
 
 ## Log
@@ -180,3 +182,4 @@ None right now.
 | 2026-10-16 | First GitHub run: CEYPETCO refused the connection and CBSL's rate search answered 403. Tests from servers in 8 countries (check-host.net) showed CEYPETCO only answers inside Sri Lanka and CBSL refuses most servers abroad, while the gazette list, the exam JSON, Litro and Google all load. Decision: the app reads fuel and CBSL on the phone; the workflow keeps Frankfurter's rates as a backup with the same item IDs. This resolves the runner-IP question for exams. |
 | 2026-10-16 | CI on `main` failed once in the debug APK build with no app change (it passed minutes earlier on the PR), most likely a download hiccup. Workflows now pin `ubuntu-24.04` (`ubuntu-latest` moves to Ubuntu 26 on 19 October 2026) and cache Gradle downloads. |
 | 2026-10-16 | M2: the gazette table's server action answers with JSON (PDF file names included), so the reader is a plain POST instead of Playwright; its ID is found again in the site's scripts after a rebuild. Gazette groups chosen: prices, taxes and imports; energy and utilities; wages and labour; elections (390 of 2,157 gazettes in 2026). PDF download moved to M4. Two live-run bugs fixed: `splitlines()` cut rows at characters like U+2028 inside descriptions, and a brief answer without data is now retried. |
+| 2026-10-16 | M3: exam notices from the CMS news feed plus timetables from its exam calendar (type `EXCA`), chosen as school exams and the department's notices; these items are the first with real Tamil headlines. The calendar holds PDFs rather than dates, so "next exam date" in the now strip became "the latest exam timetable", and reading dates from the PDFs moved to Later. Litro's price list became an item, keyed by the date in the image's file name. |
