@@ -63,8 +63,9 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and comm
 | `datasets/usd-lkr.json` | Frankfurter's copy of CBSL's daily USD/LKR rate since 1 January 2026, a backup that often runs days behind |
 | `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
 | `status.json` | each source's last run, last success and last error |
+| `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
 
-Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice.
+Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections.
 
 CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync and makes the same fuel and rate items, with the same IDs, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 

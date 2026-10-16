@@ -30,8 +30,19 @@ class Web:
     def get(self, url: str, params: Mapping[str, str] | None = None) -> httpx.Response:
         return self._send("GET", url, params=params)
 
-    def post_form(self, url: str, form: Mapping[str, str]) -> httpx.Response:
-        return self._send("POST", url, data=form)
+    def post(
+        self,
+        url: str,
+        *,
+        content: str | None = None,
+        form: Mapping[str, str] | None = None,
+        headers: Mapping[str, str] | None = None,
+    ) -> httpx.Response:
+        return self._send("POST", url, content=content, data=form, headers=headers)
+
+    def pause(self, seconds: float) -> None:
+        """A polite gap between requests to the same site."""
+        self._sleep(seconds)
 
     def close(self) -> None:
         self._client.close()
