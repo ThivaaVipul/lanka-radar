@@ -35,6 +35,7 @@ flutter run
 | Python lint | `ruff check .` |
 | Scraper tests | `pytest scrapers` |
 | Release tooling tests | `pytest scripts/release` |
+| Run the scrapers live | `python -m lanka_radar run --data <scratch folder>` |
 | App format | `dart format lib test` (in `app/`) |
 | App analyze | `flutter analyze` |
 | App tests | `flutter test` |
@@ -50,6 +51,21 @@ app/               Flutter app, Android only
 scripts/release/   works out the next version and release notes
 docs/              plan
 ```
+
+## Data
+
+The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and commits to the `data` branch, which never merges into `main`:
+
+| File | What it holds |
+| --- | --- |
+| `latest.json` | the newest 200 feed items, newest first |
+| `items/<yyyy>/<mm>/<id>.json` | every feed item, one file each |
+| `datasets/fuel.json` | fuel prices per product, with their history |
+| `datasets/usd-lkr.json` | the daily USD/LKR rate since 1 January 2026 |
+| `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
+| `status.json` | each source's last run, last success and last error |
+
+Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 
 ## Git workflow
 
@@ -69,6 +85,7 @@ Every push to `main` that ships a change publishes a release (`.github/workflows
 | `feat!:` or a `BREAKING CHANGE:` footer | major (1.0.0) |
 | `docs`, `chore`, `ci`, `test`, `refactor`, `style`, `build` | none |
 
+- Only commits that change `app/` count, so scraper and tooling work never publishes an app release.
 - The first release uses the version in `app/pubspec.yaml` once there is a `feat` or `fix` to ship. A pubspec version above the computed one wins, so a version can still be forced by hand.
 - The Android version code is `major * 1000000 + minor * 1000 + patch`, so it always grows.
 - Each release carries the signed `lanka-radar-X.Y.Z.apk` and `SHA256SUMS.txt`. Notes come from `CHANGELOG.md` when it has a section for the version, otherwise from the commits.

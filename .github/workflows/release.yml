@@ -3,9 +3,10 @@
 # Versions follow Conventional Commits since the last release tag:
 #   fix / perf / revert -> patch (0.1.1), feat -> minor (0.2.0),
 #   "feat!:" or "BREAKING CHANGE:" -> major (1.0.0).
-# Other types (docs, chore, ci, test, refactor, style, build) don't release.
-# The first release uses the version in app/pubspec.yaml once there is a change
-# to ship, and a pubspec version above the computed one wins.
+# Other types (docs, chore, ci, test, refactor, style, build) don't release, and
+# only commits that change app/ count. The first release uses the version in
+# app/pubspec.yaml once there is a change to ship, and a pubspec version above
+# the computed one wins.
 name: Release
 
 on:

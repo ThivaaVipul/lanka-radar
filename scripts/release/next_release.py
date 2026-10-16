@@ -23,6 +23,8 @@ from version import (
 
 PUBSPEC = Path("app/pubspec.yaml")
 CHANGELOG = Path("CHANGELOG.md")
+# Releases ship the app, so only commits that change it count.
+APP = "app"
 
 
 def git(*args: str) -> str:
@@ -39,8 +41,9 @@ def pubspec_version() -> str:
 
 
 def commits_since(last_version: str | None) -> list[Commit]:
+    """App commits since the last release; scraper and tooling work never ships a release."""
     log_range = f"v{last_version}..HEAD" if last_version else "HEAD"
-    raw = git("log", "--format=%h%x1f%s%x1f%b%x1e", log_range)
+    raw = git("log", "--format=%h%x1f%s%x1f%b%x1e", log_range, "--", APP)
     commits = []
     for entry in raw.split("\x1e"):
         if entry.strip():

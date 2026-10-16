@@ -11,6 +11,7 @@ ruff format .                 # CI fails on unformatted code
 ruff check .
 pytest scrapers
 pytest scripts/release
+python -m lanka_radar run --data <scratch folder>   # live run; never point it into the repo
 
 # App, from app/
 flutter pub get
@@ -26,7 +27,8 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 
 - Only GitHub and the app. No servers, accounts, Firebase, analytics, crash reporting or AI services.
 - Scrapers write only to the `data` branch, through the scrape workflow. `main` holds code only.
-- One module per source in `scrapers/src/lanka_radar/sources/`. Shared code (HTTP client, item model, writer) lives in the package, not in the source modules.
+- One module per source in `scrapers/src/lanka_radar/sources/`, with a `NAME` and `run(web, store, today)`. Parsing lives in pure functions tested against saved responses in `scrapers/tests/fixtures/` (kept byte for byte: `-text` in `.gitattributes`). Shared code (HTTP client `web.py`, item model, `store.py`) lives in the package, not in the source modules.
+- Feed items are news (a price change, a big rate move, a gazette, an exam notice). Current values belong in `datasets/`, not in the feed.
 - Be polite to government sites: a user agent that names the project, retries with backoff, never re-download a PDF already seen.
 - Item IDs are stable and built from the source's own IDs. Changing the ID scheme needs a log entry in the plan.
 - The app reads only `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`. No tokens or keys in the app.
@@ -35,7 +37,7 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 ## Git workflow and releases
 
 - Branches `feat/...`, `fix/...`, `docs/...`, `chore/...` off `main`; a pull request, CI green, then squash merge with a Conventional Commit title.
-- The commit type decides the release (README, Releases): `feat` is minor, `fix`/`perf`/`revert` patch, `!` or `BREAKING CHANGE:` major, everything else none. Pick the type honestly.
+- The commit type decides the release (README, Releases): `feat` is minor, `fix`/`perf`/`revert` patch, `!` or `BREAKING CHANGE:` major, everything else none. Pick the type honestly. Only commits that change `app/` count toward releases.
 - Never commit to `data`, never create `v*` tags by hand, and never change the version in `app/pubspec.yaml` unless asked to force one.
 - Release logic lives in `scripts/release/` (Python, standard library only). Change it test-first in `scripts/release/test_version.py`.
 

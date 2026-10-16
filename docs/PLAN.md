@@ -48,8 +48,8 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 | CAA price controls | Same list, issuer "Consumer Affairs Authority" (e.g. 2509/31, 7 Oct 2026). | Prices are in the PDF text. |
 | Fuel | CEYPETCO JSON: `api.ceypetco.gov.lk/api/admin/fuel-prices/active?limit=100` (product, price in LKR, effective date). | Plain HTTP works. |
 | LP gas | Litro: `litrogas.com/price-list/` shows the list as one image whose file name carries the date (e.g. `Price-List-06.10.2026.webp`). | A new file name means new prices. v1 shows the image; reading the numbers comes later. |
-| USD/LKR | CBSL's own exchange rate search, `cbsl.gov.lk/cbsl_custom/exrates/exrates.php` (a form). Fallback: Frankfurter, `api.frankfurter.dev/v2/rates?providers=CBSL&base=USD&quotes=LKR`. | Frankfurter's CBSL series was a week behind (latest 2026-10-09 on 2026-10-16), hence CBSL first. The form still has to be read in M1. |
-| Holidays | Google's public Sri Lanka holiday calendar (ICS feed, no key). | Has Poya days, but also observances like Mother's Day, so keep only public and bank holidays. |
+| USD/LKR | CBSL's rate search: a plain form POST to `cbsl.gov.lk/cbsl_custom/exrates/exrates_results.php` (`chk_cur[]=USD~US Dollar`, `txtStart`, `txtEnd`) returns a table of daily rates. Fallback: Frankfurter, `api.frankfurter.dev/v2/rates?providers=CBSL&base=USD&quotes=LKR&from=...&to=...`. | Frankfurter's CBSL series was a week behind (latest 2026-10-09 on 2026-10-16), hence CBSL first. Both give the same numbers. |
+| Holidays | Google's public Sri Lanka holiday calendar (ICS feed, no key). | Has Poya days, but also observances like Mother's Day, so only events marked "Public holiday" are kept; tentative dates are flagged. The Tamil calendar (`ta.lk`) still has English names, so Tamil holiday names come from the app (M5). |
 | Exam notices | Department of Examinations JSON: `doenets.lk/cms/api/resources?isEnabled=1&rowCount=N&type=NEWS` (titles in English, Sinhala and Tamil, one PDF per language). Also `/examcalendar`. | The homepage refuses plain HTTP (403), but the JSON answered. Results are per-candidate lookups, so alerts cover "results released" notices only. |
 
 ## Design
@@ -64,9 +64,10 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 
 **Data branch (`data`)**
 
-- `items/<yyyy>/<mm>/<id>.json`: one file per item. IDs are stable, e.g. `gazette-2510-36`, `fuel-auto-diesel-2026-09-30`, `exam-2468`.
-- `latest.json`: the newest 200 items, small enough to fetch on every sync.
-- `status.json`: per source, the last run, last success and last error.
+- `items/<yyyy>/<mm>/<id>.json`: one file per feed item. Feed items are news: a fuel price change, a USD/LKR move of 2% or more in a week, a gazette, an exam notice. IDs are stable, e.g. `gazette-2510-36`, `fuel-2026-09-30`, `rates-usd-lkr-2026-06-08`, `exam-2468`.
+- `latest.json`: the newest 200 items, small enough to fetch on every sync. It changes only when items do.
+- `datasets/<name>.json`: current values for the "now" strip and reminders: `fuel` (prices per product with their history), `usd-lkr` (daily rate since 1 January 2026), `holidays` (public holidays from 2026 on).
+- `status.json`: when the last run happened, and per source the last run, last success, last error and failures in a row. A source that fails 3 runs in a row fails the workflow once (one email); later failures are only recorded, and the app flags the source.
 - Item fields: `id`, `source`, `topic` (`prices`, `gazettes`, `rates`, `holidays`, `exams`), `issuer`, `headline` (en, ta), `keyNumbers`, `published`, `effective`, `links` (pdf_en, pdf_ta, pdf_si, image, page), `data` (structured values, e.g. old and new fuel price), `alert`.
 - The app reads `raw.githubusercontent.com/ThivaaVipul/lanka-radar/data/...`: public, no token.
 
@@ -96,14 +97,15 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 - [x] Python tooling (ruff, pytest) and the Flutter project (Android only, `app.lankaradar`, strict analyzer)
 - [x] CI workflow
 - [x] Git workflow and automatic releases: `scripts/release/` with tests, `release.yml`, `pr-title.yml`, release signing from `android/key.properties` with a debug key fallback
-- [ ] Git repo and the public GitHub repo (with your OK)
+- [x] Git repo, published as the public `ThivaaVipul/lanka-radar`; the first CI run passed
 
 ### M1: Pipeline and easy sources
 
-- [ ] Item schema, JSON writer, `latest.json`, `status.json`
-- [ ] Scrape workflow that commits to the `data` branch
-- [ ] Fuel (CEYPETCO), USD/LKR (CBSL's search form, Frankfurter as fallback), holidays (ICS, filtered)
-- [ ] Confirm the bot's data commits keep the schedule running (GitHub pauses scheduled workflows in public repos after 60 days without activity)
+- [x] Item schema, JSON writer, `latest.json`, `datasets/`, `status.json`
+- [x] Scrape workflow that commits to the `data` branch (creates the branch on its first run)
+- [x] Fuel (CEYPETCO), USD/LKR (CBSL's search form, Frankfurter as fallback), holidays (ICS, filtered); checked live into a scratch folder
+- [x] Keep the schedule alive: each run re-enables the workflow through the API, since data commits don't count as activity on `main`
+- [ ] First run on GitHub after merging (Actions > Scrape > Run workflow) creates and fills the `data` branch
 
 ### M2: Gazettes
 
@@ -161,3 +163,7 @@ Each milestone ends with ruff, pytest, `flutter analyze` and `flutter test` pass
 | 2026-10-16 | USD/LKR comes from CBSL's own site first, since Frankfurter's CBSL series lagged a week. LP gas alerts on a new Litro price-list image; reading the numbers moved to Later. |
 | 2026-10-16 | GitHub Models was retired on 30 July 2026, so v1 has no AI: items use the official headlines from their English and Tamil PDFs. M4 became "Headlines and topics". |
 | 2026-10-16 | M0 built; all checks pass locally and the debug APK builds. Added the git workflow and automatic releases, ported from TaskPulse to Python so the repo needs no Node. Action versions checked with Context7: checkout v7, setup-python v7, setup-java v6, flutter-action v2. Release signing moved into M0; M7 keeps creating the key and the first release. |
+| 2026-10-16 | Repo published as public. Its git identity uses the GitHub noreply email, so no personal email is in the history. |
+| 2026-10-16 | M1: current values (fuel prices, USD/LKR, holidays) live in `datasets/`; feed items are only for news. Fuel keeps a per-product price history so each change shows the price before it. USD/LKR makes an item only for a 2% move in a week, at most one a week. A first live run found 3 fuel items and 3 rate moves (May and June 2026) and 53 holidays. |
+| 2026-10-16 | Only commits that change `app/` count toward app releases, so scraper and tooling work never publishes an empty app. |
+| 2026-10-16 | GitHub pauses schedules after 60 days without activity on the default branch, and `data` commits don't count, so the scrape workflow re-enables itself through the API on every run. |
