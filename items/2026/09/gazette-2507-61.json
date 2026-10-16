@@ -4,7 +4,7 @@
   "topic": "gazettes",
   "issuer": "Department of Labour",
   "headline": {
-    "en": "Department of Labour",
+    "en": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE",
     "ta": null
   },
   "keyNumbers": [],
@@ -21,7 +21,8 @@
     "languages": [
       "en",
       "si"
-    ]
+    ],
+    "title": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
   },
   "alert": true
 }
