@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2510-17",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission",
+    "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் வென்னப்புவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "keyNumbers": [],
+  "published": "2026-10-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208062%20%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%85%20262%20Filling%20a%20vacancy_1792234831.pdf"
+  },
+  "data": {
+    "number": "2510/17",
+    "group": "elections",
+    "languages": [
+      "ta"
+    ]
+  },
+  "alert": true
+}

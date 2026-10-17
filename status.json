@@ -1,34 +1,34 @@
 {
   "schema": 1,
-  "checked": "2026-10-17T10:45:39Z",
+  "checked": "2026-10-17T15:36:08Z",
   "sources": {
     "holidays": {
-      "lastRun": "2026-10-17T10:45:39Z",
-      "lastSuccess": "2026-10-17T10:45:39Z",
+      "lastRun": "2026-10-17T15:36:08Z",
+      "lastSuccess": "2026-10-17T15:36:08Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-10-17T10:45:39Z",
-      "lastSuccess": "2026-10-17T10:45:39Z",
+      "lastRun": "2026-10-17T15:36:08Z",
+      "lastSuccess": "2026-10-17T15:36:08Z",
       "lastError": null,
       "failures": 0
     },
     "gazettes": {
-      "lastRun": "2026-10-17T10:45:39Z",
-      "lastSuccess": "2026-10-17T10:45:39Z",
+      "lastRun": "2026-10-17T15:36:08Z",
+      "lastSuccess": "2026-10-17T15:36:08Z",
       "lastError": null,
       "failures": 0
     },
     "exams": {
-      "lastRun": "2026-10-17T10:45:39Z",
-      "lastSuccess": "2026-10-17T10:45:39Z",
+      "lastRun": "2026-10-17T15:36:08Z",
+      "lastSuccess": "2026-10-17T15:36:08Z",
       "lastError": null,
       "failures": 0
     },
     "gas": {
-      "lastRun": "2026-10-17T10:45:39Z",
-      "lastSuccess": "2026-10-17T10:45:39Z",
+      "lastRun": "2026-10-17T15:36:08Z",
+      "lastSuccess": "2026-10-17T15:36:08Z",
       "lastError": null,
       "failures": 0
     }

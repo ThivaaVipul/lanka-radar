@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Vacated his Office of Member of Vellanai Pradeshiya Sabha",
-    "ta": null
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டம் 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வேலணை பிரதேச சபை"
   },
   "keyNumbers": [],
   "published": "2026-01-23",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE Velanai Pradeshiya Sabha"
   },
   "alert": true
 }

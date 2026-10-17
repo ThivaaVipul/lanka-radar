@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Parliamentary Elections Act, No 01 of 1981 Notice under Section 7 (4) (b) Symbols of the Political Parties",
-    "ta": null
+    "ta": "1981 ஆம் ஆண்டின் 1 ஆம் இலக்க பாராளுமான்றத் தேர்தல்கள் சட்டம் 7(4)(ஆ) ஆம் பிரிவின் கீழான அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-01-13",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE UNDER SECTION 7(4) (b) OF THE Parliamentary Elections Act, No. 1 of 1981"
   },
   "alert": true
 }

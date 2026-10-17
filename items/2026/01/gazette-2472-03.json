@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Rohan Pieris of the Galigamuwa Pradeshiya SabhaHas Been Ceased to be a Member of that P.S",
-    "ta": null
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 10 அ (1) (அ) ஆம் பிரிவின் கீழான அறிவித்தல் கலிகமுவ பிரதேச சபை"
   },
   "keyNumbers": [],
   "published": "2026-01-20",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE Galigamuwa Pradeshiya Sabha"
   },
   "alert": true
 }

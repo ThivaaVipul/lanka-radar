@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Notice under Section 12 (1) Revision of the Electoral Registers - 2026",
-    "ta": null
+    "ta": "தேருநர் இடாப்பு மீளாய்வு - 2026 தேர்தல் ஆணைக்குழுவின் அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-01-01",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "REVISION OF ELECTORAL REGISTERS - 2026"
   },
   "alert": true
 }

@@ -2,6 +2,31 @@
   "schema": 1,
   "items": [
     {
+      "id": "gazette-2510-61",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடுநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-14",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%86%20262%20Filling%20a%20vacancy_1792234925.pdf"
+      },
+      "data": {
+        "number": "2510/61",
+        "group": "elections",
+        "languages": [
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2510-44",
       "source": "gazettes",
       "topic": "gazettes",
@@ -48,6 +73,34 @@
         "languages": [
           "ta"
         ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-42",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208068%20(E)_1792236386.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208068%20(S)_1792234866.pdf"
+      },
+      "data": {
+        "number": "2510/42",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -101,6 +154,59 @@
         "languages": [
           "ta"
         ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-17",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் வென்னப்புவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208062%20%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%85%20262%20Filling%20a%20vacancy_1792234831.pdf"
+      },
+      "data": {
+        "number": "2510/17",
+        "group": "elections",
+        "languages": [
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-15",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208060%20(E)_1792236361.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208060%20(S)_1792234774.pdf"
+      },
+      "data": {
+        "number": "2510/15",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -5687,126 +5793,6 @@
           "ta"
         ],
         "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Direction under Section 10(1)(a)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2496-38",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Imports and Exports (Control) Regulations on Prohibition of Importation of Goods No-07 of 2026",
-      "headline": {
-        "en": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969",
-        "ta": "1969 ஆம் ஆண்டின் 1 ஆம் இலக்க இறக்குமதி மற்றும் ஏற்றுமதி (கட்டுப்பாட்டு)ச் சட்டம்"
-      },
-      "keyNumbers": [],
-      "published": "2026-07-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-38_E_1786356523.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-38_S_1786356503.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-38_T_1786356513.pdf"
-      },
-      "data": {
-        "number": "2496/38",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2496-31",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "Election Commission - Filling of a Vacancy in the office of member of the Palindanuwara P.S Filling of a Vacancy in the office of member of the Akurana P.S",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ் பாலிந்தநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-07-09",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-31_E_1786357886.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-31_S_1786357866.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-31_T_1786357877.pdf"
-      },
-      "data": {
-        "number": "2496/31",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PALINDANUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2496-30",
-      "source": "gazettes",
-      "topic": "prices",
-      "issuer": "Consumer Affairs Authority",
-      "headline": {
-        "en": "Consumer Affairs Authority - Consumer Affairs Authority Act No 09 of 2003 Direction No 98",
-        "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது)"
-      },
-      "keyNumbers": [],
-      "published": "2026-07-09",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-30_E_1786414858.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-30_S_1786414832.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-30_T_1786414846.pdf"
-      },
-      "data": {
-        "number": "2496/30",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Direction under Section 12 (2)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2496-28",
-      "source": "gazettes",
-      "topic": "prices",
-      "issuer": "Consumer Affairs Authority",
-      "headline": {
-        "en": "Consumer Affairs Authority - Consumer Affairs Authority Act , No 09 of 2003",
-        "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது)"
-      },
-      "keyNumbers": [],
-      "published": "2026-07-09",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-28_E_1786415260.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-28_S_1786415234.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-28_T_1786415247.pdf"
-      },
-      "data": {
-        "number": "2496/28",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Direction under Section 12 (2)"
       },
       "alert": true
     }

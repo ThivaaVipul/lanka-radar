@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Notice under Section 8 (9) of the Parliamentary Elections Act, No. 01 of 1981",
-    "ta": null
+    "ta": "1981 ஆம் ஆண்டின் 1 ஆம் இலக்க பாராளுமன்றத் தேர்தல்கள் சட்டம் 8(9) ஆம் உப பிரிவின் கீழான அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-01-21",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "Notice under Section 8(9) of the Parliamentary Elections Act, No. 1 of 1981"
   },
   "alert": true
 }

@@ -4,8 +4,8 @@
   "topic": "gazettes",
   "issuer": "Election Commission",
   "headline": {
-    "en": "Election Commission",
-    "ta": null
+    "en": "NOTICE GIVEN UNDER SECTION 66 G OF THE LOCAL GOVERNMENT ELECTIONS ORDINANCE AS AMENDED BY THE LOCAL GOVERNMENT ELECTIONS (AMENDMENT) ACT, NO. 22 OF 2012.",
+    "ta": "2012 ஆம் ஆண்டின் 22 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தம்) சட்டத்தினால் திருத்தப்பட்டவாறான உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66(எ) உறுப்புரையின் கீழ் செய்யப்படும் அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-01-20",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE GIVEN UNDER SECTION 66 G OF THE LOCAL GOVERNMENT ELECTIONS ORDINANCE AS AMENDED BY THE LOCAL GOVERNMENT ELECTIONS (AMENDMENT) ACT, NO. 22 OF 2012."
   },
   "alert": true
 }

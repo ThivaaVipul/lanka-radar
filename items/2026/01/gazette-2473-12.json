@@ -5,7 +5,7 @@
   "issuer": "Ministry of Energy",
   "headline": {
     "en": "Ministry of Energy - Petroleum Resources Act, No. of 2021 Petroleum Resources Argument Regulations No, 01 of 2026",
-    "ta": null
+    "ta": "2021 ஆம் ஆண்டின் 21 ஆம் இலக்க, பெற்றோலிய வளங்கள் சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-01-27",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "PETROLEUM RESOURCES ACT, No. 21 OF 2021"
   },
   "alert": true
 }

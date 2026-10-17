@@ -5,7 +5,7 @@
   "issuer": "Public Utilities Commission of Sri Lanka",
   "headline": {
     "en": "Public Utilities Commission of Sri Lanka - The Sri Lanka Electricity Act, No. 20 of 2009 (Amended) Issuance of Certificate of Exemption Harbour Village (Pvt) Ltd and 02 other Companies",
-    "ta": null
+    "ta": "2009 ஆம் ஆண்டின் 20 ஆம் இலக்க (திருத்தப்பட்ட) இலங்கை மின்சார சட்டத்தின் 10(3) ஆம் பிரிவின் கீழ் விடுக்கப்படும் அறிவித்தல் விலக்களித்தலுக்கான சான்றிதழ் வழங்கல்"
   },
   "keyNumbers": [],
   "published": "2026-01-26",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "PUBLIC UTILITIES COMMISSION OF SRI LANKA"
   },
   "alert": true
 }

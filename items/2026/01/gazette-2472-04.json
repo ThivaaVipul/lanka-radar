@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Under Section 10A  (1) (a) Vacated the Office of Member of Mannar Urban Council",
-    "ta": null
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 10 அ (1) (அ) ஆம் பிரிவின் கீழான அறிவித்தல் மன்னார் நகர சபை"
   },
   "keyNumbers": [],
   "published": "2026-01-20",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "Notices under the Local Authorities Elections Ordinance NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE Mannar Urban Council"
   },
   "alert": true
 }
