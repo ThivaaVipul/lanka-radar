@@ -4162,7 +4162,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling of a Vacancy in the office of member of the Mannar P.S",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) என்னும் பிரிவின் கீழ் மன்னார் பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-08-06",
@@ -4180,7 +4180,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANNAR PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -5695,8 +5696,8 @@
       "topic": "gazettes",
       "issuer": "Imports and Exports (Control) Regulations on Prohibition of Importation of Goods No-07 of 2026",
       "headline": {
-        "en": "Imports and Exports (Control) Regulations on Prohibition of Importation of Goods No-07 of 2026",
-        "ta": null
+        "en": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969",
+        "ta": "1969 ஆம் ஆண்டின் 1 ஆம் இலக்க இறக்குமதி மற்றும் ஏற்றுமதி (கட்டுப்பாட்டு)ச் சட்டம்"
       },
       "keyNumbers": [],
       "published": "2026-07-10",
@@ -5714,7 +5715,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969"
       },
       "alert": true
     },

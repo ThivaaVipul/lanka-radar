@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Revision of Electoral Registers",
-    "ta": null
+    "ta": "தேருநர் இடாப்பு மீளாய்வு பார்வையிட முடியும்."
   },
   "keyNumbers": [],
   "published": "2026-02-01",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "REVISION OF ELECTORAL REGISTERS Notice that the Supplementary Electoral Register 2025(3) has been certified under the Registration of Electors Ac"
   },
   "alert": true
 }

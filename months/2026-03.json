@@ -702,7 +702,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling the Vacancy in the Office of Member of the Yatinuwara Pradeshiya Sabha",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) ஆம் பிரிவின் கீழ் யட்டிநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-03-10",
@@ -720,7 +720,38 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2479-38",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Trade and Investment Policy",
+      "headline": {
+        "en": "Department of Trade and Investment Policy - Sri Lanka Export Development Act No , 40 of 1979",
+        "ta": "1979 ஆம் ஆண்டின் 40 ஆம் இலக்க இலங்கை ஏற்றுமதி அபிவிருத்திச் சட்டம் 14 ஆம் பிரிவின் கீழான கட்டளை"
+      },
+      "keyNumbers": [],
+      "published": "2026-03-10",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_E_1784568024.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_S_1784568023.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_T_1784568023.pdf"
+      },
+      "data": {
+        "number": "2479/38",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "SRI LANKA EXPORT DEVELOPMEN ACT, NO. 40 OF 1979 Order under Section 14"
       },
       "alert": true
     },
@@ -731,7 +762,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling the Vacancy in the Office of Member of the Velanai Pradeshiya Sabha",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் வேலணை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-03-10",
@@ -749,7 +780,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VELANAI PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },

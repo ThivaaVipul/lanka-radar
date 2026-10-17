@@ -1,0 +1,30 @@
+{
+  "id": "gazette-2479-38",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment Policy",
+  "headline": {
+    "en": "Department of Trade and Investment Policy - Sri Lanka Export Development Act No , 40 of 1979",
+    "ta": "1979 ஆம் ஆண்டின் 40 ஆம் இலக்க இலங்கை ஏற்றுமதி அபிவிருத்திச் சட்டம் 14 ஆம் பிரிவின் கீழான கட்டளை"
+  },
+  "keyNumbers": [],
+  "published": "2026-03-10",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_E_1784568024.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_S_1784568023.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2479-38_T_1784568023.pdf"
+  },
+  "data": {
+    "number": "2479/38",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "SRI LANKA EXPORT DEVELOPMEN ACT, NO. 40 OF 1979 Order under Section 14"
+  },
+  "alert": true
+}

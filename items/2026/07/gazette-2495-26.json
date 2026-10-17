@@ -5,7 +5,7 @@
   "issuer": "Consumer Affairs Authority",
   "headline": {
     "en": "Consumer Affairs Authority - Consumer Affairs Authority Act, No. 9 of 2003 (Amended) Direction under Section 10(1)(b)(ii)",
-    "ta": null
+    "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது) பிரிவு 10(1)(ஆ)(ii) இன் கீழான பணிப்புரை"
   },
   "keyNumbers": [],
   "published": "2026-07-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Direction under Section 10(1)(b)(ii)"
   },
   "alert": true
 }

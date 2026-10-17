@@ -5,7 +5,7 @@
   "issuer": "Ministry of Labour",
   "headline": {
     "en": "Ministry of Labour - The Shop and Office Employees Regulations",
-    "ta": null
+    "ta": "(129 ஆம் அத்தியாயமான) கடை, அலுவலக ஊழியர் (ஊழியத்தையும் வேதனத்தையும் ஒழுங்குபடுத்தல்) சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-01-30",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "L. D. B. 3/2025 SHOP AND OFFICE EMPLOYEES (REGULATION OF EMPLOYMENT AND REMUNERATION) ACT (CHAPTER 129)"
   },
   "alert": true
 }

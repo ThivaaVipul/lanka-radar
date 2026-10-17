@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment",
   "headline": {
     "en": "Department of Trade and Investment - The Customs Ordinance (Chapter 235) Order under Section 10 A",
-    "ta": null
+    "ta": "சுங்க அறிவித்தல் சுங்க கட்டளைச் சட்டம் (அத்தியாயம் 235) பிரிவு 10 அ இன் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-01-31",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CUSTOMS NOTIFICATION The Customs Ordinance (Chapter 235) Order under Section 10A"
   },
   "alert": true
 }

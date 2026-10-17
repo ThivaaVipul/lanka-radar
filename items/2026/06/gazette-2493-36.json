@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment Policy",
   "headline": {
     "en": "Department of Trade and Investment Policy - Foreign Exchange ( Overseas Investments) made by Persons Resident in Sri Lanka",
-    "ta": null
+    "ta": "2017 ஆம் ஆண்டின் 12 ஆம் இலக்க வெளிநாட்டுச் செலாவணிச் சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-06-18",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "FOREIGN EXCHANGE ACT, No. 12 OF 2017"
   },
   "alert": true
 }

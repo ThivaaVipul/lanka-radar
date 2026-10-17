@@ -5,7 +5,7 @@
   "issuer": "Central Bank of Sri Lanka",
   "headline": {
     "en": "Central Bank of Sri Lanka - Cancellation of the Licence Issued to Nation Lanka Finance PLC",
-    "ta": null
+    "ta": "நேஷன் லங்கா பினான்ஸ் பிஎல்சி இற்கு வழங்கப்பட்ட உரிமத்தினை இரத்துச் செய்தல்"
   },
   "keyNumbers": [],
   "published": "2026-07-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CANCELLATION OF THE LICENCE ISSUED TO NATION LANKA FINANCE PLC"
   },
   "alert": true
 }

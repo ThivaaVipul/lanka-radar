@@ -5,7 +5,7 @@
   "issuer": "Department of Fiscal Policy",
   "headline": {
     "en": "Department of Fiscal Policy - Stamp Duty ( Special Provisions ) Act No 12 of 2006",
-    "ta": null
+    "ta": "2006 ஆம் ஆண்டின் 12 ஆம் இலக்க முத்திரைத் தீர்வை (விசேட ஏற்பாடுகள்) சட்டம் 5 ஆம் பிரிவின் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-02-24",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "STAMP DUTY (SPECIAL PROVISIONS) ACT, No. 12 OF 2006 Order under Section 5"
   },
   "alert": true
 }
