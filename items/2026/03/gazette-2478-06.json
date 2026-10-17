@@ -5,7 +5,7 @@
   "issuer": "Department of Fiscal Policy",
   "headline": {
     "en": "Department of Fiscal Policy - Order made Under Section 03 of the Excise ( Special Provisions) Act No 13 of 1989",
-    "ta": null
+    "ta": "1989 ஆம் ஆண்டின் 13 ஆம் இலக்க, உற்பத்தித் தீர்வை (விசேட ஏற்பாடுகள்) சட்டம் 3 ஆம் பிரிவின் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-03-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "EXCISE (SPECIAL PROVISIONS) ACT, No. 13 OF 1989 Order under Section 3"
   },
   "alert": true
 }

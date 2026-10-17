@@ -5,7 +5,7 @@
   "issuer": "Department of  Census and Statistics",
   "headline": {
     "en": "Department of  Census and Statistics - National Consumer Price Index - January 2026",
-    "ta": null
+    "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண்"
   },
   "keyNumbers": [],
   "published": "2026-02-24",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
   },
   "alert": true
 }

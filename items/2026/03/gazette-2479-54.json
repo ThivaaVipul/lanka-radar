@@ -5,7 +5,7 @@
   "issuer": "Central Bank of Sri Lanka",
   "headline": {
     "en": "Central Bank of Sri Lanka - Central Bank of Sri Lanka Act, No. 16 of 2023 Rules on the Collection of Statistics and Information",
-    "ta": null
+    "ta": "2023 ஆம் ஆண்டின் 16 ஆம் இலக்க இலங்கை மத்திய வங்கிச் சட்டம்"
   },
   "keyNumbers": [],
   "published": "2026-03-12",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CENTRAL BANK OF SRI LANKA ACT, No. 16 OF 2023"
   },
   "alert": true
 }

@@ -4,8 +4,8 @@
   "topic": "gazettes",
   "issuer": "Elections Commission",
   "headline": {
-    "en": "Elections Commission",
-    "ta": null
+    "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA - MABOLA URBAN COUNCIL UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் வத்தளை - மாபோல நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "keyNumbers": [],
   "published": "2026-03-11",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA - MABOLA URBAN COUNCIL UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   },
   "alert": true
 }

@@ -5,7 +5,7 @@
   "issuer": "Department of Fiscal Policy",
   "headline": {
     "en": "Department of Fiscal Policy - Order made Under Section 2 A of the Value added Tax No 14 of 2002",
-    "ta": null
+    "ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க பெறுமதி சேர் வரிச் சட்டம் 2 அ ஆம் பிரிவின் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-03-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "VALUE ADDED TAX ACT, No. 14 OF 2002 Order under Section 2A"
   },
   "alert": true
 }

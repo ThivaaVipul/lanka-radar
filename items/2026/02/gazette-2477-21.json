@@ -5,7 +5,7 @@
   "issuer": "Department of Fiscal Policy",
   "headline": {
     "en": "Department of Fiscal Policy - The Inland Revenue Act, No 24 of 2017 - Sukhitha Welfare Society",
-    "ta": null
+    "ta": "2017 ஆம் ஆண்டின் 24 ஆம் இலக்க உள்நாட்டு இறைவரி சட்டத்தின் ஐந்தாம் அட்டவணை 1(அ) பந்தியின் கீழான கட்டளைகள்"
   },
   "keyNumbers": [],
   "published": "2026-02-24",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTICE UNDER PARAGRAPH 1 (A) OF FIFTH SCHEDULE OF THE INLAND REVENUE ACT, NO. 24 OF 2017"
   },
   "alert": true
 }

@@ -9,9 +9,28 @@
       "issuer": "Ministry of Energy",
       "headline": {
         "en": "Ministry of Energy - Order under Section 66 Revise the Fuel Price",
-        "ta": null
+        "ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபன சட்டம் 66 ஆவது பிரிவின் கீழான கட்டளைகள்"
       },
-      "keyNumbers": [],
+      "keyNumbers": [
+        {
+          "label": "Lanka Auto Diesel",
+          "value": 281.0,
+          "unit": "LKR",
+          "previous": 277.0
+        },
+        {
+          "label": "Lanka Super Diesel 4 Star Euro 4",
+          "value": 329.0,
+          "unit": "LKR",
+          "previous": 323.0
+        },
+        {
+          "label": "Lanka Petrol 92 Octane",
+          "value": 293.0,
+          "unit": "LKR",
+          "previous": 292.0
+        }
+      ],
       "published": "2026-02-28",
       "effective": null,
       "links": {
@@ -27,7 +46,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66"
       },
       "alert": true
     },
@@ -38,7 +58,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Filling the Vacancy in the Office of Member of the Manthai East Pradeshiya Sabha",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் மாந்தை கிழக்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-02-27",
@@ -56,7 +76,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANTHAI EAST PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -67,7 +88,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "Election Commission - Order under Article 98 (8)",
-        "ta": null
+        "ta": "இலங்கைச் சனநாயக சோசலிசக் குடியரசு அரசியலமைப்பு 98 ஆவது உறுப்புரையின் (8) ஆவது உப உறுப்புரையின் கீழான கட்டளை"
       },
       "keyNumbers": [],
       "published": "2026-02-27",
@@ -85,7 +106,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "CONSTITUTION OF THE DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA Order under Article 98(8)"
       },
       "alert": true
     },
@@ -96,7 +118,7 @@
       "issuer": "Department of Trade and Investment Policy",
       "headline": {
         "en": "Department of Trade and Investment Policy - Revenue Protection Order No. 02/2025",
-        "ta": null
+        "ta": "சுங்கக் கட்டளைச் சட்டத்தின் கீழான அறிவித்தல் (அரசிறைப் பாதுகாப்புக் கட்டளை இல. 05/2025)"
       },
       "keyNumbers": [],
       "published": "2026-02-25",
@@ -114,7 +136,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTIFICATION UNDER THE CUSTOMS ORDINANCE (Revenue Protection Order No. 05/2025)"
       },
       "alert": true
     },
@@ -143,7 +166,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BINGIRIYA PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -212,7 +236,7 @@
       "issuer": "Department of  Census and Statistics",
       "headline": {
         "en": "Department of  Census and Statistics - National Consumer Price Index - January 2026",
-        "ta": null
+        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண்"
       },
       "keyNumbers": [],
       "published": "2026-02-24",
@@ -230,7 +254,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
       },
       "alert": true
     },
@@ -270,7 +295,7 @@
       "issuer": "Department of Fiscal Policy",
       "headline": {
         "en": "Department of Fiscal Policy - The Inland Revenue Act, No 24 of 2017 - Sukhitha Welfare Society",
-        "ta": null
+        "ta": "2017 ஆம் ஆண்டின் 24 ஆம் இலக்க உள்நாட்டு இறைவரி சட்டத்தின் ஐந்தாம் அட்டவணை 1(அ) பந்தியின் கீழான கட்டளைகள்"
       },
       "keyNumbers": [],
       "published": "2026-02-24",
@@ -288,7 +313,8 @@
           "en",
           "si",
           "ta"
-        ]
+        ],
+        "title": "NOTICE UNDER PARAGRAPH 1 (A) OF FIFTH SCHEDULE OF THE INLAND REVENUE ACT, NO. 24 OF 2017"
       },
       "alert": true
     },

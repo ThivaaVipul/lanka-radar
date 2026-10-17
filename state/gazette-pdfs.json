@@ -2889,5 +2889,484 @@
       "si": "extra-gazette-content/2481-28_S_1784568060.pdf"
     },
     "reader": 3
+  },
+  "2499/118": {
+    "files": {},
+    "reader": 3
+  },
+  "2481/22": {
+    "files": {
+      "si": "extra-gazette-content/2481-22_S_1784568058.pdf",
+      "ta": "extra-gazette-content/2481-22_T_1784568058.pdf",
+      "en": "extra-gazette-content/2481-22_E_1784568058.pdf"
+    },
+    "reader": 3,
+    "title_en": "VALUE ADDED TAX ACT, NO. 14 OF 2002",
+    "title_ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க பெறுமதிசேர் வரிச் சட்டம்"
+  },
+  "2481/14": {
+    "files": {
+      "si": "extra-gazette-content/2481-14_S_1784568055.pdf",
+      "ta": "extra-gazette-content/2481-14_T_1784568055.pdf",
+      "en": "extra-gazette-content/2481-14_E_1784568055.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE CHAVAKACHCHERI PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் சாவகச் சேரி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2481/17": {
+    "files": {
+      "si": "extra-gazette-content/2481-17_S_1784568056.pdf",
+      "ta": "extra-gazette-content/2481-17_T_1784568056.pdf",
+      "en": "extra-gazette-content/2481-17_E_1784568056.pdf"
+    },
+    "reader": 3,
+    "title_en": "VALUE ADDED TAX ACT, No. 14 of 2002",
+    "title_ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க, பெறுமதிசேர் வரிச் சட்டம்"
+  },
+  "2481/09": {
+    "files": {
+      "si": "extra-gazette-content/2481-09_S_1784568053.pdf",
+      "ta": "extra-gazette-content/2481-09_T_1784568053.pdf",
+      "en": "extra-gazette-content/2481-09_E_1784568053.pdf"
+    },
+    "reader": 3,
+    "title_en": "CENTRAL BANK OF SRI LANKA ACT, NO. 16 OF 2023",
+    "title_ta": "2023 ஆம் ஆண்டின் 16 ஆம் இலக்க இலங்கை மத்திய வங்கி சட்டம்"
+  },
+  "2481/08": {
+    "files": {
+      "si": "extra-gazette-content/2481-08_S_1784568053.pdf",
+      "ta": "extra-gazette-content/2481-08_T_1784568053.pdf",
+      "en": "extra-gazette-content/2481-08_E_1784568053.pdf"
+    },
+    "reader": 3,
+    "title_en": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)",
+    "title_ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண்",
+    "unknown_glyphs": [
+      8083
+    ]
+  },
+  "2481/02": {
+    "files": {
+      "si": "extra-gazette-content/2481-02_S_1784568051.pdf",
+      "ta": "extra-gazette-content/2481-02_T_1784568051.pdf",
+      "en": "extra-gazette-content/2481-02_E_1784568051.pdf"
+    },
+    "reader": 3,
+    "title_en": "IMPORTS AND EXPORTS (CONTROL) ACT, No. 1 OF 1969",
+    "title_ta": "1969 ஆம் ஆண்டின் 1 ஆம் இலக்கம் கொண்ட இறக்குமதி மற்றும் ஏற்றுமதி (கட்டுப்பாட்டு)ச் சட்டம்"
+  },
+  "2480/49": {
+    "files": {
+      "si": "extra-gazette-content/2480-49_S_1784568050.pdf",
+      "ta": "extra-gazette-content/2480-49_T_1784568050.pdf",
+      "en": "extra-gazette-content/2480-49_E_1784568050.pdf"
+    },
+    "reader": 3,
+    "title_en": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)",
+    "numbers": [
+      {
+        "label": "Lanka Auto Diesel",
+        "value": 382.0,
+        "unit": "LKR",
+        "previous": 303.0
+      },
+      {
+        "label": "Lanka Super Diesel 4 Star Euro 4",
+        "value": 443.0,
+        "unit": "LKR",
+        "previous": 353.0
+      },
+      {
+        "label": "Lanka Kerosene",
+        "value": 255.0,
+        "unit": "LKR",
+        "previous": 195.0
+      },
+      {
+        "label": "Lanka Petrol 95 Octane Euro 4",
+        "value": 455.0,
+        "unit": "LKR",
+        "previous": 365.0
+      },
+      {
+        "label": "Lanka Petrol 92 Octane",
+        "value": 398.0,
+        "unit": "LKR",
+        "previous": 317.0
+      }
+    ],
+    "title_ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டம் 66 1 (a) ஆவது பிரிவின் கீழான கட்டளை"
+  },
+  "2480/19": {
+    "files": {
+      "si": "extra-gazette-content/2480-19_S_1784568039.pdf",
+      "ta": "extra-gazette-content/2480-19_T_1784568039.pdf",
+      "en": "extra-gazette-content/2480-19_E_1784568039.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KATTANKUDY URBAN COUNCIL UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் காத்தான்குடி நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2480/16": {
+    "files": {
+      "si": "extra-gazette-content/2480-16_S_1784568038.pdf",
+      "ta": "extra-gazette-content/2480-16_T_1784568038.pdf",
+      "en": "extra-gazette-content/2480-16_E_1784568038.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF CHAIRMAN OF THE HABARADUWA PRADESHIYA SABHA UNDER SECTION 66B (2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTION (AMENDMENT) ACT, No. 16 OF 2017",
+    "title_ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்டவாறான (262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66ஆ(2) என்னும் பிரிவின் கீழ் ஹபராதுவ பிரதேச சபையின் தவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2480/08": {
+    "files": {
+      "si": "extra-gazette-content/2480-08_S_1784568035.pdf",
+      "ta": "extra-gazette-content/2480-08_T_1784568035.pdf",
+      "en": "extra-gazette-content/2480-08_E_1784568035.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POLGAHAWELA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) ஆம் பிரிவின் கீழ் பொல்கஹவெல பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2480/05": {
+    "files": {
+      "si": "extra-gazette-content/2480-05_S_1784568034.pdf",
+      "en": "extra-gazette-content/2480-05_E_1784568034.pdf"
+    },
+    "reader": 3,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON ( 1956 REVISED EDITION) Order under Section 4(1)"
+  },
+  "2480/07": {
+    "files": {
+      "si": "extra-gazette-content/2480-07_S_1784568034.pdf",
+      "en": "extra-gazette-content/2480-07_E_1784568035.pdf"
+    },
+    "reader": 3,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
+  },
+  "2480/06": {
+    "files": {
+      "si": "extra-gazette-content/2480-06_S_1784568034.pdf",
+      "en": "extra-gazette-content/2480-06_E_1784568034.pdf"
+    },
+    "reader": 3,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
+  },
+  "2480/09": {
+    "files": {
+      "si": "extra-gazette-content/2480-09_S_1784568035.pdf",
+      "en": "extra-gazette-content/2480-09_E_1784568035.pdf"
+    },
+    "reader": 3,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Revocation of Order under Section 4(1)"
+  },
+  "2480/04": {
+    "files": {
+      "si": "extra-gazette-content/2480-04_S_1784568034.pdf"
+    },
+    "reader": 3
+  },
+  "2479/54": {
+    "files": {
+      "si": "extra-gazette-content/2479-54_S_1784568031.pdf",
+      "ta": "extra-gazette-content/2479-54_T_1784568031.pdf",
+      "en": "extra-gazette-content/2479-54_E_1784568032.pdf"
+    },
+    "reader": 3,
+    "title_en": "CENTRAL BANK OF SRI LANKA ACT, No. 16 OF 2023",
+    "title_ta": "2023 ஆம் ஆண்டின் 16 ஆம் இலக்க இலங்கை மத்திய வங்கிச் சட்டம்"
+  },
+  "2479/55": {
+    "files": {
+      "si": "extra-gazette-content/2479-55_S_1784568032.pdf",
+      "ta": "extra-gazette-content/2479-55_T_1784568032.pdf",
+      "en": "extra-gazette-content/2479-55_E_1784568032.pdf"
+    },
+    "reader": 3,
+    "title_en": "CUSTOMS NOTIFICATION Customs Ordinance (Chapter 235) ORDER UNDER SECTION 10 A",
+    "title_ta": "சுங்க அறிவித்தல் சுங்க கட்டளைச் சட்டம் (அத்தியாயம் 235) பிரிவு 10அ இன் கீழ் செய்யப்பட்ட"
+  },
+  "2479/52": {
+    "files": {
+      "si": "extra-gazette-content/2479-52_S_1784568030.pdf",
+      "en": "extra-gazette-content/2479-52_E_1784568031.pdf"
+    },
+    "reader": 3,
+    "title_en": "RENEWABLE ENERGY RESOURCE DEVELOPMENT PLAN 2025-2030"
+  },
+  "2479/53": {
+    "files": {
+      "si": "extra-gazette-content/2479-53_S_1784568031.pdf",
+      "ta": "extra-gazette-content/2479-53_T_1784568031.pdf",
+      "en": "extra-gazette-content/2479-53_E_1784568031.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA - MABOLA URBAN COUNCIL UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் வத்தளை - மாபோல நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2479/36": {
+    "files": {
+      "si": "extra-gazette-content/2479-36_S_1784568022.pdf",
+      "ta": "extra-gazette-content/2479-36_T_1784568022.pdf",
+      "en": "extra-gazette-content/2479-36_E_1784568022.pdf"
+    },
+    "reader": 3,
+    "title_en": "MINISTRY OF ENERGY Transfer Plan",
+    "title_ta": "வலுசக்தி அமைச்சு பரிமாற்றத் திட்டம்"
+  },
+  "2478/42": {
+    "files": {
+      "si": "extra-gazette-content/2478-42_S_1784568003.pdf",
+      "ta": "extra-gazette-content/2478-42_T_1784568003.pdf",
+      "en": "extra-gazette-content/2478-42_E_1784568003.pdf"
+    },
+    "reader": 3,
+    "title_en": "MINISTRY OF ENERGY National Electricity Policy",
+    "title_ta": "வலுசக்தி அமைச்சு தேசிய மின்சார கொள்கை"
+  },
+  "2479/27": {
+    "files": {
+      "si": "extra-gazette-content/2479-27_S_1784568019.pdf",
+      "ta": "extra-gazette-content/2479-27_T_1784568019.pdf",
+      "en": "extra-gazette-content/2479-27_E_1784568019.pdf"
+    },
+    "reader": 3,
+    "title_en": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66",
+    "numbers": [
+      {
+        "label": "Lanka Auto Diesel",
+        "value": 303.0,
+        "unit": "LKR",
+        "previous": 281.0
+      },
+      {
+        "label": "Lanka Super Diesel 4 Star Euro 4",
+        "value": 353.0,
+        "unit": "LKR",
+        "previous": 329.0
+      },
+      {
+        "label": "Lanka Kerosene",
+        "value": 195.0,
+        "unit": "LKR",
+        "previous": 182.0
+      },
+      {
+        "label": "Lanka Petrol 95 Octane Euro 4",
+        "value": 365.0,
+        "unit": "LKR",
+        "previous": 340.0
+      },
+      {
+        "label": "Lanka Petrol 92 Octane",
+        "value": 317.0,
+        "unit": "LKR",
+        "previous": 293.0
+      }
+    ],
+    "title_ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டம் 66 ஆவது பிரிவின் கீழான கட்டளை"
+  },
+  "2478/41": {
+    "files": {
+      "si": "extra-gazette-content/2478-41_S_1784568002.pdf",
+      "ta": "extra-gazette-content/2478-41_T_1784568002.pdf",
+      "en": "extra-gazette-content/2478-41_E_1784568002.pdf"
+    },
+    "reader": 3,
+    "title_en": "L.D.-B 5/2025 SRL LANKA ELECTRICITY ACT, No. 36 OF 2024 Order under subsection (2) of section 1",
+    "title_ta": "ச.வ.பி. 5/2025 2024 ஆம் ஆண்டின் 36 ஆம் இலக்க, இலங்கை மின்சாரச் சட்டம் 1 ஆம் பிரிவின் (2) ஆம் உட்பிரிவின் கீழான கட்டளை"
+  },
+  "2478/26": {
+    "files": {
+      "si": "extra-gazette-content/2478-26_S_1784567996.pdf",
+      "ta": "extra-gazette-content/2478-26_T_1784567996.pdf",
+      "en": "extra-gazette-content/2478-26_E_1784567997.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NUWARAGAMPALATHA CENTRAL PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் நுவரகம்பலாத்த மத்தி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2478/24": {
+    "files": {
+      "si": "extra-gazette-content/2478-24_S_1784567996.pdf",
+      "ta": "extra-gazette-content/2478-24_T_1784567996.pdf",
+      "en": "extra-gazette-content/2478-24_E_1784567996.pdf"
+    },
+    "reader": 3,
+    "title_en": "SRI LANKA ELECTRICITY ACT, No. 20 OF 2009 Order under Sub section (1) of the Section 46",
+    "title_ta": "2009 ஆம் ஆண்டின் 20 ஆம் இலக்க இலங்கை மின்சார சட்டம் பிரிவு 46 உப பிரிவு (1) சரத்தின் பிரகாரம்"
+  },
+  "2478/23": {
+    "files": {
+      "si": "extra-gazette-content/2478-23_S_1784567995.pdf",
+      "ta": "extra-gazette-content/2478-23_T_1784567995.pdf",
+      "en": "extra-gazette-content/2478-23_E_1784567996.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AMBALANGODA PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் அம்பலன்கொடை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2478/05": {
+    "files": {
+      "si": "extra-gazette-content/2478-05_S_1784567988.pdf",
+      "ta": "extra-gazette-content/2478-05_T_1784567988.pdf",
+      "en": "extra-gazette-content/2478-05_E_1784567989.pdf"
+    },
+    "reader": 3,
+    "title_en": "PORTS AND AIRPORTS DEVELOPMENT LEVY ACT, No. 18 OF 2011 Order under Section 3",
+    "title_ta": "2011 ஆம் ஆண்டின் 18 ஆம் இலக்க துறைமுக, விமான நிலைய அபிவிருத்தி அறவீட்டுச் சட்டம் 3 ஆம் பிரிவின் கீழான கட்டளை",
+    "unknown_glyphs": [
+      8091
+    ]
+  },
+  "2478/07": {
+    "files": {
+      "si": "extra-gazette-content/2478-07_S_1784567989.pdf",
+      "ta": "extra-gazette-content/2478-07_T_1784567989.pdf",
+      "en": "extra-gazette-content/2478-07_E_1784567989.pdf"
+    },
+    "reader": 3,
+    "title_en": "VALUE ADDED TAX ACT, No. 14 OF 2002 Order under Section 2A",
+    "title_ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க பெறுமதி சேர் வரிச் சட்டம் 2 அ ஆம் பிரிவின் கீழான கட்டளை"
+  },
+  "2478/04": {
+    "files": {
+      "en": "extra-gazette-content/2478-04_E_1784567988.pdf",
+      "si": "extra-gazette-content/2478-04_S_1784567988.pdf",
+      "ta": "extra-gazette-content/2478-04_T_1784567988.pdf"
+    },
+    "reader": 3,
+    "title_en": "SRI LANKA EXPORT DEVELOPMENT ACT, No. 40 OF 1979 Order under Section 14",
+    "title_ta": "1979 ஆம் ஆண்டின் 40 ஆம் இலக்க, இலங்கை ஏற்றுமதி அபிவிருத்திச் சட்டம் 14 ஆம் பிரிவின் கீழான கட்டளை",
+    "unknown_glyphs": [
+      8091
+    ]
+  },
+  "2478/03": {
+    "files": {
+      "si": "extra-gazette-content/2478-03_S_1784567985.pdf",
+      "ta": "extra-gazette-content/2478-03_T_1784567986.pdf",
+      "en": "extra-gazette-content/2478-03_E_1784567988.pdf"
+    },
+    "reader": 3,
+    "title_en": "CUSTOMS NOTIFICATION Revenue Protection Order - No. 01/2026 REVENUE PROTECTION ACT, No. 19 OF 1962 ORDER",
+    "title_ta": "சுங்க அறிவித்தல் அரசிறைப் பாதுகாப்புக் கட்டளை இல. 01/2026 1962 ஆம் ஆண்டின் 19 ஆம் இலக்க அரசிறைப் பாதுகாப்புச் சட்டம் கட்டளை"
+  },
+  "2478/08": {
+    "files": {
+      "si": "extra-gazette-content/2478-08_S_1784567990.pdf",
+      "ta": "extra-gazette-content/2478-08_T_1784567990.pdf",
+      "en": "extra-gazette-content/2478-08_E_1784567990.pdf"
+    },
+    "reader": 3,
+    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE Chavakachcheri Pradeshiya Sabha",
+    "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் சாவகச்சேரி பிரதேச சபை"
+  },
+  "2478/06": {
+    "files": {
+      "si": "extra-gazette-content/2478-06_S_1784567989.pdf",
+      "ta": "extra-gazette-content/2478-06_T_1784567989.pdf",
+      "en": "extra-gazette-content/2478-06_E_1784567989.pdf"
+    },
+    "reader": 3,
+    "title_en": "EXCISE (SPECIAL PROVISIONS) ACT, No. 13 OF 1989 Order under Section 3",
+    "title_ta": "1989 ஆம் ஆண்டின் 13 ஆம் இலக்க, உற்பத்தித் தீர்வை (விசேட ஏற்பாடுகள்) சட்டம் 3 ஆம் பிரிவின் கீழான கட்டளை",
+    "unknown_glyphs": [
+      8091
+    ]
+  },
+  "2477/45": {
+    "files": {
+      "si": "extra-gazette-content/2477-45_S_1784567982.pdf",
+      "ta": "extra-gazette-content/2477-45_T_1784567982.pdf",
+      "en": "extra-gazette-content/2477-45_E_1784567982.pdf"
+    },
+    "reader": 3,
+    "title_en": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66",
+    "numbers": [
+      {
+        "label": "Lanka Auto Diesel",
+        "value": 281.0,
+        "unit": "LKR",
+        "previous": 277.0
+      },
+      {
+        "label": "Lanka Super Diesel 4 Star Euro 4",
+        "value": 329.0,
+        "unit": "LKR",
+        "previous": 323.0
+      },
+      {
+        "label": "Lanka Petrol 92 Octane",
+        "value": 293.0,
+        "unit": "LKR",
+        "previous": 292.0
+      }
+    ],
+    "title_ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபன சட்டம் 66 ஆவது பிரிவின் கீழான கட்டளைகள்"
+  },
+  "2477/40": {
+    "files": {
+      "si": "extra-gazette-content/2477-40_S_1784567980.pdf",
+      "ta": "extra-gazette-content/2477-40_T_1784567980.pdf",
+      "en": "extra-gazette-content/2477-40_E_1784567980.pdf"
+    },
+    "reader": 3,
+    "title_en": "CONSTITUTION OF THE DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA Order under Article 98(8)",
+    "title_ta": "இலங்கைச் சனநாயக சோசலிசக் குடியரசு அரசியலமைப்பு 98 ஆவது உறுப்புரையின் (8) ஆவது உப உறுப்புரையின் கீழான கட்டளை"
+  },
+  "2477/42": {
+    "files": {
+      "si": "extra-gazette-content/2477-42_S_1784567980.pdf",
+      "ta": "extra-gazette-content/2477-42_T_1784567980.pdf",
+      "en": "extra-gazette-content/2477-42_E_1784567980.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANTHAI EAST PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) ஆம் பிரிவின் கீழ் மாந்தை கிழக்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+  },
+  "2477/33": {
+    "files": {
+      "si": "extra-gazette-content/2477-33_S_1784567977.pdf",
+      "ta": "extra-gazette-content/2477-33_T_1784567977.pdf",
+      "en": "extra-gazette-content/2477-33_E_1784567977.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BINGIRIYA PRADESHIYA SABHA UNDER SECTION 66A(1) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": null
+  },
+  "2477/34": {
+    "files": {
+      "si": "extra-gazette-content/2477-34_S_1784567977.pdf",
+      "ta": "extra-gazette-content/2477-34_T_1784567977.pdf",
+      "en": "extra-gazette-content/2477-34_E_1784567977.pdf"
+    },
+    "reader": 3,
+    "title_en": "NOTIFICATION UNDER THE CUSTOMS ORDINANCE (Revenue Protection Order No. 05/2025)",
+    "title_ta": "சுங்கக் கட்டளைச் சட்டத்தின் கீழான அறிவித்தல் (அரசிறைப் பாதுகாப்புக் கட்டளை இல. 05/2025)"
+  },
+  "2477/21": {
+    "files": {
+      "si": "extra-gazette-content/2477-21_S_1784567972.pdf",
+      "ta": "extra-gazette-content/2477-21_T_1784567972.pdf",
+      "en": "extra-gazette-content/2477-21_E_1784567972.pdf"
+    },
+    "reader": 3,
+    "title_en": "NOTICE UNDER PARAGRAPH 1 (A) OF FIFTH SCHEDULE OF THE INLAND REVENUE ACT, NO. 24 OF 2017",
+    "title_ta": "2017 ஆம் ஆண்டின் 24 ஆம் இலக்க உள்நாட்டு இறைவரி சட்டத்தின் ஐந்தாம் அட்டவணை 1(அ) பந்தியின் கீழான கட்டளைகள்"
+  },
+  "2477/23": {
+    "files": {
+      "si": "extra-gazette-content/2477-23_S_1784567973.pdf",
+      "ta": "extra-gazette-content/2477-23_T_1784567973.pdf",
+      "en": "extra-gazette-content/2477-23_E_1784567973.pdf"
+    },
+    "reader": 3,
+    "title_en": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)",
+    "title_ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண்",
+    "unknown_glyphs": [
+      8083
+    ]
   }
 }

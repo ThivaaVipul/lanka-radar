@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "Election Commission - Order under Article 98 (8)",
-    "ta": null
+    "ta": "இலங்கைச் சனநாயக சோசலிசக் குடியரசு அரசியலமைப்பு 98 ஆவது உறுப்புரையின் (8) ஆவது உப உறுப்புரையின் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-02-27",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CONSTITUTION OF THE DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA Order under Article 98(8)"
   },
   "alert": true
 }

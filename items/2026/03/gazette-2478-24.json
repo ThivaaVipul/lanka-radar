@@ -5,7 +5,7 @@
   "issuer": "Public Utilities Commission of Sri Lanka",
   "headline": {
     "en": "Public Utilities Commission of Sri Lanka - Imposing Annual Levy under Sub-Section (1) of the Section 46 of the Sri Lanka Electricity Act, No. 20 of 2009",
-    "ta": null
+    "ta": "2009 ஆம் ஆண்டின் 20 ஆம் இலக்க இலங்கை மின்சார சட்டம் பிரிவு 46 உப பிரிவு (1) சரத்தின் பிரகாரம்"
   },
   "keyNumbers": [],
   "published": "2026-03-04",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "SRI LANKA ELECTRICITY ACT, No. 20 OF 2009 Order under Sub section (1) of the Section 46"
   },
   "alert": true
 }

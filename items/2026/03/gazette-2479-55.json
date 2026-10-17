@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment Policy",
   "headline": {
     "en": "Department of Trade and Investment Policy - Customs Ordinance ( Chapter 235) Order Under Section 10",
-    "ta": null
+    "ta": "சுங்க அறிவித்தல் சுங்க கட்டளைச் சட்டம் (அத்தியாயம் 235) பிரிவு 10அ இன் கீழ் செய்யப்பட்ட"
   },
   "keyNumbers": [],
   "published": "2026-03-12",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "CUSTOMS NOTIFICATION Customs Ordinance (Chapter 235) ORDER UNDER SECTION 10 A"
   },
   "alert": true
 }

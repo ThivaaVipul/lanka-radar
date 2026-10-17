@@ -5,7 +5,7 @@
   "issuer": "Ministry of Energy",
   "headline": {
     "en": "Ministry of Energy - National Electricity Policy and National Tariff Policy",
-    "ta": null
+    "ta": "வலுசக்தி அமைச்சு தேசிய மின்சார கொள்கை"
   },
   "keyNumbers": [],
   "published": "2026-03-09",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "MINISTRY OF ENERGY National Electricity Policy"
   },
   "alert": true
 }

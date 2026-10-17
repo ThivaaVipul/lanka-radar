@@ -5,7 +5,7 @@
   "issuer": "Department of Trade and Investment Policy",
   "headline": {
     "en": "Department of Trade and Investment Policy - Revenue Protection Order No. 02/2025",
-    "ta": null
+    "ta": "சுங்கக் கட்டளைச் சட்டத்தின் கீழான அறிவித்தல் (அரசிறைப் பாதுகாப்புக் கட்டளை இல. 05/2025)"
   },
   "keyNumbers": [],
   "published": "2026-02-25",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "NOTIFICATION UNDER THE CUSTOMS ORDINANCE (Revenue Protection Order No. 05/2025)"
   },
   "alert": true
 }

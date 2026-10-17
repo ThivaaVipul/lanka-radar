@@ -5,7 +5,7 @@
   "issuer": "Department of Fiscal Policy",
   "headline": {
     "en": "Department of Fiscal Policy - Ports and Airports Development Leavy Act No. 18 of 2011 Order Under Section 03",
-    "ta": null
+    "ta": "2011 ஆம் ஆண்டின் 18 ஆம் இலக்க துறைமுக, விமான நிலைய அபிவிருத்தி அறவீட்டுச் சட்டம் 3 ஆம் பிரிவின் கீழான கட்டளை"
   },
   "keyNumbers": [],
   "published": "2026-03-03",
@@ -23,7 +23,8 @@
       "en",
       "si",
       "ta"
-    ]
+    ],
+    "title": "PORTS AND AIRPORTS DEVELOPMENT LEVY ACT, No. 18 OF 2011 Order under Section 3"
   },
   "alert": true
 }
