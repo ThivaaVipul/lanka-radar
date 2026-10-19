@@ -1,48 +1,42 @@
 {
   "schema": 1,
-  "checked": "2026-10-19T11:41:11Z",
+  "checked": "2026-10-19T16:59:29Z",
   "sources": {
     "holidays": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
     },
     "gazettes": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
     },
     "exams": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
     },
     "gas": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
     },
     "jobs": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": "2026-10-19T11:41:11Z",
+      "lastRun": "2026-10-19T16:59:29Z",
+      "lastSuccess": "2026-10-19T16:59:29Z",
       "lastError": null,
       "failures": 0
-    },
-    "market": {
-      "lastRun": "2026-10-19T11:41:11Z",
-      "lastSuccess": null,
-      "lastError": "HTTPStatusError: Client error '403 Forbidden' for url 'https://www.cbsl.gov.lk/en/statistics/economic-indicators/price-report'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
-      "failures": 1
     }
   }
 }
