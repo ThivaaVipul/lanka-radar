@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The launcher icon: a radar sweep with one blip, white on the teal background. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.35"
+        android:pathData="M54,54 L49.311,27.41 A27,27 0 0,1 74.683,36.645 Z" />
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M54,27 A27,27 0 1,1 54,81 A27,27 0 1,1 54,27 Z" />
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.6"
+        android:pathData="M54,40 A14,14 0 1,1 54,68 A14,14 0 1,1 54,40 Z" />
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L74.683,36.645" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M62.241,32.827 A3.5,3.5 0 1,1 62.241,39.827 A3.5,3.5 0 1,1 62.241,32.827 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,50.5 A3.5,3.5 0 1,1 54,57.5 A3.5,3.5 0 1,1 54,50.5 Z" />
+</vector>
