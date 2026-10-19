@@ -92,7 +92,7 @@ void main() {
   });
 
   testWidgets("a market good's chart compares its markets", (tester) async {
-    remote.files[FeedRepository.marketPath] = marketDataset;
+    await tester.runAsync(() => storeMarketPrices(database));
     await show(tester, const MarketChart('Beans'));
 
     expect(find.text('Narahenpita${dot}per kg'), findsOneWidget);

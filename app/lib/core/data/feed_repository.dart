@@ -24,11 +24,9 @@ class FeedRepository {
 
   static const indexPath = 'months/index.json';
   static const usdLkrPath = 'datasets/usd-lkr.json';
-  static const marketPath = 'datasets/market-prices.json';
   static const documents = [
     'datasets/holidays.json',
     usdLkrPath,
-    marketPath,
     'status.json',
   ];
 

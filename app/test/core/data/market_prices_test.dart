@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
+import 'package:lanka_radar/core/data/market_report.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 
-import '../../helpers/fake_branch.dart';
+import '../../helpers/fake_sources.dart';
 
 void main() {
   final prices = MarketPrices.fromJson(marketDataset);
@@ -55,5 +58,49 @@ void main() {
   test('is empty before the workflow has written it', () {
     expect(MarketPrices.fromJson(null).quotes, isEmpty);
     expect(MarketPrices.fromJson(null).latest, isNull);
+  });
+
+  test('a report adds its day, and the JSON reads back the same', () {
+    final tuesday = DateTime(2026, 10, 20);
+    final next = prices
+        .withReport(tuesday, const [
+          ReportRow(
+            name: 'Beans',
+            unit: 'kg',
+            section: 'Vegetables',
+            retail: {'Narahenpita': 720, 'Pettah': null},
+          ),
+          ReportRow(
+            name: 'Carrot',
+            unit: 'kg',
+            section: 'Vegetables',
+            retail: {'Pettah': 230},
+          ),
+        ])
+        .skipping(DateTime(2026, 10, 21));
+
+    expect(next.latest, tuesday);
+    final beans = next.good('Beans')!.quoteOn(tuesday)!;
+    expect(
+      (beans.market, beans.price, beans.before),
+      ('Narahenpita', 720, 700),
+    );
+    expect(next.good('Beans')!.prices['Pettah'], hasLength(2));
+    expect(next.good('Carrot')!.markets, ['Pettah']);
+    expect(MarketPrices.fromJson(jsonEncode(next.toJson())), next);
+  });
+
+  test('a report read again replaces its day', () {
+    final again = prices.withReport(latest, const [
+      ReportRow(
+        name: 'Beans',
+        unit: 'kg',
+        section: 'Vegetables',
+        retail: {'Narahenpita': 710},
+      ),
+    ]);
+
+    expect(again.days, prices.days);
+    expect(again.good('Beans')!.prices['Narahenpita']!.last.value, 710);
   });
 }

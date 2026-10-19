@@ -1,7 +1,10 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:lanka_radar/core/data/market_report.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:pdfrx/pdfrx.dart';
 
 /// Sources that answer only inside Sri Lanka, so the phone reads them itself
 /// (GitHub's servers abroad can't). Requests name the project, as the scrapers do.
@@ -116,6 +119,71 @@ Map<DateTime, double> parseUsdRates(String html) {
     throw const FormatException('CBSL answered without rates');
   }
   return rates;
+}
+
+/// The Central Bank's Daily Price Report ([MarketReport]).
+class CbslMarket {
+  CbslMarket({
+    http.Client? client,
+    Future<List<ReportChar>> Function(Uint8List pdf)? read,
+  }) : _client = client ?? http.Client(),
+       _read = read ?? _readWithFlutter;
+
+  final http.Client _client;
+  final Future<List<ReportChar>> Function(Uint8List pdf) _read;
+
+  /// The days the listing has a report for, newest first.
+  Future<List<DateTime>> listedDays() async => listedReportDays(
+    utf8.decode((await _get(MarketReport.listing)).bodyBytes),
+  );
+
+  /// A day's report.
+  Future<List<ReportRow>> report(DateTime day) async =>
+      parseReport(await _read((await _get(MarketReport.of(day))).bodyBytes));
+
+  Future<http.Response> _get(Uri uri) async {
+    final response = await _client
+        .get(uri, headers: {'User-Agent': userAgent})
+        .timeout(_timeout);
+    if (response.statusCode != 200) {
+      throw SourceException('CBSL', response.statusCode);
+    }
+    return response;
+  }
+
+  static Future<List<ReportChar>> _readWithFlutter(Uint8List pdf) async {
+    await pdfrxFlutterInitialize();
+    return reportChars(pdf);
+  }
+}
+
+/// The characters on a report's last page, where its table is, read with
+/// PDFium (initialized by the caller).
+Future<List<ReportChar>> reportChars(Uint8List pdf) async {
+  final PdfDocument document;
+  try {
+    document = await PdfDocument.openData(pdf, sourceName: 'price report');
+  } on PdfException catch (error) {
+    throw FormatException('The report is not a readable PDF: $error');
+  }
+  try {
+    final page = document.pages.last;
+    final text = await page.loadText();
+    if (text == null) {
+      throw const FormatException('No text in the report');
+    }
+    return [
+      for (final (index, rect) in text.charRects.indexed)
+        (
+          text: text.fullText[index],
+          left: rect.left,
+          right: rect.right,
+          bottom: page.height - rect.bottom,
+        ),
+    ];
+  } finally {
+    await document.dispose();
+  }
 }
 
 class SourceException implements Exception {

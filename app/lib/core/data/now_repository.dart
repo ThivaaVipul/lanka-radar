@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
-import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
@@ -40,14 +39,15 @@ final class SourceStatus extends Equatable {
   List<Object?> get props => [lastRun, lastSuccess, lastError];
 }
 
-/// The Now card's sources: CEYPETCO's fuel prices and CBSL's USD/LKR, which the
-/// phone reads itself and keeps a history of, plus the holidays and the
-/// workflow's backup rates the feed refresh stores.
+/// The Now card's sources: CEYPETCO's fuel prices, CBSL's USD/LKR and its
+/// market prices, which the phone reads itself and keeps a history of, plus
+/// the holidays and the workflow's backup rates the feed refresh stores.
 class NowRepository {
   NowRepository({
     required AppDatabase database,
     required this._ceypetco,
     required this._cbsl,
+    required this._market,
     DateTime Function()? now,
     Future<Map<String, String>> Function()? tamilNames,
   }) : _db = database,
@@ -56,6 +56,17 @@ class NowRepository {
 
   static const ceypetcoSource = 'ceypetco';
   static const cbslSource = 'cbsl';
+  static const marketSource = 'cbsl-market';
+
+  /// Where the market prices the phone has read are kept.
+  static const marketPath = 'phone/market-prices.json';
+
+  /// How many price reports one refresh reads at most: a fresh install reads
+  /// the listing's few weeks.
+  static const reportsPerRead = 15;
+
+  /// How long a look at the listing lasts while the day's report isn't in.
+  static const marketRecheck = Duration(hours: 2);
 
   /// How far back each CBSL read goes: enough for the 30-day sheet.
   static const rateDays = 45;
@@ -64,10 +75,11 @@ class NowRepository {
   final AppDatabase _db;
   final Ceypetco _ceypetco;
   final Cbsl _cbsl;
+  final CbslMarket _market;
   final DateTime Function() _now;
   final Future<Map<String, String>> Function() _tamilNames;
   Map<String, String>? _names;
-  (DateTime?, MarketPrices)? _market;
+  (DateTime?, MarketPrices)? _parsedMarket;
 
   /// Reads CEYPETCO and CBSL when the last try is older than [maxAge].
   Future<void> refreshIfStale(Duration maxAge) async {
@@ -78,8 +90,8 @@ class NowRepository {
     await refresh();
   }
 
-  /// Reads both sources, each on its own: a failure is recorded with its source
-  /// and stops neither the other nor the feed.
+  /// Reads the sources, each on its own: a failure is recorded with its source
+  /// and stops neither the others nor the feed.
   Future<void> refresh() async {
     await _db.saveSetting(_lastRefresh, _now().toIso8601String());
     await _read(ceypetcoSource, () async {
@@ -103,6 +115,57 @@ class NowRepository {
         for (final MapEntry(key: day, value: rate) in rates.entries)
           RateRow(day: isoDay(day), rate: rate),
       ]);
+    });
+    await _readMarket();
+  }
+
+  /// Reads the price reports the phone doesn't have yet, newest first, unless
+  /// the latest is in (today's, or Friday's at a weekend) or the listing was
+  /// looked at lately.
+  Future<void> _readMarket() async {
+    final held = await marketPrices();
+    final today = _today();
+    final weekday = today.subtract(
+      Duration(
+        days: switch (today.weekday) {
+          DateTime.saturday => 1,
+          DateTime.sunday => 2,
+          _ => 0,
+        },
+      ),
+    );
+    final latest = held.latest;
+    final looked = (await status(marketSource)).lastRun;
+    if ((latest != null && !latest.isBefore(weekday)) ||
+        (looked != null && _now().difference(looked) < marketRecheck)) {
+      return;
+    }
+    await _read(marketSource, () async {
+      var prices = held;
+      final wanted = [
+        for (final day in await _market.listedDays())
+          if (!prices.days.contains(day) && !prices.skipped.contains(day)) day,
+      ];
+      for (final day in wanted.take(reportsPerRead)) {
+        try {
+          prices = prices.withReport(day, await _market.report(day));
+        } on FormatException {
+          // Laid out some other way: not tried again.
+          prices = prices.skipping(day);
+        } on SourceException catch (error) {
+          if (error.statusCode != 404) {
+            rethrow;
+          }
+          prices = prices.skipping(day);
+        }
+        await _db.saveFile(
+          FileRow(
+            path: marketPath,
+            body: jsonEncode(prices.toJson()),
+            fetchedAt: _now(),
+          ),
+        );
+      }
     });
   }
 
@@ -133,16 +196,15 @@ class NowRepository {
     );
   }
 
-  /// The workflow's market prices (`datasets/market-prices.json`), read again
-  /// only when the file changes.
+  /// The market prices the phone has read, parsed again only when they change.
   Future<MarketPrices> marketPrices() async {
-    final file = await _db.file(FeedRepository.marketPath);
+    final file = await _db.file(marketPath);
     final saved = file?.fetchedAt;
-    if (_market case (final known, final prices) when known == saved) {
+    if (_parsedMarket case (final known, final prices) when known == saved) {
       return prices;
     }
     final prices = MarketPrices.fromJson(file?.body);
-    _market = (saved, prices);
+    _parsedMarket = (saved, prices);
     return prices;
   }
 
@@ -173,6 +235,7 @@ class NowRepository {
       phone: [
         _health('Fuel prices', await status(ceypetcoSource)),
         _health('USD/LKR', await status(cbslSource)),
+        _health('Market prices', await status(marketSource)),
       ],
     );
   }

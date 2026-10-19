@@ -166,7 +166,7 @@ void main() {
   });
 
   testWidgets('Prices lists market prices a section at a time', (tester) async {
-    remote.files[FeedRepository.marketPath] = marketDataset;
+    await tester.runAsync(() => storeMarketPrices(database));
     await open(tester);
     await showTab(tester, HomeTab.prices);
 

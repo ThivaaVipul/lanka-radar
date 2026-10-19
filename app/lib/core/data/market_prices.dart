@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:lanka_radar/core/data/market_report.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
+import 'package:lanka_radar/core/format/dates.dart';
 
 /// The markets a good's price is taken from, in order: Narahenpita's retail
 /// price is the one shown, then Pettah's, and Negombo's for fish.
@@ -92,9 +94,14 @@ final class MarketQuote extends Equatable {
   List<Object?> get props => [good, market, price, before];
 }
 
-/// The workflow's `datasets/market-prices.json`: the report's days and goods.
+/// The market prices the phone has read from the Central Bank's reports, kept
+/// as JSON: each good's prices are columns by day.
 final class MarketPrices extends Equatable {
-  const MarketPrices({this.days = const [], this.goods = const []});
+  const MarketPrices({
+    this.days = const [],
+    this.goods = const [],
+    this.skipped = const [],
+  });
 
   factory MarketPrices.fromJson(String? body) {
     if (body == null) {
@@ -107,6 +114,10 @@ final class MarketPrices extends Equatable {
     ];
     return MarketPrices(
       days: days,
+      skipped: [
+        for (final day in json['skipped'] as List<Object?>? ?? const [])
+          if (day is String) DateTime.parse(day),
+      ],
       goods: [
         for (final item in json['items'] as List<Object?>? ?? const [])
           if (item case {
@@ -140,6 +151,9 @@ final class MarketPrices extends Equatable {
   /// In the report's order.
   final List<MarketGood> goods;
 
+  /// Listed reports that couldn't be read, so they aren't tried again.
+  final List<DateTime> skipped;
+
   /// The latest report's day.
   DateTime? get latest => days.lastOrNull;
 
@@ -161,6 +175,69 @@ final class MarketPrices extends Equatable {
     return null;
   }
 
+  /// With [day]'s report added, or put in place of what that day had.
+  MarketPrices withReport(DateTime day, List<ReportRow> rows) {
+    final goods = {for (final good in this.goods) good.name: good};
+    for (final row in rows) {
+      final prices = {
+        for (final MapEntry(key: market, value: points)
+            in goods[row.name]?.prices.entries ??
+                const <MapEntry<String, List<PricePoint>>>[])
+          market: [
+            for (final point in points)
+              if (point.day != day) point,
+          ],
+      };
+      for (final MapEntry(key: market, value: price) in row.retail.entries) {
+        if (price != null) {
+          (prices[market] ??= []).add(PricePoint(day, price));
+        }
+      }
+      for (final points in prices.values) {
+        points.sort((a, b) => a.day.compareTo(b.day));
+      }
+      goods[row.name] = MarketGood(
+        name: row.name,
+        unit: row.unit,
+        section: row.section,
+        prices: prices,
+      );
+    }
+    return MarketPrices(
+      days: {...days, day}.toList()..sort(),
+      goods: goods.values.toList(),
+      skipped: skipped,
+    );
+  }
+
+  /// With [day]'s report marked as not readable.
+  MarketPrices skipping(DateTime day) =>
+      MarketPrices(days: days, goods: goods, skipped: [...skipped, day]);
+
+  Map<String, Object?> toJson() => {
+    'days': [for (final day in days) isoDay(day)],
+    'skipped': [for (final day in skipped) isoDay(day)],
+    'items': [
+      for (final good in goods)
+        {
+          'name': good.name,
+          'unit': good.unit,
+          'section': good.section,
+          'prices': {
+            for (final MapEntry(key: market, value: points)
+                in good.prices.entries)
+              market: _column(points),
+          },
+        },
+    ],
+  };
+
+  /// [points] as a column with a price or null for each of [days].
+  List<double?> _column(List<PricePoint> points) {
+    final byDay = {for (final point in points) point.day: point.value};
+    return [for (final day in days) byDay[day]];
+  }
+
   @override
-  List<Object?> get props => [days, goods];
+  List<Object?> get props => [days, goods, skipped];
 }

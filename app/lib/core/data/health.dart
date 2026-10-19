@@ -9,7 +9,6 @@ const githubSources = {
   'exams': 'Exam notices',
   'jobs': 'Jobs (PSC)',
   'gas': 'LP gas',
-  'market': 'Market prices',
   'holidays': 'Holidays',
   'rates': 'USD/LKR backup',
 };
