@@ -163,7 +163,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் வென்னப்புவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -171,14 +171,47 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208062%20(E)_1792395943.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208062%20(S)_1792395954.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208062%20%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%85%20262%20Filling%20a%20vacancy_1792234831.pdf"
       },
       "data": {
         "number": "2510/17",
         "group": "elections",
         "languages": [
+          "en",
+          "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-16",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208061%20(E)_1792390816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208061%20(S)_1792390808.pdf"
+      },
+      "data": {
+        "number": "2510/16",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1471,6 +1504,25 @@
       "alert": true
     },
     {
+      "id": "jobs-psc-1789723381",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Open Recruitment of Sri Lanka Education Administrative Service Grade III - 2021- 03rd round",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1789723381-Open-Recruitment-to-Sri-Lanka-Education-Administrative--Service-Grade-III---2021-----03rd-ROUND.pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
+      "alert": true
+    },
+    {
       "id": "gazette-2506-116",
       "source": "gazettes",
       "topic": "gazettes",
@@ -1687,6 +1739,25 @@
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PELMADULLA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
+      "alert": true
+    },
+    {
+      "id": "jobs-psc-1789464305",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Recruitment to the Posts of Legal Officer (Executive Service Grade III) in Environment Ministry - Open Stream - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-15",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1789464305-Recruitment-to-the-Posts-of-Legal-Officer--English.pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
       "alert": true
     },
     {
@@ -5711,88 +5782,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DOMPE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2492-35",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-11",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2492-35_E_1785732568.pdf"
-      },
-      "data": {
-        "number": "2492/35",
-        "group": "labour",
-        "languages": [
-          "en"
-        ],
-        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2492-33",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-07-11",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G46982%20(E)%20I-I%20%20%20-%20%20%5BCollective%20Agreement%5D_1788498741.pdf"
-      },
-      "data": {
-        "number": "2492/33",
-        "group": "labour",
-        "languages": [
-          "en"
-        ],
-        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2496-39",
-      "source": "gazettes",
-      "topic": "prices",
-      "issuer": "Consumer Affairs Authority",
-      "headline": {
-        "en": "Consumer Affairs Authority - Consumer Affairs Authority Act No 09 of 2003",
-        "ta": "2003 ஆம் ஆண்டின் 9 ஆம் இலக்க, பாவனையாளர் அலுவல்கள் அதிகாரசபைச் சட்டம் (திருத்தியமைக்கப்பட்டது) 10(1)(அ) ஆம் பிரிவின் கீழான பணிப்புரை"
-      },
-      "keyNumbers": [],
-      "published": "2026-07-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-39_E_1786356391.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-39_S_1786356371.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2496-39_T_1786356381.pdf"
-      },
-      "data": {
-        "number": "2496/39",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "CONSUMER AFFAIRS AUTHORITY ACT, No. 9 OF 2003 (AMENDED) Direction under Section 10(1)(a)"
       },
       "alert": true
     }

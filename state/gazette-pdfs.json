@@ -3777,9 +3777,12 @@
   },
   "2510/17": {
     "files": {
-      "ta": "extra-gazette-content/PG 8062  (T) IV(B)  66à®(1) à® 262 Filling a vacancy_1792234831.pdf"
+      "ta": "extra-gazette-content/PG 8062  (T) IV(B)  66à®(1) à® 262 Filling a vacancy_1792234831.pdf",
+      "en": "extra-gazette-content/PG 8062 (E)_1792395943.pdf",
+      "si": "extra-gazette-content/PG 8062 (S)_1792395954.pdf"
     },
     "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் வென்னப்புவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/15": {
@@ -4051,5 +4054,13 @@
     "reader": 3,
     "title_en": "REVISION OF ELECTORAL REGISTERS - 2026",
     "title_ta": "தேருநர் இடாப்பு மீளாய்வு - 2026 தேர்தல் ஆணைக்குழுவின் அறிவித்தல்"
+  },
+  "2510/16": {
+    "files": {
+      "si": "extra-gazette-content/PG 8061 (S)_1792390808.pdf",
+      "en": "extra-gazette-content/PG 8061 (E)_1792390816.pdf"
+    },
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   }
 }
