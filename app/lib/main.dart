@@ -24,7 +24,7 @@ Future<void> main() async {
     ceypetco: Ceypetco(),
     cbsl: Cbsl(),
   );
-  final router = NotificationRouter(feed);
+  final router = NotificationRouter(feed, now);
   final notifier = await LocalNotifier.start(
     onTap: (payload) => unawaited(router.open(payload)),
   );

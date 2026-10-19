@@ -129,6 +129,16 @@ class NowRepository {
     );
   }
 
+  /// Every price CEYPETCO has given the phone, with the day each started.
+  Future<List<FuelPriceRow>> fuelRows() => _db.allFuelPrices();
+
+  /// Every holiday from today on, for the reminders.
+  Future<List<HolidayNow>> upcomingHolidays() async => holidaysFrom(
+    (await _db.file('datasets/holidays.json'))?.body,
+    _today(),
+    _names ??= await _tamilNames(),
+  );
+
   /// Every source's health: the workflow's, from its status.json, and the two
   /// the phone reads itself.
   Future<Health> health() async {

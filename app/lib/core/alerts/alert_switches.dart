@@ -23,11 +23,12 @@ enum AlertSwitch {
   String get key => 'alert.$name';
 }
 
-/// The Alerts screen's switches for feed topics.
+/// The Alerts screen's first switches: feed topics, and holiday reminders.
 const topicSwitches = [
   AlertSwitch.prices,
   AlertSwitch.exams,
   AlertSwitch.rates,
+  AlertSwitch.holidays,
 ];
 
 /// The Alerts screen's switches for gazettes, by group.

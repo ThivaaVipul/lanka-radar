@@ -90,6 +90,15 @@ class HomeCubit extends Cubit<HomeState> {
       // CEYPETCO and CBSL record their own failures, and the Now card shows
       // the age of what it has; the feed's state is about the feed.
     }
+    await _feed.updatePhoneItems();
+    try {
+      await _alerts.remindHolidays(
+        await _phone.upcomingHolidays(),
+        now: _now(),
+      );
+    } on Exception {
+      // Scheduled again after the next refresh.
+    }
     if (isClosed) {
       return;
     }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:lanka_radar/core/data/data_branch.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/rate_moves.dart';
 
 /// The feed: items stored on the phone, refreshed from the data branch.
 ///
@@ -21,9 +22,10 @@ class FeedRepository {
        _now = now ?? DateTime.now;
 
   static const indexPath = 'months/index.json';
+  static const usdLkrPath = 'datasets/usd-lkr.json';
   static const documents = [
     'datasets/holidays.json',
-    'datasets/usd-lkr.json',
+    usdLkrPath,
     'status.json',
   ];
 
@@ -65,6 +67,29 @@ class FeedRepository {
 
   /// Re-reads the stored items, which a background sync may have changed.
   void notifyExternalChanges() => _db.notifyExternalChanges();
+
+  /// Makes the workflow's USD/LKR move items from the rates the phone read from
+  /// CBSL, for the days the workflow's copy of the rates doesn't reach yet, and
+  /// drops those it has caught up with: if it found the move too, its own item
+  /// comes in the month files under the same ID.
+  Future<void> updatePhoneItems() async {
+    final dataset = datasetRates((await _db.file(usdLkrPath))?.body);
+    final last = dataset.isEmpty ? null : (dataset.keys.toList()..sort()).last;
+    if (last != null) {
+      await _db.dropPhoneItemsThrough(last);
+    }
+    final rates = {
+      for (final row in await _db.allRates()) row.day: row.rate,
+      // Where both have a day, the workflow's rate, so both find the same moves.
+      ...dataset,
+    };
+    final now = _now();
+    await _db.addPhoneItems([
+      for (final move in weeklyMoves(rates))
+        if (last == null || move.day.compareTo(last) > 0)
+          _row(moveItem(move), AppDatabase.phoneMonth, now),
+    ]);
+  }
 
   /// When the feed was last left, if ever: items that arrived after it are new.
   Future<DateTime?> lastVisit() async {

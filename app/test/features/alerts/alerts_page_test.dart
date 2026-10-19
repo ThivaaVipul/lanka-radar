@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,11 +7,13 @@ import 'package:lanka_radar/app/theme.dart';
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/data/database.dart';
+import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/system_settings.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 
 import '../../helpers/fake_branch.dart';
 import '../../helpers/fake_notifier.dart';
+import '../../helpers/fake_sources.dart';
 
 /// Records which of the app's settings pages would have opened.
 class FakeSystemSettings implements SystemSettings {
@@ -46,8 +50,11 @@ void main() {
 
   Future<void> open(WidgetTester tester) async {
     await tester.pumpWidget(
-      RepositoryProvider.value(
-        value: alerts,
+      MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider.value(value: alerts),
+          RepositoryProvider.value(value: FakeSources().repository(database)),
+        ],
         child: MaterialApp(
           theme: AppTheme.light,
           home: AlertsPage(settings: settings),
@@ -81,17 +88,47 @@ void main() {
     );
   });
 
+  testWidgets('the Holiday reminders switch schedules them, or none', (
+    tester,
+  ) async {
+    final soon = DateTime.now().add(const Duration(days: 5));
+    await tester.runAsync(
+      () => database.saveFile(
+        FileRow(
+          path: 'datasets/holidays.json',
+          body: jsonEncode({
+            'schema': 1,
+            'holidays': [
+              {'date': isoDay(soon), 'name': 'A holiday', 'tentative': false},
+            ],
+          }),
+          fetchedAt: DateTime.now(),
+        ),
+      ),
+    );
+    await open(tester);
+
+    await tester.tap(find.text('Holiday reminders'));
+    await settle(tester);
+    expect(switchOn(tester, 'Holiday reminders'), isFalse);
+    expect(notifier.reminders, isEmpty);
+
+    await tester.tap(find.text('Holiday reminders'));
+    await settle(tester);
+    expect(notifier.reminders.single.holiday.name, 'A holiday');
+  });
+
   testWidgets('quiet hours run 22:00 to 06:00 and can be turned off', (
     tester,
   ) async {
     await open(tester);
+    await tester.scrollUntilVisible(find.text('End'), 100);
+    await tester.pumpAndSettle();
 
     expect(switchOn(tester, 'Hold alerts'), isTrue);
     expect(find.text('22:00'), findsOneWidget);
     expect(find.text('06:00'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.text('Hold alerts'), 100);
-    await tester.pumpAndSettle();
     await tester.tap(find.text('Hold alerts'));
     await settle(tester);
 
