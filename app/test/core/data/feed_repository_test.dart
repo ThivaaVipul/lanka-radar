@@ -242,6 +242,16 @@ void main() {
     expect(await feed.lastVisit(), DateTime(2026, 10, 16, 10, 30));
   });
 
+  test('keeps the last searches, newest first, once each', () async {
+    for (final query in ['tuna', 'poya', 'Tuna', 'a', 'b', 'c', 'd']) {
+      await feed.rememberSearch(query);
+    }
+    expect(await feed.recentSearches(), ['d', 'c', 'b', 'a', 'Tuna']);
+
+    await feed.forgetSearch('b');
+    expect(await feed.recentSearches(), ['d', 'c', 'a', 'Tuna']);
+  });
+
   test('items carry when the phone first saw them', () async {
     await feed.refresh();
 

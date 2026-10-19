@@ -85,7 +85,8 @@ class _HomeViewState extends State<_HomeView> {
             IconButton(
               tooltip: 'Search',
               icon: const Icon(Icons.search),
-              onPressed: () => Navigator.of(context).push(SearchPage.route()),
+              onPressed: () =>
+                  Navigator.of(context).push(SearchPage.route(tabs)),
             ),
             PopupMenuButton<Route<void> Function()>(
               tooltip: 'More',

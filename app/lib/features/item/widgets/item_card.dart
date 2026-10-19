@@ -4,6 +4,7 @@ import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:lanka_radar/features/item/widgets/highlight.dart';
 import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
 
 /// An item as a row of a list: its topic's icon, what changed (or the
@@ -14,12 +15,16 @@ class ItemTile extends StatelessWidget {
     required this.item,
     this.isNew = false,
     this.onTap,
+    this.highlight = const [],
     super.key,
   });
 
   final FeedItem item;
   final bool isNew;
   final VoidCallback? onTap;
+
+  /// Words to pick out in the title, from a search.
+  final List<String> highlight;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +50,15 @@ class ItemTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: Text(
-                          cardTitle(item),
+                        child: Text.rich(
+                          highlighted(
+                            cardTitle(item),
+                            highlight,
+                            strong: TextStyle(
+                              color: colors.primary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                           style: theme.textTheme.bodyLarge?.copyWith(
                             fontWeight: isNew
                                 ? FontWeight.w700
