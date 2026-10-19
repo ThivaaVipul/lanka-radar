@@ -4,6 +4,7 @@ import 'package:lanka_radar/core/data/data_branch.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/rate_moves.dart';
+import 'package:lanka_radar/core/data/search_text.dart';
 
 /// The feed: items stored on the phone, refreshed from the data branch.
 ///
@@ -190,19 +191,12 @@ class FeedRepository {
     DateTime now,
   ) {
     final item = FeedItem.fromJson(json);
-    final number = item.data['number'];
-    final search = [
-      item.headlineEn,
-      ?item.headlineTa,
-      ?item.issuer,
-      if (number is String) number,
-    ].join('\n').toLowerCase();
     return ItemsCompanion.insert(
       id: item.id,
       month: month,
       published: json['published']! as String,
       topic: item.topic,
-      search: search,
+      search: searchText(item),
       json: jsonEncode(json),
       firstSeen: now,
     );

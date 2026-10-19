@@ -16,7 +16,7 @@ class AlertsPage extends StatelessWidget {
       MaterialPageRoute(builder: (context) => const AlertsPage());
 
   /// A background sync older than this suggests Android is holding it back.
-  static const syncLate = Duration(hours: 12);
+  static const syncLate = Duration(hours: 6);
 
   final SystemSettings settings;
 

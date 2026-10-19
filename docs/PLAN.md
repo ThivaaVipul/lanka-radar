@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-19.
-Status: **M0 to M5 merged: the `data` branch is live and the app shows the feed, the Now card, search and source health. Now: M6 (alerts), grilled on 2026-10-16 and planned below; M6 is done. M7: v0.1.0 is released and installed; next, an update over it and two weeks of daily use.**
+Status: **M0 to M7 built: the app is released (v0.2.0 updated over v0.1.0) and in daily use. Now: M8 (a redesign and more sources), grilled on 2026-10-19 and planned below; M8a is on `feat/search-and-hourly`.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -40,11 +40,21 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
   - Holiday reminders at about 19:00 the evening before every public holiday, Poya days included, with tentative dates marked and the Tamil name.
   - Battery: the Alerts screen has a row that opens the app's system settings (battery No restrictions, Autostart on Xiaomi phones), and shows when the last background sync ran.
   - Nothing alerts for a fresh install's history or while the app is open (the dots cover that). Android channels: New items, Fuel prices, Holiday reminders. The menu has Alerts, Sources and About.
+- **Redesign and more sources (M8 grilling, 2026-10-19):**
+  - Layout: a bottom bar with four tabs, Today, Prices, Notices and Dates; search in the top bar; the menu keeps Alerts, Sources and About. Today shows only what is new for you, the key numbers with trend arrows, the next holiday and a power cut going on in your area. The Now card and its sheets give way to the tabs.
+  - Election notices never show on Today; in Notices they fold into one row a week ("Election notices (7)").
+  - Look: the calm teal stays, with an icon and tint per topic, large numbers with up and down arrows (ochre for rises, teal for falls) and small trend lines.
+  - Cards say what changed, made from the data where it allows ("Tuna 155g fixed at Rs 480, was 500"), otherwise the official title in up to 2 lines, then one small line with the issuer and date. The full title, the Tamil title and the PDFs are on the item page. English throughout; a Tamil-only notice shows its Tamil title.
+  - Search matches what the cards show and common other spellings (O/L, timetable, dollar). It covers everything (notices, prices, dates, exams) in groups of compact rows with the match highlighted, and a group header filters to its group. Before you type: suggestion chips and the last 5 searches.
+  - Features: price charts (USD/LKR, each fuel, controlled prices); Dates with holidays, long weekends and exam dates read from the timetable PDFs, with countdowns and add to calendar; a home-screen widget (Petrol 92, Diesel, USD/LKR, the next holiday); sharing as text with the official link; jobs from the Public Service Commission as a topic with its own switch; power cuts from EDLCare for the area you pick, plus your CEB account number (optional, kept on the phone) for planned cuts. Planned cuts alert at 19:00 the evening before; breakdowns in your area alert when a sync sees them, except in quiet hours, when they are dropped.
+  - Market prices: the Central Bank's Daily Price Report (retail prices at Pettah, Dambulla and Narahenpita, weekdays: rice, vegetables, onions, potatoes, dhal, sugar, eggs, coconut, fish, fruit) becomes a dataset; Prices gets a Market section with a chart per item, and search finds them. No alerts, since these move every day.
+  - Not now: watch words and places, water cuts (the Water Board publishes no notices), a Tamil interface, the weekly gazette's vacancies, HARTI's wholesale prices and supermarket prices (Later).
+  - The workflow runs every hour, and so does the phone's background sync.
 
 ### Defaults (accepted 2026-10-16)
 
 - Public repo under ThivaaVipul, MIT license. Scraped data is committed to a separate `data` branch, so `main` holds only code.
-- Scrapers run every 3 hours. The app checks about every 3 hours, plus pull to refresh, and stays silent from 22:00 to 06:00 (anything new arrives in the morning).
+- Scrapers run every hour (every 3 hours until M8a). The app checks about every hour, plus pull to refresh, and stays silent from 22:00 to 06:00 (anything new arrives in the morning).
 - History is loaded from 1 January 2026.
 - Flutter with one Cubit per screen, like Zen Mode, and an offline copy you can search.
 - GitHub Actions builds the signed APK; you install it from GitHub Releases. No Play Store.
@@ -72,6 +82,9 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 | LP gas | Litro: `litrogas.com/price-list/` shows the list as one image whose file name carries the date (e.g. `Price-List-06.10.2026.webp`). | A new file name means new prices. The full-size image is the shortest URL (resized copies end in e.g. `-300x374`). v1 shows the image; reading the numbers comes later. |
 | USD/LKR | CBSL's rate search: a plain form POST to `cbsl.gov.lk/cbsl_custom/exrates/exrates_results.php` (`chk_cur[]=USD~US Dollar`, `txtStart`, `txtEnd`) returns a table of daily rates; read by the app on the phone. The workflow keeps Frankfurter's copy, `api.frankfurter.dev/v2/rates?providers=CBSL&base=USD&quotes=LKR&from=...&to=...`, as a backup. | CBSL's results page answers 403 to most servers abroad (the USA, Spain, Israel, Kazakhstan). Frankfurter's copy was a week behind (latest 2026-10-09 on 2026-10-16) but has the same numbers. |
 | Holidays | Google's public Sri Lanka holiday calendar (ICS feed, no key). | Has Poya days, but also observances like Mother's Day, so only events marked "Public holiday" are kept; tentative dates are flagged. The Tamil calendar (`ta.lk`) still has English names, so Tamil holiday names come from the app (M5). |
+| Market prices | CBSL's Daily Price Report: `cbsl.gov.lk/en/statistics/economic-indicators/price-report` lists one PDF per weekday, `/sites/default/files/cbslweb_documents/statistics/pricerpt/price_report_YYYYMMDD_e.pdf` (older ones without the underscore before `e`). Page 2 is a table of yesterday's and today's wholesale and retail prices. | Checked 2026-10-19: loads from abroad, unlike CBSL's rate search. Text PDF made from Excel, so a table-aware reader (pdfplumber) is needed. No milk powder, bread or flour. HARTI's daily wholesale PDFs (`harti.gov.lk/daily-price.php`, many economic centres, weekends too) also load from abroad (Later). |
+| Power cuts | EDLCare (`edlcare.edl.lk`, where `cebcare.ceb.lk` now redirects): a public JSON API used by its outage map, `/api/incognito/provinces`, `/areas?provinceId=`, `/outage-locations?areaId=` (breakdowns, demand management and planned cuts with start, end and customers) and `/calendar?acctNo=&from=&to=` (scheduled cuts for one account, no login). | Checked 2026-10-19: answers from Sri Lanka and from abroad. Unofficial and undocumented, so it may change; asked gently. Areas are CEB area offices, not districts. |
+| Jobs | Public Service Commission (`psc.gov.lk`): recruitment announcements on its homepage, each a PDF under `/images/latest_document/psc_announcements/<year>/`, titled with the post. | Checked 2026-10-19 from Sri Lanka. Covers PSC recruitments only; the weekly gazette's "Posts - Vacant" is the full list (Later). The Water Board's interruptions page has had no notices since 2022, so water cuts are out. |
 | Exam notices | Department of Examinations JSON: `doenets.lk/cms/api/resources?isEnabled=1&rowCount=N&type=NEWS` for news and `type=EXCA` for the exam calendar (timetables and monthly calendars), with titles in English, Sinhala and Tamil (real Tamil) and one PDF per language. The calendar is PDFs, not dates. | The homepage refuses plain HTTP (403), but the JSON answered, from servers abroad too. Results are per-candidate lookups, so alerts cover "results released" notices only. |
 
 ## Design
@@ -81,7 +94,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - `scrapers/`: Python 3.12 package, one module per source. A shared HTTP client (retries, polite user agent, a pause between pages, never downloads a known PDF twice). From M4: PDF text through pdfplumber, with pdfminer for the glyph IDs of Arial Unicode Tamil. No OCR: every gazette so far has a text layer. Tests run on saved fixtures, not live sites.
 - `app/`: Flutter, Android only.
 - `scripts/release/`: works out the next version and the release notes (Python, standard library only, with tests).
-- `.github/workflows/`: `scrape.yml` (every 3 hours, commits to `data`), `ci.yml` (Python and Flutter checks), `release.yml` (signed APK to GitHub Releases), `pr-title.yml` (Conventional Commit titles).
+- `.github/workflows/`: `scrape.yml` (every hour, commits to `data`), `ci.yml` (Python and Flutter checks), `release.yml` (signed APK to GitHub Releases), `pr-title.yml` (Conventional Commit titles).
 - `ruff.toml` at the root holds the Python lint and format settings for both `scrapers/` and `scripts/`.
 
 **Data branch (`data`)**
@@ -113,7 +126,7 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Health: `status.json` for the workflow's sources, and the app's own record for CEYPETCO and CBSL.
 - The app declares the INTERNET permission in its main manifest (release builds have none yet), in M5.
 - Alerts screen (M6): the switches, quiet hours, a battery row and the last background sync. Notifications are posted per item into three channels (New items, Fuel prices, Holiday reminders); a tap opens the item, the fuel prices or the holidays.
-- Background sync (M6): WorkManager about every 3 hours on any network runs the same refresh as opening the app (month files, datasets, status, CEYPETCO, CBSL), then notifies for items first seen in that sync that are on, recent (published in the last 14 days) and outside quiet hours; held items go out after quiet hours. Nothing is posted while the app is in front.
+- Background sync (M6): WorkManager about every hour (every 3 hours until M8a) on any network runs the same refresh as opening the app (month files, datasets, status, CEYPETCO, CBSL), then notifies for items first seen in that sync that are on, recent (published in the last 14 days) and outside quiet hours; held items go out after quiet hours. Nothing is posted while the app is in front.
 - Holiday reminders (M6): inexact local notifications at about 19:00 the evening before (no exact-alarm permission), scheduled again after each refresh of `datasets/holidays.json`.
 - The notification permission is asked once, after the first sync (M6).
 
@@ -190,9 +203,23 @@ Three pull requests, each with its tests:
 ### M7: Releases and field test
 
 - [x] Create the signing key and add the four repository secrets (you, once; README has the steps)
-- [ ] First release installed from GitHub Releases (done: v0.1.0), and an update installs over it
+- [x] First release installed from GitHub Releases (v0.1.0), and an update installs over it (v0.2.0)
 - [x] An app icon: a radar sweep, as an adaptive icon with a themed-icon layer, and the same radar as the notification icon
 - [ ] Two weeks of daily use; tune topics and alerts
+
+### M8: Redesign and more sources
+
+Nine pull requests, each its own release:
+
+- [x] M8a, search fix and hourly: search matches what the cards show (topic, price labels, "gazette 2509/31") and common other spellings; the workflow and the phone's background sync run every hour
+- [ ] M8b, layout: the Today, Prices, Notices and Dates tabs, the new cards, election notices folded
+- [ ] M8c, jobs: the Public Service Commission's recruitments as a topic, with an alert switch
+- [ ] M8d, search screen: one search over notices, prices, dates and exams, grouped, with suggestions and recent searches
+- [ ] M8e, price charts: USD/LKR, each fuel, controlled prices
+- [ ] M8f, market prices: the Central Bank's daily retail prices as a dataset, a Market section in Prices with charts, searchable
+- [ ] M8g, Dates: holidays, long weekends, exam dates read from the timetable PDFs, countdowns, add to calendar
+- [ ] M8h, power cuts: EDLCare by area and account, reminders for planned cuts, alerts for breakdowns
+- [ ] M8i, a home-screen widget and sharing
 
 ## Open questions
 
@@ -205,8 +232,8 @@ None right now.
 - AI summaries, if headlines turn out not to be enough (a small model inside the workflow, or a free API key)
 - Public channels (Facebook Page, WhatsApp Channel) and a web page
 - LP gas prices read from Litro's image
-- Exam dates read from the timetable PDFs, for a "next exam" in the now strip
-- Weekly gazettes, Acts and Bills; water and power interruptions; Laugfs gas
+- HARTI's daily wholesale prices from the economic centres; supermarket prices (Keells, Cargills, Glomark), if a fair way to read them turns up
+- Weekly gazettes (their vacancies first), Acts and Bills; water interruptions, if the Water Board starts publishing them; Laugfs gas
 - OCR (Tesseract, on GitHub's servers) for Tamil PDFs in a font the reader doesn't know, if one shows up
 - Search inside the gazettes' text (the workflow would keep each PDF's text)
 - An in-app PDF viewer that keeps offline copies
@@ -242,3 +269,4 @@ None right now.
 | 2026-10-16 | M6b: an Alerts screen (in the menu) with the switches in two groups (topics, and gazettes by group), quiet hours (on, 22:00 to 06:00, times picked on a 24-hour clock like the rest of the app) and a Battery row that opens the app's page in Android's settings and shows when the background sync last ran, in the warning colour after 12 hours. A row at the top says when notifications are off and opens their settings. Android's settings pages open through a small method channel in MainActivity rather than a package. A background sync in quiet hours keeps the IDs of what would have alerted; the first sync after them posts those whose switch is still on, and opening the app drops them, since the feed marks them new. Each sync records when it started, even if its refresh then fails. The Holiday reminders switch comes with the reminders in M6c. |
 | 2026-10-19 | M6c: a sync compares CEYPETCO's prices before and after its refresh and posts one "Fuel prices changed" notification (Prices switch, its own channel, a later change replaces it, a tap opens the fuel prices); a fuel gazette whose prices equal the phone's latest CEYPETCO prices doesn't alert. The phone makes the workflow's `rates-usd-lkr-<date>` items with the same rule and fields (checked against the workflow's 2026-05-22 item), from CBSL's rates plus the workflow's `datasets/usd-lkr.json` (its rate wins where both have a day), only for days after that file's last day. They are filed under the month `phone`, which no month file replaces; the workflow's copy of the same ID takes over and keeps when the phone first saw it, and phone items are dropped once the workflow's rates cover their day. Holiday reminders are scheduled again after every refresh and on the switch: inexact, 19:00 Sri Lanka time the evening before, every holiday in the dataset, through a boot receiver so they survive a restart; `proguard-rules.pro` keeps the notification plugin's Gson models for release builds (to check on the first release). Quiet hours hold a fuel change like an item. |
 | 2026-10-19 | M7: the release workflow had skipped every due release for want of the signing key. The key was made (PKCS12, alias `upload`, valid to 2054, kept outside the repo with a backup) and its four secrets added; Release run by hand published v0.1.0 (a 61 MB APK with code for three CPU types), installed from GitHub Releases after removing the debug build, which has another key. The release build keeps the notification plugin's classes (checked in the APK) and schedules the holiday reminders. The app icon followed: a white radar sweep on the app's teal, drawn as vectors (adaptive icon with a themed-icon layer, PNGs for Android 7), and the same radar as the status bar icon, kept from the resource shrinker by `res/raw/keep.xml`. |
+| 2026-10-19 | M8 grilled; the decisions are under "Redesign and more sources (M8 grilling)". Search was missing what the cards show: on the 420 items, `diesel` and `tuna` found nothing (they are only in price labels), `timetable` and `o/l` found nothing (the titles say "Time Table" and "Ordinary Level"), and `gazette` found nothing (the topic wasn't searched). M8a indexes the topic, the price labels long and short and "gazette <number>", adds other spellings for common words, and works the search text out again for stored items (schema 4). GitHub ran the 3-hourly scrape about 5 times a day, 18 minutes to almost 3 hours late, so the workflow now runs every hour, and so does the phone's sync, through WorkManager's update policy so phones with the app move to it. Sources checked for M8: EDLCare for power cuts (usable), the PSC for jobs (usable), the Water Board (no notices), CBSL's Daily Price Report for market prices (usable, added as M8f), HARTI (usable, Later) and supermarket sites (outlet-bound, likely against their terms). |
