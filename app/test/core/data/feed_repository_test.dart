@@ -48,7 +48,25 @@ void main() {
     expect(await feed.lastRefresh(), now);
   });
 
+  test(
+    "a dataset the workflow hasn't written yet doesn't stop a refresh",
+    () async {
+      await feed.refresh();
+
+      expect(remote.requests.last, 'status.json');
+      expect(await database.file(FeedRepository.marketPath), isNull);
+
+      remote.files[FeedRepository.marketPath] = marketDataset;
+      await feed.refresh();
+      expect(
+        (await database.file(FeedRepository.marketPath))?.body,
+        marketDataset,
+      );
+    },
+  );
+
   test('a second refresh downloads nothing that is unchanged', () async {
+    remote.files[FeedRepository.marketPath] = marketDataset;
     await feed.refresh();
     remote.requests.clear();
 

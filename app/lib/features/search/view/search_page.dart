@@ -14,6 +14,8 @@ import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/highlight.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
+import 'package:lanka_radar/features/prices/cubit/price_chart_cubit.dart';
+import 'package:lanka_radar/features/prices/view/price_chart_page.dart';
 import 'package:lanka_radar/features/search/cubit/search_cubit.dart';
 import 'package:lanka_radar/features/search/search_results.dart';
 
@@ -160,6 +162,12 @@ class _SearchViewState extends State<_SearchView> {
                                   OrderPriceHit(:final order) => _openItem(
                                     order,
                                   ),
+                                  MarketHit(:final quote) =>
+                                    Navigator.of(context).push(
+                                      PriceChartPage.route(
+                                        MarketChart(quote.good.name),
+                                      ),
+                                    ),
                                   _ => _openTab(HomeTab.prices),
                                 },
                               ),
@@ -301,6 +309,17 @@ class _PriceRow extends StatelessWidget {
         [?order.issuer, cardDate(order.published, today: today)].join(dot),
         number.value,
         number.previous,
+      ),
+      MarketHit(:final quote, :final day) => (
+        TopicLook.market,
+        quote.good.name,
+        [
+          quote.market,
+          quote.good.perUnit,
+          cardDate(day, today: today),
+        ].join(dot),
+        quote.price,
+        quote.before,
       ),
     };
     return InkWell(

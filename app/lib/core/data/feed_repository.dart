@@ -24,9 +24,11 @@ class FeedRepository {
 
   static const indexPath = 'months/index.json';
   static const usdLkrPath = 'datasets/usd-lkr.json';
+  static const marketPath = 'datasets/market-prices.json';
   static const documents = [
     'datasets/holidays.json',
     usdLkrPath,
+    marketPath,
     'status.json',
   ];
 
@@ -175,7 +177,16 @@ class FeedRepository {
     }
     for (final path in documents) {
       final held = await _db.file(path);
-      final fetched = await _branch.get(path, etag: held?.etag);
+      final Fetched? fetched;
+      try {
+        fetched = await _branch.get(path, etag: held?.etag);
+      } on DataBranchException catch (error) {
+        if (error.statusCode != 404) {
+          rethrow;
+        }
+        // A dataset the workflow hasn't written yet.
+        continue;
+      }
       if (fetched != null) {
         await _db.saveFile(
           FileRow(

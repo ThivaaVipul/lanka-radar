@@ -1,6 +1,6 @@
 # Lanka Radar
 
-Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, the USD/LKR rate, holidays and exam notices.
+Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, market prices, the USD/LKR rate, holidays and exam notices.
 
 A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
 
@@ -65,6 +65,7 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every hour and commits
 | `months/index.json` | each month's item count and file hash, so the app downloads only the months that changed |
 | `datasets/usd-lkr.json` | Frankfurter's copy of CBSL's daily USD/LKR rate since 1 January 2026, a backup that often runs days behind |
 | `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
+| `datasets/market-prices.json` | retail prices of everyday food at Pettah, Dambulla, Narahenpita and Negombo (fish) from the Central Bank's Daily Price Report, each weekday since 1 January 2026 |
 | `status.json` | each source's last run, last success and last error |
 | `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
 
@@ -127,7 +128,7 @@ Without that file, release builds are signed with the debug key.
 
 ## Sources
 
-Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates and market prices from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
 
 ## License
 

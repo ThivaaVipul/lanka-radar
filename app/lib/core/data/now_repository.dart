@@ -4,7 +4,9 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/health.dart';
+import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/format/dates.dart';
@@ -65,6 +67,7 @@ class NowRepository {
   final DateTime Function() _now;
   final Future<Map<String, String>> Function() _tamilNames;
   Map<String, String>? _names;
+  (DateTime?, MarketPrices)? _market;
 
   /// Reads CEYPETCO and CBSL when the last try is older than [maxAge].
   Future<void> refreshIfStale(Duration maxAge) async {
@@ -126,7 +129,21 @@ class NowRepository {
       holidays: (await _db.file('datasets/holidays.json'))?.body,
       tamilNames: _names ??= await _tamilNames(),
       items: items,
+      market: await marketPrices(),
     );
+  }
+
+  /// The workflow's market prices (`datasets/market-prices.json`), read again
+  /// only when the file changes.
+  Future<MarketPrices> marketPrices() async {
+    final file = await _db.file(FeedRepository.marketPath);
+    final saved = file?.fetchedAt;
+    if (_market case (final known, final prices) when known == saved) {
+      return prices;
+    }
+    final prices = MarketPrices.fromJson(file?.body);
+    _market = (saved, prices);
+    return prices;
   }
 
   /// Every price CEYPETCO has given the phone, with the day each started.

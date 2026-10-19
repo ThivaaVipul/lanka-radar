@@ -112,3 +112,30 @@ class FakeBranch {
 
   static String _etag(String body) => '"${body.hashCode.toRadixString(16)}"';
 }
+
+/// `datasets/market-prices.json` for two reports, as the workflow writes it:
+/// beans everywhere, imported red onions not at Narahenpita, thalapath only at
+/// Negombo, balaya not in the latest report, and samba.
+const marketDataset = '''
+{
+  "schema": 1,
+  "source": "cbsl",
+  "markets": ["Pettah", "Dambulla", "Narahenpita", "Negombo"],
+  "days": ["2026-10-16", "2026-10-19"],
+  "items": [
+    {"name": "Beans", "unit": "kg", "section": "Vegetables",
+     "prices": {"Pettah": [600, 600], "Dambulla": [430, 430],
+                "Narahenpita": [650, 700]}},
+    {"name": "Red Onion (Imp)", "unit": "kg", "section": "Other",
+     "prices": {"Pettah": [440, 450], "Narahenpita": [null, null]}},
+    {"name": "Egg (White)", "unit": "each", "section": "Other",
+     "prices": {"Pettah": [36, 36], "Narahenpita": [37, 37]}},
+    {"name": "Thalapath", "unit": "kg", "section": "Fish",
+     "prices": {"Negombo": [2100, 2100]}},
+    {"name": "Balaya", "unit": "kg", "section": "Fish",
+     "prices": {"Negombo": [1500, null]}},
+    {"name": "Samba", "unit": "kg", "section": "Rice",
+     "prices": {"Pettah": [240, 240], "Narahenpita": [240, 240]}}
+  ]
+}
+''';

@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 
@@ -63,6 +65,25 @@ final class GoodChart extends ChartSubject {
   List<Object?> get props => [name];
 }
 
+/// A good in the Central Bank's daily price report, at one market at a time.
+final class MarketChart extends ChartSubject {
+  const MarketChart(this.name);
+
+  final String name;
+
+  @override
+  String get title => name;
+
+  @override
+  bool get steps => false;
+
+  @override
+  String get source => 'Central Bank daily price report';
+
+  @override
+  List<Object?> get props => [name];
+}
+
 /// How far back a rate chart looks.
 enum ChartRange {
   month('1M', 30),
@@ -78,11 +99,20 @@ enum ChartRange {
 }
 
 final class PriceChartState extends Equatable {
-  const PriceChartState({this.points, this.range = ChartRange.quarter});
+  const PriceChartState({
+    this.points,
+    this.range = ChartRange.quarter,
+    this.good,
+    this.market,
+  });
 
   /// Every point, oldest first; null until loaded.
   final List<PricePoint>? points;
   final ChartRange range;
+
+  /// A market good's prices at each market, and the market charted.
+  final MarketGood? good;
+  final String? market;
 
   /// The points the chart shows: a rate's within the range, a price's all.
   List<PricePoint> shown(ChartSubject subject, DateTime today) {
@@ -95,7 +125,7 @@ final class PriceChartState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [points, range];
+  List<Object?> get props => [points, range, good, market];
 }
 
 class PriceChartCubit extends Cubit<PriceChartState> {
@@ -107,24 +137,65 @@ class PriceChartCubit extends Cubit<PriceChartState> {
   final ChartSubject subject;
 
   Future<void> load() async {
-    final items = await _feed.watchItems().first;
-    final points = switch (subject) {
-      FuelChart(:final name) => fuelHistory(
-        name,
-        await _phone.fuelRows(),
-        items,
+    final (points, good, market) = switch (subject) {
+      FuelChart(:final name) => (
+        fuelHistory(name, await _phone.fuelRows(), await _items()),
+        null,
+        null,
       ),
-      RateChart() => rateHistory(
-        await _phone.datasetRates(),
-        await _phone.allRates(),
+      RateChart() => (
+        rateHistory(await _phone.datasetRates(), await _phone.allRates()),
+        null,
+        null,
       ),
-      GoodChart(:final name) => goodsHistory(items)[name] ?? const [],
+      GoodChart(:final name) => (
+        goodsHistory(await _items())[name] ?? const <PricePoint>[],
+        null,
+        null,
+      ),
+      MarketChart(:final name) => await _market(name),
     };
     if (!isClosed) {
-      emit(PriceChartState(points: points, range: state.range));
+      emit(
+        PriceChartState(
+          points: points,
+          range: state.range,
+          good: good,
+          market: market,
+        ),
+      );
     }
   }
 
-  void showRange(ChartRange range) =>
-      emit(PriceChartState(points: state.points, range: range));
+  void showRange(ChartRange range) => emit(
+    PriceChartState(
+      points: state.points,
+      range: range,
+      good: state.good,
+      market: state.market,
+    ),
+  );
+
+  /// Charts a market good's prices at [market].
+  void showMarket(String market) => emit(
+    PriceChartState(
+      points: state.good?.prices[market] ?? const [],
+      range: state.range,
+      good: state.good,
+      market: market,
+    ),
+  );
+
+  Future<List<FeedItem>> _items() => _feed.watchItems().first;
+
+  /// A market good, charted at the market Prices shows it from.
+  Future<(List<PricePoint>, MarketGood?, String?)> _market(String name) async {
+    final prices = await _phone.marketPrices();
+    final good = prices.good(name);
+    final latest = prices.latest;
+    final market =
+        (latest == null ? null : good?.quoteOn(latest)?.market) ??
+        good?.markets.firstOrNull;
+    return (good?.prices[market] ?? const <PricePoint>[], good, market);
+  }
 }

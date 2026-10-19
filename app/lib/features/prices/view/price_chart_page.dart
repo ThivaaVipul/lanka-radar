@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/prices/cubit/price_chart_cubit.dart';
@@ -34,10 +35,21 @@ class PriceChartPage extends StatelessWidget {
             }
             final today = DateTime.now();
             final points = state.shown(subject, today);
+            final good = state.good;
+            final theme = Theme.of(context);
+            final muted = theme.textTheme.labelMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            );
             return ListView(
               padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
               children: [
-                _Now(subject: subject, points: points, today: today),
+                _Now(
+                  source: good == null
+                      ? subject.source
+                      : [?state.market, good.perUnit].join(dot),
+                  points: points,
+                  today: today,
+                ),
                 if (!subject.steps) ...[
                   const SizedBox(height: 16),
                   SegmentedButton<ChartRange>(
@@ -77,8 +89,31 @@ class PriceChartPage extends StatelessWidget {
                         ),
                     ],
                   )
-                else
+                else ...[
+                  if (good != null && good.markets.length > 1)
+                    Section(
+                      title: 'Markets',
+                      note: 'retail',
+                      children: [
+                        for (final market in good.markets)
+                          _MarketRow(
+                            market: market,
+                            points: good.prices[market]!,
+                            chosen: market == state.market,
+                            today: today,
+                            onTap: () => context
+                                .read<PriceChartCubit>()
+                                .showMarket(market),
+                          ),
+                      ],
+                    ),
                   Section(title: 'In this range', children: _rangeRows(points)),
+                  if (good != null)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
+                      child: Text(subject.source, style: muted),
+                    ),
+                ],
               ],
             );
           },
@@ -111,13 +146,10 @@ class PriceChartPage extends StatelessWidget {
 
 /// The latest value, large, with its move over what the chart shows.
 class _Now extends StatelessWidget {
-  const _Now({
-    required this.subject,
-    required this.points,
-    required this.today,
-  });
+  const _Now({required this.source, required this.points, required this.today});
 
-  final ChartSubject subject;
+  /// Where the numbers come from, or a market good's market and unit.
+  final String source;
   final List<PricePoint> points;
   final DateTime today;
 
@@ -134,7 +166,7 @@ class _Now extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(subject.source, style: muted),
+        Text(source, style: muted),
         const SizedBox(height: 6),
         Text(
           amount(latest.value),
@@ -241,6 +273,78 @@ class _ValueRow extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// A market's latest price for a good; tapping it charts that market.
+class _MarketRow extends StatelessWidget {
+  const _MarketRow({
+    required this.market,
+    required this.points,
+    required this.chosen,
+    required this.today,
+    required this.onTap,
+  });
+
+  final String market;
+
+  /// The good's prices at [market], oldest first.
+  final List<PricePoint> points;
+  final bool chosen;
+  final DateTime today;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final latest = points.last;
+    final before = points.length > 1 ? points[points.length - 2].value : null;
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+        child: Row(
+          children: [
+            Icon(
+              chosen
+                  ? Icons.radio_button_checked
+                  : Icons.radio_button_unchecked,
+              size: 20,
+              color: chosen ? colors.primary : colors.outline,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(market, style: theme.textTheme.bodyLarge),
+                  Text(
+                    cardDate(latest.day, today: today),
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: colors.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (before != null && before != latest.value) ...[
+              Trend(
+                change: latest.value - before,
+                text: amount((latest.value - before).abs()),
+              ),
+              const SizedBox(width: 12),
+            ],
+            Text(
+              amount(latest.value),
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

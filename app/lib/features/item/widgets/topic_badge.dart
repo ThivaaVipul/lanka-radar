@@ -9,6 +9,7 @@ enum TopicLook {
   fuel(Icons.local_gas_station_outlined, _Tint.ochre),
   prices(Icons.sell_outlined, _Tint.ochre),
   gas(Icons.propane_tank_outlined, _Tint.ochre),
+  market(Icons.shopping_basket_outlined, _Tint.ochre),
   rates(Icons.currency_exchange, _Tint.teal),
   exams(Icons.school_outlined, _Tint.teal),
   jobs(Icons.badge_outlined, _Tint.teal),
