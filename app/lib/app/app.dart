@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/app_info.dart';
+import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/app/theme.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
@@ -12,6 +13,7 @@ class LankaRadarApp extends StatelessWidget {
     required this.feed,
     required this.now,
     required this.alerts,
+    required this.tabs,
     this.info = const AppInfo(version: ''),
     this.navigatorKey,
     super.key,
@@ -20,6 +22,9 @@ class LankaRadarApp extends StatelessWidget {
   final FeedRepository feed;
   final NowRepository now;
   final AlertsRepository alerts;
+
+  /// The home screen's tab, which notifications can change.
+  final TabSelection tabs;
   final AppInfo info;
 
   /// Lets a tapped notification open its item.
@@ -40,7 +45,7 @@ class LankaRadarApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
-        home: const HomePage(),
+        home: HomePage(tabs: tabs),
       ),
     );
   }

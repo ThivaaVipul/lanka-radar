@@ -1,6 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
@@ -134,7 +135,7 @@ class LocalNotifier implements Notifier {
       final body = notificationBody(item);
       await _plugin.show(
         id: notificationId(item.id),
-        title: displayHeadline(item),
+        title: cardTitle(item),
         body: body,
         notificationDetails: NotificationDetails(
           android: AndroidNotificationDetails(

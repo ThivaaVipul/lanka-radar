@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
-import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
+import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
 
-/// An item in a list: topic and issuer with the date, the headline, and for
-/// price items the first few key numbers with the price before.
+/// An item in a list: its topic's badge, what changed (or the official title),
+/// and who published it when. The item page has the rest.
 class ItemCard extends StatelessWidget {
   const ItemCard({
     required this.item,
@@ -14,9 +14,6 @@ class ItemCard extends StatelessWidget {
     this.onTap,
     super.key,
   });
-
-  /// Key numbers shown on a card; the item screen has them all.
-  static const maxNumbers = 3;
 
   final FeedItem item;
   final bool isNew;
@@ -26,66 +23,52 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
-    final quiet = theme.textTheme.labelMedium?.copyWith(
-      color: colors.onSurfaceVariant,
-    );
-    final numbers = item.keyNumbers;
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
-          child: Column(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  if (isNew) ...[
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: colors.primary,
-                        shape: BoxShape.circle,
-                      ),
+              TopicBadge(TopicLook.of(item)),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      cardTitle(item),
+                      style: theme.textTheme.titleMedium,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(width: 8),
-                  ],
-                  Expanded(
-                    child: Text(
-                      itemMeta(item),
-                      style: quiet,
+                    const SizedBox(height: 4),
+                    Text(
+                      cardMeta(item, today: DateTime.now()),
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        color: colors.onSurfaceVariant,
+                      ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  Text(
-                    cardDate(item.published, today: DateTime.now()),
-                    style: quiet,
-                  ),
-                ],
+                  ],
+                ),
               ),
-              const SizedBox(height: 6),
-              Text(
-                displayHeadline(item),
-                style: theme.textTheme.titleMedium,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
-              if (numbers.isNotEmpty) ...[
-                const SizedBox(height: 10),
-                for (final number in numbers.take(maxNumbers))
-                  KeyNumberRow(number: number),
-                if (numbers.length > maxNumbers)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2),
-                    child: Text(
-                      '+${numbers.length - maxNumbers} more',
-                      style: quiet,
+              if (isNew) ...[
+                const SizedBox(width: 12),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: colors.primary,
+                      shape: BoxShape.circle,
                     ),
                   ),
+                ),
               ],
             ],
           ),

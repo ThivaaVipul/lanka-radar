@@ -42,6 +42,28 @@ final class HomeState extends Equatable {
             if (item.topic == topic) item,
         ];
 
+  /// How many of the latest items Today lists when nothing is new.
+  static const latestOnToday = 5;
+
+  /// What Today lists: what arrived since the last visit, or the latest few when
+  /// nothing has. Never election notices, which fold away in Notices.
+  List<FeedItem> get todayItems {
+    final notices = [
+      for (final item in items ?? const <FeedItem>[])
+        if (!isElectionNotice(item)) item,
+    ];
+    final fresh = [
+      for (final item in notices)
+        if (isNew(item)) item,
+    ];
+    return fresh.isNotEmpty ? fresh : notices.take(latestOnToday).toList();
+  }
+
+  /// Whether Today lists new items rather than the latest ones.
+  bool get todayHasNew => (items ?? const <FeedItem>[]).any(
+    (item) => !isElectionNotice(item) && isNew(item),
+  );
+
   bool isNew(FeedItem item) {
     final since = newSince;
     final seen = item.firstSeen;

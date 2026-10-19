@@ -65,3 +65,17 @@ String clock(int minutes) =>
 /// October 2026, for the feed's month headings.
 String monthHeading(DateTime day) =>
     '${_monthNames[day.month - 1]} ${day.year}';
+
+/// "today", "tomorrow" or "in 6 days", from [today] (a day) to [day].
+String inDays(DateTime day, {required DateTime today}) {
+  final days = DateTime.utc(
+    day.year,
+    day.month,
+    day.day,
+  ).difference(DateTime.utc(today.year, today.month, today.day)).inDays;
+  return switch (days) {
+    0 => 'today',
+    1 => 'tomorrow',
+    _ => 'in $days days',
+  };
+}

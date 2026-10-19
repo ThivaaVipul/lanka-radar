@@ -170,4 +170,36 @@ void main() {
 
     expect(home.state.items, hasLength(3));
   });
+
+  test(
+    'Today lists what is new, else the latest, never election notices',
+    () async {
+      final october = [
+        item('gazette-2510-20', '2026-10-12'),
+        item('gazette-2510-19', '2026-10-11', group: 'elections'),
+        item('exam-2479', '2026-10-01', topic: 'exams'),
+      ];
+      remote.putMonth('2026-10', october);
+      List<String> today() => [
+        for (final item in cubit.state.todayItems) item.id,
+      ];
+
+      await cubit.watch();
+      expect(cubit.state.todayHasNew, isFalse);
+      expect(today(), ['gazette-2510-20', 'exam-2479']);
+
+      now = now.add(const Duration(hours: 1));
+      await cubit.leave();
+      remote.putMonth('2026-10', [
+        item('gazette-2510-22', '2026-10-15', group: 'elections'),
+        item('gazette-2510-21', '2026-10-15'),
+        ...october,
+      ]);
+      now = now.add(const Duration(hours: 3));
+      await cubit.resume();
+
+      expect(cubit.state.todayHasNew, isTrue);
+      expect(today(), ['gazette-2510-21']);
+    },
+  );
 }
