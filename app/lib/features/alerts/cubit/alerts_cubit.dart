@@ -3,13 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/alerts/quiet_hours.dart';
+import 'package:lanka_radar/core/data/now_repository.dart';
 
 part 'alerts_state.dart';
 
 class AlertsCubit extends Cubit<AlertsState> {
-  AlertsCubit(this._alerts) : super(const AlertsState());
+  AlertsCubit(this._alerts, this._phone, {DateTime Function()? now})
+    : _now = now ?? DateTime.now,
+      super(const AlertsState());
 
   final AlertsRepository _alerts;
+  final NowRepository _phone;
+  final DateTime Function() _now;
 
   /// Reads the switches, quiet hours, the last background sync and whether
   /// notifications are allowed; again on coming back from Android's settings.
@@ -42,6 +47,12 @@ class AlertsCubit extends Cubit<AlertsState> {
       ),
     );
     await _alerts.setSwitch(alert, on: on);
+    if (alert == AlertSwitch.holidays) {
+      await _alerts.remindHolidays(
+        await _phone.upcomingHolidays(),
+        now: _now(),
+      );
+    }
   }
 
   Future<void> setQuietHours(QuietHours quiet) async {

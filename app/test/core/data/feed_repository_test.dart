@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/rate_moves.dart';
 
 import '../../helpers/fake_branch.dart';
 
@@ -207,5 +210,80 @@ void main() {
 
     final items = await feed.watchItems().first;
     expect(items.map((item) => item.firstSeen), everyElement(now));
+  });
+
+  group("the phone's own USD/LKR moves", () {
+    const move = 'rates-usd-lkr-2026-10-19';
+
+    void workflowRates(Map<String, double> rates) =>
+        remote.files[FeedRepository.usdLkrPath] = jsonEncode({
+          'source': 'frankfurter',
+          'rates': [
+            for (final MapEntry(key: day, value: rate) in rates.entries)
+              {'date': day, 'rate': rate},
+          ],
+        });
+
+    // The workflow's rates reach 9 October; CBSL's on the phone go on to the
+    // 19th, which jumps 2.7% on a week before.
+    setUp(() async {
+      workflowRates({
+        for (final day in ['2026-10-05', '2026-10-06', '2026-10-09']) day: 331,
+      });
+      await database.saveRates([
+        for (final day in ['2026-10-12', '2026-10-13', '2026-10-14'])
+          RateRow(day: day, rate: 331),
+        const RateRow(day: '2026-10-19', rate: 340),
+      ]);
+      await feed.refresh();
+      await feed.updatePhoneItems();
+    });
+
+    test('are made for the days the workflow has not reached', () async {
+      final item = await feed.item(move);
+
+      expect(item?.headlineEn, 'USD/LKR up 2.7% in a week, to 340.00');
+      expect(item?.firstSeen, now);
+      expect(await ids(), hasLength(4));
+    });
+
+    test('stay through a refresh of their month, as first seen', () async {
+      final seen = now;
+      now = now.add(const Duration(hours: 3));
+      remote.putMonth('2026-10', [item('gazette-2510-21', '2026-10-14')]);
+
+      await feed.refresh();
+      await feed.updatePhoneItems();
+
+      expect(await ids(), contains('gazette-2510-21'));
+      // Made again, it would alert again.
+      expect((await feed.item(move))?.firstSeen, seen);
+    });
+
+    test("give way to the workflow's copy, which keeps when the phone saw it "
+        'first', () async {
+      final seen = now;
+      now = now.add(const Duration(hours: 3));
+      workflowRates({'2026-10-12': 331, '2026-10-19': 340.5});
+      remote.putMonth('2026-10', [
+        moveItem(const RateMove(day: '2026-10-19', rate: 340.5, weekAgo: 331)),
+      ]);
+
+      await feed.refresh();
+      await feed.updatePhoneItems();
+
+      final item = await feed.item(move);
+      expect(item?.keyNumbers.single.value, 340.5);
+      expect(item?.firstSeen, seen);
+    });
+
+    test("go once the workflow's rates show no move that day", () async {
+      workflowRates({'2026-10-12': 331, '2026-10-19': 332});
+
+      await feed.refresh();
+      await feed.updatePhoneItems();
+
+      expect(await feed.item(move), isNull);
+    });
   });
 }

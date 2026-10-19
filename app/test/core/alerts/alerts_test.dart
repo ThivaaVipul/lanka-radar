@@ -1,11 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
 import 'package:lanka_radar/core/alerts/background_sync.dart';
+import 'package:lanka_radar/core/alerts/fuel_alerts.dart';
+import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/quiet_hours.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/now_data.dart';
 
 import '../../helpers/fake_branch.dart';
 import '../../helpers/fake_notifier.dart';
@@ -132,6 +137,7 @@ void main() {
   group('background sync', () {
     late AppDatabase database;
     late FakeBranch remote;
+    late FakeSources sources;
     late FakeNotifier notifier;
     late DateTime now;
 
@@ -141,6 +147,7 @@ void main() {
         ..putMonth('2026-10', [
           item('gazette-2510-20', '2026-10-12', group: 'labour'),
         ]);
+      sources = FakeSources();
       notifier = FakeNotifier();
       now = DateTime(2026, 10, 16, 9);
     });
@@ -153,10 +160,109 @@ void main() {
         remote: remote.branch,
         now: () => now,
       ),
-      phone: FakeSources().repository(database, now: () => now),
+      phone: sources.repository(database, now: () => now),
       alerts: fakeAlerts(database, notifier),
       now: () => now,
     ).run();
+
+    /// CEYPETCO's answer with Petrol 92 at [price] from 16 October.
+    void petrol92At(num price) {
+      final json = jsonDecode(sources.ceypetco) as Map<String, Object?>;
+      for (final row in json['data']! as List<Object?>) {
+        final fuel = row! as Map<String, Object?>;
+        if (fuel['product'] == 'Lanka Petrol 92 Octane') {
+          fuel['price'] = price;
+          fuel['effectiveDate'] = '2026-10-16T00:00:00.000Z';
+        }
+      }
+      sources.ceypetco = jsonEncode(json);
+    }
+
+    test('a change in fuel prices alerts once', () async {
+      await sync();
+      petrol92At(399);
+      now = now.add(const Duration(hours: 3));
+
+      await sync();
+      expect(notifier.fuelChanges, ['Petrol 92 399 (was 414)']);
+
+      now = now.add(const Duration(hours: 3));
+      await sync();
+      expect(notifier.fuelChanges, hasLength(1));
+    });
+
+    test('no fuel alert with the Prices switch off', () async {
+      await sync();
+      await fakeAlerts(database).setSwitch(AlertSwitch.prices, on: false);
+      petrol92At(399);
+      now = now.add(const Duration(hours: 3));
+
+      await sync();
+
+      expect(notifier.fuelChanges, isEmpty);
+    });
+
+    test(
+      'a fuel gazette with prices CEYPETCO gave already stays quiet',
+      () async {
+        await sync();
+        petrol92At(399);
+        remote.putMonth('2026-10', [
+          {
+            ...item('gazette-2510-30', '2026-10-15', topic: 'prices'),
+            'keyNumbers': [
+              {
+                'label': 'Lanka Petrol 92 Octane',
+                'value': 399,
+                'unit': 'LKR',
+                'previous': 414,
+              },
+            ],
+          },
+          item('gazette-2510-20', '2026-10-12', group: 'labour'),
+        ]);
+        now = now.add(const Duration(hours: 3));
+
+        await sync();
+
+        expect(notifier.fuelChanges, hasLength(1));
+        expect(notifier.shown, isEmpty);
+      },
+    );
+
+    test("the phone's own USD/LKR move alerts the day it happens", () async {
+      await sync();
+      // CBSL's rates on the phone run to the 16th, about 331.
+      await database.saveRates([const RateRow(day: '2026-10-19', rate: 340)]);
+      now = DateTime(2026, 10, 19, 10);
+
+      await sync();
+
+      expect(notifier.shownIds, ['rates-usd-lkr-2026-10-19']);
+    });
+
+    test(
+      'schedules the holiday reminders from the holidays just read',
+      () async {
+        remote.files['datasets/holidays.json'] = jsonEncode({
+          'schema': 1,
+          'holidays': [
+            {
+              'date': '2026-10-25',
+              'name': 'Vap Full Moon Poya Day',
+              'tentative': false,
+            },
+          ],
+        });
+
+        await sync();
+        expect(notifier.reminders.single.at, DateTime(2026, 10, 24, 19));
+
+        await fakeAlerts(database).setSwitch(AlertSwitch.holidays, on: false);
+        await sync();
+        expect(notifier.reminders, isEmpty);
+      },
+    );
 
     void publishMore() => remote.putMonth('2026-10', [
       item('exam-2480', '2026-10-15', topic: 'exams'),
@@ -254,6 +360,18 @@ void main() {
         expect(notifier.shownIds, ['gazette-2510-21']);
       });
 
+      test('a fuel change waits for the first sync after the end', () async {
+        await sync();
+        petrol92At(399);
+        now = DateTime(2026, 10, 15, 23, 30);
+        await sync();
+        expect(notifier.fuelChanges, isEmpty);
+
+        now = DateTime(2026, 10, 16, 6, 40);
+        await sync();
+        expect(notifier.fuelChanges, ['Petrol 92 399 (was 414)']);
+      });
+
       test('alerts go out at once with quiet hours off', () async {
         await fakeAlerts(database).setQuietHours(const QuietHours(on: false));
 
@@ -261,6 +379,85 @@ void main() {
 
         expect(notifier.shownIds, ['exam-2480', 'gazette-2510-21']);
       });
+    });
+  });
+
+  group('fuel', () {
+    FuelPriceRow price(String product, double value, String effective) =>
+        FuelPriceRow(product: product, effective: effective, price: value);
+
+    final before = [
+      price('Lanka Petrol 92 Octane', 414, '2026-09-30'),
+      price('Lanka Auto Diesel', 392, '2026-09-30'),
+      price('Lanka Kerosene', 285, '2026-05-30'),
+    ];
+
+    test('a change lists what changed, in the order of the Now card', () {
+      final after = [
+        ...before,
+        price('Lanka Auto Diesel', 380, '2026-10-17'),
+        price('Lanka Petrol 92 Octane', 399, '2026-10-17'),
+      ];
+
+      expect(
+        fuelChanges(before, after),
+        'Petrol 92 399 (was 414), Diesel 380 (was 392)',
+      );
+    });
+
+    test('no change, or the first read, says nothing', () {
+      expect(fuelChanges(before, before), isNull);
+      expect(fuelChanges(const [], before), isNull);
+    });
+
+    test('a fuel gazette adds nothing when the phone has its prices', () {
+      KeyNumber petrol92(double value) =>
+          KeyNumber(label: 'Lanka Petrol 92 Octane', value: value, unit: 'LKR');
+
+      expect(
+        fuelPricesKnown(feedItem('prices', numbers: [petrol92(414)]), before),
+        isTrue,
+      );
+      expect(
+        fuelPricesKnown(feedItem('prices', numbers: [petrol92(399)]), before),
+        isFalse,
+      );
+      expect(fuelPricesKnown(feedItem('exams'), before), isFalse);
+    });
+  });
+
+  group('holiday reminders', () {
+    final holidays = [
+      HolidayNow(
+        day: DateTime(2026, 10, 25),
+        name: 'Vap Full Moon Poya Day',
+        tamil: 'Tamil name',
+      ),
+      HolidayNow(
+        day: DateTime(2026, 11, 8),
+        name: 'Deepavali Festival Day',
+        tentative: true,
+      ),
+    ];
+
+    test('go out at 19:00 the evening before, while that is to come', () {
+      expect(
+        holidayReminders(holidays, now: DateTime(2026, 10, 24, 18)).first.at,
+        DateTime(2026, 10, 24, 19),
+      );
+      expect(holidayReminders(holidays, now: DateTime(2026, 10, 24, 19, 30)), [
+        HolidayReminder(holidays[1]),
+      ]);
+    });
+
+    test('name the holiday, mark a tentative date, then the Tamil name', () {
+      expect(HolidayReminder(holidays[0]).body, '''
+Vap Full Moon Poya Day
+Tamil name''');
+      expect(
+        HolidayReminder(holidays[1]).body,
+        'Deepavali Festival Day (tentative)',
+      );
     });
   });
 

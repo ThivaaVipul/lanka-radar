@@ -1,13 +1,24 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:timezone/data/latest_10y.dart' as time_zones;
+import 'package:timezone/timezone.dart' as tz;
 
 /// Posts the app's notifications.
 abstract interface class Notifier {
   /// One notification per item, stacked under the app; tapping one opens it.
   Future<void> showItems(List<FeedItem> items);
+
+  /// A change in CEYPETCO's fuel prices; a later change replaces it, and
+  /// tapping it opens the fuel prices.
+  Future<void> showFuelChange(String changes);
+
+  /// Replaces the scheduled holiday reminders with [reminders]; tapping one
+  /// opens the holidays.
+  Future<void> scheduleHolidays(List<HolidayReminder> reminders);
 
   /// Asks Android (13 and later) to let the app post notifications.
   Future<void> requestPermission();
@@ -15,6 +26,10 @@ abstract interface class Notifier {
   /// Whether Android lets the app post notifications.
   Future<bool> enabled();
 }
+
+/// The payloads of the fuel and holiday notifications.
+const fuelPayload = 'fuel';
+const holidaysPayload = 'holidays';
 
 /// The payload a tapped item notification carries.
 String itemPayload(String id) => 'item:$id';
@@ -45,14 +60,15 @@ String notificationText(FeedItem item) => item.keyNumbers.isEmpty
     ? displayHeadline(item)
     : '${displayHeadline(item)}\n${notificationBody(item)}';
 
-/// A notification ID that stays the same for an item (FNV-1a over its ID), so
-/// posting it again replaces it instead of adding another.
+/// A notification ID that stays the same for an item or a reminder (FNV-1a over
+/// its ID), so posting it again replaces it instead of adding another. 0 and 1
+/// are kept for the items' summary and the fuel change.
 int notificationId(String id) {
   var hash = 0x811c9dc5;
   for (final unit in id.codeUnits) {
     hash = ((hash ^ unit) * 0x01000193) & 0x7fffffff;
   }
-  return hash == 0 ? 1 : hash;
+  return hash < 2 ? hash + 2 : hash;
 }
 
 class LocalNotifier implements Notifier {
@@ -63,8 +79,26 @@ class LocalNotifier implements Notifier {
   static const _channelName = 'New items';
   static const _channelText = 'New gazettes, prices, exam notices and rates';
 
-  /// The summary that stacks the item notifications; items never use ID 0.
+  /// The summary that stacks the item notifications.
   static const _summaryId = 0;
+  static const _fuelId = 1;
+
+  static const _fuel = AndroidNotificationDetails(
+    'fuel',
+    'Fuel prices',
+    channelDescription: "Changes in CEYPETCO's fuel prices",
+  );
+  static const _holidays = AndroidNotificationDetails(
+    'holidays',
+    'Holiday reminders',
+    channelDescription: 'The evening before each public holiday',
+  );
+
+  /// Holiday reminders keep Sri Lanka's time, whatever the phone is set to.
+  static final tz.Location _sriLanka = () {
+    time_zones.initializeTimeZones();
+    return tz.getLocation('Asia/Colombo');
+  }();
 
   final FlutterLocalNotificationsPlugin _plugin;
 
@@ -135,6 +169,47 @@ class LocalNotifier implements Notifier {
   }
 
   @override
+  Future<void> showFuelChange(String changes) => _plugin.show(
+    id: _fuelId,
+    title: 'Fuel prices changed',
+    body: changes,
+    notificationDetails: NotificationDetails(
+      android: _withText(_fuel, changes),
+    ),
+    payload: fuelPayload,
+  );
+
+  @override
+  Future<void> scheduleHolidays(List<HolidayReminder> reminders) async {
+    for (final pending in await _plugin.pendingNotificationRequests()) {
+      if (pending.payload == holidaysPayload) {
+        await _plugin.cancel(id: pending.id);
+      }
+    }
+    for (final reminder in reminders) {
+      final at = reminder.at;
+      await _plugin.zonedSchedule(
+        id: notificationId(reminder.key),
+        title: reminder.title,
+        body: reminder.body,
+        scheduledDate: tz.TZDateTime(
+          _sriLanka,
+          at.year,
+          at.month,
+          at.day,
+          at.hour,
+        ),
+        notificationDetails: NotificationDetails(
+          android: _withText(_holidays, reminder.body),
+        ),
+        // Inexact, so no exact-alarm permission: Android may wait a little.
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+        payload: holidaysPayload,
+      );
+    }
+  }
+
+  @override
   Future<void> requestPermission() async {
     await _android?.requestNotificationsPermission();
   }
@@ -142,6 +217,17 @@ class LocalNotifier implements Notifier {
   @override
   Future<bool> enabled() async =>
       await _android?.areNotificationsEnabled() ?? true;
+
+  /// [channel] with [text] shown in full when the notification is pulled down.
+  static AndroidNotificationDetails _withText(
+    AndroidNotificationDetails channel,
+    String text,
+  ) => AndroidNotificationDetails(
+    channel.channelId,
+    channel.channelName,
+    channelDescription: channel.channelDescription,
+    styleInformation: BigTextStyleInformation(text),
+  );
 
   AndroidFlutterLocalNotificationsPlugin? get _android => _plugin
       .resolvePlatformSpecificImplementation<

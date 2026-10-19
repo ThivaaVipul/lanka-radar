@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
+import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/quiet_hours.dart';
 import 'package:lanka_radar/core/data/database.dart';
+import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 
 /// The alert switches, quiet hours, and the bookkeeping alerts need, kept in the
@@ -17,6 +19,7 @@ class AlertsRepository {
   static const _inFrontSince = 'app.inFrontSince';
   static const _asked = 'alerts.permissionAsked';
   static const _held = 'alerts.held';
+  static const _heldFuel = 'alerts.heldFuel';
   static const _quietOn = 'quiet.on';
   static const _quietStart = 'quiet.start';
   static const _quietEnd = 'quiet.end';
@@ -69,7 +72,26 @@ class AlertsRepository {
     await _db.saveSetting(_held, jsonEncode(all.toList()));
   }
 
-  Future<void> clearHeld() => _db.deleteSetting(_held);
+  /// The fuel change quiet hours are holding back, if any.
+  Future<String?> heldFuel() => _db.setting(_heldFuel);
+
+  Future<void> holdFuel(String changes) => _db.saveSetting(_heldFuel, changes);
+
+  Future<void> clearHeld() async {
+    await _db.deleteSetting(_held);
+    await _db.deleteSetting(_heldFuel);
+  }
+
+  /// Schedules a reminder the evening before each of [upcoming], or none with
+  /// the switch off.
+  Future<void> remindHolidays(
+    List<HolidayNow> upcoming, {
+    required DateTime now,
+  }) async => notifier.scheduleHolidays(
+    await _isOn(AlertSwitch.holidays)
+        ? holidayReminders(upcoming, now: now)
+        : const [],
+  );
 
   /// When the background sync last ran, if it ever has.
   Future<DateTime?> lastSync() async {
@@ -81,7 +103,7 @@ class AlertsRepository {
       _db.saveSetting(_lastSync, time.toIso8601String());
 
   /// The app is on screen: background syncs post nothing, and what quiet hours
-  /// held is on the feed, marked new, so it no longer alerts.
+  /// held is on the feed (marked new) and the Now card, so it no longer alerts.
   Future<void> appShown(DateTime now) async {
     await _db.saveSetting(_inFrontSince, now.toIso8601String());
     await clearHeld();

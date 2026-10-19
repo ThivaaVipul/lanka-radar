@@ -23,7 +23,7 @@ class AlertsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AlertsCubit(context.read())..load(),
+      create: (context) => AlertsCubit(context.read(), context.read())..load(),
       child: _AlertsView(settings: settings),
     );
   }

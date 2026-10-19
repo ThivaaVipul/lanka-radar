@@ -263,7 +263,9 @@ List<RateNow> _backup(String? body, DateTime today) {
   ];
 }
 
-List<HolidayNow> _holidays(
+/// Every holiday in the workflow's `datasets/holidays.json` from [today] on,
+/// soonest first, with its Tamil name when the app has one.
+List<HolidayNow> holidaysFrom(
   String? body,
   DateTime today,
   Map<String, String> tamilNames,
@@ -272,7 +274,7 @@ List<HolidayNow> _holidays(
     return const [];
   }
   final json = jsonDecode(body) as Map<String, Object?>;
-  final upcoming = [
+  return [
     for (final entry in json['holidays'] as List<Object?>? ?? const [])
       if (entry case {'date': final String date, 'name': final String name})
         if (!DateTime.parse(date).isBefore(today))
@@ -283,6 +285,14 @@ List<HolidayNow> _holidays(
             tentative: (entry as Map<String, Object?>)['tentative'] == true,
           ),
   ]..sort((a, b) => a.day.compareTo(b.day));
+}
+
+List<HolidayNow> _holidays(
+  String? body,
+  DateTime today,
+  Map<String, String> tamilNames,
+) {
+  final upcoming = holidaysFrom(body, today, tamilNames);
   if (upcoming.isEmpty) {
     return const [];
   }

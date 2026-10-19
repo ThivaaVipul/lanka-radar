@@ -163,6 +163,8 @@ class AppDatabase extends _$AppDatabase {
             ..orderBy([(row) => OrderingTerm.desc(row.day)]))
           .get();
 
+  Future<List<RateRow>> allRates() => select(rates).get();
+
   Future<void> saveRates(List<RateRow> rows) =>
       batch((batch) => batch.insertAllOnConflictUpdate(rates, rows));
 
@@ -221,9 +223,26 @@ class AppDatabase extends _$AppDatabase {
     await saveFile(file);
   });
 
+  /// Stores items the phone made, leaving any already stored as they are.
+  Future<void> addPhoneItems(List<ItemsCompanion> rows) => batch(
+    (batch) => batch.insertAll(items, rows, mode: InsertMode.insertOrIgnore),
+  );
+
+  /// Drops the items the phone made for days up to [day] (yyyy-MM-dd), which
+  /// the workflow's copy of the rates covers now.
+  Future<void> dropPhoneItemsThrough(String day) =>
+      (delete(items)..where(
+            (row) =>
+                row.month.equals(phoneMonth) &
+                row.published.isSmallerOrEqualValue(day),
+          ))
+          .go();
+
   /// Drops the items and files of months the index no longer lists.
   Future<void> keepMonths(Set<String> months) => transaction(() async {
-    await (delete(items)..where((row) => row.month.isNotIn(months))).go();
+    await (delete(
+      items,
+    )..where((row) => row.month.isNotIn({...months, phoneMonth}))).go();
     final held = await monthHashes();
     for (final month in held.keys.where((month) => !months.contains(month))) {
       await (delete(
@@ -233,6 +252,11 @@ class AppDatabase extends _$AppDatabase {
   });
 
   static String monthPath(String month) => 'months/$month.json';
+
+  /// Where the items the phone makes itself (USD/LKR moves from CBSL's rates)
+  /// are filed: no month file replaces them, and the workflow's copy of the
+  /// same ID takes over when it comes.
+  static const phoneMonth = 'phone';
 
   static const _likeEscape = '!';
 

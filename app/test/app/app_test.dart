@@ -107,6 +107,7 @@ void main() {
     ]);
     final router = NotificationRouter(
       FeedRepository(database: database, remote: remote.branch),
+      FakeSources().repository(database),
     );
     await open(tester, router: router);
 
@@ -120,6 +121,27 @@ void main() {
     expect(find.byType(ItemPage), findsOneWidget);
   });
 
+  testWidgets('fuel and holiday notifications open their sheets', (
+    tester,
+  ) async {
+    final router = NotificationRouter(
+      FeedRepository(database: database, remote: remote.branch),
+      FakeSources().repository(database),
+    );
+    await open(tester, router: router);
+
+    await tester.runAsync(() => router.open(fuelPayload));
+    await settle(tester);
+    expect(find.text('Fuel prices'), findsOneWidget);
+    expect(find.text('CEYPETCO prices'), findsOneWidget);
+
+    await tester.tapAt(const Offset(20, 20));
+    await tester.pumpAndSettle();
+    await tester.runAsync(() => router.open(holidaysPayload));
+    await settle(tester);
+    expect(find.text('Holidays'), findsOneWidget);
+  });
+
   testWidgets('a notification that started the app opens its item once', (
     tester,
   ) async {
@@ -128,6 +150,7 @@ void main() {
     ]);
     final router = NotificationRouter(
       FeedRepository(database: database, remote: remote.branch),
+      FakeSources().repository(database),
     )..pending = itemPayload('gazette-2510-20');
     await open(tester, router: router);
 
