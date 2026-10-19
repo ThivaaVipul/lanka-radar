@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
+import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/links.dart';
@@ -10,6 +11,8 @@ import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
+import 'package:lanka_radar/features/prices/cubit/price_chart_cubit.dart';
+import 'package:lanka_radar/features/prices/view/price_chart_page.dart';
 
 /// Prices: CEYPETCO's fuel prices, USD/LKR, Litro's LP gas list and the latest
 /// price orders.
@@ -36,6 +39,9 @@ class PricesTab extends StatelessWidget {
           for (final item in state.items ?? const <FeedItem>[])
             if (item.topic == 'prices' && item.source != 'gas') item,
         ].take(orders);
+        final goods = goodsHistory(state.items ?? const <FeedItem>[]);
+        void chart(ChartSubject subject) =>
+            Navigator.of(context).push(PriceChartPage.route(subject));
         return RefreshIndicator(
           onRefresh: context.read<HomeCubit>().refresh,
           child: ListView(
@@ -54,6 +60,7 @@ class PricesTab extends StatelessWidget {
                       value: price.price,
                       before: price.was,
                       note: 'since ${cardDate(price.since, today: today)}',
+                      onTap: () => chart(FuelChart(price.name)),
                     ),
                 ],
               ),
@@ -64,15 +71,39 @@ class PricesTab extends StatelessWidget {
                     : 'Central Bank of Sri Lanka',
                 children: [
                   if (rates.isEmpty) const ListTile(title: Text('Not yet')),
-                  if (rates.isNotEmpty) _RateNow(rates: rates),
-                  for (final rate in rates.skip(1).take(6))
+                  if (rates.isNotEmpty)
+                    _RateNow(
+                      rates: rates,
+                      onTap: () => chart(const RateChart()),
+                    ),
+                  for (final rate in rates.skip(1).take(4))
                     _PriceRow(
                       name: weekdayDate(rate.day),
                       value: rate.rate,
                       quiet: true,
+                      onTap: () => chart(const RateChart()),
                     ),
                 ],
               ),
+              if (goods.isNotEmpty)
+                Section(
+                  title: 'Controlled prices',
+                  note: 'maximum retail',
+                  children: [
+                    for (final MapEntry(key: name, value: history)
+                        in goods.entries)
+                      _PriceRow(
+                        name: name,
+                        value: history.last.value,
+                        before: history.length > 1
+                            ? history[history.length - 2].value
+                            : null,
+                        note:
+                            'since ${cardDate(history.last.day, today: today)}',
+                        onTap: () => chart(GoodChart(name)),
+                      ),
+                  ],
+                ),
               Section(
                 title: 'LP gas',
                 children: [
@@ -133,12 +164,16 @@ class _PriceRow extends StatelessWidget {
     this.before,
     this.note,
     this.quiet = false,
+    this.onTap,
   });
 
   final String name;
   final double value;
   final double? before;
   final String? note;
+
+  /// Opens the chart.
+  final VoidCallback? onTap;
 
   /// A plain row, such as an earlier day's rate.
   final bool quiet;
@@ -150,40 +185,51 @@ class _PriceRow extends StatelessWidget {
       color: theme.colorScheme.onSurfaceVariant,
     );
     final before = this.before;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: quiet
+                        ? theme.textTheme.bodyMedium
+                        : theme.textTheme.bodyLarge,
+                  ),
+                  if (note case final note?) Text(note, style: muted),
+                ],
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  name,
+                  amount(value),
                   style: quiet
                       ? theme.textTheme.bodyMedium
-                      : theme.textTheme.bodyLarge,
+                      : theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                 ),
-                if (note case final note?) Text(note, style: muted),
+                if (before != null && before != value)
+                  Trend(change: value - before, text: 'was ${amount(before)}'),
               ],
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                amount(value),
-                style: quiet
-                    ? theme.textTheme.bodyMedium
-                    : theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
+            if (onTap != null) ...[
+              const SizedBox(width: 4),
+              Icon(
+                Icons.chevron_right,
+                size: 20,
+                color: theme.colorScheme.onSurfaceVariant,
               ),
-              if (before != null && before != value)
-                Trend(change: value - before, text: 'was ${amount(before)}'),
             ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -191,45 +237,49 @@ class _PriceRow extends StatelessWidget {
 
 /// Today's rate, large, with the week's move.
 class _RateNow extends StatelessWidget {
-  const _RateNow({required this.rates});
+  const _RateNow({required this.rates, this.onTap});
 
   final List<RateNow> rates;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final latest = rates.first;
     final move = weekMove(rates);
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  amount(latest.rate),
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    amount(latest.rate),
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                Text(
-                  weekdayDate(latest.day),
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
+                  Text(
+                    weekdayDate(latest.day),
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          if (move != null)
-            Trend(
-              change: move,
-              text: '${move.abs().toStringAsFixed(1)}% in a week',
-            ),
-        ],
+            if (move != null)
+              Trend(
+                change: move,
+                text: '${move.abs().toStringAsFixed(1)}% in a week',
+              ),
+          ],
+        ),
       ),
     );
   }

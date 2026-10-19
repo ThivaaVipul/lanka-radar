@@ -132,6 +132,13 @@ class NowRepository {
   /// Every price CEYPETCO has given the phone, with the day each started.
   Future<List<FuelPriceRow>> fuelRows() => _db.allFuelPrices();
 
+  /// Every USD/LKR rate the phone has read from CBSL.
+  Future<List<RateRow>> allRates() => _db.allRates();
+
+  /// The workflow's copy of the rates since January (`datasets/usd-lkr.json`).
+  Future<String?> datasetRates() async =>
+      (await _db.file('datasets/usd-lkr.json'))?.body;
+
   /// Every holiday from today on, for the reminders.
   Future<List<HolidayNow>> upcomingHolidays() async => holidaysFrom(
     (await _db.file('datasets/holidays.json'))?.body,
