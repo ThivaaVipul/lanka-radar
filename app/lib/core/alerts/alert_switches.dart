@@ -5,6 +5,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 enum AlertSwitch {
   prices('Prices', on: true),
   exams('Exams', on: true),
+  jobs('Jobs', on: true),
   rates('USD/LKR moves', on: true),
   holidays('Holiday reminders', on: true),
   taxes('Taxes and imports', on: true),
@@ -27,6 +28,7 @@ enum AlertSwitch {
 const topicSwitches = [
   AlertSwitch.prices,
   AlertSwitch.exams,
+  AlertSwitch.jobs,
   AlertSwitch.rates,
   AlertSwitch.holidays,
 ];
@@ -44,6 +46,7 @@ const gazetteSwitches = [
 AlertSwitch? switchFor(FeedItem item) => switch (item.topic) {
   'prices' => AlertSwitch.prices,
   'exams' => AlertSwitch.exams,
+  'jobs' => AlertSwitch.jobs,
   'rates' => AlertSwitch.rates,
   'gazettes' => switch (item.data['group']) {
     'prices-taxes' => AlertSwitch.taxes,

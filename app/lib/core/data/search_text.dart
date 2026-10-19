@@ -14,6 +14,8 @@ final _aliases = [
   (RegExp('liquefied petroleum|lp gas|litro'), 'gas lpg'),
   (RegExp('value added tax'), 'vat'),
   (RegExp('electricity'), 'power'),
+  // Not 'vacancy': election notices fill council vacancies.
+  (RegExp('recruit'), 'job vacancy'),
 ];
 
 /// What search matches an item by, in lower case: its headlines, issuer and

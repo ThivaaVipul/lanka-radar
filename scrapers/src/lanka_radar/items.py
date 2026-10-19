@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
 
-TOPICS = ("prices", "gazettes", "rates", "holidays", "exams")
+TOPICS = ("prices", "gazettes", "rates", "holidays", "exams", "jobs")
 
 _MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 

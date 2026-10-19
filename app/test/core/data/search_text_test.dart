@@ -26,6 +26,17 @@ void main() {
     );
   });
 
+  test('recruitments are jobs, council vacancies are not', () {
+    expect(
+      searchText(headed('Recruitment to the Posts of Legal Officer')),
+      contains('job'),
+    );
+    expect(
+      searchText(headed('Filling of a Vacancy in Udapalatha Pradeshiya Sabha')),
+      isNot(contains('job')),
+    );
+  });
+
   test('an alias needs its whole word', () {
     expect(searchText(headed('USD/LKR up 2.1% in a week')), contains('dollar'));
     expect(

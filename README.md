@@ -127,7 +127,7 @@ Without that file, release builds are signed with the debug key.
 
 ## Sources
 
-Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
 
 ## License
 
