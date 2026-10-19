@@ -12,6 +12,7 @@ enum TopicLook {
   rates(Icons.currency_exchange, _Tint.teal),
   exams(Icons.school_outlined, _Tint.teal),
   jobs(Icons.badge_outlined, _Tint.teal),
+  holiday(Icons.event_outlined, _Tint.teal),
   taxes(Icons.receipt_long_outlined, _Tint.plain),
   energy(Icons.bolt_outlined, _Tint.plain),
   labour(Icons.work_outline, _Tint.plain),

@@ -35,6 +35,10 @@ class FeedRepository {
   final DateTime Function() _now;
 
   static const _lastVisit = 'lastVisit';
+  static const _recent = 'search.recent';
+
+  /// How many recent searches are kept.
+  static const recentKept = 5;
 
   /// Every stored item, newest first.
   Stream<List<FeedItem>> watchItems() =>
@@ -90,6 +94,36 @@ class FeedRepository {
         if (last == null || move.day.compareTo(last) > 0)
           _row(moveItem(move), AppDatabase.phoneMonth, now),
     ]);
+  }
+
+  /// The last searches, newest first.
+  Future<List<String>> recentSearches() async {
+    final value = await _db.setting(_recent);
+    return value == null
+        ? const []
+        : [...(jsonDecode(value) as List<Object?>).whereType<String>()];
+  }
+
+  /// Keeps [query] at the top of the recent searches.
+  Future<void> rememberSearch(String query) async {
+    final kept = query.trim();
+    if (kept.isEmpty) {
+      return;
+    }
+    final recent = [
+      kept,
+      for (final other in await recentSearches())
+        if (other.toLowerCase() != kept.toLowerCase()) other,
+    ].take(recentKept).toList();
+    await _db.saveSetting(_recent, jsonEncode(recent));
+  }
+
+  Future<void> forgetSearch(String query) async {
+    final recent = [
+      for (final other in await recentSearches())
+        if (other != query) other,
+    ];
+    await _db.saveSetting(_recent, jsonEncode(recent));
   }
 
   /// When the feed was last left, if ever: items that arrived after it are new.
