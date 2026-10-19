@@ -42,6 +42,7 @@ const _acronyms = {
   'VAT',
 };
 
+final _spaces = RegExp(r'\s+');
 final _capitals = RegExp(r'^[A-Z]{2,}$');
 final _vowel = RegExp('[AEIOUY]');
 final _roman = RegExp(r'^(?=[IVXLC])C{0,3}(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$');
@@ -54,7 +55,8 @@ final _word = RegExp(r'^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9]*)$');
 String titleCase(String headline) {
   var first = true;
   final words = <String>[];
-  for (final token in headline.split(' ')) {
+  // Line breaks inside a title (some list several disputes) read as spaces.
+  for (final token in headline.trim().split(_spaces)) {
     final match = _word.firstMatch(token)!;
     final core = match.group(2)!;
     final parts = [

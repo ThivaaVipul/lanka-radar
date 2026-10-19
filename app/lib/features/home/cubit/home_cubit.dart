@@ -8,6 +8,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/features/home/notice_rows.dart';
 
 part 'home_state.dart';
 

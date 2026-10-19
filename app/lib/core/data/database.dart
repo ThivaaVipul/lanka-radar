@@ -5,6 +5,7 @@ import 'package:drift_flutter/drift_flutter.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/search_text.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sqlite3/common.dart';
 
 part 'database.g.dart';
 
@@ -91,13 +92,6 @@ class AppDatabase extends _$AppDatabase {
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-    // The app and the background sync (another Flutter engine) open the file
-    // separately: write-ahead logging lets one read while the other writes,
-    // and a writer waits for the other's lock instead of failing.
-    beforeOpen: (details) async {
-      await customSelect('PRAGMA journal_mode = WAL').get();
-      await customStatement('PRAGMA busy_timeout = 10000');
-    },
     onUpgrade: (migrator, from, to) async {
       if (from < 2) {
         await migrator.createTable(settings);
@@ -117,8 +111,20 @@ class AppDatabase extends _$AppDatabase {
     name: 'lanka_radar',
     native: const DriftNativeOptions(
       databaseDirectory: getApplicationSupportDirectory,
+      setup: _shareWithTheOtherEngine,
     ),
   );
+
+  /// The app and the background sync (another Flutter engine) open the file
+  /// separately: write-ahead logging lets one read while the other writes, and
+  /// a writer waits for the other's lock instead of failing. Set as the
+  /// connection opens, so it covers migrations too: both engines may start one
+  /// right after an update.
+  static void _shareWithTheOtherEngine(CommonDatabase database) {
+    database
+      ..execute('PRAGMA busy_timeout = 10000')
+      ..execute('PRAGMA journal_mode = WAL');
+  }
 
   /// Makes the item and file queries read again, after the background sync
   /// (which streams can't see) may have changed them.

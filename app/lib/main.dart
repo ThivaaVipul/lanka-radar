@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:lanka_radar/app/app.dart';
 import 'package:lanka_radar/app/app_info.dart';
+import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/app/notification_router.dart';
 import 'package:lanka_radar/background.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
@@ -24,7 +25,8 @@ Future<void> main() async {
     ceypetco: Ceypetco(),
     cbsl: Cbsl(),
   );
-  final router = NotificationRouter(feed, now);
+  final tabs = TabSelection();
+  final router = NotificationRouter(feed, tabs);
   final notifier = await LocalNotifier.start(
     onTap: (payload) => unawaited(router.open(payload)),
   );
@@ -36,6 +38,7 @@ Future<void> main() async {
       now: now,
       alerts: AlertsRepository(database: database, notifier: notifier),
       info: AppInfo(version: '${package.version} (${package.buildNumber})'),
+      tabs: tabs,
       navigatorKey: router.navigatorKey,
     ),
   );
