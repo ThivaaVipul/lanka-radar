@@ -11,8 +11,9 @@ import 'package:workmanager/workmanager.dart';
 const _syncTask = 'lanka-radar-sync';
 
 /// How often Android runs the background sync, roughly: it may wait longer to
-/// save battery, especially on Xiaomi phones.
-const syncEvery = Duration(hours: 3);
+/// save battery, especially on Xiaomi phones. The workflow reads its sources
+/// every hour too.
+const syncEvery = Duration(hours: 1);
 
 /// WorkManager's entry point: runs in its own Flutter engine, so it opens its
 /// own database connection and notification plugin.
@@ -40,9 +41,10 @@ void callbackDispatcher() {
   });
 }
 
-/// Starts the background sync on any network; a schedule already there is
-/// kept, so opening the app doesn't push the next run back. The first run
-/// waits a full period, as opening the app has just refreshed.
+/// Starts the background sync on any network. A schedule already there is
+/// updated, not restarted, so a new period reaches phones that have the app
+/// while opening it doesn't push the next run back. The first run waits a
+/// full period, as opening the app has just refreshed.
 Future<void> scheduleBackgroundSync() async {
   await Workmanager().initialize(callbackDispatcher);
   await Workmanager().registerPeriodicTask(
@@ -51,6 +53,6 @@ Future<void> scheduleBackgroundSync() async {
     frequency: syncEvery,
     initialDelay: syncEvery,
     constraints: Constraints(networkType: NetworkType.connected),
-    existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
+    existingWorkPolicy: ExistingPeriodicWorkPolicy.update,
   );
 }

@@ -6,7 +6,7 @@ name: Scrape
 
 on:
   schedule:
-    - cron: '17 */3 * * *' # minute 17, away from the top-of-the-hour queue
+    - cron: '17 * * * *' # hourly at minute 17, away from the top-of-the-hour queue
   workflow_dispatch:
 
 permissions:

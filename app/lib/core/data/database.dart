@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
+import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/search_text.dart';
 import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
@@ -83,7 +87,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _open());
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -102,6 +106,10 @@ class AppDatabase extends _$AppDatabase {
         await migrator.createTable(fuelPrices);
         await migrator.createTable(rates);
       }
+      if (from < 4) {
+        // Search learned the words on the cards.
+        await reindexSearch();
+      }
     },
   );
 
@@ -116,6 +124,18 @@ class AppDatabase extends _$AppDatabase {
   /// (which streams can't see) may have changed them.
   void notifyExternalChanges() =>
       notifyUpdates({TableUpdate.onTable(items), TableUpdate.onTable(files)});
+
+  /// Works out every stored item's search text again from its JSON.
+  Future<void> reindexSearch() => transaction(() async {
+    for (final row in await select(items).get()) {
+      final item = FeedItem.fromJson(
+        jsonDecode(row.json) as Map<String, Object?>,
+      );
+      await (update(items)..where((other) => other.id.equals(row.id))).write(
+        ItemsCompanion(search: Value(searchText(item))),
+      );
+    }
+  });
 
   /// Every item, newest first.
   Stream<List<ItemRow>> watchItems() =>

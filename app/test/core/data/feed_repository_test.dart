@@ -148,7 +148,8 @@ void main() {
     )..where((row) => row.id.equals('gazette-2510-20'))).getSingle();
     expect(
       row.search,
-      'filling of a vacancy\nta\nelection commission\n2510/20',
+      'filling of a vacancy\nta\nelection commission\ngazettes\n'
+      'gazette 2510/20',
     );
   });
 
@@ -185,6 +186,42 @@ void main() {
       expect(await found('abc'), ['gazette-2510-20']);
       expect(await found('vacancy examinations'), isEmpty);
     });
+
+    test('finds what the cards show and other ways of writing it', () async {
+      remote.putMonth('2026-09', [
+        {
+          ...item('gazette-2509-31', '2026-09-30', topic: 'prices'),
+          'keyNumbers': [
+            {
+              'label': 'Lanka Auto Diesel',
+              'value': 392,
+              'unit': 'LKR',
+              'previous': 400,
+            },
+          ],
+        },
+      ]);
+      await feed.refresh();
+
+      expect(await found('diesel'), ['gazette-2509-31']);
+      expect(await found('fuel'), ['gazette-2509-31']);
+      expect(await found('prices'), ['gazette-2509-31']);
+      expect(await found('timetable'), ['exam-2479']);
+      expect(await found('exams'), ['exam-2479']);
+      expect(await found('gazette 2510/20'), ['gazette-2510-20']);
+    });
+
+    test(
+      'items stored before search learned the cards are found too',
+      () async {
+        await database.customStatement("UPDATE items SET search = 'old'");
+        expect(await found('timetable'), isEmpty);
+
+        await database.reindexSearch();
+
+        expect(await found('timetable'), ['exam-2479']);
+      },
+    );
 
     test('wildcards in a query match only themselves', () async {
       expect(await found('100%'), ['exam-2479']);

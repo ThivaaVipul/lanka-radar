@@ -2,7 +2,7 @@
 
 Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, the USD/LKR rate, holidays and exam notices.
 
-A GitHub Actions workflow checks the sources every 3 hours and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
+A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
 
 **Status:** in development (v1), Android only, for personal use. See [docs/PLAN.md](docs/PLAN.md).
 
@@ -55,7 +55,7 @@ docs/              plan
 
 ## Data
 
-The scrape workflow (`.github/workflows/scrape.yml`) runs every 3 hours and commits to the `data` branch, which never merges into `main`:
+The scrape workflow (`.github/workflows/scrape.yml`) runs every hour and commits to the `data` branch, which never merges into `main`:
 
 | File | What it holds |
 | --- | --- |
