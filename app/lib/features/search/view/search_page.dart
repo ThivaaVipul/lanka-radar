@@ -48,15 +48,20 @@ class _SearchView extends StatelessWidget {
           if (results.isEmpty) {
             return const _NoMatches();
           }
-          return ListView.separated(
+          return ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-            itemCount: results.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 8),
-            itemBuilder: (context, index) => ItemCard(
-              item: results[index],
-              onTap: () =>
-                  Navigator.of(context).push(ItemPage.route(results[index])),
-            ),
+            children: [
+              ItemGroup(
+                children: [
+                  for (final item in results)
+                    ItemTile(
+                      item: item,
+                      onTap: () =>
+                          Navigator.of(context).push(ItemPage.route(item)),
+                    ),
+                ],
+              ),
+            ],
           );
         },
       ),

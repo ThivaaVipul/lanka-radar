@@ -156,7 +156,15 @@ class Section extends StatelessWidget {
         if (card)
           Card(
             margin: EdgeInsets.zero,
-            child: Column(children: children),
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                for (final (index, child) in children.indexed) ...[
+                  if (index > 0) const Divider(height: 1, indent: 16),
+                  child,
+                ],
+              ],
+            ),
           )
         else
           ...children,

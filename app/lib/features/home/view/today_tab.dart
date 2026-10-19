@@ -43,16 +43,17 @@ class TodayTab extends StatelessWidget {
                     : 'Latest',
                 card: false,
                 children: [
-                  for (final item in state.todayItems)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: ItemCard(
-                        item: item,
-                        isNew: state.isNew(item),
-                        onTap: () =>
-                            Navigator.of(context).push(ItemPage.route(item)),
-                      ),
-                    ),
+                  ItemGroup(
+                    children: [
+                      for (final item in state.todayItems)
+                        ItemTile(
+                          item: item,
+                          isNew: state.isNew(item),
+                          onTap: () =>
+                              Navigator.of(context).push(ItemPage.route(item)),
+                        ),
+                    ],
+                  ),
                 ],
               ),
               Align(

@@ -55,7 +55,7 @@ enum TopicLook {
 
 enum _Tint { ochre, teal, plain }
 
-/// A topic's icon in a tinted circle, at the start of a card.
+/// A topic's icon on a small tinted square, at the start of a row.
 class TopicBadge extends StatelessWidget {
   const TopicBadge(this.look, {super.key});
 
@@ -65,10 +65,13 @@ class TopicBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final (background, foreground) = look.colors(Theme.of(context).colorScheme);
     return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(color: background, shape: BoxShape.circle),
-      child: Icon(look.icon, size: 20, color: foreground),
+      width: 36,
+      height: 36,
+      decoration: BoxDecoration(
+        color: background,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(look.icon, size: 18, color: foreground),
     );
   }
 }

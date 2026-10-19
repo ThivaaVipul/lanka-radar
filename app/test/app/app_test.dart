@@ -125,10 +125,11 @@ void main() {
       find.text('Filling of a Vacancy in the Office of Member'),
       findsOneWidget,
     );
-    expect(find.text('Election notices (2)'), findsOneWidget);
+    expect(find.text('Election notices'), findsOneWidget);
+    expect(find.text('2'), findsOneWidget);
     expect(find.text('Vacancy in Aranayake'), findsNothing);
 
-    await tester.tap(find.text('Election notices (2)'));
+    await tester.tap(find.text('Election notices'));
     await tester.pumpAndSettle();
     expect(find.text('Vacancy in Aranayake'), findsOneWidget);
     expect(find.text('Vacancy in Udapalatha'), findsOneWidget);

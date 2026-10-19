@@ -62,6 +62,13 @@ void main() {
   });
 
   group('displayHeadline', () {
+    test('reads line breaks inside a title as spaces', () {
+      expect(
+        titleCase('Industrial Dispute between\nH.B. Upawansha and Lanka Salt'),
+        'Industrial Dispute between H.B. Upawansha and Lanka Salt',
+      );
+    });
+
     test("drops the issuer's name the list puts in front", () {
       final item = gazette(
         headline: 'Election Commission - FILLING OF A VACANCY',

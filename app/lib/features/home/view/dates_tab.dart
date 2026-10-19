@@ -69,16 +69,17 @@ class DatesTab extends StatelessWidget {
                 title: 'Exams',
                 card: false,
                 children: [
-                  for (final item in schoolExams)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: ItemCard(
-                        item: item,
-                        isNew: state.isNew(item),
-                        onTap: () =>
-                            Navigator.of(context).push(ItemPage.route(item)),
-                      ),
-                    ),
+                  ItemGroup(
+                    children: [
+                      for (final item in schoolExams)
+                        ItemTile(
+                          item: item,
+                          isNew: state.isNew(item),
+                          onTap: () =>
+                              Navigator.of(context).push(ItemPage.route(item)),
+                        ),
+                    ],
+                  ),
                 ],
               ),
           ],

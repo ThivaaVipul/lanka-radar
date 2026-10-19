@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/topics.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/notice_rows.dart';
@@ -10,8 +9,8 @@ import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
 
-/// Notices: every item newest first under month headings, filtered by topic,
-/// with each week's election notices folded into one row.
+/// Notices: every item newest first, one list a month, filtered by topic, with
+/// each week's election notices folded into one row.
 class NoticesTab extends StatefulWidget {
   const NoticesTab({super.key});
 
@@ -31,75 +30,96 @@ class _NoticesTabState extends State<NoticesTab> {
         if (items == null) {
           return const Center(child: CircularProgressIndicator());
         }
-        final rows = noticeRows(items);
+        final months = _byMonth(noticeRows(items));
         return RefreshIndicator(
           onRefresh: context.read<HomeCubit>().refresh,
           child: ListView.builder(
-            padding: const EdgeInsets.only(bottom: 24),
-            itemCount: rows.length + 1,
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+            itemCount: months.length + 1,
             itemBuilder: (context, index) {
               if (index == 0) {
-                return _TopicChips(selected: state.topic, empty: rows.isEmpty);
+                return _TopicChips(
+                  selected: state.topic,
+                  empty: months.isEmpty,
+                );
               }
-              return switch (rows[index - 1]) {
-                MonthRow(:final month) => _MonthHeading(month: month),
-                ItemRow(:final item) => _Padded(
-                  child: ItemCard(
-                    item: item,
-                    isNew: state.isNew(item),
-                    onTap: () =>
-                        Navigator.of(context).push(ItemPage.route(item)),
+              final (month, rows) = months[index - 1];
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _MonthHeading(month: month),
+                  ItemGroup(
+                    children: [
+                      for (final row in rows) ..._rowTiles(context, state, row),
+                    ],
                   ),
-                ),
-                final ElectionWeek week => _Padded(
-                  child: _ElectionFold(
-                    week: week,
-                    open: _open.contains(week.week),
-                    isNew: week.items.any(state.isNew),
-                    onToggle: () => setState(() {
-                      if (!_open.remove(week.week)) {
-                        _open.add(week.week);
-                      }
-                    }),
-                    isItemNew: state.isNew,
-                  ),
-                ),
-              };
+                ],
+              );
             },
           ),
         );
       },
     );
   }
+
+  /// A row's tiles: an item, or a folded week with its notices when open.
+  List<Widget> _rowTiles(BuildContext context, HomeState state, NoticeRow row) {
+    void open(FeedItem item) =>
+        Navigator.of(context).push(ItemPage.route(item));
+    return switch (row) {
+      ItemRow(:final item) => [
+        ItemTile(item: item, isNew: state.isNew(item), onTap: () => open(item)),
+      ],
+      final ElectionWeek week => [
+        _ElectionFold(
+          week: week,
+          open: _open.contains(week.week),
+          isNew: week.items.any(state.isNew),
+          onToggle: () => setState(() {
+            if (!_open.remove(week.week)) {
+              _open.add(week.week);
+            }
+          }),
+        ),
+        if (_open.contains(week.week))
+          for (final item in week.items)
+            ItemTile(
+              item: item,
+              isNew: state.isNew(item),
+              onTap: () => open(item),
+            ),
+      ],
+      MonthRow() => const [],
+    };
+  }
+
+  /// The rows under each month heading.
+  static List<(DateTime, List<NoticeRow>)> _byMonth(List<NoticeRow> rows) {
+    final months = <(DateTime, List<NoticeRow>)>[];
+    for (final row in rows) {
+      if (row is MonthRow) {
+        months.add((row.month, []));
+      } else {
+        months.last.$2.add(row);
+      }
+    }
+    return months;
+  }
 }
 
-class _Padded extends StatelessWidget {
-  const _Padded({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-    child: child,
-  );
-}
-
-/// "Election notices (7)" for a week, which opens to list them.
+/// "Election notices" for a week, with how many, which opens to list them.
 class _ElectionFold extends StatelessWidget {
   const _ElectionFold({
     required this.week,
     required this.open,
     required this.isNew,
     required this.onToggle,
-    required this.isItemNew,
   });
 
   final ElectionWeek week;
   final bool open;
   final bool isNew;
   final VoidCallback onToggle;
-  final bool Function(FeedItem item) isItemNew;
 
   @override
   Widget build(BuildContext context) {
@@ -110,68 +130,59 @@ class _ElectionFold extends StatelessWidget {
     final oldest = week.items.last.published;
     final days = newest == oldest
         ? cardDate(newest, today: today)
-        : '${cardDate(oldest, today: today)} to ${cardDate(newest, today: today)}';
-    return Column(
-      children: [
-        Card(
-          clipBehavior: Clip.antiAlias,
-          margin: EdgeInsets.zero,
-          child: InkWell(
-            onTap: onToggle,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
-              child: Row(
+        : '${cardDate(oldest, today: today)} to '
+              '${cardDate(newest, today: today)}';
+    return InkWell(
+      onTap: onToggle,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
+        child: Row(
+          children: [
+            const TopicBadge(TopicLook.elections),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TopicBadge(TopicLook.elections),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Election notices (${week.items.length})',
-                          style: theme.textTheme.titleMedium,
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          ['Election Commission', days].join(dot),
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: colors.onSurfaceVariant,
-                          ),
-                        ),
-                      ],
+                  Text(
+                    'Election notices',
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      color: colors.onSurfaceVariant,
+                      fontWeight: isNew ? FontWeight.w700 : FontWeight.w500,
                     ),
                   ),
-                  if (isNew)
-                    Container(
-                      width: 8,
-                      height: 8,
-                      margin: const EdgeInsets.only(right: 8),
-                      decoration: BoxDecoration(
-                        color: colors.primary,
-                        shape: BoxShape.circle,
-                      ),
+                  const SizedBox(height: 3),
+                  Text(
+                    days,
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: colors.onSurfaceVariant,
                     ),
-                  Icon(
-                    open ? Icons.expand_less : Icons.expand_more,
-                    color: colors.onSurfaceVariant,
                   ),
                 ],
               ),
             ),
-          ),
-        ),
-        if (open)
-          for (final item in week.items)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(start: 16, top: 8),
-              child: ItemCard(
-                item: item,
-                isNew: isItemNew(item),
-                onTap: () => Navigator.of(context).push(ItemPage.route(item)),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                '${week.items.length}',
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: colors.onSurfaceVariant,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-      ],
+            const SizedBox(width: 4),
+            Icon(
+              open ? Icons.expand_less : Icons.expand_more,
+              color: colors.onSurfaceVariant,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -198,7 +209,7 @@ class _TopicChips extends StatelessWidget {
           height: 56,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             itemCount: chips.length,
             separatorBuilder: (context, index) => const SizedBox(width: 8),
             itemBuilder: (context, index) {
@@ -214,7 +225,7 @@ class _TopicChips extends StatelessWidget {
         ),
         if (empty)
           const Padding(
-            padding: EdgeInsets.fromLTRB(20, 24, 20, 0),
+            padding: EdgeInsets.fromLTRB(4, 24, 4, 0),
             child: Text('Nothing yet'),
           ),
       ],
@@ -231,7 +242,7 @@ class _MonthHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+      padding: const EdgeInsets.fromLTRB(4, 16, 4, 8),
       child: Text(
         monthHeading(month),
         style: theme.textTheme.titleSmall?.copyWith(
