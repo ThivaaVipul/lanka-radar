@@ -3,6 +3,7 @@ const topics = {
   'prices': 'Prices',
   'gazettes': 'Gazettes',
   'exams': 'Exams',
+  'jobs': 'Jobs',
   'rates': 'Rates',
 };
 

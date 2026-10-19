@@ -11,6 +11,7 @@ enum TopicLook {
   gas(Icons.propane_tank_outlined, _Tint.ochre),
   rates(Icons.currency_exchange, _Tint.teal),
   exams(Icons.school_outlined, _Tint.teal),
+  jobs(Icons.badge_outlined, _Tint.teal),
   taxes(Icons.receipt_long_outlined, _Tint.plain),
   energy(Icons.bolt_outlined, _Tint.plain),
   labour(Icons.work_outline, _Tint.plain),
@@ -35,6 +36,7 @@ enum TopicLook {
       'prices' => prices,
       'rates' => rates,
       'exams' => exams,
+      'jobs' => jobs,
       _ => switch (item.data['group']) {
         'prices-taxes' => taxes,
         'energy' => energy,

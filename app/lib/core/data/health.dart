@@ -7,6 +7,7 @@ import 'package:lanka_radar/core/data/now_data.dart';
 const githubSources = {
   'gazettes': 'Gazettes',
   'exams': 'Exam notices',
+  'jobs': 'Jobs (PSC)',
   'gas': 'LP gas',
   'holidays': 'Holidays',
   'rates': 'USD/LKR backup',

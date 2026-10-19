@@ -78,6 +78,8 @@ void main() {
     expect(switchOn(tester, 'Elections'), isFalse);
     expect(find.text('Notifications are off'), findsNothing);
 
+    await tester.scrollUntilVisible(find.text('Elections'), 100);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Elections'));
     await settle(tester);
 

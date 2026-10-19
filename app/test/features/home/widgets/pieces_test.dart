@@ -75,6 +75,7 @@ void main() {
     expect(TopicLook.of(made('prices', source: 'gas')), TopicLook.gas);
     expect(TopicLook.of(made('rates')), TopicLook.rates);
     expect(TopicLook.of(made('exams')), TopicLook.exams);
+    expect(TopicLook.of(made('jobs')), TopicLook.jobs);
     expect(TopicLook.of(made('gazettes', group: 'labour')), TopicLook.labour);
     expect(TopicLook.of(made('gazettes')), TopicLook.notice);
   });

@@ -39,6 +39,7 @@ void main() {
     test('an item falls under its topic, or its group for a gazette', () {
       expect(switchFor(feedItem('prices')), AlertSwitch.prices);
       expect(switchFor(feedItem('exams')), AlertSwitch.exams);
+      expect(switchFor(feedItem('jobs')), AlertSwitch.jobs);
       expect(switchFor(feedItem('rates')), AlertSwitch.rates);
       expect(
         switchFor(feedItem('gazettes', group: 'labour')),

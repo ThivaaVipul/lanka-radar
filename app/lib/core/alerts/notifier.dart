@@ -78,7 +78,8 @@ class LocalNotifier implements Notifier {
   static const _group = 'app.lankaradar.items';
   static const _channel = 'items';
   static const _channelName = 'New items';
-  static const _channelText = 'New gazettes, prices, exam notices and rates';
+  static const _channelText =
+      'New gazettes, prices, exam notices, jobs and rates';
 
   /// The summary that stacks the item notifications.
   static const _summaryId = 0;
