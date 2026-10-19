@@ -17,8 +17,19 @@ String fixture(String name) => File('test/fixtures/$name').readAsStringSync();
 List<int> fixtureBytes(String name) =>
     File('test/fixtures/$name').readAsBytesSync();
 
-/// Reads a price report's characters with PDFium, as the app does.
+/// Reads a price report's characters with PDFium, as the app does. The test
+/// run builds PDFium into `build/native_assets/<os>`; Windows finds it on the
+/// PATH, but on Linux pdfium_dart looks beside flutter_tester, so it is named.
 Future<List<ReportChar>> readReport(Uint8List pdf) async {
+  final built = Directory('build/native_assets');
+  if (built.existsSync()) {
+    Pdfrx.pdfiumModulePath ??= built
+        .listSync(recursive: true)
+        .whereType<File>()
+        .map((file) => file.path)
+        .where(RegExp(r'pdfium\.(so|dll|dylib)$').hasMatch)
+        .firstOrNull;
+  }
   await pdfrxInitialize(
     tmpPath: Directory.systemTemp.createTempSync('pdfrx').path,
   );
