@@ -93,7 +93,7 @@ void main() {
   });
 
   test('with no cut on now, the line shows the next cut due today', () {
-    final cuts = parseCalendar(fixture('edlcare_calendar.json'));
+    final cuts = parseSchedule(fixture('edlcare_load_shedding.json'));
     final data = widgetData(
       now(
         places: [

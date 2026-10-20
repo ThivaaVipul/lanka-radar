@@ -64,11 +64,17 @@ class NowRepository {
   /// Each place's area's outages as EDLCare last listed them.
   static const powerPath = 'phone/power-cuts.json';
 
-  /// Each account's calendar as EDLCare last answered it.
-  static const calendarPath = 'phone/power-calendar.json';
+  /// The load shedding schedule as EDLCare last listed it.
+  static const schedulePath = 'phone/load-shedding.json';
 
-  /// How far ahead an account's calendar is read.
-  static const calendarAhead = Duration(days: 30);
+  /// Each place's load shedding group, as last found from its point.
+  static const groupsPath = 'phone/power-groups.json';
+
+  /// How long a place's group is trusted before it is looked up again, as
+  /// CEB can move feeders between groups; longer for a place in none, which
+  /// takes every group's outlines to be sure of.
+  static const groupCheck = Duration(days: 1);
+  static const noGroupCheck = Duration(days: 7);
   static const _powerSetup = 'power.setup';
 
   /// Where the market prices the phone has read are kept.
@@ -132,6 +138,7 @@ class NowRepository {
     });
     await _readMarket();
     await refreshPower();
+    await refreshGroups();
   }
 
   /// The places the phone watches for power cuts.
@@ -148,9 +155,8 @@ class NowRepository {
       _edl.areas(provinceId);
 
   /// The power cuts at each place set up, from its area's last listing and
-  /// its account's calendar; null until a place has both an area and a
-  /// point. A cut on now on the calendar is exact for the meter, so it is
-  /// listed in place of the map's.
+  /// its load shedding group's schedule; null until a place has both an area
+  /// and a point. Load shedding on now is listed in place of the map's cuts.
   Future<PowerNow?> powerNow() async {
     final places = (await powerSetup()).ready;
     if (places.isEmpty) {
@@ -158,26 +164,39 @@ class NowRepository {
     }
     final now = _now();
     final areas = await _stored(powerPath, 'areas');
-    final calendars = await _stored(calendarPath, 'accounts');
+    final groups = await _stored(groupsPath, 'places');
+    final listed = (await _db.file(schedulePath))?.body;
+    final schedule = listed == null
+        ? const <PlannedCut>[]
+        : parseSchedule(listed);
     PlaceCuts cutsAt(Place place) {
-      final account = place.account;
-      final calendar = account == null || calendars[account] == null
-          ? const <AccountCut>[]
-          : parseCalendar(jsonEncode(calendars[account]));
+      final point = place.point!;
+      // A group found for where the place was before it moved doesn't count.
+      final group = switch (groups[place.id]) {
+        {'point': final String at, 'group': final String group}
+            when at == _pointKey(point) =>
+          group,
+        _ => null,
+      };
+      final cuts = [
+        for (final cut in schedule)
+          if (group != null && cut.group == group) cut,
+      ];
       final onNow = [
-        for (final cut in calendar)
+        for (final cut in cuts)
           if (cut.onAt(now)) cut.asOutage,
       ];
       return PlaceCuts(
         place: place,
+        group: group,
         outages: onNow.isNotEmpty
             ? onNow
             : outagesAt(
                 parseOutages(jsonEncode(areas[place.area!.id] ?? const [])),
-                place.point!,
+                point,
               ),
         ahead: [
-          for (final cut in calendar)
+          for (final cut in cuts)
             if (cut.start.isAfter(now)) cut,
         ],
       );
@@ -189,53 +208,30 @@ class NowRepository {
     );
   }
 
-  /// Reads the outages of each area a place is in, and the calendar of each
-  /// account a place has. One that fails keeps its last answer, and the
-  /// failure is recorded once the rest are in.
+  /// Reads the outages of each area a place is in, and the load shedding
+  /// schedule (today and tomorrow, all groups). An area that fails keeps its
+  /// last listing and is recorded as a failure; the schedule keeps its last
+  /// listing quietly, so the map's check stands on its own.
   Future<void> refreshPower() async {
-    final setup = await powerSetup();
-    if (setup.areaIds.isEmpty && setup.accounts.isEmpty) {
+    final ids = (await powerSetup()).areaIds;
+    if (ids.isEmpty) {
       return;
     }
     final today = _today();
     await _read(powerSource, () async {
+      final held = await _stored(powerPath, 'areas');
+      final areas = <String, Object?>{};
       Exception? failed;
-      Future<Map<String, Object?>> readEach(
-        Set<String> keys,
-        Map<String, Object?> held,
-        Future<String> Function(String key) read,
-        void Function(String body) check,
-      ) async {
-        final answers = <String, Object?>{};
-        for (final key in keys) {
-          try {
-            final body = await read(key);
-            check(body);
-            answers[key] = jsonDecode(body);
-          } on Exception catch (error) {
-            failed = error;
-            answers[key] = held[key];
-          }
+      for (final id in ids) {
+        try {
+          final body = await _edl.outages(id);
+          parseOutages(body);
+          areas[id] = jsonDecode(body);
+        } on Exception catch (error) {
+          failed = error;
+          areas[id] = held[id];
         }
-        return answers;
       }
-
-      final areas = await readEach(
-        setup.areaIds,
-        await _stored(powerPath, 'areas'),
-        _edl.outages,
-        parseOutages,
-      );
-      final calendars = await readEach(
-        setup.accounts,
-        await _stored(calendarPath, 'accounts'),
-        (account) => _edl.calendar(
-          account,
-          from: today.subtract(const Duration(days: 1)),
-          to: today.add(calendarAhead),
-        ),
-        parseCalendar,
-      );
       await _db.saveFile(
         FileRow(
           path: powerPath,
@@ -243,21 +239,94 @@ class NowRepository {
           fetchedAt: _now(),
         ),
       );
-      await _db.saveFile(
-        FileRow(
-          path: calendarPath,
-          body: jsonEncode({'accounts': calendars}),
-          fetchedAt: _now(),
-        ),
-      );
+      try {
+        final body = await _edl.schedule(
+          from: today,
+          to: today.add(const Duration(days: 2)),
+        );
+        parseSchedule(body);
+        await _db.saveFile(
+          FileRow(path: schedulePath, body: body, fetchedAt: _now()),
+        );
+      } on Exception {
+        // The last schedule stays; the next sync tries again.
+      }
       if (failed case final failed?) {
         throw failed;
       }
     });
   }
 
+  /// Finds each place's load shedding group from its point, on the phone:
+  /// first the group it was in, then the groups of the other places, then
+  /// the rest, one group's outlines at a time. A place's group is looked up
+  /// again after [groupCheck] ([noGroupCheck] when it is in none) and when it
+  /// moves. A lookup that fails keeps what was found before.
+  Future<void> refreshGroups() async {
+    final places = (await powerSetup()).ready;
+    if (places.isEmpty) {
+      return;
+    }
+    final held = await _stored(groupsPath, 'places');
+    final now = _now();
+    final found = <String, Object?>{};
+    for (final place in places) {
+      final key = _pointKey(place.point!);
+      final last = held[place.id];
+      if (last
+          case {
+            'point': final String at,
+            'group': final String? group,
+            'checked': final String checked,
+          }
+          when at == key &&
+              now.difference(DateTime.parse(checked)) <
+                  (group == null ? noGroupCheck : groupCheck)) {
+        found[place.id] = last;
+        continue;
+      }
+      final likely = [
+        if (last case {'group': final String group}) group,
+        for (final other in [...found.values, ...held.values])
+          if (other case {'group': final String group}) group,
+      ];
+      try {
+        found[place.id] = {
+          'point': key,
+          'group': await _groupAt(place.point!, likely),
+          'checked': now.toIso8601String(),
+        };
+      } on Exception {
+        if (last != null) {
+          found[place.id] = last;
+        }
+      }
+    }
+    await _db.saveFile(
+      FileRow(
+        path: groupsPath,
+        body: jsonEncode({'places': found}),
+        fetchedAt: now,
+      ),
+    );
+  }
+
+  /// The group whose outlines [point] is in, trying [likely] groups first;
+  /// null when it is in none.
+  Future<String?> _groupAt(GeoPoint point, List<String> likely) async {
+    final order = {...likely, ...loadSheddingGroups};
+    for (final group in order) {
+      if (inGroup(parseGroupOutlines(await _edl.groupOutlines(group)), point)) {
+        return group;
+      }
+    }
+    return null;
+  }
+
+  static String _pointKey(GeoPoint point) => '${point.lat},${point.lon}';
+
   /// What a power file keeps under [key]: each area's outages by area ID, or
-  /// each account's calendar by account number.
+  /// each place's group by place ID.
   Future<Map<String, Object?>> _stored(String path, String key) async {
     final body = (await _db.file(path))?.body;
     final json = body == null ? null : jsonDecode(body);

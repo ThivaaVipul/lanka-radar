@@ -76,7 +76,7 @@ void main() {
   });
 
   test('with no cut now, a cut due today leads the card', () {
-    final cuts = parseCalendar(fixture('edlcare_calendar.json'));
+    final cuts = parseSchedule(fixture('edlcare_load_shedding.json'));
     final hero = heroStatusFor(
       PowerState(
         setup: const PowerSetup(places: [home]),

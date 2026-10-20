@@ -30,7 +30,7 @@ String? outageWhen(Outage outage) {
 
 /// The day a cut to come starts, from [now]: "Today", "Tomorrow" or "Sun 25
 /// Oct".
-String cutDay(AccountCut cut, {required DateTime now}) {
+String cutDay(PlannedCut cut, {required DateTime now}) {
   final start = cut.start;
   return switch (DateTime.utc(
     start.year,
@@ -44,14 +44,14 @@ String cutDay(AccountCut cut, {required DateTime now}) {
 }
 
 /// Its hours: "19:30 to 20:30", and "22:00 to 02:00" across midnight.
-String cutHours(AccountCut cut) {
+String cutHours(PlannedCut cut) {
   String at(DateTime time) => clock(time.hour * 60 + time.minute);
   return '${at(cut.start)} to ${at(cut.end)}';
 }
 
 /// When a cut to come is: "Today 19:30 to 20:30", "Sun 25 Oct 09:00 to
 /// 17:00".
-String cutTimes(AccountCut cut, {required DateTime now}) =>
+String cutTimes(PlannedCut cut, {required DateTime now}) =>
     '${cutDay(cut, now: now)} ${cutHours(cut)}';
 
 /// "Home and Work", "Home, Work and School".

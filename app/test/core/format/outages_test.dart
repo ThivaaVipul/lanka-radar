@@ -5,8 +5,8 @@ import 'package:lanka_radar/core/format/outages.dart';
 void main() {
   final now = DateTime(2026, 10, 20, 12);
 
-  AccountCut cut(DateTime start, DateTime end) =>
-      AccountCut(id: '1', name: 'Load shedding', start: start, end: end);
+  PlannedCut cut(DateTime start, DateTime end) =>
+      PlannedCut(id: '1', start: start, end: end);
 
   test('a cut to come says its day and hours', () {
     final tonight = cut(

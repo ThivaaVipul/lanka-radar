@@ -28,8 +28,18 @@ final class PowerState extends Equatable {
     return null;
   }
 
-  /// The cuts to come at [place], from its account's calendar.
-  List<AccountCut> aheadAt(Place place) {
+  /// The load shedding group [place] was found in, if any.
+  String? groupAt(Place place) {
+    for (final cuts in power?.places ?? const <PlaceCuts>[]) {
+      if (cuts.place.id == place.id) {
+        return cuts.group;
+      }
+    }
+    return null;
+  }
+
+  /// The cuts to come at [place], from its load shedding group.
+  List<PlannedCut> aheadAt(Place place) {
     for (final cuts in power?.places ?? const <PlaceCuts>[]) {
       if (cuts.place.id == place.id) {
         return cuts.ahead;
@@ -90,13 +100,21 @@ class PowerCubit extends Cubit<PowerState> {
     await _phone.refreshPower();
     final power = await _phone.powerNow();
     final status = await _phone.status(NowRepository.powerSource);
-    if (!isClosed) {
-      emit(
-        state.copyWith(
-          power: () => power,
-          check: status.lastError == null ? PowerCheck.done : PowerCheck.failed,
-        ),
-      );
+    if (isClosed) {
+      return;
+    }
+    emit(
+      state.copyWith(
+        power: () => power,
+        check: status.lastError == null ? PowerCheck.done : PowerCheck.failed,
+      ),
+    );
+    // Finding a new place's load shedding group can take a while, so the
+    // cuts show first and its planned cuts follow.
+    await _phone.refreshGroups();
+    final grouped = await _phone.powerNow();
+    if (!isClosed && grouped != power) {
+      emit(state.copyWith(power: () => grouped));
     }
   }
 

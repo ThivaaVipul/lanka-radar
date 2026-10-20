@@ -11,7 +11,7 @@ import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 
-/// Dates: the power cuts ahead at places with a CEB account, the school exams
+/// Dates: the load shedding ahead at the places watched, the school exams
 /// ahead (their days read from the timetables), the long weekends and the
 /// year's remaining holidays, each with a countdown and a way into the phone's
 /// calendar.

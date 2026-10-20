@@ -8,7 +8,7 @@ import 'package:lanka_radar/features/power/widgets/power_line.dart';
 
 /// One place in the Power list: an edge in its state's color, its name, how it
 /// stands, and its area; with its cuts listed under it when there are several,
-/// and the next cuts its account's calendar has. Tapping it opens it.
+/// and the next load shedding for its group. Tapping it opens it.
 class PlaceRow extends StatelessWidget {
   const PlaceRow({
     required this.place,
@@ -37,7 +37,7 @@ class PlaceRow extends StatelessWidget {
   final VoidCallback onTap;
 
   /// The cuts to come, soonest first.
-  final List<AccountCut> ahead;
+  final List<PlannedCut> ahead;
 
   /// Shares the place's cuts; null without one.
   final VoidCallback? onLongPress;
@@ -224,7 +224,7 @@ class _CutLine extends StatelessWidget {
 class _AheadLine extends StatelessWidget {
   const _AheadLine({required this.cut});
 
-  final AccountCut cut;
+  final PlannedCut cut;
 
   @override
   Widget build(BuildContext context) {

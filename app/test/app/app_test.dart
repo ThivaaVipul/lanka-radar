@@ -251,22 +251,25 @@ void main() {
     );
     await open(tester);
 
-    await tester.longPress(find.byType(ItemTile).first);
-    await tester.longPress(find.text('Petrol 92'));
+    // Top to bottom: the cut, a price, then a notice further down.
     await tester.longPress(find.text('Power cut at Home'));
+    await tester.longPress(find.text('Petrol 92'));
+    await tester.ensureVisible(find.byType(ItemTile).first);
+    await tester.pumpAndSettle();
+    await tester.longPress(find.byType(ItemTile).first);
 
     expect(sharing.shared, hasLength(3));
     expect(
       sharing.shared[0],
-      endsWith(
-        'Election Commission, 12 Oct 2026\n'
-        'https://documents.gov.lk/web/extra_gazettes',
-      ),
+      startsWith('Power cut in Gampaha (CEB area): a breakdown since 09:24'),
     );
     expect(sharing.shared[1], startsWith('Petrol 92: Rs '));
     expect(
       sharing.shared[2],
-      startsWith('Power cut in Gampaha (CEB area): a breakdown since 09:24'),
+      endsWith(
+        'Election Commission, 12 Oct 2026\n'
+        'https://documents.gov.lk/web/extra_gazettes',
+      ),
     );
   });
 
@@ -275,7 +278,7 @@ void main() {
     await tester.runAsync(
       () => FakeSources()
           .repository(database)
-          .savePowerSetup(const PowerSetup(places: [homeWithAccount])),
+          .savePowerSetup(const PowerSetup(places: [home])),
     );
     await open(tester, clock: () => DateTime(2026, 10, 20, 12));
 
@@ -290,7 +293,6 @@ void main() {
     expect(find.text('Power cuts ahead'), findsOneWidget);
     expect(find.text('Load shedding at Home'), findsNWidgets(2));
     expect(find.text('19:30 to 20:30, group V'), findsOneWidget);
-    expect(find.text('Maintenance at Home'), findsOneWidget);
   });
 
   testWidgets('Power starts with adding a place', (tester) async {

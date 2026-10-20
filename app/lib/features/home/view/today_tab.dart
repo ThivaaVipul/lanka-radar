@@ -199,8 +199,8 @@ class _Numbers extends StatelessWidget {
   }
 }
 
-/// A cut on now at a place, as an ochre tile: a cut from its account's
-/// calendar with its hours and how long is left, a breakdown since when.
+/// A cut on now at a place, as an ochre tile: load shedding with its hours
+/// and how long is left, a breakdown since when.
 class _CutNow extends StatelessWidget {
   const _CutNow({
     required this.cuts,

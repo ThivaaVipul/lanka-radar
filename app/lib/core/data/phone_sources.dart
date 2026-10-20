@@ -212,17 +212,16 @@ class EdlCare {
   Future<String> outages(String areaId) =>
       _get('outage-locations', {'areaId': areaId});
 
-  /// The cuts at an account's meter from [from] to [to], days included, as
-  /// EDLCare answers them ([parseCalendar] reads them).
-  Future<String> calendar(
-    String account, {
-    required DateTime from,
-    required DateTime to,
-  }) => _get('calendar', {
-    'acctNo': account,
-    'from': isoDay(from),
-    'to': isoDay(to),
-  });
+  /// Every group's load shedding slots from [from] to [to], days included
+  /// ([parseSchedule] reads them). Public: EDLCare's own schedule page reads
+  /// it without a captcha, unlike an account's calendar.
+  Future<String> schedule({required DateTime from, required DateTime to}) =>
+      _get('load-shedding-events', {'from': isoDay(from), 'to': isoDay(to)});
+
+  /// The outlines of a load shedding group's areas, about 200 KB
+  /// ([parseGroupOutlines] reads them).
+  Future<String> groupOutlines(String group) =>
+      _get('demand-mgmt-clusters', {'groupId': group});
 
   Future<String> _get(String path, [Map<String, String>? query]) async {
     final response = await _client
