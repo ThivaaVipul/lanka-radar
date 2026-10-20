@@ -8,6 +8,7 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
+  android_intent_plus: ^6.1.0
   drift: ^2.34.4
   drift_flutter: ^0.3.1
   equatable: ^3.0.0

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/app/app.dart';
@@ -6,6 +8,7 @@ import 'package:lanka_radar/app/notification_router.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
@@ -148,6 +151,57 @@ void main() {
 
     expect(find.text('An exam'), findsOneWidget);
     expect(find.text('A gazette'), findsNothing);
+  });
+
+  testWidgets('Dates counts down to the exams, long weekends and holidays', (
+    tester,
+  ) async {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    DateTime inDays(int days) =>
+        DateTime(today.year, today.month, today.day + days);
+    // A Friday at least a week away, which makes a long weekend.
+    final friday = inDays(7 + (DateTime.friday - today.weekday + 7) % 7);
+    remote
+      ..files['datasets/holidays.json'] = jsonEncode({
+        'schema': 1,
+        'holidays': [
+          {'date': isoDay(friday), 'name': 'A Friday holiday'},
+        ],
+      })
+      ..putMonth('2026-10', [
+        {
+          ...item(
+            'exam-2479',
+            '2026-10-12',
+            topic: 'exams',
+            headline: 'G.C.E. (Ordinary Level) Examination - 2026 Time Table',
+          ),
+          'data': {
+            'kind': 'timetable',
+            'days': [isoDay(inDays(30)), isoDay(inDays(31))],
+          },
+        },
+      ]);
+    await open(tester);
+    await showTab(tester, HomeTab.dates);
+
+    expect(find.text('Exams'), findsOneWidget);
+    expect(find.text('O/L 2026'), findsOneWidget);
+    expect(find.text('in 30 days'), findsOneWidget);
+    expect(find.text('Long weekends'), findsOneWidget);
+    final sunday = DateTime(friday.year, friday.month, friday.day + 2);
+    expect(find.text('3 days, to ${weekdayDate(sunday)}'), findsOneWidget);
+    expect(find.text('A Friday holiday'), findsWidgets);
+    expect(find.byTooltip('Add to calendar'), findsNWidgets(3));
+
+    await tester.tap(find.byTooltip('Add to calendar').first);
+    await tester.pumpAndSettle();
+    expect(find.text('No calendar app found'), findsNothing);
+
+    await tester.tap(find.text('O/L 2026'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ItemPage), findsOneWidget);
   });
 
   testWidgets('the bottom bar switches tabs', (tester) async {
