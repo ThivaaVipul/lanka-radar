@@ -3,24 +3,28 @@ import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/alerts/fuel_alerts.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/core/home_screen_widget.dart';
 
 /// One background run: the same refresh as opening the app, then a
 /// notification for each item stored for the first time that should alert,
 /// and one for a change in CEYPETCO's fuel prices. Nothing alerts for a fresh
 /// install's history or while the app is in front, and what is found in quiet
 /// hours goes out with the first run after them. Holiday reminders are
-/// scheduled again from the holidays just read.
+/// scheduled again from the holidays just read, and the home-screen widget
+/// shows the numbers just read.
 class BackgroundSync {
   BackgroundSync({
     required this._feed,
     required this._phone,
     required this._alerts,
+    required this._homeWidget,
     DateTime Function()? now,
   }) : _now = now ?? DateTime.now;
 
   final FeedRepository _feed;
   final NowRepository _phone;
   final AlertsRepository _alerts;
+  final HomeScreenWidget _homeWidget;
   final DateTime Function() _now;
 
   Future<void> run() async {
@@ -40,6 +44,11 @@ class BackgroundSync {
     } on Exception {
       // Reminders that can't be scheduled now are scheduled on the next run;
       // they mustn't stop the alerts.
+    }
+    try {
+      await _homeWidget.show(await _phone.load(await _feed.watchItems().first));
+    } on Exception {
+      // The widget catches up on the next run.
     }
     if (!hadFeed || await _alerts.appInFront(start)) {
       return;

@@ -7,6 +7,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 
 import '../../../helpers/fake_branch.dart';
+import '../../../helpers/fake_home_widget.dart';
 import '../../../helpers/fake_notifier.dart';
 import '../../../helpers/fake_sources.dart';
 
@@ -17,6 +18,7 @@ void main() {
   late FeedRepository feed;
   late HomeCubit cubit;
   late FakeNotifier notifier;
+  late FakeHomeScreenWidget homeWidget;
 
   setUp(() {
     database = memoryDatabase();
@@ -32,10 +34,12 @@ void main() {
       now: () => now,
     );
     notifier = FakeNotifier();
+    homeWidget = FakeHomeScreenWidget();
     cubit = HomeCubit(
       feed,
       FakeSources().repository(database, now: () => now),
       fakeAlerts(database, notifier),
+      homeWidget,
       now: () => now,
     );
   });
@@ -55,6 +59,18 @@ void main() {
     expect(cubit.state.failed, isFalse);
     expect(visible(), ['gazette-2510-20', 'exam-2479']);
   });
+
+  test(
+    'the home-screen widget gets the numbers, again only when they change',
+    () async {
+      await cubit.watch();
+      final shown = homeWidget.shown.length;
+
+      expect(homeWidget.shown.last, cubit.state.nowCard);
+      await cubit.reloadNow();
+      expect(homeWidget.shown, hasLength(shown));
+    },
+  );
 
   test('a failed refresh keeps the items already shown', () async {
     await cubit.watch();
@@ -143,6 +159,7 @@ void main() {
       FeedRepository(database: app, remote: remote.branch, now: () => now),
       FakeSources().repository(app, now: () => now),
       fakeAlerts(app),
+      FakeHomeScreenWidget(),
       now: () => now,
     );
     addTearDown(() async {

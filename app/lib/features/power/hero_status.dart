@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
 import 'package:lanka_radar/features/power/widgets/power_line.dart';
 
@@ -173,18 +174,13 @@ HeroStatus heroStatusFor(PowerState state, {required DateTime now}) {
     final count = outages.length;
     return status(
       HeroTone.attention,
-      count == 1
-          ? 'Power cut at ${cut.single.place.name}'
-          : '$count power cuts at ${cut.single.place.name}',
+      cutPlacesTitle(cut),
       detail:
           '${outageSentence(outages.first)}'
           '${count > 1 ? ', and ${count - 1} more' : ''}',
     );
   }
-  return status(
-    HeroTone.attention,
-    'Power cuts at ${_both([for (final cuts in cut) cuts.place.name])}',
-  );
+  return status(HeroTone.attention, cutPlacesTitle(cut));
 }
 
 /// How [place] stands on the line.
@@ -219,8 +215,3 @@ String _when(DateTime time, DateTime now) {
       ? clock(local.hour * 60 + local.minute)
       : dayTime(local, today: now);
 }
-
-/// "Home and Work", "Home, Work and School".
-String _both(List<String> names) => names.length < 2
-    ? names.join()
-    : '${names.sublist(0, names.length - 1).join(', ')} and ${names.last}';

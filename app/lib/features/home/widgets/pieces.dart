@@ -187,19 +187,3 @@ String fuelNote(NowData data, {required DateTime today}) {
   }
   return changed == null ? '' : 'changed ${cardDate(changed, today: today)}';
 }
-
-/// USD/LKR's move over the last week, in percent: the latest rate against the
-/// last one at least 7 days before it. Null without one that old.
-double? weekMove(List<RateNow> rates) {
-  if (rates.isEmpty) {
-    return null;
-  }
-  final latest = rates.first;
-  final weekBefore = latest.day.subtract(const Duration(days: 7));
-  for (final rate in rates) {
-    if (!rate.day.isAfter(weekBefore)) {
-      return (latest.rate / rate.rate - 1) * 100;
-    }
-  }
-  return null;
-}
