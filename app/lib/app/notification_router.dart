@@ -7,7 +7,8 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 
 /// Opens what a tapped notification is about: the item over the home screen,
-/// or the Prices or Dates tab for fuel prices and holidays. A tap on the
+/// or the Prices, Dates or Power tab for fuel prices, holidays and power
+/// cuts. A tap on the
 /// home-screen widget opens its tab the same way.
 class NotificationRouter {
   NotificationRouter(this._feed, this.tabs);
@@ -26,6 +27,8 @@ class NotificationRouter {
         showTab(HomeTab.prices);
       case holidaysPayload:
         showTab(HomeTab.dates);
+      case powerPayload:
+        showTab(HomeTab.power);
       default:
         await _item(itemIdFrom(payload));
     }

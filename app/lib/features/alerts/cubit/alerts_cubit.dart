@@ -53,6 +53,9 @@ class AlertsCubit extends Cubit<AlertsState> {
         now: _now(),
       );
     }
+    if (alert == AlertSwitch.power) {
+      await _alerts.remindCuts(await _phone.powerNow(), now: _now());
+    }
   }
 
   Future<void> setQuietHours(QuietHours quiet) async {

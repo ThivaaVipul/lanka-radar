@@ -1,6 +1,7 @@
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
+import 'package:lanka_radar/core/alerts/power_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 
@@ -13,6 +14,11 @@ class FakeNotifier implements Notifier {
 
   /// The holiday reminders scheduled now.
   var reminders = <HolidayReminder>[];
+
+  final powerAlerts = <PowerAlert>[];
+
+  /// The load shedding reminders scheduled now.
+  var cutReminders = <CutReminder>[];
 
   List<String> get shownIds => [
     for (final batch in shown)
@@ -28,6 +34,14 @@ class FakeNotifier implements Notifier {
   @override
   Future<void> scheduleHolidays(List<HolidayReminder> reminders) async =>
       this.reminders = reminders;
+
+  @override
+  Future<void> showPowerAlerts(List<PowerAlert> alerts) async =>
+      powerAlerts.addAll(alerts);
+
+  @override
+  Future<void> scheduleCutReminders(List<CutReminder> reminders) async =>
+      cutReminders = reminders;
 
   @override
   Future<void> requestPermission() async => permissionRequests++;

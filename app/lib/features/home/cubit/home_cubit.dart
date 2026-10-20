@@ -8,6 +8,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/home_screen_widget.dart';
 import 'package:lanka_radar/features/home/notice_rows.dart';
 
@@ -35,6 +36,9 @@ class HomeCubit extends Cubit<HomeState> {
   /// What the home-screen widget was last given, so it is sent again only
   /// when it changes.
   NowData? _onWidget;
+
+  /// The power cuts the load shedding reminders were last set from.
+  PowerNow? _reminded;
   StreamSubscription<List<FeedItem>>? _items;
 
   /// Shows the stored items as they change, marks what arrived since the last
@@ -130,6 +134,17 @@ class HomeCubit extends Cubit<HomeState> {
     final health = await _phone.health();
     if (!isClosed) {
       emit(state.copyWith(nowCard: card, health: health));
+    }
+    // On screen, so it doesn't alert later; and the reminders follow any
+    // change, such as a place added.
+    await _alerts.powerShown(card.power);
+    if (card.power != _reminded) {
+      _reminded = card.power;
+      try {
+        await _alerts.remindCuts(card.power, now: _now());
+      } on Exception {
+        // Scheduled again with the next change or sync.
+      }
     }
     if (card != _onWidget) {
       _onWidget = card;

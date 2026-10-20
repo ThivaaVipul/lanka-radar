@@ -394,6 +394,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(tabs.value, HomeTab.dates);
     expect(find.text('Holidays'), findsOneWidget);
+
+    await tester.runAsync(() => notifications.open(powerPayload));
+    await tester.pumpAndSettle();
+    expect(tabs.value, HomeTab.power);
   });
 
   testWidgets('a notification that started the app opens its item once', (

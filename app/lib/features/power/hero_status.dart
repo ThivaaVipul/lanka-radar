@@ -204,21 +204,6 @@ NodeState nodeState(PowerState state, Place place) => !place.ready
         _ => NodeState.cut,
       };
 
-/// "A breakdown since 09:24", "Maintenance until 17:00" or "Load shedding
-/// (Group V) until 20:30".
-String outageSentence(Outage outage) {
-  final time = outage.time;
-  final at = time == null ? null : clock(time.hour * 60 + time.minute);
-  return switch (outage.kind) {
-    OutageKind.breakdown =>
-      at == null ? 'A breakdown' : 'A breakdown since $at',
-    OutageKind.maintenance =>
-      at == null
-          ? outage.reason ?? 'Maintenance'
-          : '${outage.reason ?? 'Maintenance'} until $at',
-  };
-}
-
 /// "11:44" today, "20 Oct, 11:44" on another day.
 String _when(DateTime time, DateTime now) {
   final local = time.toLocal();

@@ -8,6 +8,7 @@ enum AlertSwitch {
   jobs('Jobs', on: true),
   rates('USD/LKR moves', on: true),
   holidays('Holiday reminders', on: true),
+  power('Power cuts', on: true),
   taxes('Taxes and imports', on: true),
   energy('Energy and utilities', on: true),
   labour('Wages and labour', on: true),
@@ -24,13 +25,15 @@ enum AlertSwitch {
   String get key => 'alert.$name';
 }
 
-/// The Alerts screen's first switches: feed topics, and holiday reminders.
+/// The Alerts screen's first switches: feed topics, holiday reminders and
+/// power cuts at the places watched.
 const topicSwitches = [
   AlertSwitch.prices,
   AlertSwitch.exams,
   AlertSwitch.jobs,
   AlertSwitch.rates,
   AlertSwitch.holidays,
+  AlertSwitch.power,
 ];
 
 /// The Alerts screen's switches for gazettes, by group.

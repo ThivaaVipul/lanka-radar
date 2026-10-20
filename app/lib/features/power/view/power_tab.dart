@@ -246,6 +246,7 @@ class _PlaceListState extends State<_PlaceList>
                   shape: shape,
                   onTap: open,
                   ahead: state.aheadAt(place),
+                  finding: state.finding && state.groupAt(place) == null,
                   onLongPress: switch (state.cutsAt(place)) {
                     final cuts? when cuts.isNotEmpty => () => shareText(
                       context,

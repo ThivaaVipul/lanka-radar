@@ -9,7 +9,12 @@ import 'package:lanka_radar/core/data/power_cuts.dart';
 enum PowerCheck { idle, checking, done, failed }
 
 final class PowerState extends Equatable {
-  const PowerState({this.setup, this.power, this.check = PowerCheck.idle});
+  const PowerState({
+    this.setup,
+    this.power,
+    this.check = PowerCheck.idle,
+    this.finding = false,
+  });
 
   /// Null until read.
   final PowerSetup? setup;
@@ -17,6 +22,9 @@ final class PowerState extends Equatable {
   /// The cuts at each place as last read.
   final PowerNow? power;
   final PowerCheck check;
+
+  /// Places' load shedding groups are being looked up.
+  final bool finding;
 
   /// The cuts at [place], or null when its area hasn't been read yet.
   List<Outage>? cutsAt(Place place) {
@@ -52,14 +60,16 @@ final class PowerState extends Equatable {
     PowerSetup? setup,
     PowerNow? Function()? power,
     PowerCheck? check,
+    bool? finding,
   }) => PowerState(
     setup: setup ?? this.setup,
     power: power != null ? power() : this.power,
     check: check ?? this.check,
+    finding: finding ?? this.finding,
   );
 
   @override
-  List<Object?> get props => [setup, power, check];
+  List<Object?> get props => [setup, power, check, finding];
 }
 
 /// The Power tab: the places watched and the cuts at them.
@@ -110,11 +120,14 @@ class PowerCubit extends Cubit<PowerState> {
       ),
     );
     // Finding a new place's load shedding group can take a while, so the
-    // cuts show first and its planned cuts follow.
+    // cuts show first and its load shedding follows.
+    if (await _phone.groupsDue()) {
+      emit(state.copyWith(finding: true));
+    }
     await _phone.refreshGroups();
     final grouped = await _phone.powerNow();
-    if (!isClosed && grouped != power) {
-      emit(state.copyWith(power: () => grouped));
+    if (!isClosed) {
+      emit(state.copyWith(power: () => grouped, finding: false));
     }
   }
 

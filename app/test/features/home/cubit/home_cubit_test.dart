@@ -60,6 +60,17 @@ void main() {
     expect(visible(), ['gazette-2510-20', 'exam-2479']);
   });
 
+  test('load shedding reminders are set from what the app shows', () async {
+    await storePowerSetup(FakeSources().repository(database));
+
+    await cubit.watch();
+
+    expect(
+      [for (final reminder in notifier.cutReminders) reminder.at],
+      [DateTime(2026, 10, 20, 19), DateTime(2026, 10, 21, 16)],
+    );
+  });
+
   test(
     'the home-screen widget gets the numbers, again only when they change',
     () async {
