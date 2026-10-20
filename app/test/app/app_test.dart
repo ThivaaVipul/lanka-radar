@@ -10,7 +10,6 @@ import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
@@ -235,7 +234,7 @@ void main() {
     await open(tester);
 
     expect(find.text('Power cut at Home'), findsOneWidget);
-    expect(find.text('Breakdown${dot}since 09:24'), findsOneWidget);
+    expect(find.text('since 09:24'), findsOneWidget);
 
     await tester.tap(find.text('Power cut at Home'));
     await settle(tester);

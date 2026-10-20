@@ -9,6 +9,7 @@ import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
+import 'package:lanka_radar/features/home/widgets/cut_tile.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
@@ -43,7 +44,7 @@ class TodayTab extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             children: [
               for (final cuts in now?.power?.cut ?? const <PlaceCuts>[])
-                _PowerCut(
+                _CutNow(
                   cuts: cuts,
                   checked: now?.power?.checked,
                   onTap: () => open(HomeTab.power),
@@ -51,9 +52,19 @@ class TodayTab extends StatelessWidget {
               if (cutsAhead(
                     now?.power,
                     before: DateTime(today.year, today.month, today.day + 2),
-                  )
-                  case final soon when soon.isNotEmpty)
-                _CutsAhead(cuts: soon, onTap: () => open(HomeTab.power)),
+                  ).firstOrNull
+                  case (final place, final next))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: CutTile(
+                    title: '${next.name} at ${place.name}',
+                    time: clock(next.start.hour * 60 + next.start.minute),
+                    rest: 'to ${clock(next.end.hour * 60 + next.end.minute)}',
+                    start: next.start,
+                    end: next.end,
+                    onTap: () => open(HomeTab.power),
+                  ),
+                ),
               if (now != null) _Numbers(now: now, open: open),
               Section(
                 title: state.todayHasNew
@@ -188,16 +199,14 @@ class _Numbers extends StatelessWidget {
   }
 }
 
-/// The power cuts at a place: what each is and when.
-class _PowerCut extends StatelessWidget {
-  const _PowerCut({
+/// A cut on now at a place, as an ochre tile: a cut from its account's
+/// calendar with its hours and how long is left, a breakdown since when.
+class _CutNow extends StatelessWidget {
+  const _CutNow({
     required this.cuts,
     required this.checked,
     required this.onTap,
   });
-
-  /// How many cuts are listed.
-  static const shown = 3;
 
   final PlaceCuts cuts;
   final DateTime? checked;
@@ -205,144 +214,27 @@ class _PowerCut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final checked = this.checked;
     final place = cuts.place;
-    final ink = colors.onTertiaryContainer;
+    final outages = cuts.outages;
+    final first = outages.first;
+    final from = first.from;
+    final until = first.kind == OutageKind.maintenance ? first.time : null;
+    String at(DateTime time) => clock(time.hour * 60 + time.minute);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: Material(
-        color: colors.tertiaryContainer,
-        borderRadius: BorderRadius.circular(24),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: onTap,
-          onLongPress: () =>
-              shareText(context, cutShare(cuts, checked: this.checked)),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 12, 16),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: colors.tertiary,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.flash_off_rounded,
-                      size: 22,
-                      color: colors.onTertiary,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        powerCutsTitle(cuts.outages.length, place.name),
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          color: ink,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      for (final outage in cuts.outages.take(shown))
-                        Text(
-                          outageLine(outage),
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: ink,
-                          ),
-                        ),
-                      if (checked != null) ...[
-                        const SizedBox(height: 6),
-                        Text(
-                          '${place.area!.name}, checked '
-                          '${dayTime(checked, today: DateTime.now())}',
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: ink.withValues(alpha: 0.7),
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-                Icon(Icons.chevron_right, color: ink),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// The cuts due today and tomorrow, in one quiet card: what and where once,
-/// then a line for each, day and hours.
-class _CutsAhead extends StatelessWidget {
-  const _CutsAhead({required this.cuts, required this.onTap});
-
-  final List<(Place, AccountCut)> cuts;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final muted = theme.textTheme.bodyMedium?.copyWith(
-      color: colors.onSurfaceVariant,
-    );
-    final now = DateTime.now();
-    String what((Place, AccountCut) entry) =>
-        '${entry.$2.name} at ${entry.$1.name}';
-    // One heading when every cut is the same thing at the same place.
-    final same = cuts.every((entry) => what(entry) == what(cuts.first));
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Material(
-        color: colors.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(20),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(Icons.schedule, size: 20, color: colors.onSurfaceVariant),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        same ? what(cuts.first) : 'Power cuts ahead',
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      for (final entry in cuts)
-                        Text(
-                          [
-                            cutTimes(entry.$2, now: now),
-                            if (!same) what(entry),
-                          ].join(', '),
-                          style: muted,
-                        ),
-                    ],
-                  ),
-                ),
-                Icon(Icons.chevron_right, color: colors.onSurfaceVariant),
-              ],
-            ),
-          ),
-        ),
+      child: CutTile(
+        on: true,
+        title: outages.length == 1 && from != null && first.reason != null
+            ? '${first.reason} at ${place.name}'
+            : powerCutsTitle(outages.length, place.name),
+        time: from != null && until != null
+            ? at(from)
+            : outageWhen(first) ?? 'Now',
+        rest: from != null && until != null ? 'to ${at(until)}' : null,
+        start: until == null ? null : from,
+        end: until,
+        onTap: onTap,
+        onLongPress: () => shareText(context, cutShare(cuts, checked: checked)),
       ),
     );
   }

@@ -207,6 +207,7 @@ final class Outage extends Equatable {
     this.time,
     this.reason,
     this.id,
+    this.from,
   });
 
   final OutageKind kind;
@@ -226,6 +227,9 @@ final class Outage extends Equatable {
   /// CEB's interruption number, for maintenance.
   final String? id;
 
+  /// When it began, for a cut from an account's calendar.
+  final DateTime? from;
+
   /// Whether [place] is among the customers cut off: inside an outline, or
   /// close enough to one to be on its lines.
   bool covers(GeoPoint place) => shapes.any(
@@ -235,7 +239,7 @@ final class Outage extends Equatable {
   );
 
   @override
-  List<Object?> get props => [kind, customers, shapes, time, reason, id];
+  List<Object?> get props => [kind, customers, shapes, time, reason, id, from];
 }
 
 /// How far a place can be from an outline and still be on its lines: houses
@@ -466,6 +470,7 @@ final class AccountCut extends Equatable {
           shapes: const [],
           time: start,
           id: id,
+          from: start,
         )
       : Outage(
           kind: OutageKind.maintenance,
@@ -474,6 +479,7 @@ final class AccountCut extends Equatable {
           time: end,
           reason: name,
           id: id,
+          from: start,
         );
 
   @override
