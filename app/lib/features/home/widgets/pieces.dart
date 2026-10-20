@@ -48,6 +48,7 @@ class NumberTile extends StatelessWidget {
     this.trend,
     this.note,
     this.onTap,
+    this.onLongPress,
     this.valueLines = 1,
     super.key,
   });
@@ -57,6 +58,7 @@ class NumberTile extends StatelessWidget {
   final Widget? trend;
   final String? note;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final int valueLines;
 
   @override
@@ -70,6 +72,7 @@ class NumberTile extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
+        onLongPress: onLongPress,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
           child: Column(

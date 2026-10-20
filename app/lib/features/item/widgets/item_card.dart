@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/features/item/widgets/highlight.dart';
 import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
 
@@ -35,6 +37,7 @@ class ItemTile extends StatelessWidget {
     );
     return InkWell(
       onTap: onTap,
+      onLongPress: () => shareText(context, noticeShare(item)),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
         child: Row(

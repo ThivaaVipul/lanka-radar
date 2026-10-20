@@ -195,6 +195,11 @@ class EdlCare {
 
   static final _base = Uri.parse('https://edlcare.edl.lk/api/incognito/');
 
+  /// EDLCare's outage map, for people.
+  static final outageMap = Uri.parse(
+    'https://edlcare.edl.lk/incognito/outage-map',
+  );
+
   final http.Client _client;
 
   Future<List<CebRegion>> provinces() async =>
