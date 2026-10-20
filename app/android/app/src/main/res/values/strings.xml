@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The home-screen widget, in the widget picker and on its cells. -->
+    <string name="widget_name">Lanka Radar</string>
+    <string name="widget_description">Fuel, USD/LKR, the next holiday and power cuts at your places</string>
+    <string name="widget_petrol">Petrol 92</string>
+    <string name="widget_diesel">Diesel</string>
+    <string name="widget_usd">USD/LKR</string>
+    <string name="widget_holiday">Next holiday</string>
+</resources>

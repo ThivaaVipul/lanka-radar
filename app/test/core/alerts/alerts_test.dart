@@ -13,6 +13,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 
 import '../../helpers/fake_branch.dart';
+import '../../helpers/fake_home_widget.dart';
 import '../../helpers/fake_notifier.dart';
 import '../../helpers/fake_sources.dart';
 
@@ -140,6 +141,7 @@ void main() {
     late FakeBranch remote;
     late FakeSources sources;
     late FakeNotifier notifier;
+    late FakeHomeScreenWidget homeWidget;
     late DateTime now;
 
     setUp(() {
@@ -150,6 +152,7 @@ void main() {
         ]);
       sources = FakeSources();
       notifier = FakeNotifier();
+      homeWidget = FakeHomeScreenWidget();
       now = DateTime(2026, 10, 16, 9);
     });
 
@@ -163,6 +166,7 @@ void main() {
       ),
       phone: sources.repository(database, now: () => now),
       alerts: fakeAlerts(database, notifier),
+      homeWidget: homeWidget,
       now: () => now,
     ).run();
 
@@ -178,6 +182,23 @@ void main() {
       }
       sources.ceypetco = jsonEncode(json);
     }
+
+    test(
+      'a sync shows the numbers it read on the home-screen widget',
+      () async {
+        await sync();
+        petrol92At(399);
+        now = now.add(const Duration(hours: 3));
+
+        await sync();
+
+        expect(homeWidget.shown, hasLength(2));
+        final petrol = homeWidget.shown.last.fuel.firstWhere(
+          (fuel) => fuel.name == 'Petrol 92',
+        );
+        expect(petrol.price, 399);
+      },
+    );
 
     test('a change in fuel prices alerts once', () async {
       await sync();

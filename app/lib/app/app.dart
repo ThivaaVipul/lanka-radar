@@ -6,6 +6,7 @@ import 'package:lanka_radar/app/theme.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/core/home_screen_widget.dart';
 import 'package:lanka_radar/features/home/view/home_page.dart';
 
 class LankaRadarApp extends StatelessWidget {
@@ -15,6 +16,7 @@ class LankaRadarApp extends StatelessWidget {
     required this.alerts,
     required this.tabs,
     this.info = const AppInfo(version: ''),
+    this.homeWidget = const HomeScreenWidget(),
     this.navigatorKey,
     super.key,
   });
@@ -26,6 +28,7 @@ class LankaRadarApp extends StatelessWidget {
   /// The home screen's tab, which notifications can change.
   final TabSelection tabs;
   final AppInfo info;
+  final HomeScreenWidget homeWidget;
 
   /// Lets a tapped notification open its item.
   final GlobalKey<NavigatorState>? navigatorKey;
@@ -38,6 +41,7 @@ class LankaRadarApp extends StatelessWidget {
         RepositoryProvider.value(value: now),
         RepositoryProvider.value(value: alerts),
         RepositoryProvider.value(value: info),
+        RepositoryProvider.value(value: homeWidget),
       ],
       child: MaterialApp(
         title: 'Lanka Radar',

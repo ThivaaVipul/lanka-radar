@@ -8,14 +8,20 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/core/home_screen_widget.dart';
 import 'package:lanka_radar/features/home/notice_rows.dart';
 
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this._feed, this._phone, this._alerts, {DateTime Function()? now})
-    : _now = now ?? DateTime.now,
-      super(const HomeState());
+  HomeCubit(
+    this._feed,
+    this._phone,
+    this._alerts,
+    this._homeWidget, {
+    DateTime Function()? now,
+  }) : _now = now ?? DateTime.now,
+       super(const HomeState());
 
   /// Opening the app refreshes when the last refresh is older than this.
   static const staleAfter = Duration(minutes: 15);
@@ -23,7 +29,12 @@ class HomeCubit extends Cubit<HomeState> {
   final FeedRepository _feed;
   final NowRepository _phone;
   final AlertsRepository _alerts;
+  final HomeScreenWidget _homeWidget;
   final DateTime Function() _now;
+
+  /// What the home-screen widget was last given, so it is sent again only
+  /// when it changes.
+  NowData? _onWidget;
   StreamSubscription<List<FeedItem>>? _items;
 
   /// Shows the stored items as they change, marks what arrived since the last
@@ -119,6 +130,10 @@ class HomeCubit extends Cubit<HomeState> {
     final health = await _phone.health();
     if (!isClosed) {
       emit(state.copyWith(nowCard: card, health: health));
+    }
+    if (card != _onWidget) {
+      _onWidget = card;
+      await _homeWidget.show(card);
     }
   }
 

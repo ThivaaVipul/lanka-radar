@@ -16,6 +16,11 @@ enum HomeTab {
 }
 
 /// The tab on show, which a tapped notification can change too.
+/// The tab a home-screen widget tap asks for, as in `lankaradar://prices`.
+HomeTab? tabFromWidget(Uri? link) => link?.scheme == 'lankaradar'
+    ? HomeTab.values.where((tab) => tab.name == link!.host).firstOrNull
+    : null;
+
 class TabSelection extends ValueNotifier<HomeTab> {
   TabSelection([super.value = HomeTab.today]);
 }

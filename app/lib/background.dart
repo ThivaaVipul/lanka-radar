@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
+import 'package:lanka_radar/core/home_screen_widget.dart';
 import 'package:workmanager/workmanager.dart';
 
 const _syncTask = 'lanka-radar-sync';
@@ -33,6 +34,7 @@ void callbackDispatcher() {
           edl: EdlCare(),
         ),
         alerts: AlertsRepository(database: database, notifier: notifier),
+        homeWidget: const HomeScreenWidget(),
       ).run();
       return true;
     } on Exception {
