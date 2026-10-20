@@ -245,6 +245,28 @@
       "alert": true
     },
     {
+      "id": "gazette-2510-13",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2510/13",
+        "group": "elections",
+        "languages": []
+      },
+      "alert": true
+    },
+    {
       "id": "exam-2479",
       "source": "exams",
       "topic": "exams",
@@ -361,6 +383,28 @@
           "si"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VALIKAMAM SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2509-32",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Department of Labour - Wages Boards Ordinance",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-07",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2509/32",
+        "group": "labour",
+        "languages": []
       },
       "alert": true
     },

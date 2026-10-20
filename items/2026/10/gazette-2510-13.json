@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2510-13",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2510/13",
+    "group": "elections",
+    "languages": []
+  },
+  "alert": true
+}
