@@ -74,9 +74,15 @@
   "2509/14": {
     "files": {
       "en": "extra-gazette-content/PG 8051 (E)_1791618562.pdf",
-      "si": "extra-gazette-content/PG 8051 (S)_1791618555.pdf"
+      "si": "extra-gazette-content/PG 8051 (S)_1791618555.pdf",
+      "ta": "extra-gazette-content/PG 8051 (T)_1792483070.pdf"
     },
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PUTTALAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PUTTALAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் புத்தளம் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
+    "unknown_glyphs": [
+      8133
+    ]
   },
   "2509/03": {
     "files": {
@@ -88,9 +94,12 @@
   "2509/06": {
     "files": {
       "si": "extra-gazette-content/PG 8047 (S)_1791618449.pdf",
-      "en": "extra-gazette-content/PG 8047 (E)_1791618458.pdf"
+      "en": "extra-gazette-content/PG 8047 (E)_1791618458.pdf",
+      "ta": "extra-gazette-content/PG 8047 (T)_1792483051.pdf"
     },
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THALAWAKELLE LINDULA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "reader": 3,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THALAWAKELLE LINDULA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் தலவாக்கலை லிந்துலை நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2509/01": {
     "files": {
@@ -3770,10 +3779,12 @@
   "2510/42": {
     "files": {
       "si": "extra-gazette-content/PG 8068 (S)_1792234866.pdf",
-      "en": "extra-gazette-content/PG 8068 (E)_1792236386.pdf"
+      "en": "extra-gazette-content/PG 8068 (E)_1792236386.pdf",
+      "ta": "extra-gazette-content/PG 8068 (T)_1792483133.pdf"
     },
     "reader": 3,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் அரநாயக்க பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/17": {
     "files": {
@@ -3788,10 +3799,12 @@
   "2510/15": {
     "files": {
       "si": "extra-gazette-content/PG 8060 (S)_1792234774.pdf",
-      "en": "extra-gazette-content/PG 8060 (E)_1792236361.pdf"
+      "en": "extra-gazette-content/PG 8060 (E)_1792236361.pdf",
+      "ta": "extra-gazette-content/PG 8060  (T)_1792483098.pdf"
     },
     "reader": 3,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WENNAPPUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வென்னப்புவ பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2476/19": {
     "files": {
