@@ -40,12 +40,24 @@ Future<List<ReportChar>> readReport(Uint8List pdf) async {
 /// CEYPETCO and CBSL in memory, answering with the responses saved in M1
 /// unless told to fail. CBSL's price report listing is empty unless given,
 /// and of the reports only the ones in [reports] are there. EDLCare answers
-/// with the Western Province North areas and Gampaha's outages (20 Oct 2026).
+/// with the Western Province North areas and Gampaha's outages (20 Oct 2026),
+/// an invented load shedding schedule, and an invented outline for group V
+/// around [gampahaHome] (no areas for any other group).
 class FakeSources {
   String ceypetco = fixture('ceypetco_fuel_prices.json');
   String cbsl = fixture('cbsl_usd_rates.html');
   String marketListing = '<html></html>';
   String powerOutages = fixture('edlcare_outages_49.json');
+  String powerSchedule = fixture('edlcare_load_shedding.json');
+
+  /// The query of each schedule request.
+  final scheduleQueries = <Map<String, String>>[];
+
+  /// The group of each group outline request, in order.
+  final groupQueries = <String>[];
+
+  /// The path of each EDLCare request.
+  final edlPaths = <String>[];
   final reports = <String, List<int>>{};
   bool offline = false;
   final requests = <String>[];
@@ -53,12 +65,25 @@ class FakeSources {
   /// The paths of the requests to CBSL's price reports and their listing.
   final marketRequests = <String>[];
 
+  String _schedule(Map<String, String> query) {
+    scheduleQueries.add(query);
+    return powerSchedule;
+  }
+
+  String _outlines(String group) {
+    groupQueries.add(group);
+    return group == 'V' ? fixture('edlcare_group_v.json') : '[]';
+  }
+
   http.Client get client => MockClient((request) async {
     if (offline) {
       throw http.ClientException('offline', request.url);
     }
     requests.add(request.url.host);
     final path = request.url.path;
+    if (request.url.host == 'edlcare.edl.lk') {
+      edlPaths.add(path);
+    }
     if (request.url.host == 'www.cbsl.gov.lk' && path.contains('price')) {
       marketRequests.add(path.split('/').last);
     }
@@ -76,6 +101,12 @@ class FakeSources {
         'edlcare_areas_wpn.json',
       ),
       'edlcare.edl.lk' when path.endsWith('/outage-locations') => powerOutages,
+      'edlcare.edl.lk' when path.endsWith('/load-shedding-events') => _schedule(
+        request.url.queryParameters,
+      ),
+      'edlcare.edl.lk' when path.endsWith('/demand-mgmt-clusters') => _outlines(
+        request.url.queryParameters['groupId']!,
+      ),
       'api.ceypetco.gov.lk' => ceypetco,
       'www.cbsl.gov.lk' when path.endsWith('/price-report') => marketListing,
       'www.cbsl.gov.lk' => cbsl,

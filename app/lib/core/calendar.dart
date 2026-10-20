@@ -9,15 +9,19 @@ final class CalendarEvent extends Equatable {
     required this.first,
     required this.last,
     this.description,
+    this.allDay = true,
   });
 
   final String title;
+
+  /// The first and last days, or the start and end when not [allDay].
   final DateTime first;
   final DateTime last;
   final String? description;
+  final bool allDay;
 
   @override
-  List<Object?> get props => [title, first, last, description];
+  List<Object?> get props => [title, first, last, description, allDay];
 }
 
 /// Opens the phone's calendar app with an event filled in, for the user to
@@ -45,18 +49,22 @@ AndroidIntent calendarIntent(CalendarEvent event) {
     arguments: <String, dynamic>{
       'title': event.title,
       'description': ?event.description,
-      'allDay': true,
+      'allDay': event.allDay,
       // All-day events run from midnight UTC to midnight after the last day.
-      'beginTime': DateTime.utc(
-        first.year,
-        first.month,
-        first.day,
-      ).millisecondsSinceEpoch,
-      'endTime': DateTime.utc(
-        last.year,
-        last.month,
-        last.day + 1,
-      ).millisecondsSinceEpoch,
+      'beginTime': event.allDay
+          ? DateTime.utc(
+              first.year,
+              first.month,
+              first.day,
+            ).millisecondsSinceEpoch
+          : first.millisecondsSinceEpoch,
+      'endTime': event.allDay
+          ? DateTime.utc(
+              last.year,
+              last.month,
+              last.day + 1,
+            ).millisecondsSinceEpoch
+          : last.millisecondsSinceEpoch,
     },
   );
 }

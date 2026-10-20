@@ -74,6 +74,61 @@ void main() {
     expect(areas, contains(gampaha));
   });
 
+  group('the load shedding schedule', () {
+    final cuts = parseSchedule(fixture('edlcare_load_shedding.json'));
+
+    test("is every group's slots, soonest first", () {
+      expect([for (final cut in cuts) cut.group], ['A', 'V', 'V', 'W']);
+      expect({for (final cut in cuts) cut.name}, {'Load shedding'});
+      expect(cuts[1].start, DateTime(2026, 10, 20, 19, 30));
+      expect(cuts[1].end, DateTime(2026, 10, 20, 20, 30));
+    });
+
+    test('a slot is on from its start to its end', () {
+      final shedding = cuts[1];
+
+      expect(shedding.onAt(DateTime(2026, 10, 20, 19, 29)), isFalse);
+      expect(shedding.onAt(DateTime(2026, 10, 20, 19, 30)), isTrue);
+      expect(shedding.onAt(DateTime(2026, 10, 20, 20, 30)), isFalse);
+    });
+
+    test('as a cut on now, it is on until it ends', () {
+      final outage = cuts[1].asOutage;
+
+      expect(outage.kind, OutageKind.maintenance);
+      expect(outage.reason, 'Load shedding');
+      expect(outage.from, DateTime(2026, 10, 20, 19, 30));
+      expect(outage.time, DateTime(2026, 10, 20, 20, 30));
+    });
+
+    test('the cuts to come at every place come soonest first', () {
+      const work = Place(id: 'work', name: 'Work');
+      final power = PowerNow(
+        places: [
+          PlaceCuts(place: home, ahead: [cuts[3]]),
+          PlaceCuts(place: work, ahead: [cuts[1], cuts[2]]),
+        ],
+      );
+
+      expect(
+        [for (final (place, _) in cutsAhead(power)) place.name],
+        ['Work', 'Work', 'Home'],
+      );
+      expect(cutsAhead(power, before: DateTime(2026, 10, 21)), [
+        (work, cuts[1]),
+      ]);
+    });
+  });
+
+  test("a place is in a group when it is inside one of the group's areas", () {
+    final outlines = parseGroupOutlines(fixture('edlcare_group_v.json'));
+
+    expect(outlines.single, hasLength(5));
+    expect(inGroup(outlines, gampahaHome), isTrue);
+    expect(inGroup(outlines, (lat: 7.2, lon: 79.84)), isFalse);
+    expect(inGroup(parseGroupOutlines('[]'), gampahaHome), isFalse);
+  });
+
   group('PowerSetup', () {
     const work = Place(id: 'work', name: 'Work', area: gampaha);
 

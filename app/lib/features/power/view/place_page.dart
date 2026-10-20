@@ -255,6 +255,15 @@ class _PlaceViewState extends State<_PlaceView> {
                           !state.regionsFailed,
                       onPicked: cubit.pickArea,
                     ),
+                    if (context.read<PowerCubit>().state.groupAt(draft)
+                        case final group?)
+                      ListTile(
+                        title: const Text('Load shedding group'),
+                        trailing: Text(
+                          group,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
                     if (state.regionsFailed)
                       ListTile(
                         leading: const Icon(Icons.refresh),

@@ -85,7 +85,7 @@ String cutShare(PlaceCuts cuts, {DateTime? checked}) {
   final what = [
     switch (first.kind) {
       OutageKind.breakdown => 'a breakdown',
-      OutageKind.maintenance => 'maintenance',
+      OutageKind.maintenance => first.reason ?? 'maintenance',
     },
     ?outageWhen(first),
   ].join(' ');

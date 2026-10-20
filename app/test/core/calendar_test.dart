@@ -23,6 +23,23 @@ void main() {
     });
   });
 
+  test('a timed event, such as a power cut, keeps its times', () {
+    final start = DateTime(2026, 10, 20, 19, 30);
+    final end = DateTime(2026, 10, 20, 20, 30);
+    final intent = calendarIntent(
+      CalendarEvent(
+        title: 'Load shedding (Group V) at Home',
+        first: start,
+        last: end,
+        allDay: false,
+      ),
+    );
+
+    expect(intent.arguments!['allDay'], isFalse);
+    expect(intent.arguments!['beginTime'], start.millisecondsSinceEpoch);
+    expect(intent.arguments!['endTime'], end.millisecondsSinceEpoch);
+  });
+
   test('an event without a description leaves it out', () {
     final day = DateTime(2026, 10, 25);
     final intent = calendarIntent(

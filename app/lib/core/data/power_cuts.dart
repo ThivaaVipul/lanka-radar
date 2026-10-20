@@ -192,6 +192,7 @@ final class Outage extends Equatable {
     this.time,
     this.reason,
     this.id,
+    this.from,
   });
 
   final OutageKind kind;
@@ -211,6 +212,9 @@ final class Outage extends Equatable {
   /// CEB's interruption number, for maintenance.
   final String? id;
 
+  /// When it began, for a planned cut on now.
+  final DateTime? from;
+
   /// Whether [place] is among the customers cut off: inside an outline, or
   /// close enough to one to be on its lines.
   bool covers(GeoPoint place) => shapes.any(
@@ -220,7 +224,7 @@ final class Outage extends Equatable {
   );
 
   @override
-  List<Object?> get props => [kind, customers, shapes, time, reason, id];
+  List<Object?> get props => [kind, customers, shapes, time, reason, id, from];
 }
 
 /// How far a place can be from an outline and still be on its lines: houses
@@ -364,15 +368,27 @@ DateTime? _time(Object? value) {
   );
 }
 
-/// A place and the cuts at it.
+/// A place, the cuts at it now, its load shedding group and that group's
+/// cuts to come.
 final class PlaceCuts extends Equatable {
-  const PlaceCuts({required this.place, this.outages = const []});
+  const PlaceCuts({
+    required this.place,
+    this.outages = const [],
+    this.group,
+    this.ahead = const [],
+  });
 
   final Place place;
   final List<Outage> outages;
 
+  /// The load shedding group the place is in, such as "V", if found.
+  final String? group;
+
+  /// Soonest first.
+  final List<PlannedCut> ahead;
+
   @override
-  List<Object?> get props => [place, outages];
+  List<Object?> get props => [place, outages, group, ahead];
 }
 
 /// The power cuts at each place set up, from each area's last listing.
@@ -394,8 +410,99 @@ final class PowerNow extends Equatable {
   List<Object?> get props => [places, checked];
 }
 
+/// The cuts to come at every place, soonest first; with [before], only
+/// those that start before it.
+List<(Place, PlannedCut)> cutsAhead(PowerNow? power, {DateTime? before}) => [
+  for (final cuts in power?.places ?? const <PlaceCuts>[])
+    for (final cut in cuts.ahead)
+      if (before == null || cut.start.isBefore(before)) (cuts.place, cut),
+]..sort((a, b) => a.$2.start.compareTo(b.$2.start));
+
 /// The cuts in [outages] that cover [point].
 List<Outage> outagesAt(List<Outage> outages, GeoPoint point) => [
   for (final outage in outages)
     if (outage.covers(point)) outage,
 ];
+
+/// A load shedding slot on EDLCare's public schedule, for one group.
+final class PlannedCut extends Equatable {
+  const PlannedCut({
+    required this.id,
+    required this.start,
+    required this.end,
+    this.group,
+    this.name = 'Load shedding',
+  });
+
+  final String id;
+
+  /// What it is: "Load shedding".
+  final String name;
+
+  /// The group it is for, such as "V".
+  final String? group;
+  final DateTime start;
+  final DateTime end;
+
+  /// Whether it is on at [time].
+  bool onAt(DateTime time) => !time.isBefore(start) && time.isBefore(end);
+
+  /// As a cut on now, for the lists of cuts at a place: on until it should
+  /// end.
+  Outage get asOutage => Outage(
+    kind: OutageKind.maintenance,
+    customers: 0,
+    shapes: const [],
+    time: end,
+    reason: name,
+    id: id,
+    from: start,
+  );
+
+  @override
+  List<Object?> get props => [id, name, group, start, end];
+}
+
+/// EDLCare's `load-shedding-events` answer: every group's slots,
+/// `[{"id", "loadShedGroupId", "startTime", "endTime"}]`. Sorted by start.
+List<PlannedCut> parseSchedule(String body) => [
+  for (final entry in jsonDecode(body) as List<Object?>)
+    if (entry case {
+      'id': final String id,
+      'loadShedGroupId': final String group,
+      'startTime': final String start,
+      'endTime': final String end,
+    })
+      PlannedCut(
+        id: id,
+        group: group,
+        start: DateTime.parse(start),
+        end: DateTime.parse(end),
+      ),
+]..sort((a, b) => a.start.compareTo(b.start));
+
+/// The load shedding groups, as EDLCare names them.
+const loadSheddingGroups = [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', //
+  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+];
+
+/// EDLCare's `demand-mgmt-clusters` answer for a group: the outlines of the
+/// areas its feeders supply, `[{"groupId", "points": [...]}]`.
+List<List<GeoPoint>> parseGroupOutlines(String body) => [
+  for (final cluster in jsonDecode(body) as List<Object?>)
+    if (cluster case {'points': final List<Object?> points})
+      [
+        for (final point in points)
+          if (point case {'lat': final num lat, 'lon': final num lon})
+            (lat: lat.toDouble(), lon: lon.toDouble()),
+      ],
+];
+
+/// Whether [point] is in one of a group's [outlines], or close enough to be
+/// on its lines.
+bool inGroup(List<List<GeoPoint>> outlines, GeoPoint point) => Outage(
+  kind: OutageKind.maintenance,
+  customers: 0,
+  shapes: outlines,
+).covers(point);

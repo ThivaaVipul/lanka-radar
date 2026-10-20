@@ -3,15 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/calendar.dart';
 import 'package:lanka_radar/core/data/dates_ahead.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
+import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 
-/// Dates: the school exams ahead (their days read from the timetables), the
-/// long weekends and the year's remaining holidays, each with a countdown and
-/// a way into the phone's calendar.
+/// Dates: the load shedding ahead at the places watched, the school exams
+/// ahead (their days read from the timetables), the long weekends and the
+/// year's remaining holidays, each with a countdown and a way into the phone's
+/// calendar.
 class DatesTab extends StatelessWidget {
   const DatesTab({this.addToCalendar = addToPhoneCalendar, super.key});
 
@@ -29,6 +32,7 @@ class DatesTab extends StatelessWidget {
         final day = DateTime(today.year, today.month, today.day);
         final exams = upcomingExams(state.items ?? const <FeedItem>[], day);
         final weekends = longWeekends(now.holidays, day);
+        final cuts = cutsAhead(now.power);
         Future<void> add(CalendarEvent event) async {
           final messenger = ScaffoldMessenger.of(context);
           if (!await addToCalendar(event)) {
@@ -41,6 +45,35 @@ class DatesTab extends StatelessWidget {
         return ListView(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
           children: [
+            if (cuts.isNotEmpty)
+              Section(
+                title: 'Power cuts ahead',
+                children: [
+                  for (final (place, cut) in cuts)
+                    _DateRow(
+                      first: cut.start,
+                      last: cut.end,
+                      today: day,
+                      title: '${cut.name} at ${place.name}',
+                      subtitle: [
+                        cutHours(cut),
+                        if (cut.group case final group?) 'group $group',
+                      ].join(', '),
+                      onAdd: () => add(
+                        CalendarEvent(
+                          title: '${cut.name} at ${place.name}',
+                          first: cut.start,
+                          last: cut.end,
+                          description: switch (cut.group) {
+                            final group? => 'Group $group',
+                            null => null,
+                          },
+                          allDay: false,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             if (exams.isNotEmpty)
               Section(
                 title: 'Exams',

@@ -1,6 +1,5 @@
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
 
 /// "Power cut at Home" or "2 power cuts at Work".
 String powerCutsTitle(int count, String place) => switch (count) {
@@ -29,23 +28,33 @@ String? outageWhen(Outage outage) {
   };
 }
 
+/// The day a cut to come starts, from [now]: "Today", "Tomorrow" or "Sun 25
+/// Oct".
+String cutDay(PlannedCut cut, {required DateTime now}) {
+  final start = cut.start;
+  return switch (DateTime.utc(
+    start.year,
+    start.month,
+    start.day,
+  ).difference(DateTime.utc(now.year, now.month, now.day)).inDays) {
+    0 => 'Today',
+    1 => 'Tomorrow',
+    _ => weekdayDate(start),
+  };
+}
+
+/// Its hours: "19:30 to 20:30", and "22:00 to 02:00" across midnight.
+String cutHours(PlannedCut cut) {
+  String at(DateTime time) => clock(time.hour * 60 + time.minute);
+  return '${at(cut.start)} to ${at(cut.end)}';
+}
+
+/// When a cut to come is: "Today 19:30 to 20:30", "Sun 25 Oct 09:00 to
+/// 17:00".
+String cutTimes(PlannedCut cut, {required DateTime now}) =>
+    '${cutDay(cut, now: now)} ${cutHours(cut)}';
+
 /// "Home and Work", "Home, Work and School".
 String _and(List<String> names) => names.length < 2
     ? names.join()
     : '${names.sublist(0, names.length - 1).join(', ')} and ${names.last}';
-
-/// What a cut is and when, with a dot between: "Breakdown, since 09:24" or
-/// "Way Leaves, until 17:00".
-String outageLine(Outage outage) {
-  final time = outage.time;
-  final at = time == null ? null : clock(time.hour * 60 + time.minute);
-  return [
-    ...switch (outage.kind) {
-      OutageKind.breakdown => ['Breakdown', if (at != null) 'since $at'],
-      OutageKind.maintenance => [
-        outage.reason ?? 'Maintenance',
-        if (at != null) 'until $at',
-      ],
-    },
-  ].join(dot);
-}

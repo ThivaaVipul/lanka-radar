@@ -245,6 +245,7 @@ class _PlaceListState extends State<_PlaceList>
                   checking: state.check == PowerCheck.checking,
                   shape: shape,
                   onTap: open,
+                  ahead: state.aheadAt(place),
                   onLongPress: switch (state.cutsAt(place)) {
                     final cuts? when cuts.isNotEmpty => () => shareText(
                       context,

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:lanka_radar/app/motion.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/features/power/hero_status.dart';
 import 'package:lanka_radar/features/power/widgets/power_line.dart';
 
 /// One place in the Power list: an edge in its state's color, its name, how it
-/// stands, and its area; with its cuts listed under it when there are several.
-/// Tapping it opens it.
+/// stands, and its area; with its cuts listed under it when there are several,
+/// and the next load shedding for its group. Tapping it opens it.
 class PlaceRow extends StatelessWidget {
   const PlaceRow({
     required this.place,
@@ -15,6 +16,7 @@ class PlaceRow extends StatelessWidget {
     required this.cuts,
     required this.checking,
     required this.onTap,
+    this.ahead = const [],
     this.onLongPress,
     this.shape,
     super.key,
@@ -23,6 +25,9 @@ class PlaceRow extends StatelessWidget {
   /// How many cuts are listed under a place.
   static const shown = 3;
 
+  /// How many cuts to come are listed under a place.
+  static const shownAhead = 2;
+
   final Place place;
   final NodeState state;
 
@@ -30,6 +35,9 @@ class PlaceRow extends StatelessWidget {
   final List<Outage>? cuts;
   final bool checking;
   final VoidCallback onTap;
+
+  /// The cuts to come, soonest first.
+  final List<PlannedCut> ahead;
 
   /// Shares the place's cuts; null without one.
   final VoidCallback? onLongPress;
@@ -144,6 +152,9 @@ class PlaceRow extends StatelessWidget {
                                 width: double.infinity,
                               ),
                       ),
+                      if (ahead.isNotEmpty) const SizedBox(height: 4),
+                      for (final cut in ahead.take(shownAhead))
+                        _AheadLine(cut: cut),
                     ],
                   ),
                 ),
@@ -202,6 +213,47 @@ class _CutLine extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(child: Text(what, style: theme.textTheme.bodyMedium)),
+        ],
+      ),
+    );
+  }
+}
+
+/// A cut to come under its place, as a line of a small table: the day, the
+/// hours, and what it is.
+class _AheadLine extends StatelessWidget {
+  const _AheadLine({required this.cut});
+
+  final PlannedCut cut;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final muted = theme.colorScheme.onSurfaceVariant;
+    return Padding(
+      padding: const EdgeInsets.only(top: 6),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 84,
+            child: Text(
+              cutDay(cut, now: DateTime.now()),
+              style: theme.textTheme.bodyMedium?.copyWith(color: muted),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              cutHours(cut),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+            ),
+          ),
+          Text(
+            cut.name,
+            style: theme.textTheme.labelMedium?.copyWith(color: muted),
+          ),
+          const SizedBox(width: 8),
         ],
       ),
     );

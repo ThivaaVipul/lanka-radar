@@ -162,6 +162,18 @@ HeroStatus heroStatusFor(PowerState state, {required DateTime now}) {
   }
   final cut = power.cut;
   if (cut.isEmpty) {
+    // Nothing now, but a cut is coming today: that is what to know.
+    final today = cutsAhead(
+      power,
+      before: DateTime(now.year, now.month, now.day + 1),
+    ).firstOrNull;
+    if (today case (final place, final next)) {
+      return status(
+        HeroTone.clear,
+        '${next.name} at ${place.name} today',
+        detail: cutHours(next),
+      );
+    }
     return status(
       HeroTone.clear,
       ready.length == 1
@@ -192,7 +204,8 @@ NodeState nodeState(PowerState state, Place place) => !place.ready
         _ => NodeState.cut,
       };
 
-/// "A breakdown since 09:24" or "Maintenance until 17:00".
+/// "A breakdown since 09:24", "Maintenance until 17:00" or "Load shedding
+/// (Group V) until 20:30".
 String outageSentence(Outage outage) {
   final time = outage.time;
   final at = time == null ? null : clock(time.hour * 60 + time.minute);
@@ -200,7 +213,9 @@ String outageSentence(Outage outage) {
     OutageKind.breakdown =>
       at == null ? 'A breakdown' : 'A breakdown since $at',
     OutageKind.maintenance =>
-      at == null ? 'Maintenance' : 'Maintenance until $at',
+      at == null
+          ? outage.reason ?? 'Maintenance'
+          : '${outage.reason ?? 'Maintenance'} until $at',
   };
 }
 

@@ -220,9 +220,94 @@ void main() {
       await phone.refreshPower();
 
       expect(
-        sources.requests.where((host) => host == 'edlcare.edl.lk'),
+        sources.edlPaths.where((path) => path.endsWith('/outage-locations')),
         hasLength(2),
       );
+    });
+
+    group('load shedding', () {
+      setUp(() async {
+        now = DateTime(2026, 10, 20, 12);
+        await storePowerSetup(phone);
+      });
+
+      test('the schedule is read for today and tomorrow', () async {
+        await phone.refreshPower();
+
+        expect(sources.scheduleQueries.single, {
+          'from': '2026-10-20',
+          'to': '2026-10-22',
+        });
+      });
+
+      test("a place's group is found from its point, once a day", () async {
+        await phone.refreshGroups();
+        // Group by group until the one whose areas the place is in.
+        expect(sources.groupQueries.last, 'V');
+        expect(sources.groupQueries, hasLength(22));
+
+        sources.groupQueries.clear();
+        now = now.add(const Duration(hours: 5));
+        await phone.refreshGroups();
+        expect(sources.groupQueries, isEmpty);
+
+        // A day on, the group it was in is looked at first.
+        now = now.add(const Duration(days: 1));
+        await phone.refreshGroups();
+        expect(sources.groupQueries, ['V']);
+      });
+
+      test(
+        "the place's group's cuts to come are listed, soonest first",
+        () async {
+          await phone.refresh();
+
+          final place = (await phone.powerNow())!.places.single;
+          expect(place.group, 'V');
+          expect(
+            [for (final cut in place.ahead) cut.start],
+            [DateTime(2026, 10, 20, 19, 30), DateTime(2026, 10, 21, 16, 30)],
+          );
+          // The map's breakdown is still the cut on now.
+          expect(place.outages.single.kind, OutageKind.breakdown);
+        },
+      );
+
+      test("load shedding on now is the place's cut", () async {
+        await phone.refresh();
+        now = DateTime(2026, 10, 20, 19, 45);
+
+        final place = (await phone.powerNow())!.places.single;
+        expect(place.outages.single.reason, 'Load shedding');
+        expect(place.outages.single.time, DateTime(2026, 10, 20, 20, 30));
+        expect(place.ahead.single.start, DateTime(2026, 10, 21, 16, 30));
+      });
+
+      test('a schedule that fails keeps the last one, quietly', () async {
+        await phone.refresh();
+        sources.powerSchedule = 'not the schedule';
+
+        await phone.refreshPower();
+
+        expect((await phone.powerNow())!.places.single.ahead, hasLength(2));
+        expect((await phone.status('edlcare')).lastError, isNull);
+      });
+
+      test('a place that moved has no group until it is looked up', () async {
+        await phone.refresh();
+        await phone.savePowerSetup(
+          PowerSetup(
+            places: [home.copyWith(point: () => (lat: 7.2, lon: 79.84))],
+          ),
+        );
+
+        expect((await phone.powerNow())!.places.single.group, isNull);
+        sources.groupQueries.clear();
+        await phone.refreshGroups();
+        // In no group: every group was looked at, and none is kept.
+        expect(sources.groupQueries, hasLength(26));
+        expect((await phone.powerNow())!.places.single.ahead, isEmpty);
+      });
     });
 
     test("an area nobody's place is in any more is not kept", () async {

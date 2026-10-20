@@ -209,6 +209,40 @@ void main() {
     expect(await saved(tester), ['Work']);
   });
 
+  testWidgets("a place's page names the load shedding group it is in", (
+    tester,
+  ) async {
+    await tester.runAsync(() => storePowerSetup(phone));
+    await open(tester);
+
+    await tester.tap(row('Home'));
+    await settle(tester);
+
+    final group = find.widgetWithText(ListTile, 'Load shedding group');
+    await reach(tester, group);
+    expect(
+      find.descendant(of: group, matching: find.text('V')),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets("a place's row lists its group's cuts to come", (tester) async {
+    phone = sources.repository(database, now: () => DateTime(2026, 10, 20, 12));
+    await tester.runAsync(() => storePowerSetup(phone));
+    await open(tester);
+
+    // Today's and tomorrow's: the day, the hours, what it is.
+    final rows = find.byType(PlaceRow);
+    expect(
+      find.descendant(of: rows, matching: find.text('Load shedding')),
+      findsNWidgets(2),
+    );
+    expect(
+      find.descendant(of: rows, matching: find.text('19:30 to 20:30')),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('removing asks first, and can be undone', (tester) async {
     await tester.runAsync(() => storePowerSetup(phone));
     await open(tester);
