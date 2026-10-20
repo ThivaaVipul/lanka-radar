@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 
-/// Today: the numbers that matter at a glance, then what is new since the last
-/// visit (or the latest few), never election notices.
+/// Today: the power cuts at a place watched, if any, the numbers that matter
+/// at a glance, then what is new since the last visit (or the latest few),
+/// never election notices.
 class TodayTab extends StatelessWidget {
   const TodayTab({required this.open, super.key});
 
@@ -36,6 +39,12 @@ class TodayTab extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             children: [
+              for (final cuts in now?.power?.cut ?? const <PlaceCuts>[])
+                _PowerCut(
+                  cuts: cuts,
+                  checked: now?.power?.checked,
+                  onTap: () => open(HomeTab.power),
+                ),
               if (now != null) _Numbers(now: now, open: open),
               Section(
                 title: state.todayHasNew
@@ -150,6 +159,97 @@ class _Numbers extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+/// The power cuts at a place: what each is and when.
+class _PowerCut extends StatelessWidget {
+  const _PowerCut({
+    required this.cuts,
+    required this.checked,
+    required this.onTap,
+  });
+
+  /// How many cuts are listed.
+  static const shown = 3;
+
+  final PlaceCuts cuts;
+  final DateTime? checked;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final checked = this.checked;
+    final place = cuts.place;
+    final ink = colors.onTertiaryContainer;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: colors.tertiaryContainer,
+        borderRadius: BorderRadius.circular(24),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 12, 16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: colors.tertiary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Icon(
+                      Icons.flash_off_rounded,
+                      size: 22,
+                      color: colors.onTertiary,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        powerCutsTitle(cuts.outages.length, place.name),
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: ink,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      for (final outage in cuts.outages.take(shown))
+                        Text(
+                          outageLine(outage),
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: ink,
+                          ),
+                        ),
+                      if (checked != null) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          '${place.area!.name}, checked '
+                          '${dayTime(checked, today: DateTime.now())}',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            color: ink.withValues(alpha: 0.7),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: ink),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

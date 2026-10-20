@@ -111,6 +111,9 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  /// Reads the numbers again from what the phone has stored.
+  Future<void> reloadNow() => _loadNowCard();
+
   Future<void> _loadNowCard() async {
     final card = await _phone.load(state.items ?? const []);
     final health = await _phone.health();

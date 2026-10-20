@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:lanka_radar/core/data/market_report.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:pdfrx/pdfrx.dart';
 
@@ -183,6 +184,40 @@ Future<List<ReportChar>> reportChars(Uint8List pdf) async {
     ];
   } finally {
     await document.dispose();
+  }
+}
+
+/// EDLCare's public outage map (`edlcare.edl.lk`, CEB's customer site), by CEB
+/// area office. Unofficial: the site's own pages have moved to endpoints that
+/// need a login, and these may go.
+class EdlCare {
+  EdlCare({http.Client? client}) : _client = client ?? http.Client();
+
+  static final _base = Uri.parse('https://edlcare.edl.lk/api/incognito/');
+
+  final http.Client _client;
+
+  Future<List<CebRegion>> provinces() async =>
+      parseRegions(await _get('provinces'), 'province');
+
+  Future<List<CebRegion>> areas(String provinceId) async =>
+      parseRegions(await _get('areas', {'provinceId': provinceId}), 'area');
+
+  /// The area's outages as EDLCare answers them ([parseOutages] reads them).
+  Future<String> outages(String areaId) =>
+      _get('outage-locations', {'areaId': areaId});
+
+  Future<String> _get(String path, [Map<String, String>? query]) async {
+    final response = await _client
+        .get(
+          _base.resolve(path).replace(queryParameters: query),
+          headers: {'User-Agent': userAgent},
+        )
+        .timeout(_timeout);
+    if (response.statusCode != 200) {
+      throw SourceException('EDLCare', response.statusCode);
+    }
+    return utf8.decode(response.bodyBytes);
   }
 }
 

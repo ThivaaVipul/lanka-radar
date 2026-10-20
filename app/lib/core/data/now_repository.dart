@@ -8,6 +8,7 @@ import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 
 /// How a source the phone reads itself last went.
@@ -48,6 +49,7 @@ class NowRepository {
     required this._ceypetco,
     required this._cbsl,
     required this._market,
+    required this._edl,
     DateTime Function()? now,
     Future<Map<String, String>> Function()? tamilNames,
   }) : _db = database,
@@ -57,6 +59,11 @@ class NowRepository {
   static const ceypetcoSource = 'ceypetco';
   static const cbslSource = 'cbsl';
   static const marketSource = 'cbsl-market';
+  static const powerSource = 'edlcare';
+
+  /// Each place's area's outages as EDLCare last listed them.
+  static const powerPath = 'phone/power-cuts.json';
+  static const _powerSetup = 'power.setup';
 
   /// Where the market prices the phone has read are kept.
   static const marketPath = 'phone/market-prices.json';
@@ -76,6 +83,7 @@ class NowRepository {
   final Ceypetco _ceypetco;
   final Cbsl _cbsl;
   final CbslMarket _market;
+  final EdlCare _edl;
   final DateTime Function() _now;
   final Future<Map<String, String>> Function() _tamilNames;
   Map<String, String>? _names;
@@ -117,6 +125,87 @@ class NowRepository {
       ]);
     });
     await _readMarket();
+    await refreshPower();
+  }
+
+  /// The places the phone watches for power cuts.
+  Future<PowerSetup> powerSetup() async =>
+      PowerSetup.fromJson(await _db.setting(_powerSetup));
+
+  Future<void> savePowerSetup(PowerSetup setup) =>
+      _db.saveSetting(_powerSetup, setup.toJson());
+
+  /// CEB's provinces and a province's area offices, for picking a place's.
+  Future<List<CebRegion>> powerProvinces() => _edl.provinces();
+
+  Future<List<CebRegion>> powerAreas(String provinceId) =>
+      _edl.areas(provinceId);
+
+  /// The power cuts at each place set up, from its area's last listing; null
+  /// until a place has both an area and a point.
+  Future<PowerNow?> powerNow() async {
+    final places = (await powerSetup()).ready;
+    if (places.isEmpty) {
+      return null;
+    }
+    final areas = await _powerAreas();
+    return PowerNow(
+      places: [
+        for (final place in places)
+          PlaceCuts(
+            place: place,
+            outages: outagesAt(
+              parseOutages(jsonEncode(areas[place.area!.id] ?? const [])),
+              place.point!,
+            ),
+          ),
+      ],
+      checked: (await status(powerSource)).lastSuccess,
+    );
+  }
+
+  /// Reads the outages of each area a place is in. An area that fails keeps
+  /// its last listing, and the failure is recorded once the rest are in.
+  Future<void> refreshPower() async {
+    final ids = (await powerSetup()).areaIds;
+    if (ids.isEmpty) {
+      return;
+    }
+    await _read(powerSource, () async {
+      final held = await _powerAreas();
+      final areas = <String, Object?>{};
+      Exception? failed;
+      for (final id in ids) {
+        try {
+          final body = await _edl.outages(id);
+          parseOutages(body);
+          areas[id] = jsonDecode(body);
+        } on Exception catch (error) {
+          failed = error;
+          areas[id] = held[id];
+        }
+      }
+      await _db.saveFile(
+        FileRow(
+          path: powerPath,
+          body: jsonEncode({'areas': areas}),
+          fetchedAt: _now(),
+        ),
+      );
+      if (failed != null) {
+        throw failed;
+      }
+    });
+  }
+
+  /// Each area's outages as EDLCare last listed them, by area ID.
+  Future<Map<String, Object?>> _powerAreas() async {
+    final body = (await _db.file(powerPath))?.body;
+    final json = body == null ? null : jsonDecode(body);
+    return switch (json) {
+      {'areas': final Map<String, Object?> areas} => areas,
+      _ => const {},
+    };
   }
 
   /// Reads the price reports the phone doesn't have yet, newest first, unless
@@ -193,6 +282,7 @@ class NowRepository {
       tamilNames: _names ??= await _tamilNames(),
       items: items,
       market: await marketPrices(),
+      power: await powerNow(),
     );
   }
 
@@ -236,6 +326,8 @@ class NowRepository {
         _health('Fuel prices', await status(ceypetcoSource)),
         _health('USD/LKR', await status(cbslSource)),
         _health('Market prices', await status(marketSource)),
+        if ((await powerSetup()).areaIds.isNotEmpty)
+          _health('Power cuts', await status(powerSource)),
       ],
     );
   }

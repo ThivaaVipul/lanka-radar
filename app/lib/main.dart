@@ -25,6 +25,7 @@ Future<void> main() async {
     ceypetco: Ceypetco(),
     cbsl: Cbsl(),
     market: CbslMarket(),
+    edl: EdlCare(),
   );
   final tabs = TabSelection();
   final router = NotificationRouter(feed, tabs);

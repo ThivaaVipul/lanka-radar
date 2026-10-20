@@ -30,6 +30,7 @@ void callbackDispatcher() {
           ceypetco: Ceypetco(),
           cbsl: Cbsl(),
           market: CbslMarket(),
+          edl: EdlCare(),
         ),
         alerts: AlertsRepository(database: database, notifier: notifier),
       ).run();

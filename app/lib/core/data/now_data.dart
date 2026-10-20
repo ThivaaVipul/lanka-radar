@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
 /// The fuels in the order the Now card lists them.
@@ -81,6 +82,7 @@ final class NowData extends Equatable {
     this.gas,
     this.timetable,
     this.market = const MarketPrices(),
+    this.power,
   });
 
   final List<FuelNow> fuel;
@@ -108,6 +110,9 @@ final class NowData extends Equatable {
   /// The Central Bank's daily retail prices.
   final MarketPrices market;
 
+  /// Power cuts at the places watched; null until a place is set.
+  final PowerNow? power;
+
   /// The day the newest fuel price started.
   DateTime? get fuelChanged => fuel.isEmpty
       ? null
@@ -124,6 +129,7 @@ final class NowData extends Equatable {
     gas,
     timetable,
     market,
+    power,
   ];
 }
 
@@ -140,6 +146,7 @@ NowData buildNow({
   required Map<String, String> tamilNames,
   required List<FeedItem> items,
   MarketPrices market = const MarketPrices(),
+  PowerNow? power,
 }) {
   final gazettes = _fuelGazettes(items);
   final fromGazette = fuelRows.isEmpty && gazettes.isNotEmpty;
@@ -159,6 +166,7 @@ NowData buildNow({
       (item) => item.topic == 'exams' && item.data['kind'] == 'timetable',
     ),
     market: market,
+    power: power,
   );
 }
 
