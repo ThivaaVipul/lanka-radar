@@ -96,6 +96,23 @@ def test_arial_unicode_glyph_ids_map_to_tamil() -> None:
     assert pdfs.ARIAL_TAMIL[8132] == SA + VIRAMA
 
 
+def test_glyphs_found_in_2026_gazettes_map_to_what_their_pages_print() -> None:
+    # Each was read off the printed title it held back (Thunukkai, Mutur, Eravur, ...).
+    found = {
+        8064: "KA VIRAMA SSA",  # thakshina
+        8078: "NNA U",  # thunukkaai
+        8081: "TA UU",  # muuthuur
+        8083: "NA UU",  # nuurumukammathu
+        8091: "YA II",  # kuriyiittai
+        8101: "LA UU",  # luuks
+        8108: "VA UU",  # eraavuur
+        8110: "SA II",  # asiis
+        8133: "HA VIRAMA",  # abdullaah
+    }
+    for glyph, names in found.items():
+        assert pdfs.ARIAL_TAMIL[glyph] == pdfs._tamil(names)
+
+
 def test_an_unknown_glyph_keeps_the_tamil_title_out_and_is_reported(
     fixture_bytes: Callable[[str], bytes], monkeypatch: pytest.MonkeyPatch
 ) -> None:

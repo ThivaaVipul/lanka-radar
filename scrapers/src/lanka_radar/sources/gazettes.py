@@ -40,8 +40,9 @@ ANSWER_ATTEMPTS = 3
 PDF_BUDGET = 40
 PDF_STATE = "gazette-pdfs"
 # The PDF reader's version, kept with each reading: 2 reads the Tamil of Arial Unicode
-# PDFs; 3 knows two more of its glyphs and gives shorter price labels.
-READER = 3
+# PDFs; 3 knows two more of its glyphs and gives shorter price labels; 4 knows nine more
+# glyphs (ksha, nnu, tuu, nuu, yii, luu, vuu, sii and h with pulli).
+READER = 4
 HISTORY_START = date(2026, 1, 1)
 RECHECK = timedelta(days=21)
 
