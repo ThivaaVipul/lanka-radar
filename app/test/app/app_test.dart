@@ -8,6 +8,7 @@ import 'package:lanka_radar/app/notification_router.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
@@ -37,14 +38,18 @@ void main() {
 
   tearDown(() => database.close());
 
-  Future<void> open(WidgetTester tester, {NotificationRouter? router}) async {
+  Future<void> open(
+    WidgetTester tester, {
+    NotificationRouter? router,
+    DateTime Function()? clock,
+  }) async {
     // As with Android's "Remove animations": Power's rings stay still, so the
     // screens settle.
     tester.platformDispatcher.accessibilityFeaturesTestValue =
         const FakeAccessibilityFeatures(disableAnimations: true);
     addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
     final feed = FeedRepository(database: database, remote: remote.branch);
-    final now = FakeSources().repository(database);
+    final now = FakeSources().repository(database, now: clock);
     await tester.pumpWidget(
       // Map tiles come from the network, which tests don't reach.
       NoMapTiles(
@@ -264,6 +269,29 @@ void main() {
       sharing.shared[2],
       startsWith('Power cut in Gampaha (CEB area): a breakdown since 09:24'),
     );
+  });
+
+  testWidgets('cuts to come show on Today and in Dates', (tester) async {
+    remote.putMonth('2026-10', [item('gazette-2510-20', '2026-10-12')]);
+    await tester.runAsync(
+      () => FakeSources()
+          .repository(database)
+          .savePowerSetup(const PowerSetup(places: [homeWithAccount])),
+    );
+    await open(tester, clock: () => DateTime(2026, 10, 20, 12));
+
+    // One card on Today, whichever day the test runs.
+    expect(
+      find.text('Load shedding at Home').evaluate().length +
+          find.text('Power cuts ahead').evaluate().length,
+      1,
+    );
+
+    await showTab(tester, HomeTab.dates);
+    expect(find.text('Power cuts ahead'), findsOneWidget);
+    expect(find.text('Load shedding at Home'), findsNWidgets(2));
+    expect(find.text('19:30 to 20:30, group V'), findsOneWidget);
+    expect(find.text('Maintenance at Home'), findsOneWidget);
   });
 
   testWidgets('Power starts with adding a place', (tester) async {

@@ -63,6 +63,12 @@ class NowRepository {
 
   /// Each place's area's outages as EDLCare last listed them.
   static const powerPath = 'phone/power-cuts.json';
+
+  /// Each account's calendar as EDLCare last answered it.
+  static const calendarPath = 'phone/power-calendar.json';
+
+  /// How far ahead an account's calendar is read.
+  static const calendarAhead = Duration(days: 30);
   static const _powerSetup = 'power.setup';
 
   /// Where the market prices the phone has read are kept.
@@ -141,50 +147,95 @@ class NowRepository {
   Future<List<CebRegion>> powerAreas(String provinceId) =>
       _edl.areas(provinceId);
 
-  /// The power cuts at each place set up, from its area's last listing; null
-  /// until a place has both an area and a point.
+  /// The power cuts at each place set up, from its area's last listing and
+  /// its account's calendar; null until a place has both an area and a
+  /// point. A cut on now on the calendar is exact for the meter, so it is
+  /// listed in place of the map's.
   Future<PowerNow?> powerNow() async {
     final places = (await powerSetup()).ready;
     if (places.isEmpty) {
       return null;
     }
-    final areas = await _powerAreas();
+    final now = _now();
+    final areas = await _stored(powerPath, 'areas');
+    final calendars = await _stored(calendarPath, 'accounts');
+    PlaceCuts cutsAt(Place place) {
+      final account = place.account;
+      final calendar = account == null || calendars[account] == null
+          ? const <AccountCut>[]
+          : parseCalendar(jsonEncode(calendars[account]));
+      final onNow = [
+        for (final cut in calendar)
+          if (cut.onAt(now)) cut.asOutage,
+      ];
+      return PlaceCuts(
+        place: place,
+        outages: onNow.isNotEmpty
+            ? onNow
+            : outagesAt(
+                parseOutages(jsonEncode(areas[place.area!.id] ?? const [])),
+                place.point!,
+              ),
+        ahead: [
+          for (final cut in calendar)
+            if (cut.start.isAfter(now)) cut,
+        ],
+      );
+    }
+
     return PowerNow(
-      places: [
-        for (final place in places)
-          PlaceCuts(
-            place: place,
-            outages: outagesAt(
-              parseOutages(jsonEncode(areas[place.area!.id] ?? const [])),
-              place.point!,
-            ),
-          ),
-      ],
+      places: [for (final place in places) cutsAt(place)],
       checked: (await status(powerSource)).lastSuccess,
     );
   }
 
-  /// Reads the outages of each area a place is in. An area that fails keeps
-  /// its last listing, and the failure is recorded once the rest are in.
+  /// Reads the outages of each area a place is in, and the calendar of each
+  /// account a place has. One that fails keeps its last answer, and the
+  /// failure is recorded once the rest are in.
   Future<void> refreshPower() async {
-    final ids = (await powerSetup()).areaIds;
-    if (ids.isEmpty) {
+    final setup = await powerSetup();
+    if (setup.areaIds.isEmpty && setup.accounts.isEmpty) {
       return;
     }
+    final today = _today();
     await _read(powerSource, () async {
-      final held = await _powerAreas();
-      final areas = <String, Object?>{};
       Exception? failed;
-      for (final id in ids) {
-        try {
-          final body = await _edl.outages(id);
-          parseOutages(body);
-          areas[id] = jsonDecode(body);
-        } on Exception catch (error) {
-          failed = error;
-          areas[id] = held[id];
+      Future<Map<String, Object?>> readEach(
+        Set<String> keys,
+        Map<String, Object?> held,
+        Future<String> Function(String key) read,
+        void Function(String body) check,
+      ) async {
+        final answers = <String, Object?>{};
+        for (final key in keys) {
+          try {
+            final body = await read(key);
+            check(body);
+            answers[key] = jsonDecode(body);
+          } on Exception catch (error) {
+            failed = error;
+            answers[key] = held[key];
+          }
         }
+        return answers;
       }
+
+      final areas = await readEach(
+        setup.areaIds,
+        await _stored(powerPath, 'areas'),
+        _edl.outages,
+        parseOutages,
+      );
+      final calendars = await readEach(
+        setup.accounts,
+        await _stored(calendarPath, 'accounts'),
+        (account) => _edl.calendar(
+          account,
+          from: today.subtract(const Duration(days: 1)),
+          to: today.add(calendarAhead),
+        ),
+        parseCalendar,
+      );
       await _db.saveFile(
         FileRow(
           path: powerPath,
@@ -192,20 +243,26 @@ class NowRepository {
           fetchedAt: _now(),
         ),
       );
-      if (failed != null) {
+      await _db.saveFile(
+        FileRow(
+          path: calendarPath,
+          body: jsonEncode({'accounts': calendars}),
+          fetchedAt: _now(),
+        ),
+      );
+      if (failed case final failed?) {
         throw failed;
       }
     });
   }
 
-  /// Each area's outages as EDLCare last listed them, by area ID.
-  Future<Map<String, Object?>> _powerAreas() async {
-    final body = (await _db.file(powerPath))?.body;
+  /// What a power file keeps under [key]: each area's outages by area ID, or
+  /// each account's calendar by account number.
+  Future<Map<String, Object?>> _stored(String path, String key) async {
+    final body = (await _db.file(path))?.body;
     final json = body == null ? null : jsonDecode(body);
-    return switch (json) {
-      {'areas': final Map<String, Object?> areas} => areas,
-      _ => const {},
-    };
+    final stored = json is Map<String, Object?> ? json[key] : null;
+    return stored is Map<String, Object?> ? stored : const {};
   }
 
   /// Reads the price reports the phone doesn't have yet, newest first, unless

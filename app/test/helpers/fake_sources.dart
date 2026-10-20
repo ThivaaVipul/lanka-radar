@@ -40,18 +40,28 @@ Future<List<ReportChar>> readReport(Uint8List pdf) async {
 /// CEYPETCO and CBSL in memory, answering with the responses saved in M1
 /// unless told to fail. CBSL's price report listing is empty unless given,
 /// and of the reports only the ones in [reports] are there. EDLCare answers
-/// with the Western Province North areas and Gampaha's outages (20 Oct 2026).
+/// with the Western Province North areas and Gampaha's outages (20 Oct 2026),
+/// and with an invented calendar for [testAccount] (`202` for any other).
 class FakeSources {
   String ceypetco = fixture('ceypetco_fuel_prices.json');
   String cbsl = fixture('cbsl_usd_rates.html');
   String marketListing = '<html></html>';
   String powerOutages = fixture('edlcare_outages_49.json');
+  String powerCalendar = fixture('edlcare_calendar.json');
+
+  /// The query of each calendar request.
+  final calendarQueries = <Map<String, String>>[];
   final reports = <String, List<int>>{};
   bool offline = false;
   final requests = <String>[];
 
   /// The paths of the requests to CBSL's price reports and their listing.
   final marketRequests = <String>[];
+
+  String _calendar(Map<String, String> query) {
+    calendarQueries.add(query);
+    return query['acctNo'] == testAccount ? powerCalendar : '202';
+  }
 
   http.Client get client => MockClient((request) async {
     if (offline) {
@@ -76,6 +86,9 @@ class FakeSources {
         'edlcare_areas_wpn.json',
       ),
       'edlcare.edl.lk' when path.endsWith('/outage-locations') => powerOutages,
+      'edlcare.edl.lk' when path.endsWith('/calendar') => _calendar(
+        request.url.queryParameters,
+      ),
       'api.ceypetco.gov.lk' => ceypetco,
       'www.cbsl.gov.lk' when path.endsWith('/price-report') => marketListing,
       'www.cbsl.gov.lk' => cbsl,
@@ -145,6 +158,20 @@ const home = Place(
   province: westernNorth,
   area: gampaha,
   point: gampahaHome,
+);
+
+/// A made-up CEB account number, the one the fake EDLCare has a calendar
+/// for.
+const testAccount = '1234567890';
+
+/// [home] with [testAccount].
+const homeWithAccount = Place(
+  id: 'home',
+  name: 'Home',
+  province: westernNorth,
+  area: gampaha,
+  point: gampahaHome,
+  account: testAccount,
 );
 
 /// Stores [home] as the one place watched.

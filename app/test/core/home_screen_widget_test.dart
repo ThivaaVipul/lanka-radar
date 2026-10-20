@@ -92,6 +92,35 @@ void main() {
     expect(both['cut.note'], isNull);
   });
 
+  test('with no cut on now, the line shows the next cut due today', () {
+    final cuts = parseCalendar(fixture('edlcare_calendar.json'));
+    final data = widgetData(
+      now(
+        places: [
+          PlaceCuts(place: home, ahead: [cuts[1], cuts[2]]),
+        ],
+      ),
+      today: today,
+    );
+
+    expect(data['cut.title'], 'Load shedding at Home');
+    expect(data['cut.note'], '19:30 to 20:30');
+    expect(data['cut.soon'], 'yes');
+    expect(data['cut.ends'], '${cuts[1].end.millisecondsSinceEpoch}');
+    // Tomorrow's alone isn't due today.
+    expect(
+      widgetData(
+        now(
+          places: [
+            PlaceCuts(place: home, ahead: [cuts[2]]),
+          ],
+        ),
+        today: today,
+      )['cut.title'],
+      isNull,
+    );
+  });
+
   test('before anything is read, the numbers are dashes', () {
     final data = widgetData(const NowData(), today: today);
 

@@ -75,6 +75,27 @@ void main() {
     expect(status(const [home]).title, 'No cuts reported at Home');
   });
 
+  test('with no cut now, a cut due today leads the card', () {
+    final cuts = parseCalendar(fixture('edlcare_calendar.json'));
+    final hero = heroStatusFor(
+      PowerState(
+        setup: const PowerSetup(places: [home]),
+        check: PowerCheck.done,
+        power: PowerNow(
+          places: [
+            PlaceCuts(place: home, ahead: [cuts[1], cuts[2]]),
+          ],
+          checked: checked,
+        ),
+      ),
+      now: now,
+    );
+
+    expect(hero.tone, HeroTone.clear);
+    expect(hero.title, 'Load shedding at Home today');
+    expect(hero.detail, '19:30 to 20:30');
+  });
+
   test('a cut at the first place breaks the line there, and says what', () {
     final at = outagesAt(outages, gampahaHome);
     final hero = status(const [home, work], cuts: {'home': at});

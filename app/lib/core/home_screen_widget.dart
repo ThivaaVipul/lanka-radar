@@ -79,6 +79,13 @@ Map<String, String?> widgetData(NowData now, {required DateTime today}) {
   final move = weekMove(now.rates);
   final cut = now.power?.cut ?? const <PlaceCuts>[];
   final outages = [for (final cuts in cut) ...cuts.outages];
+  final (place, soon) =
+      cutsAhead(
+        now.power,
+        before: DateTime(today.year, today.month, today.day + 1),
+      ).firstOrNull ??
+      (null, null);
+  String at(DateTime time) => clock(time.hour * 60 + time.minute);
   return {
     ...fuel('petrol', 'Petrol 92'),
     ...fuel('diesel', 'Diesel'),
@@ -99,8 +106,22 @@ Map<String, String?> widgetData(NowData now, {required DateTime today}) {
           weekdayDate(holiday.day),
         ].join('\t'),
     ].join('\n'),
-    'cut.title': cut.isEmpty ? null : cutPlacesTitle(cut),
-    'cut.note': outages.length == 1 ? outageWhen(outages.single) : null,
+    // A cut on now, else the next one due today, which the widget hides once
+    // it is over.
+    'cut.title': cut.isNotEmpty
+        ? cutPlacesTitle(cut)
+        : soon == null
+        ? null
+        : '${soon.name} at ${place!.name}',
+    'cut.note': cut.isNotEmpty
+        ? (outages.length == 1 ? outageWhen(outages.single) : null)
+        : soon == null
+        ? null
+        : '${at(soon.start)} to ${at(soon.end)}',
+    'cut.soon': cut.isEmpty && soon != null ? 'yes' : null,
+    'cut.ends': cut.isEmpty && soon != null
+        ? soon.end.millisecondsSinceEpoch.toString()
+        : null,
     'asOf': now.fuelAsOf?.millisecondsSinceEpoch.toString(),
   };
 }

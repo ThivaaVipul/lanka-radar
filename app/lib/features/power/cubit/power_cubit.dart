@@ -28,6 +28,16 @@ final class PowerState extends Equatable {
     return null;
   }
 
+  /// The cuts to come at [place], from its account's calendar.
+  List<AccountCut> aheadAt(Place place) {
+    for (final cuts in power?.places ?? const <PlaceCuts>[]) {
+      if (cuts.place.id == place.id) {
+        return cuts.ahead;
+      }
+    }
+    return const [];
+  }
+
   PowerState copyWith({
     PowerSetup? setup,
     PowerNow? Function()? power,

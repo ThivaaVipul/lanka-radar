@@ -36,6 +36,7 @@ class TodayTab extends StatelessWidget {
               : const Center(child: Text('Nothing yet'));
         }
         final now = state.nowCard;
+        final today = DateTime.now();
         return RefreshIndicator(
           onRefresh: context.read<HomeCubit>().refresh,
           child: ListView(
@@ -47,6 +48,12 @@ class TodayTab extends StatelessWidget {
                   checked: now?.power?.checked,
                   onTap: () => open(HomeTab.power),
                 ),
+              if (cutsAhead(
+                    now?.power,
+                    before: DateTime(today.year, today.month, today.day + 2),
+                  )
+                  case final soon when soon.isNotEmpty)
+                _CutsAhead(cuts: soon, onTap: () => open(HomeTab.power)),
               if (now != null) _Numbers(now: now, open: open),
               Section(
                 title: state.todayHasNew
@@ -265,6 +272,73 @@ class _PowerCut extends StatelessWidget {
                   ),
                 ),
                 Icon(Icons.chevron_right, color: ink),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The cuts due today and tomorrow, in one quiet card: what and where once,
+/// then a line for each, day and hours.
+class _CutsAhead extends StatelessWidget {
+  const _CutsAhead({required this.cuts, required this.onTap});
+
+  final List<(Place, AccountCut)> cuts;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final muted = theme.textTheme.bodyMedium?.copyWith(
+      color: colors.onSurfaceVariant,
+    );
+    final now = DateTime.now();
+    String what((Place, AccountCut) entry) =>
+        '${entry.$2.name} at ${entry.$1.name}';
+    // One heading when every cut is the same thing at the same place.
+    final same = cuts.every((entry) => what(entry) == what(cuts.first));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: colors.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(20),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.schedule, size: 20, color: colors.onSurfaceVariant),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        same ? what(cuts.first) : 'Power cuts ahead',
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      for (final entry in cuts)
+                        Text(
+                          [
+                            cutTimes(entry.$2, now: now),
+                            if (!same) what(entry),
+                          ].join(', '),
+                          style: muted,
+                        ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: colors.onSurfaceVariant),
               ],
             ),
           ),

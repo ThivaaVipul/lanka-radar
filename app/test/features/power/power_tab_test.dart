@@ -209,6 +209,51 @@ void main() {
     expect(await saved(tester), ['Work']);
   });
 
+  testWidgets('an account number needs 10 digits, and stays with the place', (
+    tester,
+  ) async {
+    await tester.runAsync(() => storePowerSetup(phone));
+    await open(tester);
+
+    await tester.tap(row('Home'));
+    await settle(tester);
+    final field = find.widgetWithText(TextField, 'CEB account number');
+    await reach(tester, field);
+    await tester.enterText(field, '12345');
+    await tester.tap(button('Save changes'));
+    await settle(tester);
+    expect(find.text('An account number has 10 digits'), findsOneWidget);
+
+    await tester.enterText(field, testAccount);
+    await tester.tap(button('Save changes'));
+    await settle(tester);
+
+    final setup = (await tester.runAsync(phone.powerSetup))!;
+    expect(setup.places.single.account, testAccount);
+  });
+
+  testWidgets("a place's row lists the cuts its account has to come", (
+    tester,
+  ) async {
+    phone = sources.repository(database, now: () => DateTime(2026, 10, 20, 12));
+    await tester.runAsync(
+      () => phone.savePowerSetup(const PowerSetup(places: [homeWithAccount])),
+    );
+    await open(tester);
+
+    // The next two of three: the day, the hours, what it is.
+    final rows = find.byType(PlaceRow);
+    expect(
+      find.descendant(of: rows, matching: find.text('Load shedding')),
+      findsNWidgets(2),
+    );
+    expect(
+      find.descendant(of: rows, matching: find.text('19:30 to 20:30')),
+      findsOneWidget,
+    );
+    expect(find.text('Maintenance'), findsNothing);
+  });
+
   testWidgets('removing asks first, and can be undone', (tester) async {
     await tester.runAsync(() => storePowerSetup(phone));
     await open(tester);

@@ -30,6 +30,13 @@
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
+            <!-- The app has no deep links. A widget tap's lankaradar:// link
+                 goes to home_widget, which opens the tab; Flutter's own deep
+                 linking would also open a second home screen over the first. -->
+            <meta-data
+              android:name="flutter_deeplinking_enabled"
+              android:value="false"
+              />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

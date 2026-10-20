@@ -51,6 +51,12 @@ final class PlaceState extends Equatable {
   String? get pointError =>
       showErrors && draft.point == null ? 'Set where it is' : null;
 
+  String? get accountError =>
+      showErrors && _badAccount ? 'An account number has 10 digits' : null;
+
+  bool get _badAccount =>
+      draft.account != null && !Place.isAccount(draft.account!);
+
   bool get changed => draft != original;
 
   /// What the place still needs before it can be saved.
@@ -60,6 +66,8 @@ final class PlaceState extends Equatable {
       ? 'Pick its CEB area'
       : draft.point == null
       ? 'Set its location'
+      : _badAccount
+      ? 'Check the account number'
       : null;
 
   bool get canSave => missing == null && changed;
@@ -142,6 +150,15 @@ class PlaceCubit extends Cubit<PlaceState> {
 
   void rename(String name) =>
       emit(state.copyWith(draft: state.draft.copyWith(name: name)));
+
+  /// An empty number takes the account away.
+  void setAccount(String text) => emit(
+    state.copyWith(
+      draft: state.draft.copyWith(
+        account: () => text.trim().isEmpty ? null : text.trim(),
+      ),
+    ),
+  );
 
   Future<void> pickProvince(CebRegion province) async {
     if (province == state.draft.province) {

@@ -80,11 +80,15 @@ class _PlaceViewState extends State<_PlaceView> {
   late final _name = TextEditingController(
     text: context.read<PlaceCubit>().state.draft.name,
   );
+  late final _account = TextEditingController(
+    text: context.read<PlaceCubit>().state.draft.account,
+  );
   bool _saving = false;
 
   @override
   void dispose() {
     _name.dispose();
+    _account.dispose();
     super.dispose();
   }
 
@@ -275,6 +279,31 @@ class _PlaceViewState extends State<_PlaceView> {
                           text: state.areaError!,
                           error: true,
                         ),
+                ),
+                const SectionTitle('Planned cuts'),
+                TextField(
+                  controller: _account,
+                  decoration: InputDecoration(
+                    labelText: 'CEB account number',
+                    hintText: '10 digits, on the bill',
+                    helperText: 'Optional',
+                    errorText: state.accountError,
+                    filled: true,
+                    fillColor: Theme.of(
+                      context,
+                    ).colorScheme.surfaceContainerLowest,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.done,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10),
+                  ],
+                  onChanged: cubit.setAccount,
                 ),
               ],
             ),

@@ -225,6 +225,69 @@ void main() {
       );
     });
 
+    group("a place's account", () {
+      setUp(() async {
+        now = DateTime(2026, 10, 20, 12);
+        await phone.savePowerSetup(const PowerSetup(places: [homeWithAccount]));
+      });
+
+      test('has its calendar read from yesterday to 30 days ahead', () async {
+        await phone.refreshPower();
+
+        expect(sources.calendarQueries.single, {
+          'acctNo': testAccount,
+          'from': '2026-10-19',
+          'to': '2026-11-19',
+        });
+      });
+
+      test('lists the cuts to come at the place, soonest first', () async {
+        await phone.refreshPower();
+
+        final place = (await phone.powerNow())!.places.single;
+        expect(
+          [for (final cut in place.ahead) cut.name],
+          ['Load shedding', 'Load shedding', 'Maintenance'],
+        );
+        expect(place.ahead.first.start, DateTime(2026, 10, 20, 19, 30));
+        expect(place.ahead.first.group, 'V');
+        // The map's breakdown is still the cut on now.
+        expect(place.outages.single.kind, OutageKind.breakdown);
+      });
+
+      test("a cut on the calendar that is on now is the place's cut", () async {
+        await phone.refreshPower();
+        now = DateTime(2026, 10, 20, 19, 45);
+
+        final place = (await phone.powerNow())!.places.single;
+        expect(place.outages.single.reason, 'Load shedding');
+        expect(place.outages.single.time, DateTime(2026, 10, 20, 20, 30));
+        expect(place.ahead.first.start, DateTime(2026, 10, 21, 16, 30));
+      });
+
+      test('a calendar that fails keeps its last answer', () async {
+        await phone.refreshPower();
+        sources.offline = true;
+
+        await phone.refreshPower();
+
+        expect((await phone.powerNow())!.places.single.ahead, hasLength(3));
+        expect((await phone.status('edlcare')).lastError, isNotNull);
+      });
+
+      test('an account EDLCare doesn\'t know has nothing to come', () async {
+        await phone.savePowerSetup(
+          PowerSetup(
+            places: [homeWithAccount.copyWith(account: () => '9999999999')],
+          ),
+        );
+
+        await phone.refreshPower();
+
+        expect((await phone.powerNow())!.places.single.ahead, isEmpty);
+      });
+    });
+
     test("an area nobody's place is in any more is not kept", () async {
       await storePowerSetup(phone);
       await phone.refresh();

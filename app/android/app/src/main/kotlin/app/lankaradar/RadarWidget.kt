@@ -38,7 +38,7 @@ class RadarWidget : HomeWidgetProvider() {
             number(data, "diesel", R.id.diesel_value, R.id.diesel_rise, R.id.diesel_fall, R.id.diesel_note)
             number(data, "usd", R.id.usd_value, R.id.usd_rise, R.id.usd_fall, R.id.usd_note)
             holiday(data, now)
-            cut(data)
+            cut(data, now)
             asOf(data, now)
             setOnClickPendingIntent(android.R.id.background, open(context, "today"))
             setOnClickPendingIntent(R.id.petrol, open(context, "prices"))
@@ -75,12 +75,21 @@ class RadarWidget : HomeWidgetProvider() {
         show(R.id.holiday_note, next?.let { "${it[2]}, ${countdown(it[0], today)}" })
     }
 
-    /** The power cut line, only while a place has a cut. */
-    private fun RemoteViews.cut(data: SharedPreferences) {
+    /**
+     * The power cut line: a cut on now at a place, or else the next one due
+     * today, with a clock and hidden once it is over.
+     */
+    private fun RemoteViews.cut(data: SharedPreferences, now: Long) {
+        val ends = data.getString("cut.ends", null)?.toLongOrNull()
         val title = data.getString("cut.title", null)
+            ?.takeUnless { ends != null && now >= ends }
         setViewVisibility(R.id.cut, if (title == null) View.GONE else View.VISIBLE)
         setTextViewText(R.id.cut_title, title.orEmpty())
-        show(R.id.cut_note, data.getString("cut.note", null))
+        show(R.id.cut_note, title?.let { data.getString("cut.note", null) })
+        setImageViewResource(
+            R.id.cut_icon,
+            if (data.getString("cut.soon", null) != null) R.drawable.widget_soon else R.drawable.widget_cut,
+        )
     }
 
     /** "as of 09:00" once the fuel prices were read more than 3 hours ago. */

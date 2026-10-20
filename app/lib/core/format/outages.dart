@@ -29,6 +29,32 @@ String? outageWhen(Outage outage) {
   };
 }
 
+/// The day a cut to come starts, from [now]: "Today", "Tomorrow" or "Sun 25
+/// Oct".
+String cutDay(AccountCut cut, {required DateTime now}) {
+  final start = cut.start;
+  return switch (DateTime.utc(
+    start.year,
+    start.month,
+    start.day,
+  ).difference(DateTime.utc(now.year, now.month, now.day)).inDays) {
+    0 => 'Today',
+    1 => 'Tomorrow',
+    _ => weekdayDate(start),
+  };
+}
+
+/// Its hours: "19:30 to 20:30", and "22:00 to 02:00" across midnight.
+String cutHours(AccountCut cut) {
+  String at(DateTime time) => clock(time.hour * 60 + time.minute);
+  return '${at(cut.start)} to ${at(cut.end)}';
+}
+
+/// When a cut to come is: "Today 19:30 to 20:30", "Sun 25 Oct 09:00 to
+/// 17:00".
+String cutTimes(AccountCut cut, {required DateTime now}) =>
+    '${cutDay(cut, now: now)} ${cutHours(cut)}';
+
 /// "Home and Work", "Home, Work and School".
 String _and(List<String> names) => names.length < 2
     ? names.join()

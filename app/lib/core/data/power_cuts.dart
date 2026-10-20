@@ -27,8 +27,8 @@ final class CebRegion extends Equatable {
   List<Object?> get props => [id, name];
 }
 
-/// A place to watch for power cuts, such as Home or Work: its CEB area office
-/// and where it is.
+/// A place to watch for power cuts, such as Home or Work: its CEB area office,
+/// where it is, and its CEB account number if given.
 final class Place extends Equatable {
   const Place({
     required this.id,
@@ -36,6 +36,7 @@ final class Place extends Equatable {
     this.province,
     this.area,
     this.point,
+    this.account,
   });
 
   /// Stays the same when the place is renamed.
@@ -45,6 +46,10 @@ final class Place extends Equatable {
   final CebRegion? area;
   final GeoPoint? point;
 
+  /// The meter's 10-digit account number, as on the bill: its calendar has
+  /// the cuts at that meter, past and to come.
+  final String? account;
+
   /// Both an area to read and a point to look near.
   bool get ready => area != null && point != null;
 
@@ -53,12 +58,14 @@ final class Place extends Equatable {
     CebRegion? Function()? province,
     CebRegion? Function()? area,
     GeoPoint? Function()? point,
+    String? Function()? account,
   }) => Place(
     id: id,
     name: name ?? this.name,
     province: province != null ? province() : this.province,
     area: area != null ? area() : this.area,
     point: point != null ? point() : this.point,
+    account: account != null ? account() : this.account,
   );
 
   Map<String, Object?> toJson() => {
@@ -67,6 +74,7 @@ final class Place extends Equatable {
     'province': ?province?.toJson(),
     'area': ?area?.toJson(),
     if (point case final point?) 'point': {'lat': point.lat, 'lon': point.lon},
+    'account': ?account,
   };
 
   static Place? fromJson(Object? json) {
@@ -77,13 +85,17 @@ final class Place extends Equatable {
         province: CebRegion.fromJson(json['province']),
         area: CebRegion.fromJson(json['area']),
         point: _point(json['point']),
+        account: json['account'] as String?,
       );
     }
     return null;
   }
 
+  /// Whether [text] looks like an account number: 10 digits.
+  static bool isAccount(String text) => RegExp(r'^\d{10}$').hasMatch(text);
+
   @override
-  List<Object?> get props => [id, name, province, area, point];
+  List<Object?> get props => [id, name, province, area, point, account];
 }
 
 /// The places the phone watches for power cuts, kept on the phone only.
@@ -131,6 +143,9 @@ final class PowerSetup extends Equatable {
 
   /// The area offices to read, once each.
   Set<String> get areaIds => {for (final place in places) ?place.area?.id};
+
+  /// The account calendars to read, once each.
+  Set<String> get accounts => {for (final place in places) ?place.account};
 
   Place? place(String id) {
     for (final place in places) {
@@ -364,15 +379,23 @@ DateTime? _time(Object? value) {
   );
 }
 
-/// A place and the cuts at it.
+/// A place, the cuts at it now, and the cuts its account's calendar has to
+/// come.
 final class PlaceCuts extends Equatable {
-  const PlaceCuts({required this.place, this.outages = const []});
+  const PlaceCuts({
+    required this.place,
+    this.outages = const [],
+    this.ahead = const [],
+  });
 
   final Place place;
   final List<Outage> outages;
 
+  /// Soonest first.
+  final List<AccountCut> ahead;
+
   @override
-  List<Object?> get props => [place, outages];
+  List<Object?> get props => [place, outages, ahead];
 }
 
 /// The power cuts at each place set up, from each area's last listing.
@@ -394,8 +417,110 @@ final class PowerNow extends Equatable {
   List<Object?> get props => [places, checked];
 }
 
+/// The cuts to come at every place, soonest first; with [before], only
+/// those that start before it.
+List<(Place, AccountCut)> cutsAhead(PowerNow? power, {DateTime? before}) => [
+  for (final cuts in power?.places ?? const <PlaceCuts>[])
+    for (final cut in cuts.ahead)
+      if (before == null || cut.start.isBefore(before)) (cuts.place, cut),
+]..sort((a, b) => a.$2.start.compareTo(b.$2.start));
+
 /// The cuts in [outages] that cover [point].
 List<Outage> outagesAt(List<Outage> outages, GeoPoint point) => [
   for (final outage in outages)
     if (outage.covers(point)) outage,
 ];
+
+/// A cut on a CEB account's calendar: a breakdown, maintenance or load
+/// shedding at that meter.
+final class AccountCut extends Equatable {
+  const AccountCut({
+    required this.id,
+    required this.name,
+    required this.start,
+    required this.end,
+    this.group,
+    this.breakdown = false,
+  });
+
+  final String id;
+
+  /// Its plain name: "Load shedding", "Breakdown" or "Maintenance".
+  final String name;
+
+  /// The load shedding group, such as "V".
+  final String? group;
+  final DateTime start;
+  final DateTime end;
+  final bool breakdown;
+
+  /// Whether it is on at [time].
+  bool onAt(DateTime time) => !time.isBefore(start) && time.isBefore(end);
+
+  /// As a cut on now, for the lists of cuts at a place: a breakdown since it
+  /// began, anything else until it should end.
+  Outage get asOutage => breakdown
+      ? Outage(
+          kind: OutageKind.breakdown,
+          customers: 0,
+          shapes: const [],
+          time: start,
+          id: id,
+        )
+      : Outage(
+          kind: OutageKind.maintenance,
+          customers: 0,
+          shapes: const [],
+          time: end,
+          reason: name,
+          id: id,
+        );
+
+  @override
+  List<Object?> get props => [id, name, group, start, end, breakdown];
+}
+
+/// EDLCare's `calendar` answer for an account: `{"interruptions": [...]}`, or
+/// `202` for an account it doesn't know. Sorted by start.
+List<AccountCut> parseCalendar(String body) {
+  final json = jsonDecode(body);
+  final entries = json is Map<String, Object?> ? json['interruptions'] : null;
+  return [
+    if (entries is List<Object?>)
+      for (final entry in entries)
+        if (entry case final Map<String, Object?> fields
+            when fields['interruptionId'] is String &&
+                fields['startTime'] is String &&
+                fields['endTime'] is String)
+          AccountCut(
+            id: fields['interruptionId']! as String,
+            name: _plainName(fields),
+            group: RegExp(
+              r'\(Group ([^)]+)\)',
+            ).firstMatch('${fields['interruptionTypeName']}')?[1],
+            start: DateTime.parse(fields['startTime']! as String),
+            end: DateTime.parse(fields['endTime']! as String),
+            breakdown: _breakdown(fields),
+          ),
+  ]..sort((a, b) => a.start.compareTo(b.start));
+}
+
+bool _breakdown(Map<String, Object?> entry) =>
+    '${entry['interruptionTypeName'] ?? ''}'.startsWith('Breakdown');
+
+/// "Demand management (Group V)" says "Load shedding" (its group is kept
+/// apart); breakdowns say "Breakdown"; safety clearances "Maintenance".
+String _plainName(Map<String, Object?> entry) {
+  final name = '${entry['interruptionTypeName'] ?? ''}'.trim();
+  if (entry['interruptionTypeId'] == '7' ||
+      name.toLowerCase().startsWith('demand management')) {
+    return 'Load shedding';
+  }
+  if (_breakdown(entry)) {
+    return 'Breakdown';
+  }
+  if (name.isEmpty || name == 'Safety Clearance') {
+    return 'Maintenance';
+  }
+  return name;
+}
