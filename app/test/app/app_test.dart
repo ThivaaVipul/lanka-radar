@@ -12,23 +12,27 @@ import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
+import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/power/widgets/osm.dart';
 import 'package:lanka_radar/features/power/widgets/place_row.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
 import '../helpers/fake_branch.dart';
 import '../helpers/fake_notifier.dart';
+import '../helpers/fake_sharing.dart';
 import '../helpers/fake_sources.dart';
 
 void main() {
   late AppDatabase database;
   late FakeBranch remote;
   late TabSelection tabs;
+  late FakeSharing sharing;
 
   setUp(() {
     database = memoryDatabase();
     remote = FakeBranch();
     tabs = TabSelection();
+    sharing = FakeSharing();
   });
 
   tearDown(() => database.close());
@@ -49,6 +53,7 @@ void main() {
           now: now,
           alerts: fakeAlerts(database),
           tabs: router?.tabs ?? tabs,
+          sharing: sharing,
           navigatorKey: router?.navigatorKey,
         ),
       ),
@@ -231,6 +236,34 @@ void main() {
     await settle(tester);
     expect(tabs.value, HomeTab.power);
     expect(find.byType(PlaceRow), findsOneWidget);
+  });
+
+  testWidgets('a long press shares a notice, a price or a cut as text', (
+    tester,
+  ) async {
+    remote.putMonth('2026-10', [item('gazette-2510-20', '2026-10-12')]);
+    await tester.runAsync(
+      () => storePowerSetup(FakeSources().repository(database)),
+    );
+    await open(tester);
+
+    await tester.longPress(find.byType(ItemTile).first);
+    await tester.longPress(find.text('Petrol 92'));
+    await tester.longPress(find.text('Power cut at Home'));
+
+    expect(sharing.shared, hasLength(3));
+    expect(
+      sharing.shared[0],
+      endsWith(
+        'Election Commission, 12 Oct 2026\n'
+        'https://documents.gov.lk/web/extra_gazettes',
+      ),
+    );
+    expect(sharing.shared[1], startsWith('Petrol 92: Rs '));
+    expect(
+      sharing.shared[2],
+      startsWith('Power cut in Gampaha (CEB area): a breakdown since 09:24'),
+    );
   });
 
   testWidgets('Power starts with adding a place', (tester) async {

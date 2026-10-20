@@ -15,6 +15,7 @@ class PlaceRow extends StatelessWidget {
     required this.cuts,
     required this.checking,
     required this.onTap,
+    this.onLongPress,
     this.shape,
     super.key,
   });
@@ -29,6 +30,9 @@ class PlaceRow extends StatelessWidget {
   final List<Outage>? cuts;
   final bool checking;
   final VoidCallback onTap;
+
+  /// Shares the place's cuts; null without one.
+  final VoidCallback? onLongPress;
 
   /// Lets the list round only the outer corners of its group.
   final ShapeBorder? shape;
@@ -66,6 +70,7 @@ class PlaceRow extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
+        onLongPress: onLongPress,
         child: IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,

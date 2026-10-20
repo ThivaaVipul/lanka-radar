@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
@@ -8,6 +9,7 @@ import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
+import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/core/links.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
@@ -42,6 +44,7 @@ class PricesTab extends StatelessWidget {
             if (item.topic == 'prices' && item.source != 'gas') item,
         ].take(orders);
         final goods = goodsHistory(state.items ?? const <FeedItem>[]);
+        final setBy = goodsOrders(state.items ?? const <FeedItem>[]);
         void chart(ChartSubject subject) =>
             Navigator.of(context).push(PriceChartPage.route(subject));
         return RefreshIndicator(
@@ -62,6 +65,11 @@ class PricesTab extends StatelessWidget {
                       value: price.price,
                       before: price.was,
                       note: 'since ${cardDate(price.since, today: today)}',
+                      share: fuelShare(
+                        price,
+                        asOf: now.fuelAsOf ?? today,
+                        fromGazette: now.fuelFromGazette,
+                      ),
                       onTap: () => chart(FuelChart(price.name)),
                     ),
                 ],
@@ -76,6 +84,7 @@ class PricesTab extends StatelessWidget {
                   if (rates.isNotEmpty)
                     _RateNow(
                       rates: rates,
+                      share: rateShare(rates, backup: now.ratesFromBackup),
                       onTap: () => chart(const RateChart()),
                     ),
                   for (final rate in rates.skip(1).take(4))
@@ -108,6 +117,10 @@ class PricesTab extends StatelessWidget {
                             : null,
                         note:
                             'since ${cardDate(history.last.day, today: today)}',
+                        share: switch (setBy[name]) {
+                          final order? => goodShare(name, history, order),
+                          null => null,
+                        },
                         onTap: () => chart(GoodChart(name)),
                       ),
                   ],
@@ -127,6 +140,9 @@ class PricesTab extends StatelessWidget {
                     onTap: gas?.links['image'] == null
                         ? null
                         : () => open(Uri.parse(gas!.links['image']!)),
+                    onLongPress: gas == null
+                        ? null
+                        : () => shareText(context, noticeShare(gas)),
                   ),
                 ],
               ),
@@ -224,6 +240,7 @@ class _MarketSectionState extends State<_MarketSection> {
                 quote.good.perUnit,
                 if (quote.market != marketOrder.first) quote.market,
               ].join(dot),
+              share: marketShare(quote, day: widget.market.latest!),
               onTap: () => widget.onChart(quote.good.name),
             ),
       ],
@@ -239,6 +256,7 @@ class _PriceRow extends StatelessWidget {
     this.before,
     this.note,
     this.quiet = false,
+    this.share,
     this.onTap,
   });
 
@@ -246,6 +264,9 @@ class _PriceRow extends StatelessWidget {
   final double value;
   final double? before;
   final String? note;
+
+  /// What a long press shares.
+  final String? share;
 
   /// Opens the chart.
   final VoidCallback? onTap;
@@ -260,8 +281,10 @@ class _PriceRow extends StatelessWidget {
       color: theme.colorScheme.onSurfaceVariant,
     );
     final before = this.before;
+    final share = this.share;
     return InkWell(
       onTap: onTap,
+      onLongPress: share == null ? null : () => shareText(context, share),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
         child: Row(
@@ -312,9 +335,12 @@ class _PriceRow extends StatelessWidget {
 
 /// Today's rate, large, with the week's move.
 class _RateNow extends StatelessWidget {
-  const _RateNow({required this.rates, this.onTap});
+  const _RateNow({required this.rates, required this.share, this.onTap});
 
   final List<RateNow> rates;
+
+  /// What a long press shares.
+  final String share;
   final VoidCallback? onTap;
 
   @override
@@ -324,6 +350,7 @@ class _RateNow extends StatelessWidget {
     final move = weekMove(rates);
     return InkWell(
       onTap: onTap,
+      onLongPress: () => shareText(context, share),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
         child: Row(

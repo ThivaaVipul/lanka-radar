@@ -76,6 +76,28 @@ Map<String, List<PricePoint>> goodsHistory(List<FeedItem> items) {
   };
 }
 
+/// The latest price order for each good in [goodsHistory], by the good's
+/// name: the one that set its current price.
+Map<String, FeedItem> goodsOrders(List<FeedItem> items) {
+  final orders = <String, FeedItem>{};
+  for (final item in items) {
+    if (item.topic != 'prices' || item.source == 'gas') {
+      continue;
+    }
+    final day = _day(item.effective ?? item.published);
+    for (final number in item.keyNumbers) {
+      final name = shortLabel(number.label);
+      final held = orders[name];
+      if (!fuelOrder.contains(name) &&
+          (held == null ||
+              day.isAfter(_day(held.effective ?? held.published)))) {
+        orders[name] = item;
+      }
+    }
+  }
+  return orders;
+}
+
 /// The points from [from] on, keeping the one in force at [from] so a step
 /// chart starts at the right level.
 List<PricePoint> since(List<PricePoint> points, DateTime from) {

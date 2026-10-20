@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/motion.dart';
 import 'package:lanka_radar/app/segments.dart';
+import 'package:lanka_radar/app/share.dart';
+import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/core/links.dart';
 import 'package:lanka_radar/core/location.dart';
 import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
@@ -23,11 +26,6 @@ class PowerTab extends StatelessWidget {
     this.locate = locatePhone,
     super.key,
   });
-
-  /// EDLCare's outage map.
-  static final outageMap = Uri.parse(
-    'https://edlcare.edl.lk/incognito/outage-map',
-  );
 
   final OpenLink open;
   final Locate locate;
@@ -117,7 +115,7 @@ class PowerTab extends StatelessWidget {
                           label: const Text('Add a place'),
                         ),
                       TextButton.icon(
-                        onPressed: () => unawaited(open(outageMap)),
+                        onPressed: () => unawaited(open(EdlCare.outageMap)),
                         icon: const Icon(Icons.map_outlined, size: 18),
                         label: const Text("EDLCare's outage map"),
                       ),
@@ -247,6 +245,16 @@ class _PlaceListState extends State<_PlaceList>
                   checking: state.check == PowerCheck.checking,
                   shape: shape,
                   onTap: open,
+                  onLongPress: switch (state.cutsAt(place)) {
+                    final cuts? when cuts.isNotEmpty => () => shareText(
+                      context,
+                      cutShare(
+                        PlaceCuts(place: place, outages: cuts),
+                        checked: state.power?.checked,
+                      ),
+                    ),
+                    _ => null,
+                  },
                 ),
                 openBuilder: (context, _) => widget.editor(place, isNew: false),
               ),

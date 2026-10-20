@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
+import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/format/outages.dart';
+import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
@@ -108,6 +110,16 @@ class _Numbers extends StatelessWidget {
             ? null
             : 'since ${cardDate(price.since, today: today)}',
         onTap: () => open(HomeTab.prices),
+        onLongPress: price == null
+            ? null
+            : () => shareText(
+                context,
+                fuelShare(
+                  price,
+                  asOf: now.fuelAsOf ?? today,
+                  fromGazette: now.fuelFromGazette,
+                ),
+              ),
       );
     }
 
@@ -140,6 +152,12 @@ class _Numbers extends StatelessWidget {
                         ),
                   note: move == null ? null : 'in a week',
                   onTap: () => open(HomeTab.prices),
+                  onLongPress: rate == null
+                      ? null
+                      : () => shareText(
+                          context,
+                          rateShare(now.rates, backup: now.ratesFromBackup),
+                        ),
                 ),
               ),
               const SizedBox(width: 8),
@@ -193,6 +211,8 @@ class _PowerCut extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: onTap,
+          onLongPress: () =>
+              shareText(context, cutShare(cuts, checked: this.checked)),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 12, 16),
             child: Row(

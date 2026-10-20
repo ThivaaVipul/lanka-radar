@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/location.dart';
+import 'package:lanka_radar/core/sharing.dart';
 import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
 import 'package:lanka_radar/features/power/view/map_picker_page.dart';
 import 'package:lanka_radar/features/power/view/power_tab.dart';
@@ -13,17 +14,20 @@ import 'package:lanka_radar/features/power/widgets/osm.dart';
 import 'package:lanka_radar/features/power/widgets/place_row.dart';
 
 import '../../helpers/fake_branch.dart';
+import '../../helpers/fake_sharing.dart';
 import '../../helpers/fake_sources.dart';
 
 void main() {
   late AppDatabase database;
   late FakeSources sources;
   late NowRepository phone;
+  late FakeSharing sharing;
 
   setUp(() {
     database = memoryDatabase();
     sources = FakeSources();
     phone = sources.repository(database);
+    sharing = FakeSharing();
   });
 
   tearDown(() => database.close());
@@ -46,8 +50,11 @@ void main() {
     addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
     final cubit = PowerCubit(phone);
     await tester.pumpWidget(
-      RepositoryProvider.value(
-        value: phone,
+      MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider.value(value: phone),
+          RepositoryProvider<Sharing>.value(value: sharing),
+        ],
         child: NoMapTiles(
           child: MaterialApp(
             theme: AppTheme.light,
@@ -152,6 +159,18 @@ void main() {
       expect(find.text('Change'), findsOneWidget);
     },
   );
+
+  testWidgets('a long press on a place with a cut shares the cut', (
+    tester,
+  ) async {
+    await tester.runAsync(() => storePowerSetup(phone));
+    await open(tester);
+
+    await tester.longPress(row('Home'));
+
+    expect(sharing.shared.single, startsWith('Power cut in Gampaha'));
+    expect(sharing.shared.single, isNot(contains('Home')));
+  });
 
   testWidgets('closing with changes asks first, and discards them', (
     tester,
