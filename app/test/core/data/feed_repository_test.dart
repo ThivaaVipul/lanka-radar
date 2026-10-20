@@ -48,6 +48,22 @@ void main() {
     expect(await feed.lastRefresh(), now);
   });
 
+  test(
+    "a dataset the workflow hasn't written yet doesn't stop a refresh",
+    () async {
+      const path = 'datasets/holidays.json';
+      final holidays = remote.files.remove(path)!;
+      await feed.refresh();
+
+      expect(remote.requests.last, 'status.json');
+      expect(await database.file(path), isNull);
+
+      remote.files[path] = holidays;
+      await feed.refresh();
+      expect((await database.file(path))?.body, holidays);
+    },
+  );
+
   test('a second refresh downloads nothing that is unchanged', () async {
     await feed.refresh();
     remote.requests.clear();

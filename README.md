@@ -1,6 +1,6 @@
 # Lanka Radar
 
-Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, the USD/LKR rate, holidays and exam notices.
+Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, price controls, fuel and LP gas prices, market prices, the USD/LKR rate, holidays and exam notices.
 
 A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
 
@@ -72,7 +72,7 @@ Feed items are news: a gazette (fuel price revisions included), a USD/LKR move o
 
 Each gazette item's PDFs are read once: the title on page 1 becomes the headline when the list only names the issuer, and in price gazettes (CAA orders, fuel revisions) the price table becomes key numbers. Tamil titles come from an old Bamini-encoded font, converted to Unicode with Open-Tamil, or from Arial Unicode MS, whose text in these PDFs is scrambled, so it is read from the glyph IDs instead.
 
-CEYPETCO's fuel prices and CBSL's rate search only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync: the fuel prices fill its Now card (fuel price changes reach the feed as fuel revision gazettes), and the same-day USD/LKR rate makes the same rate items, with the same IDs, as the workflow's backup copy, so a copy from either side is recognized. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
+CEYPETCO's fuel prices, CBSL's rate search and CBSL's Daily Price Report only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync: the fuel prices fill its Now card (fuel price changes reach the feed as fuel revision gazettes), the same-day USD/LKR rate makes the same rate items, with the same IDs, as the workflow's backup copy, so a copy from either side is recognized, and each weekday's price report (a PDF, read with PDFium) adds the retail prices of everyday food at Pettah, Dambulla, Narahenpita and Negombo to the Prices tab. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
 
 ## Git workflow
 
@@ -127,7 +127,7 @@ Without that file, release builds are signed with the debug key.
 
 ## Sources
 
-Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates and market prices from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
 
 ## License
 

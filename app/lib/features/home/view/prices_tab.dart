@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/links.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
@@ -14,8 +16,8 @@ import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/prices/cubit/price_chart_cubit.dart';
 import 'package:lanka_radar/features/prices/view/price_chart_page.dart';
 
-/// Prices: CEYPETCO's fuel prices, USD/LKR, Litro's LP gas list and the latest
-/// price orders.
+/// Prices: CEYPETCO's fuel prices, USD/LKR, the Central Bank's market prices,
+/// Litro's LP gas list and the latest price orders.
 class PricesTab extends StatelessWidget {
   const PricesTab({this.open = openExternally, super.key});
 
@@ -85,6 +87,12 @@ class PricesTab extends StatelessWidget {
                     ),
                 ],
               ),
+              if (now.market.quotes.isNotEmpty)
+                _MarketSection(
+                  market: now.market,
+                  today: today,
+                  onChart: (name) => chart(MarketChart(name)),
+                ),
               if (goods.isNotEmpty)
                 Section(
                   title: 'Controlled prices',
@@ -152,6 +160,73 @@ class PricesTab extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// The Central Bank's daily retail prices, a section of the report at a time.
+class _MarketSection extends StatefulWidget {
+  const _MarketSection({
+    required this.market,
+    required this.today,
+    required this.onChart,
+  });
+
+  final MarketPrices market;
+  final DateTime today;
+  final ValueChanged<String> onChart;
+
+  @override
+  State<_MarketSection> createState() => _MarketSectionState();
+}
+
+class _MarketSectionState extends State<_MarketSection> {
+  String _section = marketSections.first;
+
+  @override
+  Widget build(BuildContext context) {
+    final quotes = widget.market.quotes;
+    final sections = [
+      for (final section in marketSections)
+        if (quotes.any((quote) => quote.good.section == section)) section,
+    ];
+    final shown = sections.contains(_section) ? _section : sections.first;
+    return Section(
+      title: 'Market',
+      note:
+          '${marketOrder.first}, '
+          '${cardDate(widget.market.latest!, today: widget.today)}',
+      children: [
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+          child: Row(
+            children: [
+              for (final section in sections) ...[
+                if (section != sections.first) const SizedBox(width: 8),
+                ChoiceChip(
+                  label: Text(section),
+                  selected: section == shown,
+                  showCheckmark: false,
+                  onSelected: (_) => setState(() => _section = section),
+                ),
+              ],
+            ],
+          ),
+        ),
+        for (final quote in quotes)
+          if (quote.good.section == shown)
+            _PriceRow(
+              name: quote.good.name,
+              value: quote.price,
+              before: quote.before,
+              note: [
+                quote.good.perUnit,
+                if (quote.market != marketOrder.first) quote.market,
+              ].join(dot),
+              onTap: () => widget.onChart(quote.good.name),
+            ),
+      ],
     );
   }
 }

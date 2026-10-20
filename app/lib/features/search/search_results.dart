@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/labels.dart';
@@ -53,6 +54,19 @@ final class OrderPriceHit extends PriceHit {
   List<Object?> get props => [order, number];
 }
 
+/// A good's latest price in the Central Bank's daily price report.
+final class MarketHit extends PriceHit {
+  const MarketHit(this.quote, this.day);
+
+  final MarketQuote quote;
+
+  /// The report's day.
+  final DateTime day;
+
+  @override
+  List<Object?> get props => [quote, day];
+}
+
 /// Everything a search found, by group.
 final class SearchResults extends Equatable {
   const SearchResults({
@@ -94,11 +108,12 @@ SearchResults searchEverything({
 }) {
   bool matches(String text) {
     final lower = text.toLowerCase();
-    return words.every(lower.contains);
+    return words.every((word) => _startsWord(lower, word));
   }
 
   final rate = now?.rates.firstOrNull;
   final gas = now?.gas;
+  final market = now?.market;
   return SearchResults(
     prices: [
       for (final fuel in now?.fuel ?? const <FuelNow>[])
@@ -106,6 +121,9 @@ SearchResults searchEverything({
       if (rate != null && matches('usd/lkr usd lkr dollar rupee exchange rate'))
         RateHit(rate),
       if (gas != null && matches('lp gas lpg litro gas cylinder')) GasHit(gas),
+      if (market?.latest case final day?)
+        for (final quote in market!.quotes)
+          if (matches(quote.good.searchText)) MarketHit(quote, day),
       for (final order in notices)
         if (order.topic == 'prices')
           for (final number in order.keyNumbers)
@@ -124,3 +142,9 @@ SearchResults searchEverything({
     ],
   );
 }
+
+/// Whether [word] starts a word of [text]: "rice" finds rice, not price.
+bool _startsWord(String text, String word) => RegExp(
+  r'(^|[^\p{L}\p{M}\p{N}])' + RegExp.escape(word),
+  unicode: true,
+).hasMatch(text);

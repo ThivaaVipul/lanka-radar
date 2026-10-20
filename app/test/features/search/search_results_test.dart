@@ -1,9 +1,12 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/features/item/widgets/highlight.dart';
 import 'package:lanka_radar/features/search/search_results.dart';
+
+import '../../helpers/fake_sources.dart';
 
 final day = DateTime(2026, 10, 19);
 
@@ -21,6 +24,7 @@ final now = NowData(
     headlineEn: 'Litro gas prices',
     published: day,
   ),
+  market: MarketPrices.fromJson(marketDataset),
 );
 
 final holidays = [
@@ -74,6 +78,27 @@ void main() {
       search('diesel', notices: [order]).prices.whereType<OrderPriceHit>(),
       isEmpty,
     );
+  });
+
+  test('finds market goods by name, section and other names', () {
+    List<String> goods(String query) => [
+      for (final hit in search(query).prices.whereType<MarketHit>())
+        hit.quote.good.name,
+    ];
+
+    final beans = search('beans').prices.single as MarketHit;
+    expect(beans.quote.market, 'Narahenpita');
+    expect(beans.day, day);
+    expect(goods('onion'), ['Red Onion (Imp)']);
+    expect(goods('fish'), ['Thalapath']);
+    expect(goods('market'), hasLength(5));
+  });
+
+  test('a word matches from its start: rice is not in price', () {
+    expect(search('rice', notices: [order]).prices, [
+      isA<MarketHit>().having((hit) => hit.quote.good.name, 'good', 'Samba'),
+    ]);
+    expect(search('dies').prices, hasLength(2));
   });
 
   test('finds holidays by name in English or Tamil', () {

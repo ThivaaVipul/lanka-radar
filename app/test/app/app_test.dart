@@ -165,6 +165,25 @@ void main() {
     expect(find.text('Holidays'), findsOneWidget);
   });
 
+  testWidgets('Prices lists market prices a section at a time', (tester) async {
+    await tester.runAsync(() => storeMarketPrices(database));
+    await open(tester);
+    await showTab(tester, HomeTab.prices);
+
+    await tester.scrollUntilVisible(
+      find.text('Beans'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Market'), findsOneWidget);
+    expect(find.text('Samba'), findsNothing);
+
+    await tester.tap(find.widgetWithText(ChoiceChip, 'Rice'));
+    await tester.pumpAndSettle();
+    expect(find.text('Samba'), findsOneWidget);
+    expect(find.text('Beans'), findsNothing);
+  });
+
   testWidgets('a card opens its item', (tester) async {
     remote.putMonth('2026-10', [
       item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
