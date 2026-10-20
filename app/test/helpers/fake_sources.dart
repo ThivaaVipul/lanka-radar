@@ -8,6 +8,7 @@ import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/market_report.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:pdfrx/pdfrx.dart';
 
 /// A saved response from test/fixtures, byte for byte.
@@ -38,11 +39,13 @@ Future<List<ReportChar>> readReport(Uint8List pdf) async {
 
 /// CEYPETCO and CBSL in memory, answering with the responses saved in M1
 /// unless told to fail. CBSL's price report listing is empty unless given,
-/// and of the reports only the ones in [reports] are there.
+/// and of the reports only the ones in [reports] are there. EDLCare answers
+/// with the Western Province North areas and Gampaha's outages (20 Oct 2026).
 class FakeSources {
   String ceypetco = fixture('ceypetco_fuel_prices.json');
   String cbsl = fixture('cbsl_usd_rates.html');
   String marketListing = '<html></html>';
+  String powerOutages = fixture('edlcare_outages_49.json');
   final reports = <String, List<int>>{};
   bool offline = false;
   final requests = <String>[];
@@ -66,6 +69,13 @@ class FakeSources {
           : http.Response.bytes(pdf, 200);
     }
     final body = switch (request.url.host) {
+      'edlcare.edl.lk' when path.endsWith('/provinces') => fixture(
+        'edlcare_provinces.json',
+      ),
+      'edlcare.edl.lk' when path.endsWith('/areas') => fixture(
+        'edlcare_areas_wpn.json',
+      ),
+      'edlcare.edl.lk' when path.endsWith('/outage-locations') => powerOutages,
       'api.ceypetco.gov.lk' => ceypetco,
       'www.cbsl.gov.lk' when path.endsWith('/price-report') => marketListing,
       'www.cbsl.gov.lk' => cbsl,
@@ -82,6 +92,7 @@ class FakeSources {
         ceypetco: Ceypetco(client: client),
         cbsl: Cbsl(client: client),
         market: CbslMarket(client: client, read: readReport),
+        edl: EdlCare(client: client),
         now: now,
         tamilNames: () async => const {'Deepavali': 'TA Deepavali'},
       );
@@ -118,3 +129,24 @@ Future<void> storeMarketPrices(AppDatabase database) => database.saveFile(
     fetchedAt: DateTime(2026, 10, 19, 12),
   ),
 );
+
+/// A point in Gampaha 51 m from the line a breakdown traces, 794 m from the
+/// area of three maintenance jobs on the same lines and 943 m from another
+/// breakdown, in edlcare_outages_49.json: only the first covers it.
+const gampahaHome = (lat: 7.0905, lon: 79.9940);
+
+const westernNorth = CebRegion(id: 'WPN', name: 'Western Province North');
+const gampaha = CebRegion(id: '49', name: 'Gampaha');
+
+/// Home, in Gampaha at [gampahaHome].
+const home = Place(
+  id: 'home',
+  name: 'Home',
+  province: westernNorth,
+  area: gampaha,
+  point: gampahaHome,
+);
+
+/// Stores [home] as the one place watched.
+Future<void> storePowerSetup(NowRepository phone) =>
+    phone.savePowerSetup(const PowerSetup(places: [home]));

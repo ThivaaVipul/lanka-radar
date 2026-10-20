@@ -9,8 +9,11 @@ import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
+import 'package:lanka_radar/features/power/widgets/osm.dart';
+import 'package:lanka_radar/features/power/widgets/place_row.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 
 import '../helpers/fake_branch.dart';
@@ -31,15 +34,23 @@ void main() {
   tearDown(() => database.close());
 
   Future<void> open(WidgetTester tester, {NotificationRouter? router}) async {
+    // As with Android's "Remove animations": Power's rings stay still, so the
+    // screens settle.
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
     final feed = FeedRepository(database: database, remote: remote.branch);
     final now = FakeSources().repository(database);
     await tester.pumpWidget(
-      LankaRadarApp(
-        feed: feed,
-        now: now,
-        alerts: fakeAlerts(database),
-        tabs: router?.tabs ?? tabs,
-        navigatorKey: router?.navigatorKey,
+      // Map tiles come from the network, which tests don't reach.
+      NoMapTiles(
+        child: LankaRadarApp(
+          feed: feed,
+          now: now,
+          alerts: fakeAlerts(database),
+          tabs: router?.tabs ?? tabs,
+          navigatorKey: router?.navigatorKey,
+        ),
       ),
     );
     await settle(tester);
@@ -202,6 +213,35 @@ void main() {
     await tester.tap(find.text('O/L 2026'));
     await tester.pumpAndSettle();
     expect(find.byType(ItemPage), findsOneWidget);
+  });
+
+  testWidgets('Today puts the power cuts at a place first, and opens Power', (
+    tester,
+  ) async {
+    remote.putMonth('2026-10', [item('gazette-2510-20', '2026-10-12')]);
+    await tester.runAsync(
+      () => storePowerSetup(FakeSources().repository(database)),
+    );
+    await open(tester);
+
+    expect(find.text('Power cut at Home'), findsOneWidget);
+    expect(find.text('Breakdown${dot}since 09:24'), findsOneWidget);
+
+    await tester.tap(find.text('Power cut at Home'));
+    await settle(tester);
+    expect(tabs.value, HomeTab.power);
+    expect(find.byType(PlaceRow), findsOneWidget);
+  });
+
+  testWidgets('Power starts with adding a place', (tester) async {
+    remote.putMonth('2026-10', [item('gazette-2510-20', '2026-10-12')]);
+    await open(tester);
+
+    await tester.tap(find.widgetWithText(NavigationDestination, 'Power'));
+    await settle(tester);
+
+    expect(find.text('Watch for power cuts'), findsOneWidget);
+    expect(find.text('Add a place'), findsOneWidget);
   });
 
   testWidgets('the bottom bar switches tabs', (tester) async {

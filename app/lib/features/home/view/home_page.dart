@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
+import 'package:lanka_radar/core/location.dart';
 import 'package:lanka_radar/features/about/view/about_page.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
@@ -10,30 +11,40 @@ import 'package:lanka_radar/features/home/view/dates_tab.dart';
 import 'package:lanka_radar/features/home/view/notices_tab.dart';
 import 'package:lanka_radar/features/home/view/prices_tab.dart';
 import 'package:lanka_radar/features/home/view/today_tab.dart';
+import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
+import 'package:lanka_radar/features/power/view/power_tab.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
 import 'package:lanka_radar/features/sources/view/sources_page.dart';
 
-/// The home screen: Today, Prices, Notices and Dates in a bottom bar, with
-/// search, the source warning and the menu on top.
+/// The home screen: Today, Prices, Notices, Dates and Power in a bottom bar,
+/// with search, the source warning and the menu on top.
 class HomePage extends StatelessWidget {
-  const HomePage({required this.tabs, super.key});
+  const HomePage({required this.tabs, this.locate = locatePhone, super.key});
 
   final TabSelection tabs;
+  final Locate locate;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          HomeCubit(context.read(), context.read(), context.read())..watch(),
-      child: _HomeView(tabs: tabs),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              HomeCubit(context.read(), context.read(), context.read())
+                ..watch(),
+        ),
+        BlocProvider(create: (context) => PowerCubit(context.read())),
+      ],
+      child: _HomeView(tabs: tabs, locate: locate),
     );
   }
 }
 
 class _HomeView extends StatefulWidget {
-  const _HomeView({required this.tabs});
+  const _HomeView({required this.tabs, required this.locate});
 
   final TabSelection tabs;
+  final Locate locate;
 
   @override
   State<_HomeView> createState() => _HomeViewState();
@@ -50,12 +61,22 @@ class _HomeViewState extends State<_HomeView> {
       onHide: () => unawaited(cubit.leave()),
       onShow: () => unawaited(cubit.resume()),
     );
+    widget.tabs.addListener(_tabShown);
+    _tabShown();
   }
 
   @override
   void dispose() {
+    widget.tabs.removeListener(_tabShown);
     _lifecycle.dispose();
     super.dispose();
+  }
+
+  /// Power looks for cuts each time it is shown.
+  void _tabShown() {
+    if (widget.tabs.value == HomeTab.power) {
+      unawaited(context.read<PowerCubit>().show());
+    }
   }
 
   @override
@@ -99,12 +120,25 @@ class _HomeViewState extends State<_HomeView> {
             ),
           ],
         ),
-        body: BlocListener<HomeCubit, HomeState>(
-          listenWhen: (before, now) =>
-              !before.failed && now.failed && (now.items?.isNotEmpty ?? false),
-          listener: (context, state) => ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(const SnackBar(content: Text("Couldn't refresh"))),
+        body: MultiBlocListener(
+          listeners: [
+            BlocListener<HomeCubit, HomeState>(
+              listenWhen: (before, now) =>
+                  !before.failed &&
+                  now.failed &&
+                  (now.items?.isNotEmpty ?? false),
+              listener: (context, state) => ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text("Couldn't refresh"))),
+            ),
+            // Today's power cut cards follow what Power has read.
+            BlocListener<PowerCubit, PowerState>(
+              listenWhen: (before, now) =>
+                  before.power != now.power || before.setup != now.setup,
+              listener: (context, state) =>
+                  unawaited(context.read<HomeCubit>().reloadNow()),
+            ),
+          ],
           child: IndexedStack(
             index: tab.index,
             children: [
@@ -112,6 +146,7 @@ class _HomeViewState extends State<_HomeView> {
               const PricesTab(),
               const NoticesTab(),
               const DatesTab(),
+              PowerTab(locate: widget.locate),
             ],
           ),
         ),

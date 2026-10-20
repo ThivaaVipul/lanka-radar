@@ -5,7 +5,8 @@ enum HomeTab {
   today('Today', Icons.home_outlined, Icons.home),
   prices('Prices', Icons.sell_outlined, Icons.sell),
   notices('Notices', Icons.article_outlined, Icons.article),
-  dates('Dates', Icons.event_outlined, Icons.event);
+  dates('Dates', Icons.event_outlined, Icons.event),
+  power('Power', Icons.power_outlined, Icons.power);
 
   const HomeTab(this.label, this.icon, this.selectedIcon);
 

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 
 import '../../helpers/fake_branch.dart';
 import '../../helpers/fake_sources.dart';
@@ -165,6 +166,81 @@ void main() {
         [for (final source in health.phone) source.name],
         ['Fuel prices', 'USD/LKR', 'Market prices'],
       );
+    });
+  });
+
+  group('power cuts', () {
+    test('without a place, EDLCare is not asked and nothing shows', () async {
+      await phone.refresh();
+
+      expect(sources.requests, isNot(contains('edlcare.edl.lk')));
+      expect(await phone.powerNow(), isNull);
+      final health = await phone.health();
+      expect([
+        for (final source in health.phone) source.name,
+      ], isNot(contains('Power cuts')));
+    });
+
+    test("a refresh reads the place's area and finds the cuts at it", () async {
+      await storePowerSetup(phone);
+
+      await phone.refresh();
+
+      final power = (await phone.powerNow())!;
+      expect(power.places.single.place.name, 'Home');
+      expect(power.places.single.outages, hasLength(1));
+      expect(power.cut, hasLength(1));
+      expect(power.checked, now);
+      expect((await phone.load(const [])).power, power);
+      final health = await phone.health();
+      expect(health.phone.last.name, 'Power cuts');
+    });
+
+    test('each area is read once, for however many places are in it', () async {
+      await phone.savePowerSetup(
+        PowerSetup(
+          places: [
+            home,
+            const Place(
+              id: 'work',
+              name: 'Work',
+              area: gampaha,
+              point: (lat: 7.1, lon: 80.0),
+            ),
+            const Place(
+              id: 'school',
+              name: 'School',
+              area: CebRegion(id: '37', name: 'Negombo'),
+              point: (lat: 7.2, lon: 79.84),
+            ),
+          ],
+        ),
+      );
+
+      await phone.refreshPower();
+
+      expect(
+        sources.requests.where((host) => host == 'edlcare.edl.lk'),
+        hasLength(2),
+      );
+    });
+
+    test("an area nobody's place is in any more is not kept", () async {
+      await storePowerSetup(phone);
+      await phone.refresh();
+      await phone.savePowerSetup(
+        PowerSetup(
+          places: [
+            home.copyWith(
+              area: () => const CebRegion(id: '37', name: 'Negombo'),
+            ),
+          ],
+        ),
+      );
+      sources.offline = true;
+      await phone.refreshPower();
+
+      expect((await phone.powerNow())!.places.single.outages, isEmpty);
     });
   });
 }
