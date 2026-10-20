@@ -481,7 +481,10 @@
         "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Grade%205%20TimeTable%202026_1781236991428.pdf"
       },
       "data": {
-        "kind": "school"
+        "kind": "school",
+        "days": [
+          "2026-08-09"
+        ]
       },
       "alert": true
     },

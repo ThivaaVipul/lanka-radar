@@ -17,7 +17,18 @@
     "pdf_ta": "https://www.doenets.lk/images/resources/EXCA/OL%20TAMIL%20TIME%20TABLE%202026_1791794445485.pdf"
   },
   "data": {
-    "kind": "timetable"
+    "kind": "timetable",
+    "days": [
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16",
+      "2026-12-17"
+    ]
   },
   "alert": true
 }

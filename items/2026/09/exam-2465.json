@@ -17,7 +17,10 @@
     "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/GIT%20Time%20Table%202026%20only_1789727847864.pdf"
   },
   "data": {
-    "kind": "school"
+    "kind": "school",
+    "days": [
+      "2026-10-24"
+    ]
   },
   "alert": true
 }
