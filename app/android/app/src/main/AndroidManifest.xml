@@ -8,6 +8,13 @@
     <!-- Sets the home for power cuts, once, when "Use my location" is tapped. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- Load shedding reminders go out 30 minutes before a slot, not up to an
+         hour late as inexact alarms may. Granted without asking: USE_EXACT_ALARM
+         from Android 13, SCHEDULE_EXACT_ALARM on Android 12. -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32"/>
 
     <application
         android:label="Lanka Radar"

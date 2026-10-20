@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
+import 'package:lanka_radar/core/alerts/power_alerts.dart';
 import 'package:lanka_radar/core/alerts/quiet_hours.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 
 /// The alert switches, quiet hours, and the bookkeeping alerts need, kept in the
@@ -20,6 +22,7 @@ class AlertsRepository {
   static const _asked = 'alerts.permissionAsked';
   static const _held = 'alerts.held';
   static const _heldFuel = 'alerts.heldFuel';
+  static const _powerSeen = 'alerts.powerSeen';
   static const _quietOn = 'quiet.on';
   static const _quietStart = 'quiet.start';
   static const _quietEnd = 'quiet.end';
@@ -92,6 +95,28 @@ class AlertsRepository {
         ? holidayReminders(upcoming, now: now)
         : const [],
   );
+
+  /// The power cuts and load shedding last seen ([powerKeys]); null before
+  /// the first look, so what is there then doesn't alert.
+  Future<Set<String>?> powerSeen() async {
+    final value = await _db.setting(_powerSeen);
+    return value == null
+        ? null
+        : {for (final key in jsonDecode(value) as List<Object?>) '$key'};
+  }
+
+  /// [power] is what is seen now: in the app on screen, or a sync.
+  Future<void> powerShown(PowerNow? power) =>
+      _db.saveSetting(_powerSeen, jsonEncode(powerKeys(power).toList()));
+
+  /// Schedules a reminder before each load shedding slot to come, or none
+  /// with the switch off.
+  Future<void> remindCuts(PowerNow? power, {required DateTime now}) async =>
+      notifier.scheduleCutReminders(
+        await _isOn(AlertSwitch.power)
+            ? cutReminders(power, now: now, quiet: await quietHours())
+            : const [],
+      );
 
   /// When the background sync last ran, if it ever has.
   Future<DateTime?> lastSync() async {

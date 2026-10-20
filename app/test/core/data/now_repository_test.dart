@@ -242,9 +242,10 @@ void main() {
 
       test("a place's group is found from its point, once a day", () async {
         await phone.refreshGroups();
-        // Group by group until the one whose areas the place is in.
-        expect(sources.groupQueries.last, 'V');
-        expect(sources.groupQueries, hasLength(22));
+        // Four groups at a time until the batch the place's group is in.
+        expect(await phone.groupsDue(), isFalse);
+        expect(sources.groupQueries, contains('V'));
+        expect(sources.groupQueries, hasLength(24));
 
         sources.groupQueries.clear();
         now = now.add(const Duration(hours: 5));
@@ -253,6 +254,7 @@ void main() {
 
         // A day on, the group it was in is looked at first.
         now = now.add(const Duration(days: 1));
+        expect(await phone.groupsDue(), isTrue);
         await phone.refreshGroups();
         expect(sources.groupQueries, ['V']);
       });

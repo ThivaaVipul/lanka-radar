@@ -12,7 +12,22 @@ String powerCutsTitle(int count, String place) => switch (count) {
 /// Home" or "Power cuts at Home and Work".
 String cutPlacesTitle(List<PlaceCuts> cut) => cut.length == 1
     ? powerCutsTitle(cut.single.outages.length, cut.single.place.name)
-    : 'Power cuts at ${_and([for (final cuts in cut) cuts.place.name])}';
+    : 'Power cuts at ${listAnd([for (final cuts in cut) cuts.place.name])}';
+
+/// "A breakdown since 09:24", "Maintenance until 17:00" or "Load shedding until
+/// 20:30".
+String outageSentence(Outage outage) {
+  final time = outage.time;
+  final at = time == null ? null : clock(time.hour * 60 + time.minute);
+  return switch (outage.kind) {
+    OutageKind.breakdown =>
+      at == null ? 'A breakdown' : 'A breakdown since $at',
+    OutageKind.maintenance =>
+      at == null
+          ? outage.reason ?? 'Maintenance'
+          : '${outage.reason ?? 'Maintenance'} until $at',
+  };
+}
 
 /// When a cut began or should end: "since 09:24" or "until 17:00"; null
 /// without a time.
@@ -55,6 +70,6 @@ String cutTimes(PlannedCut cut, {required DateTime now}) =>
     '${cutDay(cut, now: now)} ${cutHours(cut)}';
 
 /// "Home and Work", "Home, Work and School".
-String _and(List<String> names) => names.length < 2
+String listAnd(List<String> names) => names.length < 2
     ? names.join()
     : '${names.sublist(0, names.length - 1).join(', ')} and ${names.last}';

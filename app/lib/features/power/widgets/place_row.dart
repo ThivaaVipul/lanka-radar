@@ -3,7 +3,6 @@ import 'package:lanka_radar/app/motion.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/outages.dart';
-import 'package:lanka_radar/features/power/hero_status.dart';
 import 'package:lanka_radar/features/power/widgets/power_line.dart';
 
 /// One place in the Power list: an edge in its state's color, its name, how it
@@ -17,6 +16,7 @@ class PlaceRow extends StatelessWidget {
     required this.checking,
     required this.onTap,
     this.ahead = const [],
+    this.finding = false,
     this.onLongPress,
     this.shape,
     super.key,
@@ -38,6 +38,9 @@ class PlaceRow extends StatelessWidget {
 
   /// The cuts to come, soonest first.
   final List<PlannedCut> ahead;
+
+  /// Its load shedding group is being looked for.
+  final bool finding;
 
   /// Shares the place's cuts; null without one.
   final VoidCallback? onLongPress;
@@ -152,6 +155,14 @@ class PlaceRow extends StatelessWidget {
                                 width: double.infinity,
                               ),
                       ),
+                      RevealSwitcher(
+                        child: finding
+                            ? const _Finding(key: ValueKey('finding'))
+                            : const SizedBox(
+                                key: ValueKey('found'),
+                                width: double.infinity,
+                              ),
+                      ),
                       if (ahead.isNotEmpty) const SizedBox(height: 4),
                       for (final cut in ahead.take(shownAhead))
                         _AheadLine(cut: cut),
@@ -254,6 +265,33 @@ class _AheadLine extends StatelessWidget {
             style: theme.textTheme.labelMedium?.copyWith(color: muted),
           ),
           const SizedBox(width: 8),
+        ],
+      ),
+    );
+  }
+}
+
+/// While a place's load shedding group is looked for.
+class _Finding extends StatelessWidget {
+  const _Finding({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final muted = theme.colorScheme.onSurfaceVariant;
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Row(
+        children: [
+          SizedBox.square(
+            dimension: 12,
+            child: CircularProgressIndicator(strokeWidth: 1.5, color: muted),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            'Finding its load shedding group',
+            style: theme.textTheme.bodyMedium?.copyWith(color: muted),
+          ),
         ],
       ),
     );

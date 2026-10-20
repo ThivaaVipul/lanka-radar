@@ -1,5 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
+import 'package:lanka_radar/core/alerts/power_alerts.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
@@ -21,6 +22,14 @@ abstract interface class Notifier {
   /// opens the holidays.
   Future<void> scheduleHolidays(List<HolidayReminder> reminders);
 
+  /// Power cuts at the places watched and load shedding first seen; a later
+  /// one about the same replaces it, and tapping one opens Power.
+  Future<void> showPowerAlerts(List<PowerAlert> alerts);
+
+  /// Replaces the scheduled load shedding reminders with [reminders]; tapping
+  /// one opens Power.
+  Future<void> scheduleCutReminders(List<CutReminder> reminders);
+
   /// Asks Android (13 and later) to let the app post notifications.
   Future<void> requestPermission();
 
@@ -28,9 +37,10 @@ abstract interface class Notifier {
   Future<bool> enabled();
 }
 
-/// The payloads of the fuel and holiday notifications.
+/// The payloads of the fuel, holiday and power cut notifications.
 const fuelPayload = 'fuel';
 const holidaysPayload = 'holidays';
+const powerPayload = 'power';
 
 /// The payload a tapped item notification carries.
 String itemPayload(String id) => 'item:$id';
@@ -94,6 +104,11 @@ class LocalNotifier implements Notifier {
     'holidays',
     'Holiday reminders',
     channelDescription: 'The evening before each public holiday',
+  );
+  static const _power = AndroidNotificationDetails(
+    'power',
+    'Power cuts',
+    channelDescription: 'Power cuts and load shedding at your places',
   );
 
   /// Holiday reminders keep Sri Lanka's time, whatever the phone is set to.
@@ -208,6 +223,57 @@ class LocalNotifier implements Notifier {
         // Inexact, so no exact-alarm permission: Android may wait a little.
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         payload: holidaysPayload,
+      );
+    }
+  }
+
+  @override
+  Future<void> showPowerAlerts(List<PowerAlert> alerts) async {
+    for (final alert in alerts) {
+      await _plugin.show(
+        id: notificationId(alert.key),
+        title: alert.title,
+        body: alert.body,
+        notificationDetails: NotificationDetails(
+          android: _withText(_power, alert.body),
+        ),
+        payload: powerPayload,
+      );
+    }
+  }
+
+  @override
+  Future<void> scheduleCutReminders(List<CutReminder> reminders) async {
+    // Only scheduled ones are pending, so posted alerts stay.
+    for (final pending in await _plugin.pendingNotificationRequests()) {
+      if (pending.payload == powerPayload) {
+        await _plugin.cancel(id: pending.id);
+      }
+    }
+    // Exact, so a reminder 30 minutes before isn't up to an hour late;
+    // inexact where Android doesn't allow exact alarms.
+    final exact = await _android?.canScheduleExactNotifications() ?? false;
+    for (final reminder in reminders) {
+      final at = reminder.at;
+      await _plugin.zonedSchedule(
+        id: notificationId(reminder.key),
+        title: reminder.title,
+        body: reminder.body,
+        scheduledDate: tz.TZDateTime(
+          _sriLanka,
+          at.year,
+          at.month,
+          at.day,
+          at.hour,
+          at.minute,
+        ),
+        notificationDetails: NotificationDetails(
+          android: _withText(_power, reminder.body),
+        ),
+        androidScheduleMode: exact
+            ? AndroidScheduleMode.exactAllowWhileIdle
+            : AndroidScheduleMode.inexactAllowWhileIdle,
+        payload: powerPayload,
       );
     }
   }

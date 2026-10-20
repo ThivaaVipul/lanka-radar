@@ -183,6 +183,66 @@ void main() {
       sources.ceypetco = jsonEncode(json);
     }
 
+    group('power cuts', () {
+      setUp(() async {
+        await storePowerSetup(sources.repository(database, now: () => now));
+      });
+
+      test('what the first look finds does not alert', () async {
+        await sync();
+
+        expect(notifier.powerAlerts, isEmpty);
+      });
+
+      test('load shedding first seen alerts once', () async {
+        sources.powerSchedule = '[]';
+        await sync();
+        sources.powerSchedule = fixture('edlcare_load_shedding.json');
+        now = now.add(const Duration(hours: 1));
+
+        await sync();
+        expect(notifier.powerAlerts.single.title, 'Load shedding at Home');
+        expect(
+          notifier.powerAlerts.single.body,
+          'Tue 20 Oct 19:30 to 20:30, Wed 21 Oct 16:30 to 17:30',
+        );
+
+        now = now.add(const Duration(hours: 1));
+        await sync();
+        expect(notifier.powerAlerts, hasLength(1));
+      });
+
+      test('nothing with the switch off, or in quiet hours', () async {
+        sources.powerSchedule = '[]';
+        await sync();
+        sources.powerSchedule = fixture('edlcare_load_shedding.json');
+        await fakeAlerts(database).setSwitch(AlertSwitch.power, on: false);
+        now = now.add(const Duration(hours: 1));
+        await sync();
+        expect(notifier.powerAlerts, isEmpty);
+
+        // Dropped, not held: a slot seen in quiet hours stays quiet after.
+        await fakeAlerts(database).setSwitch(AlertSwitch.power, on: true);
+        sources.powerSchedule = '[]';
+        await sync();
+        sources.powerSchedule = fixture('edlcare_load_shedding.json');
+        now = DateTime(2026, 10, 16, 23);
+        await sync();
+        now = DateTime(2026, 10, 17, 7);
+        await sync();
+        expect(notifier.powerAlerts, isEmpty);
+      });
+
+      test('reminders are set 30 minutes before each slot', () async {
+        await sync();
+
+        expect(
+          [for (final reminder in notifier.cutReminders) reminder.at],
+          [DateTime(2026, 10, 20, 19), DateTime(2026, 10, 21, 16)],
+        );
+      });
+    });
+
     test(
       'a sync shows the numbers it read on the home-screen widget',
       () async {

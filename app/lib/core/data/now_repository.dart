@@ -273,15 +273,7 @@ class NowRepository {
     for (final place in places) {
       final key = _pointKey(place.point!);
       final last = held[place.id];
-      if (last
-          case {
-            'point': final String at,
-            'group': final String? group,
-            'checked': final String checked,
-          }
-          when at == key &&
-              now.difference(DateTime.parse(checked)) <
-                  (group == null ? noGroupCheck : groupCheck)) {
+      if (!_groupDue(place, last, now)) {
         found[place.id] = last;
         continue;
       }
@@ -311,17 +303,54 @@ class NowRepository {
     );
   }
 
-  /// The group whose outlines [point] is in, trying [likely] groups first;
-  /// null when it is in none.
+  /// Whether any place's group is due to be looked up ([refreshGroups]).
+  Future<bool> groupsDue() async {
+    final held = await _stored(groupsPath, 'places');
+    final now = _now();
+    return (await powerSetup()).ready.any(
+      (place) => _groupDue(place, held[place.id], now),
+    );
+  }
+
+  /// Whether [place]'s group, [last] found, is due to be looked up again: it
+  /// moved, or the lookup is older than [groupCheck] ([noGroupCheck] for a
+  /// place in none).
+  static bool _groupDue(Place place, Object? last, DateTime now) =>
+      last is! Map<String, Object?> ||
+      last['point'] != _pointKey(place.point!) ||
+      last['checked'] is! String ||
+      now.difference(DateTime.parse(last['checked']! as String)) >=
+          (last['group'] == null ? noGroupCheck : groupCheck);
+
+  /// The group whose outlines [point] is in, trying [likely] groups first,
+  /// one at a time, then the rest [groupsAtOnce] at a time; null when it is
+  /// in none.
   Future<String?> _groupAt(GeoPoint point, List<String> likely) async {
-    final order = {...likely, ...loadSheddingGroups};
-    for (final group in order) {
-      if (inGroup(parseGroupOutlines(await _edl.groupOutlines(group)), point)) {
+    Future<bool> isIn(String group) async =>
+        inGroup(parseGroupOutlines(await _edl.groupOutlines(group)), point);
+    final tried = <String>{};
+    for (final group in likely) {
+      if (tried.add(group) && await isIn(group)) {
         return group;
+      }
+    }
+    final rest = [
+      for (final group in loadSheddingGroups)
+        if (!tried.contains(group)) group,
+    ];
+    for (var from = 0; from < rest.length; from += groupsAtOnce) {
+      final batch = rest.skip(from).take(groupsAtOnce).toList();
+      final found = await Future.wait([for (final group in batch) isIn(group)]);
+      if (found.indexOf(true) case final at when at >= 0) {
+        return batch[at];
       }
     }
     return null;
   }
+
+  /// How many groups' outlines are read at once while looking for a place's
+  /// group: quicker, and well inside EDLCare's limit of 90 requests.
+  static const groupsAtOnce = 4;
 
   static String _pointKey(GeoPoint point) => '${point.lat},${point.lon}';
 

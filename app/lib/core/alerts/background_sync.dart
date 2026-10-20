@@ -1,6 +1,7 @@
 import 'package:lanka_radar/core/alerts/alert_switches.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/alerts/fuel_alerts.dart';
+import 'package:lanka_radar/core/alerts/power_alerts.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/home_screen_widget.dart';
@@ -11,7 +12,9 @@ import 'package:lanka_radar/core/home_screen_widget.dart';
 /// install's history or while the app is in front, and what is found in quiet
 /// hours goes out with the first run after them. Holiday reminders are
 /// scheduled again from the holidays just read, and the home-screen widget
-/// shows the numbers just read.
+/// shows the numbers just read. A power cut at a place, or load shedding
+/// first seen, alerts once; in quiet hours it is dropped, not held. Load
+/// shedding reminders are scheduled again from the slots just read.
 class BackgroundSync {
   BackgroundSync({
     required this._feed,
@@ -50,6 +53,17 @@ class BackgroundSync {
     } on Exception {
       // The widget catches up on the next run.
     }
+    final power = await _phone.powerNow();
+    try {
+      await _alerts.remindCuts(power, now: start);
+    } on Exception {
+      // Scheduled again on the next run.
+    }
+    final seen = await _alerts.powerSeen();
+    await _alerts.powerShown(power);
+    final powerNews = seen == null
+        ? const <PowerAlert>[]
+        : powerAlerts(power, seen, now: start);
     if (!hadFeed || await _alerts.appInFront(start)) {
       return;
     }
@@ -86,6 +100,9 @@ class BackgroundSync {
     final changes = fuel ?? heldFuel;
     if (changes != null) {
       await _alerts.notifier.showFuelChange(changes);
+    }
+    if (on.contains(AlertSwitch.power) && powerNews.isNotEmpty) {
+      await _alerts.notifier.showPowerAlerts(powerNews);
     }
     final all = [...held, ...fresh];
     if (all.isNotEmpty) {
