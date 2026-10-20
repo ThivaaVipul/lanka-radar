@@ -106,3 +106,89 @@ def test_notices_from_before_2026_make_no_item(
     web = make_web({"doenets.lk": lambda _: httpx.Response(200, json=old)})
 
     assert exams.run(web, store, date(2026, 1, 5)) == 0
+
+
+OL_TIMETABLE = "doenets_ol_timetable_2026.pdf"
+GIT_TIMETABLE = "doenets_git_timetable_2026.pdf"
+
+
+def test_exam_days_reads_ordinals_with_their_raised_th(
+    fixture_bytes: Callable[[str], bytes],
+) -> None:
+    days = exams.exam_days(fixture_bytes(OL_TIMETABLE), 2026)
+
+    assert days == [date(2026, 12, day) for day in (8, 9, 10, 11, 12, 14, 15, 16, 17)]
+
+
+def test_exam_days_falls_back_to_the_tamil_date(fixture_bytes: Callable[[str], bytes]) -> None:
+    assert exams.exam_days(fixture_bytes(GIT_TIMETABLE), 2026) == [date(2026, 10, 24)]
+
+
+def word(text: str, x0: float, top: float) -> dict[str, object]:
+    return {"text": text, "x0": x0, "x1": x0 + 5 * len(text), "top": top}
+
+
+def test_english_days_pairs_a_day_with_the_month_beside_or_below_it() -> None:
+    beside = [word("Monday,", 300, 100), word("10th", 340, 100), word("August", 362, 100)]
+    below = [word("08", 72, 116), word("th", 81, 114), word("December", 72, 126)]
+    below += [word("2025", 120, 126), word("1", 50, 120)]
+
+    assert exams.english_days(beside, 2026) == {date(2026, 8, 10)}
+    assert exams.english_days(below, 2026) == {date(2025, 12, 8)}
+
+
+def test_tamil_days_reads_either_order() -> None:
+    lines = ["2026 ஒக்ரோபர் 24", "ஓகஸ்ட் 09 ஞாயிற்றுக்கிழமை", "10 டிசம்பர் திங்கட்கிழமை"]
+
+    assert exams.tamil_days(lines, 2027) == {
+        date(2026, 10, 24),
+        date(2027, 8, 9),
+        date(2027, 12, 10),
+    }
+
+
+def test_timetables_are_the_calendars_and_school_news_with_a_timetable_pdf() -> None:
+    git = Notice(1, "NEWS", date(2026, 9, 18), {}, {"en": "/NEWS/GIT Time Table 2026.pdf"})
+    al = Notice(2, "NEWS", date(2026, 8, 7), {}, {"en": "/NEWS/AL_Time_Table _2026.pdf"})
+    results = Notice(3, "NEWS", date(2026, 8, 7), {}, {"en": "/NEWS/Results 2026.pdf"})
+
+    assert exams.is_timetable(git, "school")
+    assert exams.is_timetable(al, "school")
+    assert not exams.is_timetable(results, "school")
+    assert not exams.is_timetable(git, "notice")
+    assert exams.is_timetable(results, "timetable")
+
+
+def test_run_reads_each_timetable_pdf_once_and_keeps_its_days(
+    fixture_bytes: Callable[[str], bytes], make_web: Callable[..., object], store: Store
+) -> None:
+    pdfs: list[str] = []
+
+    def cms(request: httpx.Request) -> httpx.Response:
+        name = NEWS if request.url.params["type"] == "NEWS" else CALENDAR
+        return httpx.Response(200, content=fixture_bytes(name))
+
+    def resources(request: httpx.Request) -> httpx.Response:
+        pdfs.append(request.url.path)
+        for key, name in (("OL timetable", OL_TIMETABLE), ("GIT Time Table", GIT_TIMETABLE)):
+            if key in request.url.path:
+                return httpx.Response(200, content=fixture_bytes(name))
+        return httpx.Response(404)
+
+    web = make_web({"cms/api/resources": cms, "images/resources": resources})
+
+    exams.run(web, store, date(2026, 10, 19))
+
+    def days(item_id: str) -> list[str] | None:
+        path = next(store.root.glob(f"items/*/*/{item_id}.json"))
+        return json.loads(path.read_text("utf-8"))["data"].get("days")
+
+    assert days("exam-2465") == ["2026-10-24"]
+    assert days("exam-2479") == [f"2026-12-{day:02}" for day in (8, 9, 10, 11, 12, 14, 15, 16, 17)]
+    # The A/L and Grade 5 PDFs answered 404 here: no days, and not asked for again.
+    assert days("exam-2421") is None
+    assert len(pdfs) == 4
+
+    pdfs.clear()
+    assert exams.run(web, store, date(2026, 10, 20)) == 0
+    assert pdfs == []
