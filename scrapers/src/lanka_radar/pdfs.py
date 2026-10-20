@@ -62,18 +62,19 @@ _ARIAL_TAMIL_RANGES = (
     (0x0BD7, 0x0BD7),
     (0x0BE7, 0x0BF2),
 )
-# From 8065 on are the shapes some letters take with u, uu, i, ii or pulli, named by
-# their Unicode characters. Only the ones seen in gazettes are listed; any other glyph
-# leaves its line untrusted.
+# From 8064 on are ksha, then the shapes some letters take with u, uu, i, ii or pulli,
+# named by their Unicode characters. Only the ones seen in gazettes are listed (each
+# checked against the printed page); any other glyph leaves its line untrusted.
 _ARIAL_LIGATURES = """
-    8065 KA U, 8066 KA UU, 8070 CA U, 8071 CA UU, 8074 TTA I, 8075 TTA II, 8076 TTA U,
-    8077 TTA UU, 8080 TA U, 8082 NA U, 8084 NNNA U, 8086 PA II, 8087 PA U, 8088 PA UU,
-    8089 MA U, 8090 MA UU, 8092 YA U, 8093 YA UU, 8094 RA U, 8095 RA UU, 8096 RRA U,
-    8098 LA I, 8099 LA II, 8100 LA U, 8102 LLA U, 8103 LLA UU, 8104 LLLA U, 8106 VA II,
-    8107 VA U, 8109 SA I, 8111 SA VIRAMA RA II
+    8064 KA VIRAMA SSA, 8065 KA U, 8066 KA UU, 8070 CA U, 8071 CA UU, 8074 TTA I,
+    8075 TTA II, 8076 TTA U, 8077 TTA UU, 8078 NNA U, 8080 TA U, 8081 TA UU, 8082 NA U,
+    8083 NA UU, 8084 NNNA U, 8086 PA II, 8087 PA U, 8088 PA UU, 8089 MA U, 8090 MA UU,
+    8091 YA II, 8092 YA U, 8093 YA UU, 8094 RA U, 8095 RA UU, 8096 RRA U, 8098 LA I,
+    8099 LA II, 8100 LA U, 8101 LA UU, 8102 LLA U, 8103 LLA UU, 8104 LLLA U, 8106 VA II,
+    8107 VA U, 8108 VA UU, 8109 SA I, 8110 SA II, 8111 SA VIRAMA RA II
 """
 # From 8112 on: these letters with pulli, in this order.
-_ARIAL_PULLI = "KA NGA CA JA NYA TTA NNA TA NA NNNA PA MA YA RA RRA LA LLA LLLA VA SSA SA"
+_ARIAL_PULLI = "KA NGA CA JA NYA TTA NNA TA NA NNNA PA MA YA RA RRA LA LLA LLLA VA SSA SA HA"
 
 _REFERENCE = re.compile(r"[A-Z]{1,6}[\w/.-]*\d[\w/.-]*\.?")
 _NUMBERED = re.compile(r"(?i)(order|direction|notice|notification)?\s*no\s*\.?\s*:?\s*\d+\.?")

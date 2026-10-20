@@ -88,7 +88,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _open());
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -100,8 +100,9 @@ class AppDatabase extends _$AppDatabase {
         await migrator.createTable(fuelPrices);
         await migrator.createTable(rates);
       }
-      if (from < 4) {
-        // Search learned the words on the cards.
+      if (from < 5) {
+        // Search learned the words on the cards (4), then to match words
+        // from their start (5).
         await reindexSearch();
       }
     },
@@ -151,8 +152,8 @@ class AppDatabase extends _$AppDatabase {
           ]))
           .watch();
 
-  /// Items whose search text holds every one of [words] (lower case), newest
-  /// first.
+  /// Items whose search text has a word starting with every one of [words]
+  /// (lower case), newest first; the text puts a space before each word.
   Future<List<ItemRow>> search(List<String> words) {
     final query = select(items)
       ..orderBy([
@@ -161,7 +162,8 @@ class AppDatabase extends _$AppDatabase {
       ]);
     for (final word in words) {
       query.where(
-        (row) => row.search.like('%${_escape(word)}%', escapeChar: _likeEscape),
+        (row) =>
+            row.search.like('% ${_escape(word)}%', escapeChar: _likeEscape),
       );
     }
     return query.get();

@@ -164,8 +164,7 @@ void main() {
     )..where((row) => row.id.equals('gazette-2510-20'))).getSingle();
     expect(
       row.search,
-      'filling of a vacancy\nta\nelection commission\ngazettes\n'
-      'gazette 2510/20',
+      ' filling of a vacancy ta election commission gazettes gazette 2510/20',
     );
   });
 
@@ -239,10 +238,25 @@ void main() {
       },
     );
 
-    test('wildcards in a query match only themselves', () async {
-      expect(await found('100%'), ['exam-2479']);
-      expect(await found('%'), ['exam-2479']);
-      expect(await found('_'), isEmpty);
+    test(
+      "a query's punctuation is not a word, and finds nothing alone",
+      () async {
+        expect(await found('100%'), ['exam-2479']);
+        expect(await found('(o/l)'), ['exam-2479']);
+        expect(await found('%'), isEmpty);
+        expect(await found('_'), isEmpty);
+      },
+    );
+
+    test('words match from their start, so rice is not price', () async {
+      remote.putMonth('2026-09', [
+        item('gazette-2509-40', '2026-09-20', headline: 'Maximum Retail Price'),
+      ]);
+      await feed.refresh();
+
+      expect(await found('rice'), isEmpty);
+      expect(await found('pri'), ['gazette-2509-40']);
+      expect(await found('table'), ['exam-2479']);
     });
 
     test('an empty query finds nothing', () async {

@@ -44,11 +44,10 @@ class FeedRepository {
   Stream<List<FeedItem>> watchItems() =>
       _db.watchItems().map((rows) => [for (final row in rows) _item(row)]);
 
-  /// Stored items whose headlines, issuer or number contain every word of
-  /// [query], in any case; newest first.
+  /// Stored items whose headlines, issuer or number have a word starting with
+  /// every word of [query], in any case; newest first.
   Future<List<FeedItem>> search(String query) async {
-    final words = query.toLowerCase().split(RegExp(r'\s+'))
-      ..removeWhere((word) => word.isEmpty);
+    final words = queryWords(query);
     if (words.isEmpty) {
       return const [];
     }
