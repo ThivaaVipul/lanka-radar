@@ -15,3 +15,8 @@ String amount(double value) {
   );
   return '${value < 0 ? '-' : ''}$grouped$decimals';
 }
+
+/// A wholesale price range as the bulletin prints it: "350-450", or one price
+/// when the day's low and high are the same.
+String rangeText(double low, double high) =>
+    low == high ? amount(low) : '${amount(low)}-${amount(high)}';

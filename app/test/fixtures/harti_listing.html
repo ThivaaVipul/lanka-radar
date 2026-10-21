@@ -1,0 +1,923 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to HARTI Website. Explore our organization, divisions, and publications.">
+  <meta name="keywords" content="harti, agrarian, divisions, publications, contact">
+  <meta name="author" content="Hector Kobbekaduwa Agrarian Research and Training Institute">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Interactive Website">
+  <meta property="og:description" content="Explore our organization, divisions, and publications.">
+  <meta property="og:image" content="assets/img/favicon.png">
+  <meta property="og:url" content="https://www.harti.gov.lk/">
+  <meta property="og:type" content="website">
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+  <title>Hector Kobbekaduwa Agrarian Research and Training Institute</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="disable-inspect.js"></script>
+ <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+
+<body class="font-math">
+  <header>
+    
+     <nav class="navbar navbar-expand-lg header-nav">
+      <div class="container-fluid px-0">
+
+        <a class="d-flex align-items-center" href="index.php">
+          <img src="assets/img/logo.png" alt="Logo" class="logo-height">
+        </a>
+
+        <button class="navbar-toggler no-border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end ml-10" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item">
+              <a class="nav-link " href="index.php" name="home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="about.php" name="about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="organization.php" name="organization">Organization</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="divisions.php" name="division">Divisions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="publications.php" name="publication">Publications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="events.php" name="events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="contact.php" name="contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  
+  <div style="position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 9999;">
+    <div class="d-flex flex-column gap-3 align-items-center p-3 social-icons-list social-icons-border shadow rounded-start">
+        <a href="https://www.facebook.com/hartilk" target="_blank" class="text-primary fs-4" title="Facebook">
+            <i class="fab fa-facebook vertical-align-middle"></i>
+        </a>
+        <a href="https://www.youtube.com/@HartiSriLanka" target="_blank" class="text-danger fs-4" title="Youtube">
+            <i class="fab fa-youtube vertical-align-middle"></i>
+        </a>
+        <a href="https://www.tiktok.com/@hartisrilanka" target="_blank" class="text-dark fs-4" title="Tiktok">
+            <i class="fab fa-tiktok header-icon tiktok-icon font-14 vertical-align-middle"></i>
+        </a>
+        <a href="https://www.instagram.com/harti_lk" target="_blank" class="text-danger fs-4" title="Intagram">
+            <i class="fab fa-instagram instagram-icon font-14 vertical-align-middle"></i>
+        </a>
+        <a href="https://x.com/harti_lk" target="_blank" class="text-dark fs-4" title="Twitter">
+            <i class="fab fa-x-twitter header-icon tiktok-icon font-14 vertical-align-middle"></i>
+        </a>
+         <a href="https://www.linkedin.com/company/hector-kobbekaduwa-agrarian-research-and-training-institute" target="_blank" class="text-secondary fs-4" title="Linkedin">
+            <i class="fa fa-linkedin-square header-icon linkedin-icon font-14 vertical-align-middle"></i>
+        </a>
+        <a href="https://lgn.gov.lk/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2flgn.gov.lk%2fowa%2f" target="_blank" class="text-secondary fs-4" title="E-Mail">
+            <i class="fa fa-envelope header-icon envelope-icon font-14 vertical-align-middle"></i>
+        </a>
+        <a href="latest.php" target="_blank" class="text-secondary fs-4" title="Download">
+            <i class="fa fa-download header-icon download-icon font-14 vertical-align-middle"></i>
+        </a>
+    </div>
+</div>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-bold text-agri text-center">Daily Food Commodities Bulletin</h1>
+            </div>
+        </div>
+
+        
+        <div class="card border-0 shadow mb-4">
+            <div class="accordion" id="dailyAccordion">
+                                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                        <button class="accordion-button accordion-nav "
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                            aria-expanded="true"
+                            aria-controls="collapse1">
+                            Daily Food Commodities Bulletin - 2026                        </button>
+                    </h2>
+                    <div id="collapse1"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="heading1" data-bs-parent="#dailyAccordion">
+                        <div class="accordion-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-header vertical-align-middle">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Medium</th>
+                                            <th>Download</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-20</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.20).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-19</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.19).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-18</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetables Wholesale Prices (2026.10.18).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-17</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetables Wholesale Prices (2026.10.17).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-16</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.16).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-15</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.15).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-14</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.14).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-13</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.13).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-12</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.12).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-10</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetables Wholesale Prices (2026.10.10).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-09</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.09).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-08</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.08).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-07</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.07).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-06</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.06).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-05</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.05).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-04</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetables Wholesale Prices (2026.10.04).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-03</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetables Wholesale Prices (2026.10.03).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-02</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.02).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-10-01</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.10.01).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-30</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.09.30).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-29</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/October/Vegetable Pricenew ex1(2026.09.29).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-28</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.28).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-27</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.27).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-25</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.25).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-24</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.24).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-23</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.23).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-22</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.22).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-21</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.21).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-20</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.20).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-19</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.19).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-18</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.18).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-17</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.17).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-16</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.16).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-15</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.15).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-14</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.14).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-13</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.13).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-12</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.12).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-11</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.11).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-10</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.10).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-09</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.09)1.pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-08</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.08).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-07</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.07).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-06</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.06).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-05</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetables Wholesale Prices (2026.09.05).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-04</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.04).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-03</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.03).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-02</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.02).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-09-01</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/September/Vegetable Pricenew ex1(2026.09.01).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-31</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.31).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-30</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.30).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-29</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.29).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-28</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.28).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-26</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.26).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-25</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.25).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-24</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.24).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-23</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.23).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-22</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.22).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-21</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.21).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-20</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.20).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-19</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.19).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-18</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.18).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-17</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetable Pricenew ex1(2026.08.17).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-16</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.16).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+                                                                                <tr class="font-13">
+                                            <td>2026-08-15</td>
+                                            <td>English</td>
+                                            <td>                                                
+                                               
+                                                <a href="assets/pdf/food_price/daily/eng/2026/August/Vegetables Wholesale Prices (2026.08.15).pdf"
+                                                    target="_blank">
+                                                    <img src="assets/img/common/pdf.jpg" class="height-30">
+                                                </a>
+                                               
+                                            </td>
+                                        </tr>
+           

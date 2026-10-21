@@ -74,8 +74,9 @@ void main() {
     expect(find.text('Read by this phone'), findsOneWidget);
     expect(find.text('Fuel prices'), findsOneWidget);
     expect(find.text('Market prices'), findsOneWidget);
-    expect(find.textContaining('Never answered'), findsNWidgets(3));
-    expect(find.textContaining('Last try failed'), findsNWidgets(3));
+    expect(find.text('Wholesale prices'), findsOneWidget);
+    expect(find.textContaining('Never answered'), findsNWidgets(4));
+    expect(find.textContaining('Last try failed'), findsNWidgets(4));
   });
 
   testWidgets('About shows the version and opens the source code', (

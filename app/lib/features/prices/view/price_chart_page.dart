@@ -36,6 +36,7 @@ class PriceChartPage extends StatelessWidget {
             final today = DateTime.now();
             final points = state.shown(subject, today);
             final good = state.good;
+            final wholesale = state.wholesale;
             final theme = Theme.of(context);
             final muted = theme.textTheme.labelMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
@@ -44,9 +45,15 @@ class PriceChartPage extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
               children: [
                 _Now(
-                  source: good == null
-                      ? subject.source
-                      : [?state.market, good.perUnit].join(dot),
+                  source: switch ((good, wholesale)) {
+                    (final good?, _) => [?state.market, good.perUnit].join(dot),
+                    (_, final wholesale?) => [
+                      ?state.market,
+                      'middle of the range',
+                      wholesale.perUnit,
+                    ].join(dot),
+                    _ => subject.source,
+                  },
                   points: points,
                   today: today,
                 ),
@@ -107,8 +114,30 @@ class PriceChartPage extends StatelessWidget {
                           ),
                       ],
                     ),
+                  if (wholesale != null && wholesale.markets.length > 1)
+                    Section(
+                      title: wholesale.group == 'Vegetables'
+                          ? 'Centres'
+                          : 'Markets',
+                      note: 'wholesale',
+                      children: [
+                        for (final market in wholesale.markets)
+                          _MarketRow(
+                            market: market,
+                            points: wholesale.middles[market]!,
+                            text: switch (wholesale.prices[market]!.last) {
+                              final range => rangeText(range.low, range.high),
+                            },
+                            chosen: market == state.market,
+                            today: today,
+                            onTap: () => context
+                                .read<PriceChartCubit>()
+                                .showMarket(market),
+                          ),
+                      ],
+                    ),
                   Section(title: 'In this range', children: _rangeRows(points)),
-                  if (good != null)
+                  if (good != null || wholesale != null)
                     Padding(
                       padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
                       child: Text(subject.source, style: muted),
@@ -286,12 +315,16 @@ class _MarketRow extends StatelessWidget {
     required this.chosen,
     required this.today,
     required this.onTap,
+    this.text,
   });
 
   final String market;
 
   /// The good's prices at [market], oldest first.
   final List<PricePoint> points;
+
+  /// Shown in place of the latest price, such as a wholesale range.
+  final String? text;
   final bool chosen;
   final DateTime today;
   final VoidCallback onTap;
@@ -338,7 +371,7 @@ class _MarketRow extends StatelessWidget {
               const SizedBox(width: 12),
             ],
             Text(
-              amount(latest.value),
+              text ?? amount(latest.value),
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
               ),

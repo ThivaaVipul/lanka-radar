@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -12,7 +13,10 @@ import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/harti_bulletin.dart';
+import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
@@ -567,6 +571,86 @@ void main() {
       ).gasDistrict(),
       'Jaffna',
     );
+  });
+
+  testWidgets('Wholesale shows the centre picked, the rest at Pettah', (
+    tester,
+  ) async {
+    WholesaleRow beans(double low, double high, {double? kandy}) =>
+        WholesaleRow(
+          name: 'Beans',
+          group: 'Vegetables',
+          unit: 'kg',
+          prices: {
+            'Dambulla': (low: low, high: high),
+            if (kandy != null) 'Kandy': (low: kandy, high: kandy + 50),
+          },
+        );
+    const samba = WholesaleRow(
+      name: 'Samba 1',
+      group: 'Rice',
+      unit: 'kg',
+      prices: {'Pettah': (low: 225, high: 230)},
+    );
+    await database.saveFile(
+      FileRow(
+        path: NowRepository.wholesalePath,
+        body: jsonEncode(
+          const WholesalePrices()
+              .withBulletin(DateTime(2026, 10, 19), [beans(360, 400), samba])
+              .withBulletin(DateTime(2026, 10, 20), [
+                beans(350, 450, kandy: 400),
+                samba,
+              ])
+              .toJson(),
+        ),
+        fetchedAt: DateTime(2026, 10, 20),
+      ),
+    );
+    await open(tester);
+    await showTab(tester, HomeTab.prices);
+    final page = find.byType(Scrollable).first;
+    await tester.scrollUntilVisible(
+      find.text('Wholesale'),
+      300,
+      scrollable: page,
+    );
+    await tester.scrollUntilVisible(find.text('Beans'), 200, scrollable: page);
+
+    expect(find.text('350-450'), findsOneWidget);
+    expect(find.text('was 360-400'), findsOneWidget);
+
+    // The Market section has its own chips: Wholesale's come after.
+    Finder chip(String label) => find.widgetWithText(ChoiceChip, label).last;
+    // Into the middle of the screen, clear of the bottom bar.
+    Future<void> centre(Finder finder) async {
+      unawaited(
+        Scrollable.ensureVisible(tester.element(finder), alignment: 0.5),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    await centre(chip('Rice'));
+    await tester.tap(chip('Rice'));
+    await tester.pumpAndSettle();
+    expect(find.text('Samba 1'), findsOneWidget);
+    expect(find.text('225-230'), findsOneWidget);
+
+    await centre(chip('Vegetables'));
+    await tester.tap(chip('Vegetables'));
+    await tester.pumpAndSettle();
+    await centre(find.textContaining('Dambulla, '));
+    await tester.tap(find.textContaining('Dambulla, '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Kandy').last);
+    await settle(tester);
+    expect(find.text('400-450'), findsOneWidget);
+
+    await centre(find.text('Beans'));
+    await tester.tap(find.text('Beans'));
+    await settle(tester);
+    expect(find.text('Centres'), findsOneWidget);
+    expect(find.text('350-450'), findsOneWidget);
   });
 
   testWidgets('says so when there is nothing yet', (tester) async {

@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
 /// The fuels in the order the Now card lists them.
@@ -84,6 +85,7 @@ final class NowData extends Equatable {
     this.laugfs,
     this.timetable,
     this.market = const MarketPrices(),
+    this.wholesale = const WholesalePrices(),
     this.power,
   });
 
@@ -115,6 +117,9 @@ final class NowData extends Equatable {
   /// The Central Bank's daily retail prices.
   final MarketPrices market;
 
+  /// HARTI's daily wholesale prices.
+  final WholesalePrices wholesale;
+
   /// Power cuts at the places watched; null until a place is set.
   final PowerNow? power;
 
@@ -135,6 +140,7 @@ final class NowData extends Equatable {
     laugfs,
     timetable,
     market,
+    wholesale,
     power,
   ];
 }
@@ -152,6 +158,7 @@ NowData buildNow({
   required Map<String, String> tamilNames,
   required List<FeedItem> items,
   MarketPrices market = const MarketPrices(),
+  WholesalePrices wholesale = const WholesalePrices(),
   PowerNow? power,
   String? laugfs,
 }) {
@@ -174,6 +181,7 @@ NowData buildNow({
       (item) => item.topic == 'exams' && item.data['kind'] == 'timetable',
     ),
     market: market,
+    wholesale: wholesale,
     power: power,
   );
 }

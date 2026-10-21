@@ -10,6 +10,7 @@ final class HomeState extends Equatable {
     this.nowCard,
     this.health,
     this.gasDistrict = defaultGasDistrict,
+    this.wholesaleCentre = defaultWholesaleCentre,
   });
 
   /// How far back a new item may have been published: history filling in is
@@ -38,6 +39,9 @@ final class HomeState extends Equatable {
 
   /// The district whose LP gas prices Prices shows.
   final String gasDistrict;
+
+  /// The economic centre whose wholesale vegetable prices Prices shows.
+  final String wholesaleCentre;
 
   List<FeedItem>? get visibleItems => topic == null
       ? items
@@ -91,6 +95,7 @@ final class HomeState extends Equatable {
     NowData? nowCard,
     Health? health,
     String? gasDistrict,
+    String? wholesaleCentre,
   }) => HomeState(
     items: items ?? this.items,
     refreshing: refreshing ?? this.refreshing,
@@ -100,6 +105,7 @@ final class HomeState extends Equatable {
     nowCard: nowCard ?? this.nowCard,
     health: health ?? this.health,
     gasDistrict: gasDistrict ?? this.gasDistrict,
+    wholesaleCentre: wholesaleCentre ?? this.wholesaleCentre,
   );
 
   @override
@@ -112,5 +118,6 @@ final class HomeState extends Equatable {
     nowCard,
     health,
     gasDistrict,
+    wholesaleCentre,
   ];
 }

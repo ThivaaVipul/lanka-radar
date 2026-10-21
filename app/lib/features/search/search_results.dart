@@ -1,8 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/harti_bulletin.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/search_text.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
@@ -68,6 +70,16 @@ final class MarketHit extends PriceHit {
   List<Object?> get props => [quote, day];
 }
 
+/// A good's latest wholesale range in HARTI's bulletin.
+final class WholesaleHit extends PriceHit {
+  const WholesaleHit(this.quote);
+
+  final WholesaleQuote quote;
+
+  @override
+  List<Object?> get props => [quote];
+}
+
 /// Everything a search found, by group.
 final class SearchResults extends Equatable {
   const SearchResults({
@@ -115,6 +127,7 @@ SearchResults searchEverything({
   required NowData? now,
   required List<HolidayNow> holidays,
   List<TextHit> inside = const [],
+  String wholesaleCentre = defaultWholesaleCentre,
 }) {
   bool matches(String text) {
     final lower = text.toLowerCase();
@@ -134,6 +147,10 @@ SearchResults searchEverything({
       if (market?.latest case final day?)
         for (final quote in market!.quotes)
           if (matches(quote.good.searchText)) MarketHit(quote, day),
+      if (now?.wholesale case final wholesale?)
+        for (final group in wholesaleGroups)
+          for (final quote in wholesale.quotes(group, centre: wholesaleCentre))
+            if (matches(quote.good.searchText)) WholesaleHit(quote),
       for (final order in notices)
         if (order.topic == 'prices')
           for (final number in order.keyNumbers)

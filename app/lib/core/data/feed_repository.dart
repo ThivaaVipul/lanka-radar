@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/rate_moves.dart';
 import 'package:lanka_radar/core/data/search_text.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 
 /// The feed: items stored on the phone, refreshed from the data branch.
 ///
@@ -40,6 +41,7 @@ class FeedRepository {
 
   static const _lastVisit = 'lastVisit';
   static const _gasDistrict = 'gas.district';
+  static const _wholesaleCentre = 'wholesale.centre';
   static const _recent = 'search.recent';
 
   /// How many recent searches are kept.
@@ -156,6 +158,13 @@ class FeedRepository {
 
   Future<void> setGasDistrict(String district) =>
       _db.saveSetting(_gasDistrict, district);
+
+  /// The economic centre whose wholesale vegetable prices are shown.
+  Future<String> wholesaleCentre() async =>
+      await _db.setting(_wholesaleCentre) ?? defaultWholesaleCentre;
+
+  Future<void> setWholesaleCentre(String centre) =>
+      _db.saveSetting(_wholesaleCentre, centre);
 
   /// When the feed was last left, if ever: items that arrived after it are new.
   Future<DateTime?> lastVisit() async {

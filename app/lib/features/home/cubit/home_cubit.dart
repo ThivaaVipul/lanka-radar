@@ -10,6 +10,7 @@ import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/home_screen_widget.dart';
 import 'package:lanka_radar/features/home/notice_rows.dart';
 
@@ -48,10 +49,17 @@ class HomeCubit extends Cubit<HomeState> {
     await _alerts.appShown(_now());
     final since = await _feed.lastVisit();
     final district = await _feed.gasDistrict();
+    final centre = await _feed.wholesaleCentre();
     if (isClosed) {
       return;
     }
-    emit(state.copyWith(newSince: () => since, gasDistrict: district));
+    emit(
+      state.copyWith(
+        newSince: () => since,
+        gasDistrict: district,
+        wholesaleCentre: centre,
+      ),
+    );
     _items = _feed.watchItems().listen((items) {
       emit(state.copyWith(items: items));
       unawaited(_loadNowCard());
@@ -63,6 +71,14 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> refresh() => _refresh(_feed.refresh, _phone.refresh);
 
   void showTopic(String? topic) => emit(state.copyWith(topic: () => topic));
+
+  /// Shows wholesale vegetable prices at [centre].
+  Future<void> setWholesaleCentre(String centre) async {
+    await _feed.setWholesaleCentre(centre);
+    if (!isClosed) {
+      emit(state.copyWith(wholesaleCentre: centre));
+    }
+  }
 
   /// Shows LP gas prices for [district], here and in the gas alert.
   Future<void> setGasDistrict(String district) async {
