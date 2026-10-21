@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:lanka_radar/core/data/harti_bulletin.dart';
 import 'package:lanka_radar/core/data/market_report.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
@@ -155,6 +156,80 @@ class CbslMarket {
   static Future<List<ReportChar>> _readWithFlutter(Uint8List pdf) async {
     await pdfrxFlutterInitialize();
     return reportChars(pdf);
+  }
+}
+
+/// HARTI's Daily Food Commodities Bulletin (see harti_bulletin.dart).
+class HartiWholesale {
+  HartiWholesale({
+    http.Client? client,
+    Future<List<List<ReportChar>>> Function(Uint8List pdf)? read,
+  }) : _client = client ?? http.Client(),
+       _read = read ?? _readWithFlutter;
+
+  final http.Client _client;
+  final Future<List<List<ReportChar>>> Function(Uint8List pdf) _read;
+
+  /// The bulletins listed, newest first, from the start of the listing only.
+  Future<List<(DateTime, String)>> listed() async {
+    final request = http.Request('GET', HartiBulletin.listing)
+      ..headers['User-Agent'] = userAgent;
+    final response = await _client.send(request).timeout(_timeout);
+    if (response.statusCode != 200) {
+      throw SourceException('HARTI', response.statusCode);
+    }
+    final bytes = <int>[];
+    await for (final chunk in response.stream.timeout(_timeout)) {
+      bytes.addAll(chunk);
+      if (bytes.length >= HartiBulletin.listingBytes) {
+        break;
+      }
+    }
+    return listedBulletins(utf8.decode(bytes, allowMalformed: true));
+  }
+
+  /// A bulletin's goods, from its file's path in the listing.
+  Future<List<WholesaleRow>> bulletin(String path) async {
+    final response = await _client
+        .get(HartiBulletin.file(path), headers: {'User-Agent': userAgent})
+        .timeout(_timeout);
+    if (response.statusCode != 200) {
+      throw SourceException('HARTI', response.statusCode);
+    }
+    return parseBulletin(await _read(response.bodyBytes));
+  }
+
+  static Future<List<List<ReportChar>>> _readWithFlutter(Uint8List pdf) async {
+    await pdfrxFlutterInitialize();
+    return bulletinPages(pdf);
+  }
+}
+
+/// The characters of a bulletin's first three pages (the English tables are
+/// there), read with PDFium (initialized by the caller).
+Future<List<List<ReportChar>>> bulletinPages(Uint8List pdf) async {
+  final PdfDocument document;
+  try {
+    document = await PdfDocument.openData(pdf, sourceName: 'bulletin');
+  } on PdfException catch (error) {
+    throw FormatException('The bulletin is not a readable PDF: $error');
+  }
+  try {
+    return [
+      for (final page in document.pages.take(3))
+        [
+          if (await page.loadText() case final text?)
+            for (final (index, rect) in text.charRects.indexed)
+              (
+                text: text.fullText[index],
+                left: rect.left,
+                right: rect.right,
+                bottom: page.height - rect.bottom,
+              ),
+        ],
+    ];
+  } finally {
+    await document.dispose();
   }
 }
 

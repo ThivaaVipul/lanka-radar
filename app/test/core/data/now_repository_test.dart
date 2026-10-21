@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 
 import '../../helpers/fake_branch.dart';
 import '../../helpers/fake_sources.dart';
@@ -164,8 +165,87 @@ void main() {
       final health = await phone.health();
       expect(
         [for (final source in health.phone) source.name],
-        ['Fuel prices', 'USD/LKR', 'Market prices'],
+        ['Fuel prices', 'USD/LKR', 'Market prices', 'Wholesale prices'],
       );
+    });
+  });
+
+  group('wholesale prices', () {
+    final tuesday = DateTime(2026, 10, 20);
+    const weekday = 'Vegetable Pricenew ex1(2026.10.20).pdf';
+
+    setUp(() {
+      sources
+        ..hartiListing = fixture('harti_listing.html')
+        ..bulletins[weekday] = fixtureBytes('harti_2026-10-20.pdf');
+      now = DateTime(2026, 10, 20, 15);
+    });
+
+    test('the first read takes only the newest bulletin', () async {
+      await phone.refresh();
+
+      expect(sources.bulletinRequests, [weekday]);
+      final prices = await phone.wholesalePrices();
+      expect(prices.days, [tuesday]);
+      final beans = prices.quotes('Vegetables', centre: 'Dambulla');
+      expect(beans.first.good.name, 'Beans');
+      expect(beans.first.now, RangePoint(tuesday, 350, 450));
+      expect(prices.quotes('Rice', centre: 'Dambulla'), hasLength(8));
+      final status = await phone.status(NowRepository.wholesaleSource);
+      expect(status.lastSuccess, now);
+      expect((await phone.load(const [])).wholesale, prices);
+    });
+
+    test(
+      "once the day's bulletin is in, the listing isn't looked at",
+      () async {
+        await phone.refresh();
+        sources.requests.clear();
+
+        now = now.add(const Duration(hours: 3));
+        await phone.refresh();
+        expect(sources.requests, isNot(contains('www.harti.gov.lk')));
+      },
+    );
+
+    test('a later read takes the days since the newest it has', () async {
+      await phone.refresh();
+      String link(String day) =>
+          '<a href="assets/pdf/food_price/daily/eng/2026/October/'
+          'Vegetable Pricenew ex1($day).pdf">';
+      sources
+        ..hartiListing = [
+          link('2026.10.22'),
+          link('2026.10.21'),
+          link('2026.10.20'),
+        ].join()
+        ..bulletins['Vegetable Pricenew ex1(2026.10.21).pdf'] = fixtureBytes(
+          'harti_2026-10-20.pdf',
+        )
+        ..bulletinRequests.clear();
+      now = DateTime(2026, 10, 22, 15);
+
+      await phone.refresh();
+
+      expect(sources.bulletinRequests, [
+        'Vegetable Pricenew ex1(2026.10.22).pdf',
+        'Vegetable Pricenew ex1(2026.10.21).pdf',
+      ]);
+      final prices = await phone.wholesalePrices();
+      expect(prices.days, [tuesday, DateTime(2026, 10, 21)]);
+      // The 22nd's isn't there: not asked for again.
+      expect(prices.skipped, [DateTime(2026, 10, 22)]);
+    });
+
+    test("a bulletin that couldn't be read is not asked for again", () async {
+      sources.bulletins.clear();
+      await phone.refresh();
+      expect((await phone.wholesalePrices()).skipped, [tuesday]);
+
+      sources.bulletinRequests.clear();
+      now = now.add(const Duration(hours: 3));
+      await phone.refresh();
+      expect(sources.bulletinRequests, isNot(contains(weekday)));
     });
   });
 

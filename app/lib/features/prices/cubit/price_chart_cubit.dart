@@ -5,6 +5,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 
 /// What a chart is about.
 sealed class ChartSubject extends Equatable {
@@ -84,6 +85,29 @@ final class MarketChart extends ChartSubject {
   List<Object?> get props => [name];
 }
 
+/// A good in HARTI's wholesale bulletin, at one market at a time.
+final class WholesaleChart extends ChartSubject {
+  const WholesaleChart(this.name, this.market);
+
+  final String name;
+
+  /// The market it opens at: the centre picked for vegetables, Pettah for
+  /// the rest.
+  final String market;
+
+  @override
+  String get title => name;
+
+  @override
+  bool get steps => false;
+
+  @override
+  String get source => 'HARTI daily food commodities bulletin';
+
+  @override
+  List<Object?> get props => [name, market];
+}
+
 /// How far back a rate chart looks.
 enum ChartRange {
   month('1M', 30),
@@ -103,6 +127,7 @@ final class PriceChartState extends Equatable {
     this.points,
     this.range = ChartRange.quarter,
     this.good,
+    this.wholesale,
     this.market,
   });
 
@@ -112,6 +137,9 @@ final class PriceChartState extends Equatable {
 
   /// A market good's prices at each market, and the market charted.
   final MarketGood? good;
+
+  /// A wholesale good's ranges at each market.
+  final WholesaleGood? wholesale;
   final String? market;
 
   /// The points the chart shows: a rate's within the range, a price's all.
@@ -125,7 +153,7 @@ final class PriceChartState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [points, range, good, market];
+  List<Object?> get props => [points, range, good, wholesale, market];
 }
 
 class PriceChartCubit extends Cubit<PriceChartState> {
@@ -137,6 +165,7 @@ class PriceChartCubit extends Cubit<PriceChartState> {
   final ChartSubject subject;
 
   Future<void> load() async {
+    WholesaleGood? wholesale;
     final (points, good, market) = switch (subject) {
       FuelChart(:final name) => (
         fuelHistory(name, await _phone.fuelRows(), await _items()),
@@ -154,6 +183,15 @@ class PriceChartCubit extends Cubit<PriceChartState> {
         null,
       ),
       MarketChart(:final name) => await _market(name),
+      WholesaleChart(:final name, :final market) => (
+        (wholesale = (await _phone.wholesalePrices()).good(
+              name,
+              market: market,
+            ))?.middles[market] ??
+            const <PricePoint>[],
+        null,
+        market,
+      ),
     };
     if (!isClosed) {
       emit(
@@ -161,6 +199,7 @@ class PriceChartCubit extends Cubit<PriceChartState> {
           points: points,
           range: state.range,
           good: good,
+          wholesale: wholesale,
           market: market,
         ),
       );
@@ -172,16 +211,21 @@ class PriceChartCubit extends Cubit<PriceChartState> {
       points: state.points,
       range: range,
       good: state.good,
+      wholesale: state.wholesale,
       market: state.market,
     ),
   );
 
-  /// Charts a market good's prices at [market].
+  /// Charts a market good's (or a wholesale good's) prices at [market].
   void showMarket(String market) => emit(
     PriceChartState(
-      points: state.good?.prices[market] ?? const [],
+      points:
+          state.good?.prices[market] ??
+          state.wholesale?.middles[market] ??
+          const [],
       range: state.range,
       good: state.good,
+      wholesale: state.wholesale,
       market: market,
     ),
   );

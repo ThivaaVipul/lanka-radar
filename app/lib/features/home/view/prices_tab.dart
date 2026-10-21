@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/gas_prices.dart';
+import 'package:lanka_radar/core/data/harti_bulletin.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
@@ -102,6 +104,14 @@ class PricesTab extends StatelessWidget {
                   market: now.market,
                   today: today,
                   onChart: (name) => chart(MarketChart(name)),
+                ),
+              if (now.wholesale.latest != null)
+                _WholesaleSection(
+                  wholesale: now.wholesale,
+                  centre: state.wholesaleCentre,
+                  today: today,
+                  onChart: (name, market) =>
+                      chart(WholesaleChart(name, market)),
                 ),
               if (goods.isNotEmpty)
                 Section(
@@ -199,7 +209,7 @@ class _GasSection extends StatelessWidget {
     return Section(
       title: 'LP gas',
       card: false,
-      action: _DistrictButton(district: district, onTap: () => _pick(context)),
+      action: _PickButton(label: district, onTap: () => _pick(context)),
       children: [
         IntrinsicHeight(
           child: Row(
@@ -262,11 +272,12 @@ class _GasSection extends StatelessWidget {
   }
 }
 
-/// The district LP gas prices are shown for; a tap picks another.
-class _DistrictButton extends StatelessWidget {
-  const _DistrictButton({required this.district, required this.onTap});
+/// What a section is shown for, such as a district or a centre; a tap picks
+/// another.
+class _PickButton extends StatelessWidget {
+  const _PickButton({required this.label, required this.onTap});
 
-  final String district;
+  final String label;
   final VoidCallback onTap;
 
   @override
@@ -284,7 +295,7 @@ class _DistrictButton extends StatelessWidget {
             Icon(Icons.place_outlined, size: 16, color: color),
             const SizedBox(width: 4),
             Text(
-              district,
+              label,
               style: theme.textTheme.labelLarge?.copyWith(color: color),
             ),
             Icon(Icons.expand_more, size: 18, color: color),
@@ -466,12 +477,129 @@ class _MarketSectionState extends State<_MarketSection> {
   }
 }
 
+/// HARTI's wholesale prices, a group at a time: vegetables at the centre
+/// picked (across from the title), rice and dried foods at Pettah.
+class _WholesaleSection extends StatefulWidget {
+  const _WholesaleSection({
+    required this.wholesale,
+    required this.centre,
+    required this.today,
+    required this.onChart,
+  });
+
+  final WholesalePrices wholesale;
+  final String centre;
+  final DateTime today;
+  final void Function(String name, String market) onChart;
+
+  @override
+  State<_WholesaleSection> createState() => _WholesaleSectionState();
+}
+
+class _WholesaleSectionState extends State<_WholesaleSection> {
+  /// Rows listed before "Show all": the vegetables are thirty or so.
+  static const atFirst = 8;
+
+  String _group = wholesaleGroups.first;
+  bool _all = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final groups = [
+      for (final group in wholesaleGroups)
+        if (widget.wholesale.goods.any((good) => good.group == group)) group,
+    ];
+    if (groups.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    final shown = groups.contains(_group) ? _group : groups.first;
+    final vegetables = shown == 'Vegetables';
+    final quotes = widget.wholesale.quotes(shown, centre: widget.centre);
+    final day = cardDate(widget.wholesale.latest!, today: widget.today);
+    return Section(
+      title: 'Wholesale',
+      // Where and when, as Market's "Narahenpita, 20 Oct"; the centre is
+      // picked there.
+      note: vegetables ? null : '$foodsMarket, $day',
+      action: vegetables
+          ? _PickButton(
+              label: '${widget.centre}, $day',
+              onTap: () => _pickCentre(context),
+            )
+          : null,
+      children: [
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.all(12),
+          child: Row(
+            children: [
+              for (final group in groups) ...[
+                if (group != groups.first) const SizedBox(width: 8),
+                ChoiceChip(
+                  label: Text(group == 'Other' ? 'Other foods' : group),
+                  selected: group == shown,
+                  showCheckmark: false,
+                  onSelected: (_) => setState(() => _group = group),
+                ),
+              ],
+            ],
+          ),
+        ),
+        if (quotes.isEmpty)
+          const ListTile(title: Text('No prices there that day')),
+        for (final quote in _all ? quotes : quotes.take(atFirst))
+          _PriceRow(
+            name: quote.good.name,
+            value: quote.now.middle,
+            text: rangeText(quote.now.low, quote.now.high),
+            before: quote.before?.middle,
+            beforeText: switch (quote.before) {
+              final before? => rangeText(before.low, before.high),
+              null => null,
+            },
+            note: quote.good.perUnit,
+            onTap: () => widget.onChart(quote.good.name, quote.market),
+          ),
+        if (quotes.length > atFirst)
+          TextButton(
+            onPressed: () => setState(() => _all = !_all),
+            child: Text(_all ? 'Show fewer' : 'Show all ${quotes.length}'),
+          ),
+      ],
+    );
+  }
+
+  Future<void> _pickCentre(BuildContext context) async {
+    final cubit = context.read<HomeCubit>();
+    final picked = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => ListView(
+        shrinkWrap: true,
+        children: [
+          for (final name in wholesaleCentres)
+            ListTile(
+              title: Text(name),
+              trailing: name == widget.centre ? const Icon(Icons.check) : null,
+              onTap: () => Navigator.of(context).pop(name),
+            ),
+        ],
+      ),
+    );
+    if (picked != null && picked != widget.centre) {
+      await cubit.setWholesaleCentre(picked);
+    }
+  }
+}
+
 /// A name and its price, with which way it moved since [before].
 class _PriceRow extends StatelessWidget {
   const _PriceRow({
     required this.name,
     required this.value,
+    this.text,
     this.before,
+    this.beforeText,
     this.note,
     this.quiet = false,
     this.share,
@@ -480,7 +608,14 @@ class _PriceRow extends StatelessWidget {
 
   final String name;
   final double value;
+
+  /// Shown in place of [value], such as a wholesale range; [value] is still
+  /// what the arrow goes by.
+  final String? text;
   final double? before;
+
+  /// Shown in place of [before] after "was".
+  final String? beforeText;
   final String? note;
 
   /// What a long press shares.
@@ -525,7 +660,7 @@ class _PriceRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  amount(value),
+                  text ?? amount(value),
                   style: quiet
                       ? theme.textTheme.bodyMedium
                       : theme.textTheme.titleMedium?.copyWith(
@@ -533,7 +668,10 @@ class _PriceRow extends StatelessWidget {
                         ),
                 ),
                 if (before != null && before != value)
-                  Trend(change: value - before, text: 'was ${amount(before)}'),
+                  Trend(
+                    change: value - before,
+                    text: 'was ${beforeText ?? amount(before)}',
+                  ),
               ],
             ),
             if (onTap != null) ...[

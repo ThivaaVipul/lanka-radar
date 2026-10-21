@@ -10,6 +10,7 @@ import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 
 /// How a source the phone reads itself last went.
@@ -42,8 +43,9 @@ final class SourceStatus extends Equatable {
 }
 
 /// The Now card's sources: CEYPETCO's fuel prices, CBSL's USD/LKR and its
-/// market prices, which the phone reads itself and keeps a history of, plus
-/// the holidays and the workflow's backup rates the feed refresh stores.
+/// market prices, and HARTI's wholesale prices, which the phone reads itself
+/// and keeps a history of, plus the holidays and the workflow's backup rates
+/// the feed refresh stores.
 class NowRepository {
   NowRepository({
     required AppDatabase database,
@@ -51,15 +53,18 @@ class NowRepository {
     required this._cbsl,
     required this._market,
     required this._edl,
+    HartiWholesale? harti,
     DateTime Function()? now,
     Future<Map<String, String>> Function()? tamilNames,
   }) : _db = database,
+       _harti = harti ?? HartiWholesale(),
        _now = now ?? DateTime.now,
        _tamilNames = tamilNames ?? _loadTamilNames;
 
   static const ceypetcoSource = 'ceypetco';
   static const cbslSource = 'cbsl';
   static const marketSource = 'cbsl-market';
+  static const wholesaleSource = 'harti';
   static const powerSource = 'edlcare';
 
   /// Each place's area's outages as EDLCare last listed them.
@@ -88,6 +93,13 @@ class NowRepository {
   /// How long a look at the listing lasts while the day's report isn't in.
   static const marketRecheck = Duration(hours: 2);
 
+  /// Where the wholesale prices the phone has read are kept.
+  static const wholesalePath = 'phone/wholesale-prices.json';
+
+  /// How many bulletins one refresh reads at most, the newest first. The
+  /// first read takes only the newest: the history starts there.
+  static const bulletinsPerRead = 3;
+
   /// How far back each CBSL read goes: enough for the 30-day sheet.
   static const rateDays = 45;
   static const _lastRefresh = 'phone.lastRefresh';
@@ -97,6 +109,7 @@ class NowRepository {
   final Cbsl _cbsl;
   final CbslMarket _market;
   final EdlCare _edl;
+  final HartiWholesale _harti;
   final DateTime Function() _now;
   final Future<Map<String, String>> Function() _tamilNames;
   Map<String, String>? _names;
@@ -138,6 +151,7 @@ class NowRepository {
       ]);
     });
     await _readMarket();
+    await _readWholesale();
     await refreshPower();
     await refreshGroups();
   }
@@ -414,6 +428,51 @@ class NowRepository {
     });
   }
 
+  /// Reads the bulletins out since the newest the phone has, unless today's
+  /// is in or the listing was looked at lately.
+  Future<void> _readWholesale() async {
+    final held = await wholesalePrices();
+    final latest = held.latest;
+    final looked = (await status(wholesaleSource)).lastRun;
+    if ((latest != null && !latest.isBefore(_today())) ||
+        (looked != null && _now().difference(looked) < marketRecheck)) {
+      return;
+    }
+    await _read(wholesaleSource, () async {
+      var prices = held;
+      final wanted = [
+        for (final (day, path) in await _harti.listed())
+          if ((latest == null || day.isAfter(latest)) &&
+              !prices.skipped.contains(day))
+            (day, path),
+      ].take(latest == null ? 1 : bulletinsPerRead);
+      for (final (day, path) in wanted) {
+        try {
+          prices = prices.withBulletin(day, await _harti.bulletin(path));
+        } on FormatException {
+          // Laid out some other way: not tried again.
+          prices = prices.skipping(day);
+        } on SourceException catch (error) {
+          if (error.statusCode != 404) {
+            rethrow;
+          }
+          prices = prices.skipping(day);
+        }
+        await _db.saveFile(
+          FileRow(
+            path: wholesalePath,
+            body: jsonEncode(prices.toJson()),
+            fetchedAt: _now(),
+          ),
+        );
+      }
+    });
+  }
+
+  /// The wholesale prices the phone has read.
+  Future<WholesalePrices> wholesalePrices() async =>
+      WholesalePrices.fromJson((await _db.file(wholesalePath))?.body);
+
   Future<SourceStatus> status(String source) async {
     final value = await _db.setting('source.$source');
     return value == null
@@ -438,6 +497,7 @@ class NowRepository {
       tamilNames: _names ??= await _tamilNames(),
       items: items,
       market: await marketPrices(),
+      wholesale: await wholesalePrices(),
       power: await powerNow(),
       laugfs: (await _db.file(laugfsPath))?.body,
     );
@@ -483,6 +543,7 @@ class NowRepository {
         _health('Fuel prices', await status(ceypetcoSource)),
         _health('USD/LKR', await status(cbslSource)),
         _health('Market prices', await status(marketSource)),
+        _health('Wholesale prices', await status(wholesaleSource)),
         if ((await powerSetup()).areaIds.isNotEmpty)
           _health('Power cuts', await status(powerSource)),
       ],

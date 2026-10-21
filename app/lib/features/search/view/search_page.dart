@@ -175,6 +175,15 @@ class _SearchViewState extends State<_SearchView> {
                                         MarketChart(quote.good.name),
                                       ),
                                     ),
+                                  WholesaleHit(:final quote) =>
+                                    Navigator.of(context).push(
+                                      PriceChartPage.route(
+                                        WholesaleChart(
+                                          quote.good.name,
+                                          quote.market,
+                                        ),
+                                      ),
+                                    ),
                                   _ => _openTab(HomeTab.prices),
                                 },
                               ),
@@ -296,13 +305,14 @@ class _PriceRow extends StatelessWidget {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final today = DateTime.now();
-    final (look, name, note, value, before) = switch (hit) {
+    final (look, name, note, value, before, text) = switch (hit) {
       FuelHit(:final fuel) => (
         TopicLook.fuel,
         fuel.name,
         'CEYPETCO, since ${cardDate(fuel.since, today: today)}',
         fuel.price,
         fuel.was,
+        null,
       ),
       RateHit(:final rate) => (
         TopicLook.rates,
@@ -310,11 +320,13 @@ class _PriceRow extends StatelessWidget {
         weekdayDate(rate.day),
         rate.rate,
         null,
+        null,
       ),
       GasHit(:final list) => (
         TopicLook.gas,
         'Litro price list',
         'from ${cardDate(list.effective ?? list.published, today: today)}',
+        null,
         null,
         null,
       ),
@@ -324,6 +336,7 @@ class _PriceRow extends StatelessWidget {
         [?order.issuer, cardDate(order.published, today: today)].join(dot),
         number.value,
         number.previous,
+        null,
       ),
       MarketHit(:final quote, :final day) => (
         TopicLook.market,
@@ -335,6 +348,19 @@ class _PriceRow extends StatelessWidget {
         ].join(dot),
         quote.price,
         quote.before,
+        null,
+      ),
+      WholesaleHit(:final quote) => (
+        TopicLook.market,
+        quote.good.name,
+        [
+          '${quote.market} wholesale',
+          quote.good.perUnit,
+          cardDate(quote.now.day, today: today),
+        ].join(dot),
+        quote.now.middle,
+        quote.before?.middle,
+        rangeText(quote.now.low, quote.now.high),
       ),
     };
     return InkWell(
@@ -382,7 +408,7 @@ class _PriceRow extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    amount(value),
+                    text ?? amount(value),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

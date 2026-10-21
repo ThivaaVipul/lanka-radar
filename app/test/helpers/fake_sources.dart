@@ -18,10 +18,10 @@ String fixture(String name) => File('test/fixtures/$name').readAsStringSync();
 List<int> fixtureBytes(String name) =>
     File('test/fixtures/$name').readAsBytesSync();
 
-/// Reads a price report's characters with PDFium, as the app does. The test
-/// run builds PDFium into `build/native_assets/<os>`; Windows finds it on the
-/// PATH, but on Linux pdfium_dart looks beside flutter_tester, so it is named.
-Future<List<ReportChar>> readReport(Uint8List pdf) async {
+/// Starts PDFium as the app does. The test run builds it into
+/// `build/native_assets/<os>`; Windows finds it on the PATH, but on Linux
+/// pdfium_dart looks beside flutter_tester, so it is named.
+Future<void> _pdfium() async {
   final built = Directory('build/native_assets');
   if (built.existsSync()) {
     Pdfrx.pdfiumModulePath ??= built
@@ -34,7 +34,18 @@ Future<List<ReportChar>> readReport(Uint8List pdf) async {
   await pdfrxInitialize(
     tmpPath: Directory.systemTemp.createTempSync('pdfrx').path,
   );
+}
+
+/// Reads a price report's characters with PDFium, as the app does.
+Future<List<ReportChar>> readReport(Uint8List pdf) async {
+  await _pdfium();
   return reportChars(pdf);
+}
+
+/// Reads a HARTI bulletin's pages with PDFium, as the app does.
+Future<List<List<ReportChar>>> readBulletin(Uint8List pdf) async {
+  await _pdfium();
+  return bulletinPages(pdf);
 }
 
 /// CEYPETCO and CBSL in memory, answering with the responses saved in M1
@@ -47,6 +58,13 @@ class FakeSources {
   String ceypetco = fixture('ceypetco_fuel_prices.json');
   String cbsl = fixture('cbsl_usd_rates.html');
   String marketListing = '<html></html>';
+
+  /// HARTI's listing (empty unless given) and its bulletins by file name.
+  String hartiListing = '<html></html>';
+  final bulletins = <String, List<int>>{};
+
+  /// The file names of the bulletins asked for.
+  final bulletinRequests = <String>[];
   String powerOutages = fixture('edlcare_outages_49.json');
   String powerSchedule = fixture('edlcare_load_shedding.json');
 
@@ -87,6 +105,15 @@ class FakeSources {
     if (request.url.host == 'www.cbsl.gov.lk' && path.contains('price')) {
       marketRequests.add(path.split('/').last);
     }
+    if (request.url.host == 'www.harti.gov.lk' &&
+        path.contains('/food_price/')) {
+      final name = Uri.decodeFull(path.split('/').last);
+      bulletinRequests.add(name);
+      final pdf = bulletins[name];
+      return pdf == null
+          ? http.Response('', 404)
+          : http.Response.bytes(pdf, 200);
+    }
     if (path.contains('/pricerpt/')) {
       final pdf = reports[path.split('/').last];
       return pdf == null
@@ -109,6 +136,7 @@ class FakeSources {
       ),
       'api.ceypetco.gov.lk' => ceypetco,
       'www.cbsl.gov.lk' when path.endsWith('/price-report') => marketListing,
+      'www.harti.gov.lk' when path.endsWith('/daily-price.php') => hartiListing,
       'www.cbsl.gov.lk' => cbsl,
       _ => null,
     };
@@ -123,6 +151,7 @@ class FakeSources {
         ceypetco: Ceypetco(client: client),
         cbsl: Cbsl(client: client),
         market: CbslMarket(client: client, read: readReport),
+        harti: HartiWholesale(client: client, read: readBulletin),
         edl: EdlCare(client: client),
         now: now,
         tamilNames: () async => const {'Deepavali': 'TA Deepavali'},
