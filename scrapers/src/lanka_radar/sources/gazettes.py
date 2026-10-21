@@ -304,8 +304,9 @@ def run(web: Web, store: Store, today: date) -> int:
     action = state.get("action", KNOWN_ACTION)
     newest = date.fromisoformat(state["newest"]) if state.get("newest") else None
     # While older gazettes still wait for their PDFs, the whole year is read again so
-    # they come back into view.
-    if newest is None or state.get("backlog"):
+    # they come back into view; so it is after a reader version bump, for the older
+    # readings it can improve.
+    if newest is None or state.get("backlog") or state.get("reader") != READER:
         stop = HISTORY_START
     else:
         stop = max(HISTORY_START, newest - RECHECK)
@@ -361,6 +362,7 @@ def run(web: Web, store: Store, today: date) -> int:
             "action": action,
             "newest": max(days).isoformat() if days else None,
             "backlog": backlog,
+            "reader": READER,
         },
     )
     return changed
