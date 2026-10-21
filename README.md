@@ -68,7 +68,7 @@ The scrape workflow (`.github/workflows/scrape.yml`) runs every hour and commits
 | `status.json` | each source's last run, last success and last error |
 | `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
 
-Feed items are news: a gazette (fuel price revisions included), a USD/LKR move of 2% or more in a week, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices; a timetable's exam days, read once from its PDF, go in its data as `days`. The weekly gazette's Part I (IIA) brings one item per vacancy (under jobs) and per examination notice (under exams), with its page in the PDF and the closing date for applications. A new Litro price list is an item too, its prices read off the list's image with OCR (Tesseract, on GitHub's runner) for every district and cylinder size.
+Feed items are news: a gazette (fuel price revisions included), a USD/LKR move of 2% or more in a week, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices; a timetable's exam days, read once from its PDF, go in its data as `days`. The weekly gazette's Part I (IIA) brings one item per vacancy (under jobs) and per examination notice (under exams), with its page in the PDF and the closing date for applications. A new Litro price list is an item too, its prices read off the list's image with OCR (Tesseract, on GitHub's runner) for every district and cylinder size. Laugfs's price list is a table on its site: its current prices are a dataset, and a change becomes an item.
 
 Each gazette item's PDFs are read once: the title on page 1 becomes the headline when the list only names the issuer, and in price gazettes (CAA orders, fuel revisions) the price table becomes key numbers. The English PDF's first 10 pages are kept as text (`texts/`, by month) so the app can search inside gazettes. Tamil titles come from an old Bamini-encoded font, converted to Unicode with Open-Tamil, or from Arial Unicode MS, whose text in these PDFs is scrambled, so it is read from the glyph IDs instead.
 
@@ -127,7 +127,7 @@ Without that file, release builds are signed with the debug key.
 
 ## Sources
 
-Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro, exchange rates and market prices from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro and Laugfs, exchange rates and market prices from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
 
 ## License
 

@@ -58,8 +58,69 @@ void main() {
       'Jaffna: 12.5 kg 4,748.84 (was 4,500), 5 kg 1,977.13 (was 1,880), '
       '2.3 kg 999.25 (was 950)',
     );
-    // An older list, or an unknown district, keeps the workflow's numbers.
-    expect(forDistrict(september, [october, september], 'Jaffna'), september);
+    // An older list has nothing before it; an unknown district keeps the
+    // workflow's numbers.
+    final older = forDistrict(september, [october, september], 'Jaffna');
+    expect(
+      older.keyNumbers.first,
+      const KeyNumber(label: '12.5 kg', value: 4500, unit: 'LKR'),
+    );
     expect(forDistrict(october, [october], 'Kandy'), october);
+  });
+
+  group('Laugfs', () {
+    const dataset = '''{
+      "schema": 1,
+      "sizes": ["12.5 kg", "5 kg", "2 kg"],
+      "prices": {"Colombo": [4765, 1988, 795], "Jaffna": [5336, 2210, 888]},
+      "before": {"Colombo": [4965, 1988, 795]},
+      "since": "2026-11-05"
+    }''';
+
+    test("a district's prices against those before the last change", () {
+      final table = GasTable.parse(dataset)!;
+
+      expect(table.since, DateTime(2026, 11, 5));
+      expect(
+        table.at('Colombo')!.prices.first,
+        const GasPrice(size: '12.5 kg', price: 4765, before: 4965),
+      );
+      expect(
+        table.at('Jaffna')!.prices.last,
+        const GasPrice(size: '2 kg', price: 888),
+      );
+      expect(table.at('Kandy'), isNull);
+      expect(GasTable.parse(null), isNull);
+      expect(GasTable.parse('not json'), isNull);
+    });
+
+    test('a change alerts with the prices before it, from the item', () {
+      final change = FeedItem(
+        id: 'gas-laugfs-2026-11-05',
+        source: 'laugfs',
+        topic: 'prices',
+        headlineEn: 'Laugfs gas prices from 5 Nov 2026',
+        published: DateTime(2026, 11, 5),
+        data: const {
+          'sizes': ['12.5 kg', '5 kg', '2 kg'],
+          'districts': {
+            'Colombo': [4765, 1988, 795],
+            'Jaffna': [5136, 2210, 888],
+          },
+          'before': {
+            'Colombo': [4965, 1988, 795],
+            'Jaffna': [5336, 2210, 888],
+          },
+        },
+      );
+
+      final item = forDistrict(change, [change], 'Jaffna');
+
+      expect(isGasList(change), isTrue);
+      expect(
+        notificationBody(item),
+        'Jaffna: 12.5 kg 5,136 (was 5,336), 5 kg 2,210, 2 kg 888',
+      );
+    });
   });
 }

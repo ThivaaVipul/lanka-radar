@@ -30,6 +30,7 @@ class FeedRepository {
   static const documents = [
     'datasets/holidays.json',
     usdLkrPath,
+    laugfsPath,
     'status.json',
   ];
 

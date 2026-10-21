@@ -12,7 +12,7 @@ final _aliases = [
   (RegExp('grade (5|five)|scholarship'), 'grade 5 scholarship'),
   (RegExp(r'\busd\b|us dollar'), 'usd dollar'),
   (RegExp('petrol|diesel|kerosene|octane'), 'fuel'),
-  (RegExp('liquefied petroleum|lp gas|litro'), 'gas lpg'),
+  (RegExp('liquefied petroleum|lp gas|litro|laugfs'), 'gas lpg'),
   (RegExp('value added tax'), 'vat'),
   (RegExp('electricity'), 'power'),
   // Not 'vacancy': election notices fill council vacancies.

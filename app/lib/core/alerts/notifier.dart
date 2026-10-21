@@ -3,6 +3,7 @@ import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/power_alerts.dart';
 import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
@@ -56,15 +57,17 @@ String? itemIdFrom(String? payload) =>
     : null;
 
 /// What an item's notification says under its headline: its first key numbers
-/// (a Litro list's for its district), or the topic and who published it.
+/// (an LP gas list's for its district), with the price before when it
+/// changed, or the topic and who published it.
 String notificationBody(FeedItem item) {
-  final district = item.source == 'gas' ? item.data['district'] : null;
+  final district = isGasList(item) ? item.data['district'] : null;
   final numbers = [
     for (final number in item.keyNumbers.take(3))
       [
         shortLabel(number.label),
         amount(number.value),
-        if (number.previous != null) '(was ${amount(number.previous!)})',
+        if (number.previous case final previous? when previous != number.value)
+          '(was ${amount(previous)})',
       ].join(' '),
   ];
   if (numbers.isEmpty) {

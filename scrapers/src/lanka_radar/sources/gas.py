@@ -9,7 +9,6 @@ page no longer shows are read from their stored items.
 
 from __future__ import annotations
 
-import difflib
 import re
 import subprocess
 from datetime import date
@@ -17,7 +16,7 @@ from typing import Any
 
 import httpx
 
-from lanka_radar import ocr
+from lanka_radar import districts, ocr
 from lanka_radar.items import Item, KeyNumber, short_date
 from lanka_radar.store import Store
 from lanka_radar.web import Web
@@ -31,35 +30,6 @@ READER = 1
 # The district whose prices are the item's key numbers (Litro's own headline price).
 HEADLINE_DISTRICT = "Colombo"
 
-DISTRICTS = (
-    "Ampara",
-    "Anuradhapura",
-    "Badulla",
-    "Batticaloa",
-    "Colombo",
-    "Galle",
-    "Gampaha",
-    "Hambantota",
-    "Jaffna",
-    "Kalutara",
-    "Kandy",
-    "Kegalle",
-    "Kilinochchi",
-    "Kurunegala",
-    "Mannar",
-    "Matale",
-    "Matara",
-    "Monaragala",
-    "Mullaitivu",
-    "Nuwara Eliya",
-    "Polonnaruwa",
-    "Puttalam",
-    "Ratnapura",
-    "Trincomalee",
-    "Vavuniya",
-)
-# Litro's own spellings that are too far from the usual ones to be matched.
-_ALIASES = {"mulative": "Mullaitivu", "n eliya": "Nuwara Eliya", "vauniya": "Vavuniya"}
 # A price per kilogram outside this is a misread digit.
 _PER_KG = (150.0, 900.0)
 
@@ -100,15 +70,15 @@ def parse_prices(text: str) -> tuple[list[str], dict[str, list[float]]]:
         match = _ROW.match(line)
         if not match:
             continue
-        district = _district(match.group(1))
-        if district is None:
+        name = districts.district(match.group(1))
+        if name is None:
             raise ValueError(f"unknown district {match.group(1)!r}")
-        if district in prices:
-            raise ValueError(f"{district} is listed twice")
-        prices[district] = [float(value.replace(",", "")) for value in match.groups()[1:]]
+        if name in prices:
+            raise ValueError(f"{name} is listed twice")
+        prices[name] = [float(value.replace(",", "")) for value in match.groups()[1:]]
     if len(sizes) != 3:
         raise ValueError(f"expected three cylinder sizes, found {sizes}")
-    missing = [district for district in DISTRICTS if district not in prices]
+    missing = [name for name in districts.DISTRICTS if name not in prices]
     if missing:
         raise ValueError(f"no prices for {', '.join(missing)}")
     kilograms = [float(size.split()[0]) for size in sizes]
@@ -116,16 +86,7 @@ def parse_prices(text: str) -> tuple[list[str], dict[str, list[float]]]:
         for value, weight in zip(values, kilograms, strict=True):
             if not _PER_KG[0] <= value / weight <= _PER_KG[1]:
                 raise ValueError(f"{district}: {value} for {weight} kg doesn't add up")
-    return sizes, {district: prices[district] for district in DISTRICTS}
-
-
-def _district(name: str) -> str | None:
-    name = " ".join(name.lower().split())
-    if name in _ALIASES:
-        return _ALIASES[name]
-    lowered = {district.lower(): district for district in DISTRICTS}
-    match = difflib.get_close_matches(name, list(lowered), n=1, cutoff=0.75)
-    return lowered[match[0]] if match else None
+    return sizes, {name: prices[name] for name in districts.DISTRICTS}
 
 
 def item_for(

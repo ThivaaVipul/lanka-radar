@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/labels.dart';
@@ -80,6 +81,7 @@ final class NowData extends Equatable {
     this.ratesFromBackup = false,
     this.holidays = const [],
     this.gas,
+    this.laugfs,
     this.timetable,
     this.market = const MarketPrices(),
     this.power,
@@ -101,8 +103,11 @@ final class NowData extends Equatable {
   /// The holidays left this year (next year's once this year's are over).
   final List<HolidayNow> holidays;
 
-  /// The latest LP gas price list.
+  /// The latest LP gas price list (Litro's).
   final FeedItem? gas;
+
+  /// Laugfs's LP gas prices.
+  final GasTable? laugfs;
 
   /// The latest exam timetable.
   final FeedItem? timetable;
@@ -127,6 +132,7 @@ final class NowData extends Equatable {
     ratesFromBackup,
     holidays,
     gas,
+    laugfs,
     timetable,
     market,
     power,
@@ -147,6 +153,7 @@ NowData buildNow({
   required List<FeedItem> items,
   MarketPrices market = const MarketPrices(),
   PowerNow? power,
+  String? laugfs,
 }) {
   final gazettes = _fuelGazettes(items);
   final fromGazette = fuelRows.isEmpty && gazettes.isNotEmpty;
@@ -161,6 +168,7 @@ NowData buildNow({
     ratesFromBackup: rates.isEmpty,
     holidays: _holidays(holidays, today, tamilNames),
     gas: _latest(items, (item) => item.source == 'gas'),
+    laugfs: GasTable.parse(laugfs),
     timetable: _latest(
       items,
       (item) => item.topic == 'exams' && item.data['kind'] == 'timetable',

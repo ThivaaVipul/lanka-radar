@@ -6,9 +6,11 @@ import 'package:lanka_radar/core/data/now_data.dart';
 /// Names for the workflow's sources (status.json) in the order they are shown.
 const githubSources = {
   'gazettes': 'Gazettes',
+  'weekly': 'Weekly gazette',
   'exams': 'Exam notices',
   'jobs': 'Jobs (PSC)',
-  'gas': 'LP gas',
+  'gas': 'LP gas (Litro)',
+  'laugfs': 'LP gas (Laugfs)',
   'holidays': 'Holidays',
   'rates': 'USD/LKR backup',
 };

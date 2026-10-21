@@ -42,7 +42,7 @@ class PricesTab extends StatelessWidget {
         final gas = now.gas;
         final priceOrders = [
           for (final item in state.items ?? const <FeedItem>[])
-            if (item.topic == 'prices' && item.source != 'gas') item,
+            if (item.topic == 'prices' && !isGasList(item)) item,
         ].take(orders);
         final goods = goodsHistory(state.items ?? const <FeedItem>[]);
         final setBy = goodsOrders(state.items ?? const <FeedItem>[]);
@@ -128,10 +128,11 @@ class PricesTab extends StatelessWidget {
                 ),
               _GasSection(
                 gas: gas,
-                prices: gasPrices(
+                litro: gasPrices(
                   state.items ?? const <FeedItem>[],
                   state.gasDistrict,
                 ),
+                laugfs: now.laugfs?.at(state.gasDistrict),
                 district: state.gasDistrict,
                 today: today,
                 open: open,
@@ -170,20 +171,23 @@ class PricesTab extends StatelessWidget {
   }
 }
 
-/// Litro's LP gas prices in the district picked (tap it to pick another), the
-/// change from the list before, and the list's image.
+/// LP gas prices in the district picked (tap it to pick another): Litro's,
+/// then Laugfs's, each size against the prices before, and each company's own
+/// list a tap on its name away.
 class _GasSection extends StatelessWidget {
   const _GasSection({
     required this.gas,
-    required this.prices,
+    required this.litro,
+    required this.laugfs,
     required this.district,
     required this.today,
     required this.open,
   });
 
-  /// The latest list, read or not.
+  /// Litro's latest list, read or not.
   final FeedItem? gas;
-  final GasPrices? prices;
+  final GasPrices? litro;
+  final GasPrices? laugfs;
   final String district;
   final DateTime today;
   final OpenLink open;
@@ -191,13 +195,10 @@ class _GasSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gas = this.gas;
-    final prices = this.prices;
-    final since = prices == null
-        ? null
-        : 'since ${cardDate(prices.list.effective ?? prices.list.published, today: today)}';
+    final image = gas?.links['image'];
+    final laugfsSince = laugfs?.since;
     return Section(
       title: 'LP gas',
-      note: 'Litro',
       children: [
         ListTile(
           leading: const Icon(Icons.place_outlined),
@@ -205,31 +206,34 @@ class _GasSection extends StatelessWidget {
           trailing: const Icon(Icons.expand_more),
           onTap: () => _pick(context),
         ),
-        if (prices != null)
-          for (final price in prices.prices)
-            _PriceRow(
-              name: price.size,
-              value: price.price,
-              before: price.before,
-              note: since,
-              share: noticeShare(prices.list),
-            ),
-        ListTile(
-          title: const Text('Price list'),
-          subtitle: gas == null
-              ? const Text('Not yet')
-              : Text(
-                  'from '
-                  '${cardDate(gas.effective ?? gas.published, today: today)}',
-                ),
-          trailing: const Icon(Icons.open_in_new),
-          onTap: gas?.links['image'] == null
-              ? null
-              : () => open(Uri.parse(gas!.links['image']!)),
+        _Company(
+          name: 'Litro',
+          note: gas == null
+              ? 'not yet'
+              : 'from ${cardDate(gas.effective ?? gas.published, today: today)}',
+          onTap: image == null ? null : () => open(Uri.parse(image)),
           onLongPress: gas == null
               ? null
               : () => shareText(context, noticeShare(gas)),
         ),
+        for (final price in litro?.prices ?? const <GasPrice>[])
+          _PriceRow(
+            name: price.size,
+            value: price.price,
+            before: price.before,
+            share: gas == null ? null : noticeShare(gas),
+          ),
+        _Company(
+          name: 'Laugfs',
+          note: laugfs == null
+              ? 'not yet'
+              : laugfsSince == null
+              ? null
+              : 'since ${cardDate(laugfsSince, today: today)}',
+          onTap: () => open(Uri.parse(laugfsPage)),
+        ),
+        for (final price in laugfs?.prices ?? const <GasPrice>[])
+          _PriceRow(name: price.size, value: price.price, before: price.before),
       ],
     );
   }
@@ -259,6 +263,51 @@ class _GasSection extends StatelessWidget {
     if (picked != null && picked != district) {
       await cubit.setGasDistrict(picked);
     }
+  }
+}
+
+/// An LP gas company's name over its prices, with when they started; a tap
+/// opens its own price list.
+class _Company extends StatelessWidget {
+  const _Company({
+    required this.name,
+    required this.note,
+    required this.onTap,
+    this.onLongPress,
+  });
+
+  final String name;
+  final String? note;
+  final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final muted = theme.colorScheme.onSurfaceVariant;
+    return InkWell(
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Text(name, style: theme.textTheme.titleSmall),
+            if (note case final note?) ...[
+              const SizedBox(width: 8),
+              Text(
+                note,
+                style: theme.textTheme.labelMedium?.copyWith(color: muted),
+              ),
+            ],
+            const Spacer(),
+            if (onTap != null) Icon(Icons.open_in_new, size: 18, color: muted),
+          ],
+        ),
+      ),
+    );
   }
 }
 

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/rate_moves.dart';
 import 'package:lanka_radar/core/format/labels.dart';
@@ -57,7 +58,7 @@ List<PricePoint> rateHistory(String? dataset, List<RateRow> phone) => _points({
 Map<String, List<PricePoint>> goodsHistory(List<FeedItem> items) {
   final goods = <String, Map<DateTime, double>>{};
   for (final item in items) {
-    if (item.topic != 'prices' || item.source == 'gas') {
+    if (item.topic != 'prices' || isGasList(item)) {
       continue;
     }
     for (final number in item.keyNumbers) {
@@ -81,7 +82,7 @@ Map<String, List<PricePoint>> goodsHistory(List<FeedItem> items) {
 Map<String, FeedItem> goodsOrders(List<FeedItem> items) {
   final orders = <String, FeedItem>{};
   for (final item in items) {
-    if (item.topic != 'prices' || item.source == 'gas') {
+    if (item.topic != 'prices' || isGasList(item)) {
       continue;
     }
     final day = _day(item.effective ?? item.published);

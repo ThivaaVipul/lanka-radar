@@ -330,7 +330,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Fuel'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('Price orders'), 200);
-    expect(find.text('Price list'), findsOneWidget);
+    expect(find.text('Litro'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Dates'));
     await tester.pumpAndSettle();
@@ -531,7 +531,8 @@ void main() {
     expect(find.text('Thu 15 Jan'), findsOneWidget);
   });
 
-  testWidgets('LP gas shows the district picked', (tester) async {
+  testWidgets("LP gas shows Litro's and Laugfs's prices in the district "
+      'picked', (tester) async {
     remote.putMonth('2026-10', [
       gasList('2026-10-06', {
         'Colombo': [4365, 1750, 815],
@@ -540,10 +541,12 @@ void main() {
     ]);
     await open(tester);
     await showTab(tester, HomeTab.prices);
-    await tester.scrollUntilVisible(find.text('Price list'), 200);
+    await tester.scrollUntilVisible(find.text('Laugfs'), 200);
+    await tester.scrollUntilVisible(find.text('2 kg'), 200);
 
     expect(find.text('Colombo'), findsOneWidget);
     expect(find.text('4,365'), findsOneWidget);
+    expect(find.text('4,965'), findsOneWidget);
 
     await tester.tap(find.text('Colombo'));
     await tester.pumpAndSettle();
@@ -556,6 +559,7 @@ void main() {
     await settle(tester);
 
     expect(find.text('4,748.84'), findsOneWidget);
+    expect(find.text('5,336'), findsOneWidget);
     expect(
       await FeedRepository(
         database: database,
