@@ -28,8 +28,18 @@
     },
     {
       "month": "2026-05",
-      "count": 15,
-      "hash": "6de44c7049684666"
+      "count": 32,
+      "hash": "4cba7196dfbde710"
+    },
+    {
+      "month": "2026-04",
+      "count": 14,
+      "hash": "c098e4f2212e7ea2"
+    },
+    {
+      "month": "2026-03",
+      "count": 8,
+      "hash": "368d6234e1f3fa16"
     }
   ]
 }
