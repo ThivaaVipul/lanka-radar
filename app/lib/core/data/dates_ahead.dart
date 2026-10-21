@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
+import 'package:lanka_radar/core/format/outages.dart';
 
 /// An exam with the days its timetable sets, read from the timetable's PDF by
 /// the workflow (`data.days` on the item).
@@ -116,6 +118,51 @@ List<LongWeekend> longWeekends(List<HolidayNow> holidays, DateTime today) {
     }
   }
   return found;
+}
+
+/// What a day holds, for the calendars' markers.
+enum DayMark { holiday, exam, closing, cut }
+
+/// Something on a day: what kind, and its name ("GIT 2026").
+typedef DayEvent = ({DayMark mark, String name});
+
+/// What each day holds: the holidays, each exam day, the applications that
+/// close and the load shedding at a place, in that order on a day.
+Map<DateTime, List<DayEvent>> dayEvents({
+  required List<HolidayNow> holidays,
+  required List<ExamDates> exams,
+  required List<FeedItem> closing,
+  required List<(Place, PlannedCut)> cuts,
+}) {
+  final days = <DateTime, List<DayEvent>>{};
+  void add(DateTime day, DayMark mark, String name) =>
+      days.putIfAbsent(_day(day), () => []).add((mark: mark, name: name));
+  for (final holiday in holidays) {
+    add(holiday.day, DayMark.holiday, holiday.name);
+  }
+  for (final exam in exams) {
+    for (final day in exam.days) {
+      add(day, DayMark.exam, exam.name);
+    }
+  }
+  for (final item in closing) {
+    add(item.closes!, DayMark.closing, 'Applications close');
+  }
+  // One line a day for each kind of cut, with every place it is at.
+  final places = <(DateTime, String), List<String>>{};
+  for (final (place, cut) in cuts) {
+    final at = places.putIfAbsent((_day(cut.start), cut.name), () => []);
+    if (!at.contains(place.name)) {
+      at.add(place.name);
+    }
+  }
+  for (final MapEntry(key: (day, name), value: at) in places.entries) {
+    add(day, DayMark.cut, '$name at ${listAnd(at)}');
+  }
+  for (final events in days.values) {
+    events.sort((a, b) => a.mark.index.compareTo(b.mark.index));
+  }
+  return days;
 }
 
 DateTime _day(DateTime time) => DateTime(time.year, time.month, time.day);

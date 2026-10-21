@@ -9,6 +9,7 @@ import 'package:http/testing.dart';
 import 'package:lanka_radar/app/app.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/app/notification_router.dart';
+import 'package:lanka_radar/app/viz/marks.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
@@ -20,6 +21,7 @@ import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
+import 'package:lanka_radar/features/home/widgets/cut_tile.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/notices/view/week_page.dart';
@@ -93,6 +95,22 @@ void main() {
   Future<void> showTab(WidgetTester tester, HomeTab tab) async {
     tabs.value = tab;
     await tester.pumpAndSettle();
+  }
+
+  /// The tab's list, not the row of names across its top.
+  Finder page() => find
+      .byWidgetPredicate(
+        (widget) =>
+            widget is Scrollable && widget.axisDirection == AxisDirection.down,
+      )
+      .first;
+
+  /// A screen tall enough for the whole of Today or Dates.
+  void tall(WidgetTester tester) {
+    tester.view
+      ..physicalSize = const Size(800, 2400)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
   }
 
   /// A price order with one price and nothing before it.
@@ -178,7 +196,7 @@ void main() {
     expect(find.text('Vacancy in Udapalatha'), findsOneWidget);
   });
 
-  testWidgets('a topic chip filters the notices', (tester) async {
+  testWidgets('a topic filters the notices', (tester) async {
     remote.putMonth('2026-10', [
       item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
       item('exam-2479', '2026-10-01', topic: 'exams', headline: 'An exam'),
@@ -186,7 +204,7 @@ void main() {
     await open(tester);
     await showTab(tester, HomeTab.notices);
 
-    await tester.tap(find.widgetWithText(ChoiceChip, 'Exams'));
+    await tester.tap(find.widgetWithText(Tab, 'Exams'));
     await tester.pumpAndSettle();
 
     expect(find.text('An exam'), findsOneWidget);
@@ -223,6 +241,7 @@ void main() {
           },
         },
       ]);
+    tall(tester);
     await open(tester);
     await showTab(tester, HomeTab.dates);
 
@@ -269,6 +288,7 @@ void main() {
     await tester.runAsync(
       () => storePowerSetup(FakeSources().repository(database)),
     );
+    tall(tester);
     await open(tester);
 
     // Top to bottom: the cut, a price, then a notice further down.
@@ -300,18 +320,19 @@ void main() {
           .repository(database)
           .savePowerSetup(const PowerSetup(places: [home])),
     );
+    tall(tester);
     await open(tester, clock: () => DateTime(2026, 10, 20, 12));
 
-    // One card on Today, whichever day the test runs.
+    // One card on Today for the cut to come (the week's line names it too).
     expect(
-      find.text('Load shedding at Home').evaluate().length +
-          find.text('Power cuts ahead').evaluate().length,
-      1,
+      find.widgetWithText(CutTile, 'Load shedding at Home'),
+      findsOneWidget,
     );
 
     await showTab(tester, HomeTab.dates);
     expect(find.text('Power cuts ahead'), findsOneWidget);
-    expect(find.text('Load shedding at Home'), findsNWidgets(2));
+    // A row each, and the calendar's line when its day is picked.
+    expect(find.text('Load shedding at Home'), findsAtLeastNWidgets(2));
     expect(find.text('19:30 to 20:30, group V'), findsOneWidget);
   });
 
@@ -332,12 +353,21 @@ void main() {
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Prices'));
     await tester.pumpAndSettle();
-    expect(find.text('Fuel'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('Price orders'), 200);
+    expect(find.widgetWithText(Tab, 'Fuel'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Price orders'),
+      200,
+      scrollable: page(),
+    );
     expect(find.text('Litro'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Dates'));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Holidays'),
+      200,
+      scrollable: page(),
+    );
     expect(find.text('Holidays'), findsOneWidget);
   });
 
@@ -349,12 +379,12 @@ void main() {
     await tester.scrollUntilVisible(
       find.text('Beans'),
       200,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: page(),
     );
-    expect(find.text('Market'), findsOneWidget);
+    expect(find.widgetWithText(Tab, 'Market'), findsOneWidget);
     expect(find.text('Samba'), findsNothing);
 
-    await tester.tap(find.widgetWithText(ChoiceChip, 'Rice'));
+    await tester.tap(find.widgetWithText(Tab, 'Rice'));
     await tester.pumpAndSettle();
     expect(find.text('Samba'), findsOneWidget);
     expect(find.text('Beans'), findsNothing);
@@ -364,6 +394,7 @@ void main() {
     remote.putMonth('2026-10', [
       item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
     ]);
+    tall(tester);
     await open(tester);
 
     await tester.tap(find.text('A gazette'));
@@ -400,6 +431,7 @@ void main() {
       item('gazette-2510-20', '2026-10-12', headline: 'A gazette'),
     ]);
     final notifications = router();
+    tall(tester);
     await open(tester, router: notifications);
     await tester.tap(find.text('A gazette'));
     await tester.pumpAndSettle();
@@ -408,7 +440,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(ItemPage), findsNothing);
     expect(tabs.value, HomeTab.prices);
-    expect(find.text('Fuel'), findsOneWidget);
+    expect(find.widgetWithText(Tab, 'Fuel'), findsOneWidget);
 
     await tester.runAsync(() => notifications.open(holidaysPayload));
     await tester.pumpAndSettle();
@@ -526,13 +558,15 @@ void main() {
         closes: '2099-01-15',
       ),
     ]);
+    tall(tester);
     await open(tester);
 
     await showTab(tester, HomeTab.dates);
 
     expect(find.text('Applications closing'), findsOneWidget);
     expect(find.text('Post of Registrar'), findsOneWidget);
-    expect(find.text('Thu 15 Jan'), findsOneWidget);
+    // The row leads with its date: the day large over the month.
+    expect(find.text('Jan'), findsOneWidget);
   });
 
   testWidgets("LP gas shows Litro's and Laugfs's prices in the district "
@@ -545,13 +579,25 @@ void main() {
     ]);
     await open(tester);
     await showTab(tester, HomeTab.prices);
-    await tester.scrollUntilVisible(find.text('Laugfs'), 200);
-    await tester.scrollUntilVisible(find.text('2 kg'), 200);
+    await tester.scrollUntilVisible(
+      find.text('Laugfs'),
+      200,
+      scrollable: page(),
+    );
+    await tester.scrollUntilVisible(find.text('2 kg'), 200, scrollable: page());
 
     expect(find.text('Colombo'), findsOneWidget);
     expect(find.text('4,365'), findsOneWidget);
     expect(find.text('4,965'), findsOneWidget);
 
+    // Clear of the section names pinned over the list.
+    unawaited(
+      Scrollable.ensureVisible(
+        tester.element(find.text('Colombo')),
+        alignment: 0.5,
+      ),
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Colombo'));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
@@ -609,19 +655,30 @@ void main() {
     );
     await open(tester);
     await showTab(tester, HomeTab.prices);
-    final page = find.byType(Scrollable).first;
     await tester.scrollUntilVisible(
-      find.text('Wholesale'),
-      300,
-      scrollable: page,
+      find.text('Beans'),
+      200,
+      scrollable: page(),
     );
-    await tester.scrollUntilVisible(find.text('Beans'), 200, scrollable: page);
 
     expect(find.text('350-450'), findsOneWidget);
-    expect(find.text('was 360-400'), findsOneWidget);
+    // Up by its middle (380 the day before, 400 now), on a track from the
+    // cheapest centre to the dearest.
+    final beansRow = find
+        .ancestor(of: find.text('Beans'), matching: find.byType(InkWell))
+        .first;
+    expect(
+      find.descendant(of: beansRow, matching: find.text('20')),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(of: beansRow, matching: find.byType(RangeTrack)),
+      findsOneWidget,
+    );
 
-    // The Market section has its own chips: Wholesale's come after.
-    Finder chip(String label) => find.widgetWithText(ChoiceChip, label).last;
+    // The section bar and Market have names of their own: Wholesale's come
+    // last.
+    Finder chip(String label) => find.widgetWithText(Tab, label).last;
     // Into the middle of the screen, clear of the bottom bar.
     Future<void> centre(Finder finder) async {
       unawaited(

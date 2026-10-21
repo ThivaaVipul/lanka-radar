@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lanka_radar/app/theme.dart';
 import 'package:lanka_radar/core/calendar.dart';
 import 'package:lanka_radar/core/data/dates_ahead.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
@@ -9,7 +10,9 @@ import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/outages.dart';
 import 'package:lanka_radar/features/home/cubit/home_cubit.dart';
+import 'package:lanka_radar/features/home/widgets/month_calendar.dart';
 import 'package:lanka_radar/features/home/widgets/pieces.dart';
+import 'package:lanka_radar/features/home/widgets/week_strip.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 
 /// Dates: the load shedding ahead at the places watched, the school exams
@@ -48,8 +51,19 @@ class DatesTab extends StatelessWidget {
         }
 
         return ListView(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
+            MonthCalendar(
+              today: day,
+              events: dayEvents(
+                holidays: now.holidays,
+                exams: exams,
+                closing: closing,
+                cuts: cuts,
+              ),
+              weekends: weekends,
+            ),
+            const _Key(),
             if (cuts.isNotEmpty)
               Section(
                 title: 'Power cuts ahead',
@@ -191,8 +205,44 @@ class DatesTab extends StatelessWidget {
   }
 }
 
-/// A day (or a run of days) with its countdown, what it is, and a button that
-/// adds it to the phone's calendar.
+/// What the calendar's marks mean.
+class _Key extends StatelessWidget {
+  const _Key();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final style = theme.textTheme.labelSmall?.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
+    );
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+      child: Wrap(
+        spacing: 14,
+        runSpacing: 6,
+        children: [
+          for (final (mark, label) in const [
+            (DayMark.holiday, 'Holiday'),
+            (DayMark.exam, 'Exam'),
+            (DayMark.closing, 'Applications close'),
+            (DayMark.cut, 'Power cut'),
+          ])
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                DayMarkDot(mark, size: 7),
+                const SizedBox(width: 5),
+                Text(label, style: style),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A day (or a run of days) led by its date, large, with what it is, its
+/// countdown, and a button that adds it to the phone's calendar.
 class _DateRow extends StatelessWidget {
   const _DateRow({
     required this.first,
@@ -216,6 +266,11 @@ class _DateRow extends StatelessWidget {
   final VoidCallback onAdd;
   final VoidCallback? onTap;
 
+  static const _months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', //
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ];
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -223,32 +278,48 @@ class _DateRow extends StatelessWidget {
     final muted = theme.textTheme.labelMedium?.copyWith(
       color: colors.onSurfaceVariant,
     );
-    final going = !today.isBefore(first) && !today.isAfter(last);
+    final day = DateTime(first.year, first.month, first.day);
+    final lastDay = DateTime(last.year, last.month, last.day);
+    // Only a run of days is "on now"; a day is "today".
+    final going =
+        lastDay != day && !today.isBefore(day) && !today.isAfter(lastDay);
+    final soon = going || day == today;
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 10, 4, 10),
+        padding: const EdgeInsets.fromLTRB(12, 10, 4, 10),
         child: Row(
           children: [
-            SizedBox(
-              width: 84,
+            Container(
+              width: 48,
+              padding: const EdgeInsets.symmetric(vertical: 6),
+              decoration: BoxDecoration(
+                color: soon
+                    ? colors.primaryContainer
+                    : colors.surfaceContainerHigh,
+                borderRadius: BorderRadius.circular(12),
+              ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(weekdayDate(first), style: theme.textTheme.bodyMedium),
                   Text(
-                    going ? 'on now' : inDays(first, today: today),
-                    style: going
-                        ? muted?.copyWith(
-                            color: colors.primary,
-                            fontWeight: FontWeight.w600,
-                          )
-                        : muted,
+                    '${first.day}',
+                    style: bigNumber(
+                      context,
+                      size: 20,
+                    ).copyWith(color: soon ? colors.onPrimaryContainer : null),
+                  ),
+                  Text(
+                    _months[first.month - 1],
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: soon
+                          ? colors.onPrimaryContainer
+                          : colors.onSurfaceVariant,
+                    ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,6 +337,11 @@ class _DateRow extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                  const SizedBox(height: 2),
+                  Text(
+                    going ? 'on now' : inDays(first, today: today),
+                    style: muted?.copyWith(color: soon ? colors.primary : null),
+                  ),
                 ],
               ),
             ),

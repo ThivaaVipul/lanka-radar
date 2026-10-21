@@ -1,6 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lanka_radar/app/motion.dart';
 import 'package:lanka_radar/app/share.dart';
+import 'package:lanka_radar/app/theme.dart';
+import 'package:lanka_radar/app/viz/marks.dart';
+import 'package:lanka_radar/app/viz/sparkline.dart';
+import 'package:lanka_radar/app/viz/underline_tabs.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/harti_bulletin.dart';
@@ -10,7 +17,6 @@ import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/core/links.dart';
@@ -20,16 +26,92 @@ import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
 import 'package:lanka_radar/features/prices/cubit/price_chart_cubit.dart';
 import 'package:lanka_radar/features/prices/view/price_chart_page.dart';
+import 'package:lanka_radar/features/prices/widgets/price_chart.dart';
 
-/// Prices: CEYPETCO's fuel prices, USD/LKR, the Central Bank's market prices,
-/// Litro's LP gas list and the latest price orders.
-class PricesTab extends StatelessWidget {
+/// Prices: fuel, USD/LKR, LP gas, the Central Bank's market prices, HARTI's
+/// wholesale prices and the controlled prices, with a row of their names
+/// pinned on top that jumps to each and follows the scroll.
+class PricesTab extends StatefulWidget {
   const PricesTab({this.open = openExternally, super.key});
 
   /// How many recent price orders are listed.
   static const orders = 5;
 
+  /// The sections, in the order they come.
+  static const sections = [
+    'Fuel',
+    'USD/LKR',
+    'LP gas',
+    'Market',
+    'Wholesale',
+    'Controlled',
+  ];
+
   final OpenLink open;
+
+  @override
+  State<PricesTab> createState() => _PricesTabState();
+}
+
+class _PricesTabState extends State<PricesTab> {
+  final _scroll = ScrollController();
+  final _view = GlobalKey();
+  final _keys = [for (final _ in PricesTab.sections) GlobalKey()];
+  int _shown = 0;
+
+  /// Scrolling to a section the user picked: the bar keeps their pick.
+  bool _jumping = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(_follow);
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  /// Picks the section at the top of the screen.
+  void _follow() {
+    final view = _view.currentContext?.findRenderObject() as RenderBox?;
+    if (_jumping || view == null) {
+      return;
+    }
+    var shown = 0;
+    for (final (index, key) in _keys.indexed) {
+      final box = key.currentContext?.findRenderObject() as RenderBox?;
+      if (box != null &&
+          box.localToGlobal(Offset.zero, ancestor: view).dy <= 96) {
+        shown = index;
+      }
+    }
+    if (_scroll.position.extentAfter < 8) {
+      shown = _keys.length - 1;
+    }
+    if (shown != _shown) {
+      setState(() => _shown = shown);
+    }
+  }
+
+  Future<void> _jump(int index) async {
+    final target = _keys[index].currentContext;
+    if (target == null) {
+      return;
+    }
+    setState(() {
+      _shown = index;
+      _jumping = true;
+    });
+    await Scrollable.ensureVisible(
+      target,
+      duration: Motion.of(context, Motion.long),
+      curve: Motion.standard,
+    );
+    _jumping = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,146 +122,211 @@ class PricesTab extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         final today = DateTime.now();
-        final rates = now.rates;
-        final gas = now.gas;
+        final items = state.items ?? const <FeedItem>[];
         final priceOrders = [
-          for (final item in state.items ?? const <FeedItem>[])
+          for (final item in items)
             if (item.topic == 'prices' && !isGasList(item)) item,
-        ].take(orders);
-        final goods = goodsHistory(state.items ?? const <FeedItem>[]);
-        final setBy = goodsOrders(state.items ?? const <FeedItem>[]);
+        ].take(PricesTab.orders);
+        final goods = goodsHistory(items);
+        final setBy = goodsOrders(items);
         void chart(ChartSubject subject) =>
             Navigator.of(context).push(PriceChartPage.route(subject));
-        return RefreshIndicator(
-          onRefresh: context.read<HomeCubit>().refresh,
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-            children: [
-              Section(
-                title: 'Fuel',
-                note: now.fuelFromGazette
-                    ? fuelNote(now, today: today)
-                    : 'CEYPETCO, ${fuelNote(now, today: today)}',
-                children: [
-                  if (now.fuel.isEmpty) const ListTile(title: Text('Not yet')),
-                  for (final price in now.fuel)
-                    _PriceRow(
-                      name: price.name,
-                      value: price.price,
-                      before: price.was,
-                      note: 'since ${cardDate(price.since, today: today)}',
-                      share: fuelShare(
-                        price,
-                        asOf: now.fuelAsOf ?? today,
-                        fromGazette: now.fuelFromGazette,
+        Widget keyed(int index, Widget section) =>
+            KeyedSubtree(key: _keys[index], child: section);
+        return Column(
+          children: [
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: UnderlineTabs(
+                labels: PricesTab.sections,
+                selected: _shown,
+                onSelected: (index) => unawaited(_jump(index)),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+              ),
+            ),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: context.read<HomeCubit>().refresh,
+                child: SingleChildScrollView(
+                  key: _view,
+                  controller: _scroll,
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      keyed(
+                        0,
+                        Section(
+                          title: 'Fuel',
+                          note: now.fuelFromGazette
+                              ? fuelNote(now, today: today)
+                              : 'CEYPETCO, ${fuelNote(now, today: today)}',
+                          children: [
+                            if (now.fuel.isEmpty)
+                              const ListTile(title: Text('Not yet')),
+                            for (final price in now.fuel)
+                              _PriceRow(
+                                name: price.name,
+                                note:
+                                    'since ${cardDate(price.since, today: today)}',
+                                value: amount(price.price),
+                                trend: _trend(price.price, price.was),
+                                graphic: Sparkline(
+                                  points: since(
+                                    now.fuelHistories[price.name] ?? const [],
+                                    DateTime(today.year - 1, today.month),
+                                  ),
+                                  steps: true,
+                                  until: today,
+                                  height: 26,
+                                ),
+                                share: fuelShare(
+                                  price,
+                                  asOf: now.fuelAsOf ?? today,
+                                  fromGazette: now.fuelFromGazette,
+                                ),
+                                onTap: () => chart(FuelChart(price.name)),
+                              ),
+                          ],
+                        ),
                       ),
-                      onTap: () => chart(FuelChart(price.name)),
-                    ),
-                ],
-              ),
-              Section(
-                title: 'USD/LKR',
-                note: now.ratesFromBackup
-                    ? 'backup copy'
-                    : 'Central Bank of Sri Lanka',
-                children: [
-                  if (rates.isEmpty) const ListTile(title: Text('Not yet')),
-                  if (rates.isNotEmpty)
-                    _RateNow(
-                      rates: rates,
-                      share: rateShare(rates, backup: now.ratesFromBackup),
-                      onTap: () => chart(const RateChart()),
-                    ),
-                  for (final rate in rates.skip(1).take(4))
-                    _PriceRow(
-                      name: weekdayDate(rate.day),
-                      value: rate.rate,
-                      quiet: true,
-                      onTap: () => chart(const RateChart()),
-                    ),
-                ],
-              ),
-              if (now.market.quotes.isNotEmpty)
-                _MarketSection(
-                  market: now.market,
-                  today: today,
-                  onChart: (name) => chart(MarketChart(name)),
-                ),
-              if (now.wholesale.latest != null)
-                _WholesaleSection(
-                  wholesale: now.wholesale,
-                  centre: state.wholesaleCentre,
-                  today: today,
-                  onChart: (name, market) =>
-                      chart(WholesaleChart(name, market)),
-                ),
-              if (goods.isNotEmpty)
-                Section(
-                  title: 'Controlled prices',
-                  note: 'maximum retail',
-                  children: [
-                    for (final MapEntry(key: name, value: history)
-                        in goods.entries)
-                      _PriceRow(
-                        name: name,
-                        value: history.last.value,
-                        before: history.length > 1
-                            ? history[history.length - 2].value
-                            : null,
-                        note:
-                            'since ${cardDate(history.last.day, today: today)}',
-                        share: switch (setBy[name]) {
-                          final order? => goodShare(name, history, order),
-                          null => null,
-                        },
-                        onTap: () => chart(GoodChart(name)),
+                      keyed(
+                        1,
+                        Section(
+                          title: 'USD/LKR',
+                          note: now.ratesFromBackup
+                              ? 'backup copy'
+                              : 'Central Bank',
+                          children: [
+                            if (now.rates.isEmpty)
+                              const ListTile(title: Text('Not yet'))
+                            else
+                              _RateNow(
+                                rates: now.rates,
+                                share: rateShare(
+                                  now.rates,
+                                  backup: now.ratesFromBackup,
+                                ),
+                                onTap: () => chart(const RateChart()),
+                              ),
+                          ],
+                        ),
                       ),
-                  ],
+                      keyed(
+                        2,
+                        _GasSection(
+                          gas: now.gas,
+                          litro: gasPrices(items, state.gasDistrict),
+                          laugfs: now.laugfs?.at(state.gasDistrict),
+                          district: state.gasDistrict,
+                          today: today,
+                          open: widget.open,
+                        ),
+                      ),
+                      keyed(
+                        3,
+                        _MarketSection(
+                          market: now.market,
+                          today: today,
+                          onChart: (name) => chart(MarketChart(name)),
+                        ),
+                      ),
+                      keyed(
+                        4,
+                        _WholesaleSection(
+                          wholesale: now.wholesale,
+                          centre: state.wholesaleCentre,
+                          today: today,
+                          onChart: (name, market) =>
+                              chart(WholesaleChart(name, market)),
+                        ),
+                      ),
+                      keyed(
+                        5,
+                        Section(
+                          title: 'Controlled',
+                          note: 'maximum retail',
+                          children: [
+                            if (goods.isEmpty)
+                              const ListTile(title: Text('Not yet')),
+                            for (final MapEntry(key: name, value: history)
+                                in goods.entries)
+                              _PriceRow(
+                                name: name,
+                                note:
+                                    'since ${cardDate(history.last.day, today: today)}',
+                                value: amount(history.last.value),
+                                trend: _trend(
+                                  history.last.value,
+                                  history.length > 1
+                                      ? history[history.length - 2].value
+                                      : null,
+                                ),
+                                graphic: Sparkline(
+                                  points: history,
+                                  steps: true,
+                                  until: today,
+                                  height: 26,
+                                ),
+                                share: switch (setBy[name]) {
+                                  final order? => goodShare(
+                                    name,
+                                    history,
+                                    order,
+                                  ),
+                                  null => null,
+                                },
+                                onTap: () => chart(GoodChart(name)),
+                              ),
+                          ],
+                        ),
+                      ),
+                      if (priceOrders.isNotEmpty)
+                        Section(
+                          title: 'Price orders',
+                          card: false,
+                          children: [
+                            ItemGroup(
+                              children: [
+                                for (final item in priceOrders)
+                                  ItemTile(
+                                    item: item,
+                                    isNew: state.isNew(item),
+                                    onTap: () => Navigator.of(
+                                      context,
+                                    ).push(ItemPage.route(item)),
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: TextButton(
+                          onPressed: () =>
+                              widget.open(Uri.parse(Ceypetco.page)),
+                          child: const Text('CEYPETCO prices'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              _GasSection(
-                gas: gas,
-                litro: gasPrices(
-                  state.items ?? const <FeedItem>[],
-                  state.gasDistrict,
-                ),
-                laugfs: now.laugfs?.at(state.gasDistrict),
-                district: state.gasDistrict,
-                today: today,
-                open: open,
               ),
-              if (priceOrders.isNotEmpty)
-                Section(
-                  title: 'Price orders',
-                  card: false,
-                  children: [
-                    ItemGroup(
-                      children: [
-                        for (final item in priceOrders)
-                          ItemTile(
-                            item: item,
-                            isNew: state.isNew(item),
-                            onTap: () => Navigator.of(
-                              context,
-                            ).push(ItemPage.route(item)),
-                          ),
-                      ],
-                    ),
-                  ],
-                ),
-              Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: TextButton(
-                  onPressed: () => open(Uri.parse(Ceypetco.page)),
-                  child: const Text('CEYPETCO prices'),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
   }
 }
+
+/// Which way [value] moved from [before], by how much; nothing when it
+/// didn't.
+Widget? _trend(double value, double? before) =>
+    before == null || before == value
+    ? null
+    : Trend(change: value - before, text: amount((value - before).abs()));
 
 /// LP gas prices in the district picked (picked across from the title): a card
 /// for each company, Litro's and Laugfs's, with its sizes against the prices
@@ -388,6 +535,7 @@ class _GasCard extends StatelessWidget {
                               amount(price.price),
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w600,
+                                fontFeatures: tabular,
                               ),
                             ),
                             if (price.before case final before?
@@ -409,7 +557,8 @@ class _GasCard extends StatelessWidget {
   }
 }
 
-/// The Central Bank's daily retail prices, a section of the report at a time.
+/// The Central Bank's daily retail prices, a section of the report at a time,
+/// each good with a bar for its change since the report before.
 class _MarketSection extends StatefulWidget {
   const _MarketSection({
     required this.market,
@@ -431,54 +580,73 @@ class _MarketSectionState extends State<_MarketSection> {
   @override
   Widget build(BuildContext context) {
     final quotes = widget.market.quotes;
+    final latest = widget.market.latest;
     final sections = [
       for (final section in marketSections)
         if (quotes.any((quote) => quote.good.section == section)) section,
     ];
+    if (latest == null || sections.isEmpty) {
+      return const Section(
+        title: 'Market',
+        children: [ListTile(title: Text('Not yet'))],
+      );
+    }
     final shown = sections.contains(_section) ? _section : sections.first;
     return Section(
       title: 'Market',
-      note:
-          '${marketOrder.first}, '
-          '${cardDate(widget.market.latest!, today: widget.today)}',
+      note: '${marketOrder.first}, ${cardDate(latest, today: widget.today)}',
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
-          child: Row(
-            children: [
-              for (final section in sections) ...[
-                if (section != sections.first) const SizedBox(width: 8),
-                ChoiceChip(
-                  label: Text(section),
-                  selected: section == shown,
-                  showCheckmark: false,
-                  onSelected: (_) => setState(() => _section = section),
-                ),
-              ],
-            ],
+        Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: UnderlineTabs(
+              labels: sections,
+              selected: sections.indexOf(shown),
+              onSelected: (index) => setState(() => _section = sections[index]),
+              dense: true,
+            ),
           ),
         ),
         for (final quote in quotes)
           if (quote.good.section == shown)
             _PriceRow(
               name: quote.good.name,
-              value: quote.price,
-              before: quote.before,
-              note: [
-                quote.good.perUnit,
-                if (quote.market != marketOrder.first) quote.market,
-              ].join(dot),
-              share: marketShare(quote, day: widget.market.latest!),
+              note: quote.market == marketOrder.first
+                  ? quote.good.perUnit
+                  : '${quote.good.perUnit}, ${quote.market}',
+              value: amount(quote.price),
+              trend: switch (quote.before) {
+                final before? when before != quote.price && before > 0 => Trend(
+                  change: quote.price - before,
+                  text: '${_percent((quote.price - before) / before)}%',
+                ),
+                _ => null,
+              },
+              graphic: switch (quote.before) {
+                final before? when before > 0 => ChangeBar(
+                  change: (quote.price - before) / before,
+                ),
+                _ => null,
+              },
+              share: marketShare(quote, day: latest),
               onTap: () => widget.onChart(quote.good.name),
             ),
       ],
     );
   }
+
+  static String _percent(double change) {
+    final percent = (change * 100).abs();
+    return percent < 10
+        ? percent.toStringAsFixed(1)
+        : percent.round().toString();
+  }
 }
 
 /// HARTI's wholesale prices, a group at a time: vegetables at the centre
-/// picked (across from the title), rice and dried foods at Pettah.
+/// picked (across from the title), rice and dried foods at Pettah. Each
+/// range sits on a track from the cheapest centre to the dearest that day.
 class _WholesaleSection extends StatefulWidget {
   const _WholesaleSection({
     required this.wholesale,
@@ -509,13 +677,17 @@ class _WholesaleSectionState extends State<_WholesaleSection> {
       for (final group in wholesaleGroups)
         if (widget.wholesale.goods.any((good) => good.group == group)) group,
     ];
-    if (groups.isEmpty) {
-      return const SizedBox.shrink();
+    final latest = widget.wholesale.latest;
+    if (groups.isEmpty || latest == null) {
+      return const Section(
+        title: 'Wholesale',
+        children: [ListTile(title: Text('Not yet'))],
+      );
     }
     final shown = groups.contains(_group) ? _group : groups.first;
     final vegetables = shown == 'Vegetables';
     final quotes = widget.wholesale.quotes(shown, centre: widget.centre);
-    final day = cardDate(widget.wholesale.latest!, today: widget.today);
+    final day = cardDate(latest, today: widget.today);
     return Section(
       title: 'Wholesale',
       // Where and when, as Market's "Narahenpita, 20 Oct"; the centre is
@@ -528,36 +700,45 @@ class _WholesaleSectionState extends State<_WholesaleSection> {
             )
           : null,
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              for (final group in groups) ...[
-                if (group != groups.first) const SizedBox(width: 8),
-                ChoiceChip(
-                  label: Text(group == 'Other' ? 'Other foods' : group),
-                  selected: group == shown,
-                  showCheckmark: false,
-                  onSelected: (_) => setState(() => _group = group),
-                ),
+        Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: UnderlineTabs(
+              labels: [
+                for (final group in groups)
+                  group == 'Other' ? 'Other foods' : group,
               ],
-            ],
+              selected: groups.indexOf(shown),
+              onSelected: (index) => setState(() => _group = groups[index]),
+              dense: true,
+            ),
           ),
         ),
         if (quotes.isEmpty)
-          const ListTile(title: Text('No prices there that day')),
+          const ListTile(title: Text('No prices there that day'))
+        else
+          _TrackKey(market: quotes.first.market),
         for (final quote in _all ? quotes : quotes.take(atFirst))
           _PriceRow(
             name: quote.good.name,
-            value: quote.now.middle,
-            text: rangeText(quote.now.low, quote.now.high),
-            before: quote.before?.middle,
-            beforeText: switch (quote.before) {
-              final before? => rangeText(before.low, before.high),
+            note: quote.good.perUnit,
+            value: rangeText(quote.now.low, quote.now.high),
+            valueWidth: 92,
+            trend: switch (quote.before) {
+              final before? => _trend(quote.now.middle, before.middle),
               null => null,
             },
-            note: quote.good.perUnit,
+            graphic: switch (_span(quote.good, latest)) {
+              (final min, final max) when max > min => RangeTrack(
+                min: min,
+                max: max,
+                low: quote.now.low,
+                high: quote.now.high,
+                width: 64,
+              ),
+              _ => null,
+            },
             onTap: () => widget.onChart(quote.good.name, quote.market),
           ),
         if (quotes.length > atFirst)
@@ -567,6 +748,21 @@ class _WholesaleSectionState extends State<_WholesaleSection> {
           ),
       ],
     );
+  }
+
+  /// The cheapest and dearest prices of [good] at any centre on [day].
+  static (double, double)? _span(WholesaleGood good, DateTime day) {
+    double? min;
+    double? max;
+    for (final column in good.prices.values) {
+      for (final point in column) {
+        if (point.day == day) {
+          min = min == null || point.low < min ? point.low : min;
+          max = max == null || point.high > max ? point.high : max;
+        }
+      }
+    }
+    return min == null || max == null ? null : (min, max);
   }
 
   Future<void> _pickCentre(BuildContext context) async {
@@ -592,31 +788,68 @@ class _WholesaleSectionState extends State<_WholesaleSection> {
   }
 }
 
-/// A name and its price, with which way it moved since [before].
+/// What the tracks show: the market's range on the span of every market.
+class _TrackKey extends StatelessWidget {
+  const _TrackKey({required this.market});
+
+  final String market;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final style = theme.textTheme.labelSmall?.copyWith(
+      color: colors.onSurfaceVariant,
+    );
+    Widget swatch(Color color, double height) => Container(
+      width: 14,
+      height: height,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(height),
+      ),
+    );
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+      child: Row(
+        children: [
+          swatch(colors.primary, 5),
+          const SizedBox(width: 6),
+          Text(market, style: style),
+          const SizedBox(width: 14),
+          swatch(colors.surfaceContainerHighest, 4),
+          const SizedBox(width: 6),
+          Text('Cheapest to dearest centre', style: style),
+        ],
+      ),
+    );
+  }
+}
+
+/// A name with a note under it, a small drawing of its history or change,
+/// and its price with which way it moved.
 class _PriceRow extends StatelessWidget {
   const _PriceRow({
     required this.name,
     required this.value,
-    this.text,
-    this.before,
-    this.beforeText,
     this.note,
-    this.quiet = false,
+    this.trend,
+    this.graphic,
+    this.valueWidth = 76,
     this.share,
     this.onTap,
   });
 
   final String name;
-  final double value;
-
-  /// Shown in place of [value], such as a wholesale range; [value] is still
-  /// what the arrow goes by.
-  final String? text;
-  final double? before;
-
-  /// Shown in place of [before] after "was".
-  final String? beforeText;
   final String? note;
+  final String value;
+  final Widget? trend;
+
+  /// A sparkline, a change bar or a range track.
+  final Widget? graphic;
+
+  /// Room for the price, so the drawings line up down a section.
+  final double valueWidth;
 
   /// What a long press shares.
   final String? share;
@@ -624,22 +857,16 @@ class _PriceRow extends StatelessWidget {
   /// Opens the chart.
   final VoidCallback? onTap;
 
-  /// A plain row, such as an earlier day's rate.
-  final bool quiet;
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final muted = theme.textTheme.labelMedium?.copyWith(
-      color: theme.colorScheme.onSurfaceVariant,
-    );
-    final before = this.before;
     final share = this.share;
+    final graphic = this.graphic;
     return InkWell(
       onTap: onTap,
       onLongPress: share == null ? null : () => shareText(context, share),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
         child: Row(
           children: [
             Expanded(
@@ -648,40 +875,42 @@ class _PriceRow extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: quiet
-                        ? theme.textTheme.bodyMedium
-                        : theme.textTheme.bodyLarge,
+                    style: theme.textTheme.bodyLarge,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  if (note case final note?) Text(note, style: muted),
+                  if (note case final note?)
+                    Text(
+                      note,
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                 ],
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  text ?? amount(value),
-                  style: quiet
-                      ? theme.textTheme.bodyMedium
-                      : theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                ),
-                if (before != null && before != value)
-                  Trend(
-                    change: value - before,
-                    text: 'was ${beforeText ?? amount(before)}',
-                  ),
-              ],
-            ),
-            if (onTap != null) ...[
-              const SizedBox(width: 4),
-              Icon(
-                Icons.chevron_right,
-                size: 20,
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+            if (graphic != null) ...[
+              const SizedBox(width: 12),
+              SizedBox(width: 64, child: Center(child: graphic)),
             ],
+            const SizedBox(width: 12),
+            SizedBox(
+              width: valueWidth,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    value,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontFeatures: tabular,
+                    ),
+                    maxLines: 1,
+                  ),
+                  ?trend,
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -689,10 +918,12 @@ class _PriceRow extends StatelessWidget {
   }
 }
 
-/// Today's rate, large, with the week's move.
+/// Today's rate, large, with the week's move, over the last 30 days as a
+/// chart to slide a finger along.
 class _RateNow extends StatelessWidget {
   const _RateNow({required this.rates, required this.share, this.onTap});
 
+  /// Newest first.
   final List<RateNow> rates;
 
   /// What a long press shares.
@@ -704,41 +935,58 @@ class _RateNow extends StatelessWidget {
     final theme = Theme.of(context);
     final latest = rates.first;
     final move = weekMove(rates);
-    return InkWell(
-      onTap: onTap,
-      onLongPress: () => shareText(context, share),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    amount(latest.rate),
-                    style: theme.textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        InkWell(
+          onTap: onTap,
+          onLongPress: () => shareText(context, share),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        amount(latest.rate),
+                        style: bigNumber(context, size: 40),
+                      ),
+                      Text(
+                        weekdayDate(latest.day),
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (move != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 18),
+                    child: Trend(
+                      change: move,
+                      text: '${move.abs().toStringAsFixed(1)}% in a week',
                     ),
                   ),
-                  Text(
-                    weekdayDate(latest.day),
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
+              ],
             ),
-            if (move != null)
-              Trend(
-                change: move,
-                text: '${move.abs().toStringAsFixed(1)}% in a week',
-              ),
-          ],
+          ),
         ),
-      ),
+        if (rates.length > 1)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 8, 12),
+            child: PriceChart(
+              points: [
+                for (final rate in rates.reversed)
+                  PricePoint(rate.day, rate.rate),
+              ],
+              height: 150,
+            ),
+          ),
+      ],
     );
   }
 }

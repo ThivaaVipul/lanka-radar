@@ -15,6 +15,7 @@ import 'package:lanka_radar/core/location.dart';
 import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
 import 'package:lanka_radar/features/power/hero_status.dart';
 import 'package:lanka_radar/features/power/view/place_page.dart';
+import 'package:lanka_radar/features/power/widgets/day_lanes.dart';
 import 'package:lanka_radar/features/power/widgets/place_row.dart';
 import 'package:lanka_radar/features/power/widgets/power_card.dart';
 
@@ -91,6 +92,19 @@ class PowerTab extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                 sliver: SliverToBoxAdapter(child: header),
               ),
+              for (final (label, day) in _days(state.power))
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  sliver: SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SectionTitle(label),
+                        DayLanes(day: day, places: state.power!.places),
+                      ],
+                    ),
+                  ),
+                ),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 sliver: SliverToBoxAdapter(
@@ -128,6 +142,23 @@ class PowerTab extends StatelessWidget {
         );
       },
     );
+  }
+
+  /// Today, and tomorrow when it has a cut, as 24 hour strips; none until
+  /// a place has its load shedding group.
+  static List<(String, DateTime)> _days(PowerNow? power) {
+    final places = power?.places ?? const <PlaceCuts>[];
+    if (!places.any((place) => place.group != null)) {
+      return const [];
+    }
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final tomorrow = DateTime(now.year, now.month, now.day + 1);
+    return [
+      ('Today', today),
+      if (places.any((place) => DayLanes.slots(place, tomorrow).isNotEmpty))
+        ('Tomorrow', tomorrow),
+    ];
   }
 
   /// A word on what just happened to a place, with Undo for a removal.

@@ -1,3 +1,4 @@
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart' as weekly;
 import 'package:lanka_radar/core/data/feed_item.dart';
 
 /// Election vacancy notices: most gazettes, so they fold away.
@@ -16,6 +17,13 @@ final class MonthRow extends NoticeRow {
   final DateTime month;
 }
 
+/// A day heading, before the day's first row.
+final class DayRow extends NoticeRow {
+  const DayRow(this.day);
+
+  final DateTime day;
+}
+
 final class ItemRow extends NoticeRow {
   const ItemRow(this.item);
 
@@ -31,34 +39,58 @@ final class ElectionWeek extends NoticeRow {
   final List<FeedItem> items;
 }
 
-/// The Notices list for [items] (newest first): month headings, and each
-/// week's election notices folded into one row where the week's newest one
-/// would be.
+/// A weekly gazette's notices folded into one row, newest first.
+final class WeeklyGazette extends NoticeRow {
+  const WeeklyGazette(this.week, this.items);
+
+  /// The gazette's date.
+  final DateTime week;
+  final List<FeedItem> items;
+}
+
+/// The Notices list for [items] (newest first): month and day headings, each
+/// week's election notices folded into one row and each weekly gazette's
+/// notices into another, where the newest of them would be.
 List<NoticeRow> noticeRows(List<FeedItem> items) {
   final weeks = <DateTime, List<FeedItem>>{};
+  final gazettes = <DateTime, List<FeedItem>>{};
   for (final item in items) {
     if (isElectionNotice(item)) {
       weeks.putIfAbsent(weekOf(item.published), () => []).add(item);
+    } else if (item.source == 'weekly') {
+      gazettes.putIfAbsent(weekly.weekOf(item), () => []).add(item);
     }
   }
   final rows = <NoticeRow>[];
-  final folded = <DateTime>{};
+  final folded = <Object>{};
   DateTime? month;
+  DateTime? day;
   for (final item in items) {
     final NoticeRow row;
     if (isElectionNotice(item)) {
       final week = weekOf(item.published);
-      if (!folded.add(week)) {
+      if (!folded.add(('elections', week))) {
         continue;
       }
       row = ElectionWeek(week, weeks[week]!);
+    } else if (item.source == 'weekly') {
+      final week = weekly.weekOf(item);
+      if (!folded.add(('weekly', week))) {
+        continue;
+      }
+      row = WeeklyGazette(week, gazettes[week]!);
     } else {
       row = ItemRow(item);
     }
-    final day = item.published;
-    if (month == null || month.month != day.month || month.year != day.year) {
-      rows.add(MonthRow(day));
-      month = day;
+    final published = item.published;
+    final date = DateTime(published.year, published.month, published.day);
+    if (month == null || month.month != date.month || month.year != date.year) {
+      rows.add(MonthRow(date));
+      month = date;
+    }
+    if (date != day) {
+      rows.add(DayRow(date));
+      day = date;
     }
     rows.add(row);
   }

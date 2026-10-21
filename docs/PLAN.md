@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
 Living document, updated as work proceeds. Last updated: 2026-10-21.
-Status: **M0 to M9 built: the app is released (v0.15.0 the latest, a 31 MB arm64 APK) and in daily use. Left: M10 (Laugfs gas, HARTI's wholesale prices) and M7's two weeks of daily use, tuning topics and alerts; ideas for afterwards are under Later.**
+Status: **M0 to M10 built: the app is released (v0.17.0 the latest, a 31 MB arm64 APK) and in daily use. M11, the redesign, is under way (M11a built). Left: the rest of M11, and M7's two weeks of daily use, tuning topics and alerts; ideas for afterwards are under Later.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -84,6 +84,13 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
   - A Wholesale section in Prices, under Market, with groups (Vegetables, Rice, Other foods). Vegetables show one economic centre, picked like the gas district (Dambulla at first); rice and the dried foods show Pettah. A row shows the range as printed, its arrow comparing the middle with the day before. Each day read is kept on the phone for charts (no back-fill); a vegetable's page also lists all 10 centres that day. Searchable like the market prices; no alerts.
   - Two pull requests: M10a Laugfs (workflow and app), M10b HARTI (app).
 
+- **Redesign (M11 plan, 2026-10-21, on the branch `feat/ui-redesign`):**
+  - Brief (the user's): redesign every screen, architect the tabs and screens properly, concise text, more visualization and animation, very cool to interact with. Kept from earlier rounds: rows over cards for lists, the animated bulb, the power line and the plug tab, the two LP gas cards; no big "All clear" text, check badges or the same icon on every row.
+  - Idea: a radar over the official sources. Its sweep is the one signature motion: it turns while the app refreshes (pull to refresh and the title bar's status), pings where something new landed, and fills the Sources screen, where it means something (how fresh each source is). Everything else is numbers, lines and days.
+  - Tabs stay Today, Prices, Notices, Dates and Power (each has one job and the user knows them); what changes is inside each.
+  - Every number shows where it came from: a sparkline or a change beside it, never a lone figure when there is history. Words only name things; the drawing says how much.
+  - Details under "Redesign (M11)" in Design.
+
 ### Defaults (accepted 2026-10-16)
 
 - Public repo under ThivaaVipul, MIT license. Scraped data is committed to a separate `data` branch, so `main` holds only code.
@@ -162,6 +169,38 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
 - Background sync (M6): WorkManager about every hour (every 3 hours until M8a) on any network runs the same refresh as opening the app (month files, datasets, status, CEYPETCO, CBSL), then notifies for items first seen in that sync that are on, recent (published in the last 14 days) and outside quiet hours; held items go out after quiet hours. Nothing is posted while the app is in front.
 - Holiday reminders (M6): inexact local notifications at about 19:00 the evening before (no exact-alarm permission), scheduled again after each refresh of `datasets/holidays.json`.
 - The notification permission is asked once, after the first sync (M6).
+
+**Redesign (M11)**
+
+Tokens (light / dark):
+
+| Token | Light | Dark | Job |
+| --- | --- | --- | --- |
+| Page | `#EEF1F1` | `#101414` | the page behind groups |
+| Group | `#FFFFFF` | `#191E1E` | rows and tiles |
+| Ink | `#191C1C` | `#E1E6E5` | text, values |
+| Muted | `#5D6564` | `#A7B1AF` | secondary text, axes |
+| Teal | `#0F766E` | `#7FD3C8` | what you can act on, a fall, the sweep |
+| Ochre | `#9A5B13` | `#E9B36B` | a rise, a cut on, a source gone quiet |
+| Marks | `#008C7E` `#6250D6` `#A65E00` | `#26A898` `#9085E9` `#C47F1F` | day markers: holiday, exam, closing (checked for colour blindness in both modes, all pairs) |
+
+- Type: Albert Sans only, figures tabular so numbers line up and roll cleanly. Big numbers 44 (hero) and 30 (tiles) at medium weight, tight tracking; titles semibold; labels 12 to 13. Sentence case; no capitals labels, no dotted "A . B" lines (layout separates issuer and date).
+- Shapes: one rounded group per section with 3 dp gaps between segments (as Alerts and Power), outer corners 24, inner 6; tiles join one block instead of floating cards. Lists are rows. The LP gas cards and the cut tile stay cards.
+- Charts: one series in teal; up and down in ochre and teal; axes and grid muted and few; a touch shows a crosshair and the value, with a light tick on each point; the line draws itself once when first shown.
+- Motion: the sweep (about 1.2 s a turn) only while refreshing and on Sources; a ping (a ring that grows and fades once) on what arrived; numbers roll when they change, not on every show; rows and tiles open into their page; tabs slide their underline. Everything holds still with Android's animations off.
+
+Screens:
+
+- Title bar (every tab): the tab's name, then a small radar: still when all is well, sweeping while refreshing, an ochre blip when a source has gone quiet (a tap opens Sources). Search and the menu stay. Pull to refresh draws the radar instead of a spinner.
+- Today: the cut tile (kept, only when a cut is due or on); Pulse, one 2 by 2 block: Petrol 92 and Diesel with a step sparkline of the year, USD/LKR with its 30 days, the next holiday with a ring counting the days; This week, a 7 day strip with markers (holiday, exam, closing, cut) that opens Dates at that day; New (or Latest), rows.
+- Prices: a pinned row of section names (Fuel, Rupee, Gas, Market, Wholesale, Fixed) that scrolls to each and follows the scroll. Fuel rows with a step sparkline and the change; USD/LKR large over a 30 day chart you can scrub (it replaces the four earlier days); LP gas, the two cards; Market by section with a bar for each good's change; Wholesale rows with a track from the cheapest centre to the dearest and the picked centre's range on it; Fixed (controlled prices) with sparklines; the latest price orders.
+- Notices: section names with a sliding underline in place of chips; a timeline by day (a rail with the day on it), rows without icons, a price notice's numbers on its row, a closing date as a bar running out; a weekly gazette folds into one row per week ("Gazette of 9 Oct", "6 vacancies, 3 exams"), election notices as now.
+- Dates: a month calendar (this month and the next two, swiped) with the day markers and long weekends as a band; tapping a day jumps to it; then the sections as now, each row led by a date block (the day large) and its countdown.
+- Power: the card with the power line (kept); Today and tomorrow as a 24 hour strip, one lane per place, the load shedding slots filled and a line for now; the place rows (kept).
+- Item: the title large with the Tamil one under it; key numbers as before and after bars; the PDF's first page when kept on the phone, else the buttons; facts (number, published, in force, closes) as a short list.
+- Chart: draws in, scrub with ticks, ranges as underlined names, high, low and average as one range bar, changes with their bars.
+- Sources: the radar, each source a blip, nearer the centre the fresher, ochre once quiet; under it the list with times, no check marks.
+- Alerts: quiet hours as a 24 hour dial with its arc (drag either end); the switches as now. Offline PDFs: a bar of the space used out of 200 MB. Search and About: the new rows and title bar.
 
 ## Milestones
 
@@ -270,8 +309,16 @@ Three pull requests, alongside M7's two weeks:
 
 ### M10: Laugfs gas and wholesale prices
 
-- [ ] M10a, Laugfs: its district refill prices read by the workflow, shown with Litro's for the district picked, a change alerting
-- [ ] M10b, HARTI: the daily bulletin read on the phone, a Wholesale section (vegetables by economic centre, rice and dried foods), charts and search
+- [x] M10a, Laugfs: its district refill prices read by the workflow, shown with Litro's for the district picked, a change alerting
+- [x] M10b, HARTI: the daily bulletin read on the phone, a Wholesale section (vegetables by economic centre, rice and dried foods), charts and search
+
+### M11: Redesign
+
+On the branch `feat/ui-redesign`, each step with its tests, after the user had seen the previews and tried them on the phone:
+
+- [x] M11a, the kit and the main screens: the marker colours and tabular figures; the sweep, draw in and press; sparklines, range tracks, change bars and countdown rings; the title bar's radar; Today (the pulse, this week), Prices (pinned section names, sparklines, the rate chart, change bars, wholesale tracks), Notices (the timeline, underlined topics, weekly folds), Dates (the calendar, date blocks), Power's 24 hour strip and the Sources radar
+- [ ] M11b, the rest: the item page, the chart page, the quiet hours dial, Offline PDFs, Search and About; numbers that roll, pings and the radar pull to refresh
+- [ ] M11c, checked on the phone in both modes, with animations on and off
 
 ## Open questions
 
@@ -344,3 +391,6 @@ None right now.
 | 2026-10-21 | M10a, Laugfs. `sources/laugfs.py` reads the table (the 37.5 kg column left out), checked like Litro's (every district, the home sizes, 150 to 900 rupees a kilogram); the district names both companies use moved to `districts.py` (Laugfs writes Nuwaraeliya). `datasets/laugfs-gas.json` holds the prices, those before the last change and when it was seen; a change is the item `gas-laugfs-<day>` with every district's prices and those before. The app reads the dataset with the others; LP gas now shows the district, then "Litro" and "Laugfs" each with its date (a tap opens the company's own list) over its sizes. A Laugfs change alerts like a Litro list, with the district's prices; a notification now says "was" only for a price that changed. The Sources screen lists the weekly gazette and Laugfs too (the weekly one was missing since M9b). |
 | 2026-10-21 | LP gas as two cards, Litro's and Laugfs's side by side (the user's pick over a comparison table or rows with both prices), each with its date and sizes and a tap to its own list; the district picker sits across from the section's title (`Section.action`). It had been the district, then each company's name and three sizes in one list, nine rows. |
 | 2026-10-21 | M10b, HARTI. PDFium splits the bulletin's rows (a range's dash, some digits and the descenders sit a few points off the line), so a row is the characters each within 4.5 points of the one before, and each price goes to the nearest column heading: the ten centres on the vegetables page, the dates over Pettah's range on the rice and dried foods page. The vegetables page is found by its centres, the foods page by Pettah, so a weekend bulletin (vegetables first, then the Sinhala copy) reads too. Names vary by day ("Beet root", "Beetroot", "AshPlantains"), so each good has a display name by its letters; big onions and potatoes are both vegetables at the centres and dried foods at Pettah, so a good is its group and name. The phone reads the listing's first 64 KB (the newest two months; the page is 2.8 MB), the newest bulletin on the first read, then up to three days since, every two hours until today's is in, each kept in `phone/wholesale-prices.json`. Prices has a Wholesale section after Market (Vegetables at the centre picked across from the title, Dambulla at first; Rice and Other foods at Pettah), ranges as printed with arrows by the middle, the first 8 and then "Show all" (the vegetables are about 30), the place and day across from the title ("Dambulla, 20 Oct", as Market's); the chart charts the middle and lists the centres; search finds them. Checked on a render of the real bulletin before committing. |
+| 2026-10-21 | M10 done: v0.17.0 from PR #37. On the phone, a pull to refresh read the 20 Oct bulletin (54 goods), and Wholesale showed it. |
+| 2026-10-21 | M11 planned (the user skipped grilling: "straight to planning"), on a local branch only. Every screen was rendered first with the phone's data to see where it stands: Prices is four screens long, Notices repeats a badge on every row, Today's numbers have no history beside them, Sources has a check on every row. The marker colours were checked for colour blindness (all pairs, both modes): the brand teal is too grey for a marker and the dark teal and ochre too light, so markers get their own steps. |
+| 2026-10-21 | M11a: the kit and the main screens. Previews were rendered from the app's code with the same data before and after (the data branch and the phone's sources read from Sri Lanka, the tests' sample place for power), with GIFs of the motion, then tried on the phone. Settled while building: Today's numbers are one 2 by 2 block, each with its history (fuel a step line for the year, USD/LKR its 30 days, the holiday a ring that fills over the month before it), and This week lists what its markers are, a day's cuts on one line ("Load shedding at Home and Work"); a wholesale row shows the change in the middle of its range instead of the range before, on a track from the cheapest centre to the dearest that day, with a key; market bars are full at a 30% change; Notices has a heading per day on a rail, its rows drop the date the heading gives, and each weekly gazette folds into one row that opens its notices; the calendar's month grows to six weeks without cutting a row; the Power strips show today, and tomorrow when it has a cut, once a place has its group; Sources places each source at the square root of its share of a day (rings at an hour, six hours and a day) and keeps "Last try failed". The sweep turns only while refreshing and on Sources, and everything holds still with animations off (the tests run that way). |

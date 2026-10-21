@@ -68,6 +68,9 @@ abstract final class AppTheme {
     const pill = StadiumBorder();
 
     return base.copyWith(
+      extensions: [
+        if (colors.brightness == Brightness.dark) Marks.dark else Marks.light,
+      ],
       textTheme: text,
       scaffoldBackgroundColor: colors.surface,
       appBarTheme: AppBarTheme(
@@ -170,4 +173,64 @@ abstract final class AppTheme {
       labelMedium: tune(base.labelMedium, 12, 16, FontWeight.w600, 0.2),
     );
   }
+}
+
+/// Numbers that line up in columns and roll in place.
+const tabular = [FontFeature.tabularFigures()];
+
+/// A number large: the hero of a screen (44) or of a tile (30).
+TextStyle bigNumber(BuildContext context, {double size = 30}) =>
+    Theme.of(context).textTheme.displaySmall!.copyWith(
+      fontSize: size,
+      height: 1.1,
+      fontWeight: FontWeight.w500,
+      letterSpacing: -size / 40,
+      fontFeatures: tabular,
+    );
+
+/// The colours that mark days and points: a holiday, an exam and a closing
+/// date. Stepped apart from the brand's teal and ochre so that each pair stays
+/// apart for colour-blind eyes, in both modes.
+@immutable
+class Marks extends ThemeExtension<Marks> {
+  const Marks({
+    required this.holiday,
+    required this.exam,
+    required this.closing,
+  });
+
+  static const light = Marks(
+    holiday: Color(0xFF008C7E),
+    exam: Color(0xFF6250D6),
+    closing: Color(0xFFA65E00),
+  );
+
+  static const dark = Marks(
+    holiday: Color(0xFF26A898),
+    exam: Color(0xFF9085E9),
+    closing: Color(0xFFC47F1F),
+  );
+
+  final Color holiday;
+  final Color exam;
+  final Color closing;
+
+  static Marks of(BuildContext context) =>
+      Theme.of(context).extension<Marks>() ?? light;
+
+  @override
+  Marks copyWith({Color? holiday, Color? exam, Color? closing}) => Marks(
+    holiday: holiday ?? this.holiday,
+    exam: exam ?? this.exam,
+    closing: closing ?? this.closing,
+  );
+
+  @override
+  Marks lerp(Marks? other, double t) => other == null
+      ? this
+      : Marks(
+          holiday: Color.lerp(holiday, other.holiday, t)!,
+          exam: Color.lerp(exam, other.exam, t)!,
+          closing: Color.lerp(closing, other.closing, t)!,
+        );
 }

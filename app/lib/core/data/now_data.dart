@@ -6,6 +6,7 @@ import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/data/wholesale_prices.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
@@ -76,6 +77,7 @@ final class HolidayNow extends Equatable {
 final class NowData extends Equatable {
   const NowData({
     this.fuel = const [],
+    this.fuelHistories = const {},
     this.fuelAsOf,
     this.fuelFromGazette = false,
     this.rates = const [],
@@ -90,6 +92,9 @@ final class NowData extends Equatable {
   });
 
   final List<FuelNow> fuel;
+
+  /// Each fuel's prices this year, oldest first, for its sparkline.
+  final Map<String, List<PricePoint>> fuelHistories;
 
   /// When CEYPETCO last answered or, before it ever has, the date of the fuel
   /// gazette the prices come from.
@@ -131,6 +136,7 @@ final class NowData extends Equatable {
   @override
   List<Object?> get props => [
     fuel,
+    fuelHistories,
     fuelAsOf,
     fuelFromGazette,
     rates,
@@ -169,6 +175,10 @@ NowData buildNow({
       : _fuelFromRows(fuelRows, gazettes);
   return NowData(
     fuel: fuel,
+    fuelHistories: {
+      for (final price in fuel)
+        price.name: fuelHistory(price.name, fuelRows, items),
+    },
     fuelAsOf: fromGazette ? gazettes.first.published : fuelChecked,
     fuelFromGazette: fromGazette,
     rates: rates.isNotEmpty ? _rates(rates) : _backup(backupRates, today),
