@@ -106,7 +106,10 @@ jobs:
           flutter pub get
           flutter analyze
           flutter test
-          flutter build apk --release --build-name "$VERSION" --build-number "$BUILD_NUMBER"
+          # 64-bit ARM only: about a third of the universal APK. Not --split-per-abi, which
+          # adds 2000 to the version code.
+          flutter build apk --release --target-platform android-arm64 \
+            --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Release notes
         run: python scripts/release/next_release.py && cat release-notes.md
