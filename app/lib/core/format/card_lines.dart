@@ -1,4 +1,5 @@
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
@@ -47,8 +48,8 @@ final _year = RegExp(r'\b20\d\d\b');
 /// timetable"), otherwise the official title without its boilerplate.
 String cardTitle(FeedItem item) {
   final numbers = item.keyNumbers;
-  // Litro's prices are by district: the list keeps its own title.
-  if (item.topic == 'prices' && numbers.isNotEmpty && item.source != 'gas') {
+  // LP gas prices are by district: a list keeps its own title.
+  if (item.topic == 'prices' && numbers.isNotEmpty && !isGasList(item)) {
     final more = numbers.length > 1 ? ', and ${numbers.length - 1} more' : '';
     return '${priceChange(numbers.first)}$more';
   }

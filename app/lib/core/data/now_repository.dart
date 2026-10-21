@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
@@ -438,6 +439,7 @@ class NowRepository {
       items: items,
       market: await marketPrices(),
       power: await powerNow(),
+      laugfs: (await _db.file(laugfsPath))?.body,
     );
   }
 

@@ -6,7 +6,7 @@ from typing import Any
 import httpx
 import pytest
 
-from lanka_radar import ocr
+from lanka_radar import districts, ocr
 from lanka_radar.sources import gas
 from lanka_radar.store import Store
 
@@ -60,7 +60,7 @@ def test_parse_prices_reads_the_ocr_text(fixture_bytes: Callable[[str], bytes]) 
     sizes, prices = gas.parse_prices(fixture_bytes(OCR).decode("utf-8"))
 
     assert sizes == ["12.5 kg", "5 kg", "2.3 kg"]
-    assert list(prices) == list(gas.DISTRICTS)
+    assert list(prices) == list(districts.DISTRICTS)
     assert prices["Colombo"] == [4365.0, 1750.0, 815.0]
     # Litro's own spellings: Mulative, N Eliya, Vauniya, Baticcaloa.
     assert prices["Mullaitivu"] == [4678.23, 1935.41, 964.73]

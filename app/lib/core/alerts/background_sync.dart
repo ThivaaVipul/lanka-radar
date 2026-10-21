@@ -115,7 +115,7 @@ class BackgroundSync {
       final district = await _feed.gasDistrict();
       await _alerts.notifier.showItems([
         for (final item in all)
-          item.source == 'gas' ? forDistrict(item, items, district) : item,
+          isGasList(item) ? forDistrict(item, items, district) : item,
       ]);
     }
     if (weeks.isNotEmpty) {

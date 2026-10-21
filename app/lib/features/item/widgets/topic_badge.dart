@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
@@ -26,7 +27,7 @@ enum TopicLook {
   final _Tint _tint;
 
   static TopicLook of(FeedItem item) {
-    if (item.source == 'gas') {
+    if (isGasList(item)) {
       return gas;
     }
     return switch (item.topic) {

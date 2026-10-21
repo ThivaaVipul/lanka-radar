@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import date
 from typing import TYPE_CHECKING, Protocol
 
-from lanka_radar.sources import exams, gas, gazettes, holidays, jobs, rates, weekly
+from lanka_radar.sources import exams, gas, gazettes, holidays, jobs, laugfs, rates, weekly
 
 if TYPE_CHECKING:
     from lanka_radar.store import Store
@@ -24,5 +24,5 @@ class Source(Protocol):
 
 
 SOURCES: dict[str, Source] = {
-    module.NAME: module for module in (gazettes, weekly, exams, jobs, gas, rates, holidays)
+    module.NAME: module for module in (gazettes, weekly, exams, jobs, gas, laugfs, rates, holidays)
 }

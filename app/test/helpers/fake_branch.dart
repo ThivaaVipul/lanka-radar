@@ -98,6 +98,16 @@ class FakeBranch {
     files['datasets/holidays.json'] = '{"schema": 1, "holidays": []}';
     files['datasets/usd-lkr.json'] = '{"schema": 1, "rates": []}';
     files['status.json'] = '{"schema": 1, "sources": {}}';
+    files['datasets/laugfs-gas.json'] = jsonEncode({
+      'schema': 1,
+      'sizes': ['12.5 kg', '5 kg', '2 kg'],
+      'prices': {
+        'Colombo': [4965, 1988, 795],
+        'Jaffna': [5336, 2210, 888],
+      },
+      'since': null,
+      'before': null,
+    });
     _writeIndex();
     _writeTextsIndex();
   }
