@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_radar/app/share.dart';
+import 'package:lanka_radar/app/viz/sparkline.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
-import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/format/share_texts.dart';
 import 'package:lanka_radar/features/item/widgets/highlight.dart';
-import 'package:lanka_radar/features/item/widgets/topic_badge.dart';
 
-/// An item as a row of a list: its topic's icon, what changed (or the
-/// official title) with the date across from it, and who published it. Rows
+/// An item as a row of a list: what changed (or the official title) with the
+/// date across from it, who published it, and for a notice with a closing date
+/// how long is left. Rows
 /// sit together in an [ItemGroup]; the item page has the rest.
 class ItemTile extends StatelessWidget {
   const ItemTile({
@@ -20,6 +20,7 @@ class ItemTile extends StatelessWidget {
     this.onTap,
     this.highlight = const [],
     this.line,
+    this.showDate = true,
     super.key,
   });
 
@@ -32,6 +33,9 @@ class ItemTile extends StatelessWidget {
 
   /// A line of the item's text that a search found its words in.
   final String? line;
+
+  /// Show the date across from the title; off under a day's heading.
+  final bool showDate;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +52,6 @@ class ItemTile extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TopicBadge(TopicLook.of(item)),
-            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,44 +79,54 @@ class ItemTile extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      const SizedBox(width: 12),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 2),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (isNew) ...[
-                              Container(
-                                width: 7,
-                                height: 7,
-                                decoration: BoxDecoration(
-                                  color: colors.primary,
-                                  shape: BoxShape.circle,
+                      if (showDate || isNew) const SizedBox(width: 12),
+                      if (showDate || isNew)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (isNew) ...[
+                                Container(
+                                  width: 7,
+                                  height: 7,
+                                  decoration: BoxDecoration(
+                                    color: colors.primary,
+                                    shape: BoxShape.circle,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 6),
+                                const SizedBox(width: 6),
+                              ],
+                              if (showDate)
+                                Text(
+                                  cardDate(
+                                    item.published,
+                                    today: DateTime.now(),
+                                  ),
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    color: isNew
+                                        ? colors.primary
+                                        : colors.onSurfaceVariant,
+                                  ),
+                                ),
                             ],
-                            Text(
-                              cardDate(item.published, today: DateTime.now()),
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                color: isNew
-                                    ? colors.primary
-                                    : colors.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
                     ],
                   ),
-                  if (_meta(item) case final meta when meta.isNotEmpty) ...[
+                  if (item.issuer case final issuer?
+                      when issuer.isNotEmpty) ...[
                     const SizedBox(height: 3),
                     Text(
-                      meta,
+                      issuer,
                       style: muted,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                  ],
+                  if (item.closes case final closes?) ...[
+                    const SizedBox(height: 8),
+                    ClosingBar(opened: item.published, closes: closes),
                   ],
                   if (line case final line? when line.isNotEmpty) ...[
                     const SizedBox(height: 6),
@@ -145,21 +157,66 @@ class ItemTile extends StatelessWidget {
   }
 }
 
-/// Under a row's title: who published it, and for a weekly gazette notice when
-/// applications close.
-String _meta(FeedItem item) => [
-  ?item.issuer,
-  if (item.closes case final closes?)
-    closingNote(closes, today: DateTime.now()),
-].join(dot);
+/// How long applications stay open, as a bar running out, with the day they
+/// close: ochre in the last week.
+class ClosingBar extends StatelessWidget {
+  const ClosingBar({required this.opened, required this.closes, super.key});
+
+  final DateTime opened;
+  final DateTime closes;
+
+  /// The bar turns ochre this close to the end.
+  static const lastWeek = Duration(days: 7);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final now = DateTime.now();
+    final end = closes.add(const Duration(days: 1));
+    final total = end.difference(opened).inHours;
+    final left = end.difference(now).inHours;
+    final share = total <= 0 ? 0.0 : (left / total).clamp(0.0, 1.0);
+    final soon = left > 0 && end.difference(now) <= lastWeek;
+    final color = left <= 0
+        ? colors.outline
+        : soon
+        ? colors.tertiary
+        : colors.primary;
+    return Row(
+      children: [
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(2),
+            child: DrawIn(
+              builder: (context, drawn) => LinearProgressIndicator(
+                value: share * drawn,
+                minHeight: 4,
+                color: color,
+                backgroundColor: colors.surfaceContainerHighest,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 10),
+        Text(
+          closingNote(closes, today: now),
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: soon ? colors.tertiary : colors.onSurfaceVariant,
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 /// Rows on one surface, with hairlines between them that start where the text
 /// does.
 class ItemGroup extends StatelessWidget {
   const ItemGroup({required this.children, super.key});
 
-  /// Where a divider starts: past a row's icon.
-  static const indent = 66.0;
+  /// Where a divider starts: where the text does.
+  static const indent = 16.0;
 
   final List<Widget> children;
 

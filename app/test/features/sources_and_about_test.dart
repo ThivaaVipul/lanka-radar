@@ -60,6 +60,10 @@ void main() {
       await phone.refresh();
     });
 
+    // As with Android's "Remove animations": the radar stands still.
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
     await tester.pumpWidget(
       RepositoryProvider.value(
         value: phone,

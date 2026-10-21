@@ -17,6 +17,12 @@ abstract final class Motion {
   /// The map gliding to a new spot.
   static const glide = Duration(milliseconds: 900);
 
+  /// A line drawing itself the first time it shows.
+  static const draw = Duration(milliseconds: 700);
+
+  /// One turn of the radar's sweep.
+  static const sweep = Duration(milliseconds: 1400);
+
   /// Most motion: a quick start and a gentle landing.
   static const Curve standard = Curves.easeInOutCubicEmphasized;
 

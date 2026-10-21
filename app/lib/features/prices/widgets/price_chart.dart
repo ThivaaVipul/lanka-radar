@@ -1,12 +1,17 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:lanka_radar/app/viz/sparkline.dart';
 import 'package:lanka_radar/core/data/price_history.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 
 /// A price over time: a line, or steps for prices set on a day, the area under
-/// it tinted, a few value lines and dates, and the value under your finger.
+/// it tinted, a few value lines and dates, and the value under your finger as
+/// it slides sideways (a light tick on each point). The line draws itself
+/// once when first shown.
 class PriceChart extends StatefulWidget {
   const PriceChart({
     required this.points,
@@ -47,6 +52,9 @@ class _PriceChartState extends State<PriceChart> {
       }
     }
     if (nearest != _touched) {
+      if (_touched != null) {
+        unawaited(HapticFeedback.selectionClick());
+      }
       setState(() => _touched = nearest);
     }
   }
@@ -57,25 +65,31 @@ class _PriceChartState extends State<PriceChart> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
+        // Sideways only, so the page still scrolls over the chart.
         return GestureDetector(
-          onPanDown: (details) => _touch(details.localPosition, width),
-          onPanUpdate: (details) => _touch(details.localPosition, width),
-          onPanEnd: (_) => setState(() => _touched = null),
-          onPanCancel: () => setState(() => _touched = null),
-          child: CustomPaint(
-            size: Size(width, widget.height),
-            painter: _ChartPainter(
-              points: widget.points,
-              steps: widget.steps,
-              until: widget.until,
-              touched: _touched,
-              colors: theme.colorScheme,
-              labels: theme.textTheme.labelSmall!.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-              readout: theme.textTheme.labelMedium!.copyWith(
-                color: theme.colorScheme.onInverseSurface,
-                fontWeight: FontWeight.w600,
+          onHorizontalDragDown: (details) =>
+              _touch(details.localPosition, width),
+          onHorizontalDragUpdate: (details) =>
+              _touch(details.localPosition, width),
+          onHorizontalDragEnd: (_) => setState(() => _touched = null),
+          onHorizontalDragCancel: () => setState(() => _touched = null),
+          child: DrawIn(
+            builder: (context, drawn) => CustomPaint(
+              size: Size(width, widget.height),
+              painter: _ChartPainter(
+                points: widget.points,
+                steps: widget.steps,
+                until: widget.until,
+                drawn: drawn,
+                touched: _touched,
+                colors: theme.colorScheme,
+                labels: theme.textTheme.labelSmall!.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                readout: theme.textTheme.labelMedium!.copyWith(
+                  color: theme.colorScheme.onInverseSurface,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -152,6 +166,7 @@ class _ChartPainter extends CustomPainter {
     required this.points,
     required this.steps,
     required this.until,
+    required this.drawn,
     required this.touched,
     required this.colors,
     required this.labels,
@@ -161,6 +176,9 @@ class _ChartPainter extends CustomPainter {
   final List<PricePoint> points;
   final bool steps;
   final DateTime? until;
+
+  /// How much of the line is drawn, 0 to 1, from the left.
+  final double drawn;
   final int? touched;
   final ColorScheme colors;
   final TextStyle labels;
@@ -234,6 +252,8 @@ class _ChartPainter extends CustomPainter {
       ..lineTo(layout.x(points.first.day), base)
       ..close();
     canvas
+      ..save()
+      ..clipRect(Rect.fromLTWH(0, 0, layout.plotWidth * drawn + 6, size.height))
       ..drawPath(
         area,
         Paint()
@@ -254,7 +274,11 @@ class _ChartPainter extends CustomPainter {
           ..style = PaintingStyle.stroke
           ..strokeJoin = StrokeJoin.round
           ..strokeCap = StrokeCap.round,
-      );
+      )
+      ..restore();
+    if (drawn < 1) {
+      return;
+    }
 
     // The latest value, or the one under the finger with its readout.
     final shown = touched ?? points.length - 1;
@@ -333,5 +357,8 @@ class _ChartPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ChartPainter old) =>
-      old.points != points || old.touched != touched || old.steps != steps;
+      old.points != points ||
+      old.touched != touched ||
+      old.steps != steps ||
+      old.drawn != drawn;
 }

@@ -2,8 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:lanka_radar/core/data/dates_ahead.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
+import 'package:lanka_radar/core/data/power_cuts.dart';
 
 import '../../helpers/fake_branch.dart';
+import '../../helpers/fake_sources.dart';
 
 FeedItem exam(String id, String title, String published, List<String> days) =>
     FeedItem(
@@ -155,5 +157,45 @@ void main() {
       ],
       ['weekly-2510-b', 'weekly-2510-a'],
     );
+  });
+
+  test('a day holds its holidays, exam days, closing dates and one line '
+      'for each kind of cut with every place it is at', () {
+    final day = DateTime(2026, 10, 24);
+    PlannedCut cut(String id, int hour) => PlannedCut(
+      id: id,
+      group: 'V',
+      start: DateTime(2026, 10, 24, hour),
+      end: DateTime(2026, 10, 24, hour + 1),
+    );
+    const work = Place(id: 'work', name: 'Work');
+    final events = dayEvents(
+      holidays: [holiday('2026-10-24', 'A holiday')],
+      exams: upcomingExams([
+        exam(
+          'exam-2480',
+          'General Information Technology - 2026',
+          '2026-10-01',
+          ['2026-10-24', '2026-10-25'],
+        ),
+      ], DateTime(2026, 10, 20)),
+      closing: [
+        FeedItem.fromJson(
+          notice('weekly-2510-a', '2026-10-09', closes: '2026-10-24'),
+        ),
+      ],
+      cuts: [(home, cut('a', 19)), (work, cut('b', 16)), (home, cut('c', 9))],
+    );
+
+    expect(
+      [for (final event in events[day]!) (event.mark, event.name)],
+      [
+        (DayMark.holiday, 'A holiday'),
+        (DayMark.exam, 'GIT 2026'),
+        (DayMark.closing, 'Applications close'),
+        (DayMark.cut, 'Load shedding at Home and Work'),
+      ],
+    );
+    expect(events[DateTime(2026, 10, 25)]!.single.mark, DayMark.exam);
   });
 }

@@ -12,6 +12,25 @@ ShapeBorder segmentShape(int index, int count) {
   );
 }
 
+/// Rounds only the outer corners of a grid of segments, like
+/// [segmentShape] in two directions.
+ShapeBorder gridSegmentShape(int row, int column, int rows, int columns) {
+  const outer = Radius.circular(24);
+  const inner = Radius.circular(6);
+  final top = row == 0;
+  final bottom = row == rows - 1;
+  final left = column == 0;
+  final right = column == columns - 1;
+  return RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: top && left ? outer : inner,
+      topRight: top && right ? outer : inner,
+      bottomLeft: bottom && left ? outer : inner,
+      bottomRight: bottom && right ? outer : inner,
+    ),
+  );
+}
+
 /// The small heading over a group of rows or controls.
 class SectionTitle extends StatelessWidget {
   const SectionTitle(

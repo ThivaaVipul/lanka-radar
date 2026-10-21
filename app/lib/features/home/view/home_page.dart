@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
+import 'package:lanka_radar/app/viz/radar.dart';
 import 'package:lanka_radar/core/location.dart';
 import 'package:lanka_radar/features/about/view/about_page.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
@@ -92,20 +93,16 @@ class _HomeViewState extends State<_HomeView> {
         appBar: AppBar(
           title: Text(tab.label),
           actions: [
-            BlocSelector<HomeCubit, HomeState, bool>(
-              selector: (state) =>
-                  state.health?.needsALook(DateTime.now()) ?? false,
-              builder: (context, needsALook) => needsALook
-                  ? IconButton(
-                      tooltip: 'A source has gone quiet',
-                      icon: Icon(
-                        Icons.error_outline,
-                        color: Theme.of(context).colorScheme.tertiary,
-                      ),
-                      onPressed: () =>
-                          Navigator.of(context).push(SourcesPage.route()),
-                    )
-                  : const SizedBox.shrink(),
+            BlocSelector<HomeCubit, HomeState, (bool, bool)>(
+              selector: (state) => (
+                state.refreshing,
+                state.health?.needsALook(DateTime.now()) ?? false,
+              ),
+              builder: (context, status) => RadarStatus(
+                refreshing: status.$1,
+                quiet: status.$2,
+                onTap: () => Navigator.of(context).push(SourcesPage.route()),
+              ),
             ),
             IconButton(
               tooltip: 'Search',
