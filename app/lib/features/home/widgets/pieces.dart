@@ -116,18 +116,23 @@ class NumberTile extends StatelessWidget {
   }
 }
 
-/// A titled group on a tab, with an optional note under the title.
+/// A titled group on a tab, with an optional note (or a control, such as a
+/// picker) across from the title.
 class Section extends StatelessWidget {
   const Section({
     required this.title,
     required this.children,
     this.note,
+    this.action,
     this.card = true,
     super.key,
   });
 
   final String title;
   final String? note;
+
+  /// Shown across from the title, in place of [note].
+  final Widget? action;
   final List<Widget> children;
 
   /// Whether the children sit in one card (rows) or stand alone (cards).
@@ -146,7 +151,9 @@ class Section extends StatelessWidget {
             textBaseline: TextBaseline.alphabetic,
             children: [
               Expanded(child: Text(title, style: theme.textTheme.titleSmall)),
-              if (note case final note?)
+              if (action case final action?)
+                action
+              else if (note case final note?)
                 Text(
                   note,
                   style: theme.textTheme.labelMedium?.copyWith(
