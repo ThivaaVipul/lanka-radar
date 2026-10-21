@@ -57,6 +57,7 @@ def run(
     }
     store.write_latest()
     store.write_months()
+    store.write_texts()
     store.write_status(report, now)
     if alerting:
         runs = status.FAILURES_BEFORE_ALERT

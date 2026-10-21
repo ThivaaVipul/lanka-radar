@@ -29,6 +29,11 @@ jobs:
           cache-dependency-path: scrapers/pyproject.toml
 
       - run: pip install -e "scrapers[dev]"
+      # So the OCR test reads the saved Litro image instead of being skipped.
+      - name: Install Tesseract
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends tesseract-ocr tesseract-ocr-eng
       - run: ruff format --check .
       - run: ruff check .
       - name: Scraper tests

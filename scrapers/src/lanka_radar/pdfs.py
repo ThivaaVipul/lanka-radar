@@ -36,6 +36,8 @@ LINE_GAP = 3.0  # points: characters this close vertically are on one line
 MASTHEAD_SIZE = 13.5  # the masthead and section headings are set larger than this
 TITLE_LENGTH = 300
 TABLE_PAGES = 3
+# Pages of an English PDF kept as text for search.
+TEXT_PAGES = 10
 # Text render modes: these fill the letters, these only outline them (Word draws bold
 # that way, over the filled copy, in a font without a bold face); the rest are invisible.
 FILL_MODES = (0, 2, 4, 6)
@@ -132,10 +134,12 @@ class Reading:
     numbers: list[KeyNumber] = field(default_factory=list)
     # Arial Unicode Tamil glyphs not in ARIAL_TAMIL yet; their lines are not trusted.
     unknown: tuple[int, ...] = ()
+    # An English PDF's text, its first TEXT_PAGES pages, for search.
+    text: str = ""
 
 
 def read(data: bytes, tamil: bool) -> Reading:
-    """The title of a gazette PDF and, for English ones, its price tables."""
+    """The title of a gazette PDF and, for English ones, its price tables and text."""
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         if not pdf.pages:
             return Reading(None)
@@ -144,7 +148,8 @@ def read(data: bytes, tamil: bool) -> Reading:
         if tamil:
             return Reading(heading, unknown=unknown_glyphs(chars))
         tables = [table for page in pdf.pages[:TABLE_PAGES] for table in page.extract_tables()]
-        return Reading(heading, price_numbers(tables))
+        text = " ".join(page.extract_text() or "" for page in pdf.pages[:TEXT_PAGES])
+        return Reading(heading, price_numbers(tables), text=" ".join(text.split()))
 
 
 def page_chars(page: Page) -> list[dict[str, Any]]:
