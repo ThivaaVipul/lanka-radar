@@ -13,6 +13,7 @@
   "links": {
     "page": "https://documents.gov.lk/web/extra_gazettes",
     "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(E)_1792577209.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(S)_1792577601.pdf",
     "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%86%20262%20Filling%20a%20vacancy_1792234925.pdf"
   },
   "data": {
@@ -20,6 +21,7 @@
     "group": "elections",
     "languages": [
       "en",
+      "si",
       "ta"
     ],
     "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"

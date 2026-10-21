@@ -2,6 +2,25 @@
   "schema": 1,
   "items": [
     {
+      "id": "jobs-psc-1792579132",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Recruitment to Sri Lanka Teacher Educators Service Grade III (Open Basis) 2019/2020",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-21",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1792579132-slte-serGIIIo.pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
+      "alert": true
+    },
+    {
       "id": "gazette-2510-61",
       "source": "gazettes",
       "topic": "gazettes",
@@ -16,6 +35,7 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(E)_1792577209.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(S)_1792577601.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208074%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%86%20262%20Filling%20a%20vacancy_1792234925.pdf"
       },
       "data": {
@@ -23,6 +43,7 @@
         "group": "elections",
         "languages": [
           "en",
+          "si",
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
@@ -2086,7 +2107,7 @@
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208020%20(E)_1790938348.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208020%20(S)_1790938338.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208020%20(T)_1790850895.pdf"
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208020%20(T)_1792579524.pdf"
       },
       "data": {
         "number": "2507/78",
@@ -5858,36 +5879,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF VICE CHAIRMAN OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2500-70",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "Election Commission - Filling the Vacancy of the Deputy Mayor in the Negombo Municiple Council",
-        "ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்ட உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 66ஆ(2) என்னும் பிரிவின் கீழ், நீர்கொழும்பு மாநகர சபையின் பிரதி மாநகர முதல்வர் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
-      },
-      "keyNumbers": [],
-      "published": "2026-08-05",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_E_1786340010.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_S_1786339986.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2500-70_T_1786339996.pdf"
-      },
-      "data": {
-        "number": "2500/70",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF DEPUTY MAYOR OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017"
       },
       "alert": true
     }
