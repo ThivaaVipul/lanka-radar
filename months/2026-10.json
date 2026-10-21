@@ -305,6 +305,291 @@
       "alert": true
     },
     {
+      "id": "weekly-2510-ff30c180",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Muslim Marriages (Tamil)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 5,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-fe44800d",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Excise Department",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to the Post of Excise Guard Driver - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "exams",
+        "page": 35,
+        "number": "2510",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-f325b50a",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Department of Government Factory",
+      "headline": {
+        "en": "Open Recruitment To Posts In The Primary Semi-Skilled Service Category (PL 2) - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 23,
+        "number": "2510",
+        "closes": "2026-11-06"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-e449cc24",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Births, Deaths and Marriages/ Additional Marriages (Kandyan/General) Tamil Medium",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 9,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-e38dd29c",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Muslim Marriages (Sinhala)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-b1b640ff",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Homeopathic Medical Council",
+      "headline": {
+        "en": "Applications are invited for the NVQ course for the employment of pharmaceutical Dispenser",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "exams",
+        "page": 44,
+        "number": "2510"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-b14fb51f",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Recruitment of B.Sc. (Nursing) Graduates for the Orientation and Coordination Course - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "exams",
+        "page": 38,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-85456cc3",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+      "headline": {
+        "en": "Open Recruitment To The Post of Additional Director-General Of The Commission To Investigate Allegations Of Bribery Or Corruption - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 12,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-76d01e6c",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Department of Government Factory",
+      "headline": {
+        "en": "Open Recruitment To Posts In The Primary Unskilled Service Category (PL 1) - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 17,
+        "number": "2510",
+        "closes": "2026-11-06"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-33f70a63",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Railway Department",
+      "headline": {
+        "en": "Open Written Competitive Examination for Recruitment to Railway Security (Male/Female) Grade III in the Railway Security Service of Sri Lanka Railway Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "exams",
+        "page": 43,
+        "number": "2510",
+        "closes": "2026-10-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2510-02fd0fe7",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Births, Deaths and Marriages/ Additional Marriages (Kandyan/ General) Sinhala Medium",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-09",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+      },
+      "data": {
+        "week": "2026-10-09",
+        "section": "vacancies",
+        "page": 8,
+        "number": "2510",
+        "closes": "2026-11-09"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2509-59",
       "source": "gazettes",
       "topic": "gazettes",
@@ -536,14 +821,164 @@
         "en": "Litro gas prices from 6 Oct 2026",
         "ta": null
       },
-      "keyNumbers": [],
+      "keyNumbers": [
+        {
+          "label": "12.5 kg",
+          "value": 4365.0,
+          "unit": "LKR"
+        },
+        {
+          "label": "5 kg",
+          "value": 1750.0,
+          "unit": "LKR"
+        },
+        {
+          "label": "2.3 kg",
+          "value": 815.0,
+          "unit": "LKR"
+        }
+      ],
       "published": "2026-10-06",
       "effective": "2026-10-06",
       "links": {
         "image": "https://www.litrogas.com/wp-content/uploads/2026/10/Price-List-06.10.2026.webp",
         "page": "https://www.litrogas.com/price-list/"
       },
-      "data": {},
+      "data": {
+        "sizes": [
+          "12.5 kg",
+          "5 kg",
+          "2.3 kg"
+        ],
+        "districts": {
+          "Ampara": [
+            4721.84,
+            1961.18,
+            986.06
+          ],
+          "Anuradhapura": [
+            4555.7,
+            1863.0,
+            904.86
+          ],
+          "Badulla": [
+            4665.66,
+            1930.3,
+            968.25
+          ],
+          "Batticaloa": [
+            4675.1,
+            1933.57,
+            963.28
+          ],
+          "Colombo": [
+            4365.0,
+            1750.0,
+            815.0
+          ],
+          "Galle": [
+            4467.42,
+            1810.85,
+            861.73
+          ],
+          "Gampaha": [
+            4365.0,
+            1750.0,
+            815.0
+          ],
+          "Hambantota": [
+            4556.72,
+            1863.62,
+            905.38
+          ],
+          "Jaffna": [
+            4748.84,
+            1977.13,
+            999.25
+          ],
+          "Kalutara": [
+            4428.02,
+            1787.52,
+            842.45
+          ],
+          "Kandy": [
+            4493.68,
+            1827.53,
+            879.28
+          ],
+          "Kegalle": [
+            4408.23,
+            1775.87,
+            832.81
+          ],
+          "Kilinochchi": [
+            4678.23,
+            1935.41,
+            964.73
+          ],
+          "Kurunegala": [
+            4457.27,
+            1804.7,
+            856.67
+          ],
+          "Mannar": [
+            4626.83,
+            1905.04,
+            939.62
+          ],
+          "Matale": [
+            4521.43,
+            1844.14,
+            893.65
+          ],
+          "Matara": [
+            4500.65,
+            1830.48,
+            877.98
+          ],
+          "Monaragala": [
+            4658.5,
+            1923.74,
+            955.09
+          ],
+          "Mullaitivu": [
+            4678.23,
+            1935.41,
+            964.73
+          ],
+          "Nuwara Eliya": [
+            4594.12,
+            1887.62,
+            931.28
+          ],
+          "Polonnaruwa": [
+            4538.03,
+            1852.57,
+            896.25
+          ],
+          "Puttalam": [
+            4455.07,
+            1803.48,
+            855.64
+          ],
+          "Ratnapura": [
+            4481.97,
+            1819.44,
+            868.85
+          ],
+          "Trincomalee": [
+            4599.31,
+            1888.78,
+            926.17
+          ],
+          "Vavuniya": [
+            4626.83,
+            1905.04,
+            939.62
+          ]
+        },
+        "district": "Colombo"
+      },
       "alert": true
     },
     {
@@ -663,6 +1098,276 @@
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
+    },
+    {
+      "id": "weekly-2509-f6a7684d",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Births, Deaths and Marriages/ Additional Marriages (General) Sinhala Medium",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "vacancies",
+        "page": 5,
+        "number": "2509",
+        "closes": "2026-11-02"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-e5375b13",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Justice and National Integration Department of Prisons",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to Grade III Dispenser in Management Assistant Technical Segment- 2 Service Category at the Department of Prisons- 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "exams",
+        "page": 23,
+        "number": "2509",
+        "closes": "2026-10-25"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-e38dd29c",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Post of Registrar of Muslim Marriages (Sinhala)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2509",
+        "closes": "2026-11-02"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-c7f52a31",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Constitutional Council",
+      "headline": {
+        "en": "Recommendation to the Post of Member of the Commission to Investigate Allegations of Bribery or Corruption",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "vacancies",
+        "page": 9,
+        "number": "2509",
+        "closes": "2026-10-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-aba3cdd5",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Railway Department",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to Posts of the Transport Costing Officer - Grade III in the Associate Officers Service Category of the Sri Lanka Railway Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "exams",
+        "page": 37,
+        "number": "2509",
+        "closes": "2026-11-02"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-81103432",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "Competitive Examination for Recruitment to the Post of Grade III Assistant Superintendent of Hostel in the Management Assistant (Non- Technical) Segment -02 Service Category of the Ministry of Education, Higher Education and Vocational Education on Open Basis - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "exams",
+        "page": 18,
+        "number": "2509",
+        "closes": "2026-11-02"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-791c45b6",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Railway Department",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to the Post of Procurement Officer- Grade III in the Associate Officer Service Category in Sri Lanka Railway Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "exams",
+        "page": 30,
+        "number": "2509",
+        "closes": "2026-10-26"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-637399d5",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Audit Service Commission",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment of Audit Officers to Class III of Grade II in field/ office-based service category of Sri Lanka State Audit Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "exams",
+        "page": 38,
+        "number": "2509",
+        "closes": "2026-10-12"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-49f97e85",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": null,
+      "headline": {
+        "en": "Notice Calling for Applications",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "vacancies",
+        "page": 11,
+        "number": "2509",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2509-34de3340",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "National Dangerous Drugs Control Board",
+      "headline": {
+        "en": "Applications are called from Sri Lankan citizens to fill the following vacancies in the National Dangerous Drugs Control Board",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+      },
+      "data": {
+        "week": "2026-10-02",
+        "section": "vacancies",
+        "page": 9,
+        "number": "2509",
+        "closes": "2026-10-16"
+      },
+      "alert": false
     },
     {
       "id": "gazette-2508-49",

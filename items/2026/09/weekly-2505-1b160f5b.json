@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2505-1b160f5b",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Homeopathic Medical Council",
+  "headline": {
+    "en": "Third Examination for the Registration of Homeopathic Medical Practitioners - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-04",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(04.09.2026)%20-(E)%20Press_1788868148.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.04%20Part%20I-II%20A%20(S)%20press_1790337191.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2004.09.2026%20tem._1789115076.pdf"
+  },
+  "data": {
+    "week": "2026-09-04",
+    "section": "exams",
+    "page": 28,
+    "number": "2505",
+    "closes": "2026-09-18"
+  },
+  "alert": false
+}

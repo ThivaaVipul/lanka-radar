@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2506-932332c9",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Ministry of Buddhasasana, Religious and Cultural Affairs",
+  "headline": {
+    "en": "Recruitment to the Posts in the Supervisory Management Assistant (Technical) Officer Service Category of the Department of National Museums - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+  },
+  "data": {
+    "week": "2026-09-11",
+    "section": "vacancies",
+    "page": 15,
+    "number": "2506",
+    "closes": "2026-09-30"
+  },
+  "alert": false
+}

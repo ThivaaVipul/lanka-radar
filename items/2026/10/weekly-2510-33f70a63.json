@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2510-33f70a63",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Sri Lanka Railway Department",
+  "headline": {
+    "en": "Open Written Competitive Examination for Recruitment to Railway Security (Male/Female) Grade III in the Railway Security Service of Sri Lanka Railway Department - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+  },
+  "data": {
+    "week": "2026-10-09",
+    "section": "exams",
+    "page": 43,
+    "number": "2510",
+    "closes": "2026-10-16"
+  },
+  "alert": false
+}

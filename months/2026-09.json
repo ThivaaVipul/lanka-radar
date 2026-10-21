@@ -114,6 +114,168 @@
       "alert": true
     },
     {
+      "id": "weekly-2508-f399b93c",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Animal Production and Health Service",
+      "headline": {
+        "en": "Competitive Examination for Recruitment to the Posts of Veterinary Research Officer and Research Officer in the Sri Lanka Animal Production and Health Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "exams",
+        "page": 41,
+        "number": "2508",
+        "closes": "2026-10-26"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2508-e06af446",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Public Services Commission",
+      "headline": {
+        "en": "Recruitment under Open Stream to the Post of Legal Officer in Grade III of Executive Service Category at the Department of Agrarian Development under the Ministry of Agriculture, Livestock, Land and Irrigation - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "vacancies",
+        "page": 9,
+        "number": "2508",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2508-dfd6a4a1",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "1st Efficiency Bar Examination for Officers of the Sri Lanka Principals Service - 2026 (Officers in Grade III of the Sri Lanka Principals Service and officers appointed to Class 3 of the Sri Lanka Principals Service on the Supernumerary basis must appear for the examination.)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "exams",
+        "page": 49,
+        "number": "2508",
+        "closes": "2026-10-26"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2508-5dea4425",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+      "headline": {
+        "en": "Recruitment to the Post of Driver (Grade III) on Open Basis - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2508",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2508-376378c3",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Department of Government Factory",
+      "headline": {
+        "en": "Recruitment to Posts in the Primary Skilled Service Category - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "vacancies",
+        "page": 33,
+        "number": "2508",
+        "closes": "2026-10-23"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2508-2aaeaeea",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "2nd Efficiency Bar Examination for Officers of the Sri Lanka Principals Service - 2026 (Officers in Grade II of the Sri Lanka Principals Service and officers appointed to Grade II of Class 2 of the Sri Lanka Principals Service on the Supernumerary basis must appear for the examination.)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-25",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+      },
+      "data": {
+        "week": "2026-09-25",
+        "section": "exams",
+        "page": 46,
+        "number": "2508",
+        "closes": "2026-10-26"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2507-99",
       "source": "gazettes",
       "topic": "gazettes",
@@ -726,6 +888,113 @@
       "alert": true
     },
     {
+      "id": "weekly-2507-e282b580",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Industrial Engineering Training Institute - Moratuwa Apprentice Recruitment Application",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-(E)%20(18.09.2026)%20-%20Press_1790593994.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.18%20Part%20I-II%20A%20(S)%20press_1790337247.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2018.09.2026%20PRESS_1790078064.pdf"
+      },
+      "data": {
+        "week": "2026-09-18",
+        "section": "exams",
+        "page": 14,
+        "number": "2507",
+        "closes": "2026-10-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2507-cda70953",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Institute of Technology University of Moratuwa",
+      "headline": {
+        "en": "Admission to the National Diploma in Technology Course - 2026/2027",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-(E)%20(18.09.2026)%20-%20Press_1790593994.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.18%20Part%20I-II%20A%20(S)%20press_1790337247.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2018.09.2026%20PRESS_1790078064.pdf"
+      },
+      "data": {
+        "week": "2026-09-18",
+        "section": "exams",
+        "page": 7,
+        "number": "2507",
+        "closes": "2026-10-19"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2507-7f8e3d30",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Limited Competitive Examination for Recruitment to the Grade III of the Sri Lanka Agricultural Service - 2024 (2026)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-(E)%20(18.09.2026)%20-%20Press_1790593994.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.18%20Part%20I-II%20A%20(S)%20press_1790337247.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2018.09.2026%20PRESS_1790078064.pdf"
+      },
+      "data": {
+        "week": "2026-09-18",
+        "section": "exams",
+        "page": 22,
+        "number": "2507"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2507-752ded95",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "\"Associated Officer\" Service Category Bar Examinations of Efficiency Levels I, II and III for the Officers -2025-(II) 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-18",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-(E)%20(18.09.2026)%20-%20Press_1790593994.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.18%20Part%20I-II%20A%20(S)%20press_1790337247.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2018.09.2026%20PRESS_1790078064.pdf"
+      },
+      "data": {
+        "week": "2026-09-18",
+        "section": "exams",
+        "page": 4,
+        "number": "2507",
+        "closes": "2026-10-19"
+      },
+      "alert": false
+    },
+    {
       "id": "jobs-psc-1789723381",
       "source": "jobs",
       "topic": "jobs",
@@ -1124,6 +1393,195 @@
         "title": "REVISION OF ELECTORAL REGISTERS check the registration"
       },
       "alert": true
+    },
+    {
+      "id": "weekly-2506-e766b368",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Buddhasasana, Religious and Cultural Affairs",
+      "headline": {
+        "en": "Recruitment for Posts in the Primary (Semi-Skilled) Officer Category of the Department of National Museums - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "vacancies",
+        "page": 28,
+        "number": "2506",
+        "closes": "2026-09-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-b8d5c5d8",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Audit Service Commission",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment of Audit Officers to Class III of Grade II in the field/ office-based service category of the Sri Lanka State Audit Service -2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "exams",
+        "page": 61,
+        "number": "2506",
+        "closes": "2026-10-12"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-9515da70",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to the Post of Electro-Medical Technician Grade III in the Management Assistant Technical Segment - 03 Service Category of the Ministry of Health and Mass Media - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "exams",
+        "page": 53,
+        "number": "2506",
+        "closes": "2026-10-12"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-932332c9",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Buddhasasana, Religious and Cultural Affairs",
+      "headline": {
+        "en": "Recruitment to the Posts in the Supervisory Management Assistant (Technical) Officer Service Category of the Department of National Museums - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "vacancies",
+        "page": 15,
+        "number": "2506",
+        "closes": "2026-09-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-90a6913d",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Buddhasasana, Religious and Cultural Affairs",
+      "headline": {
+        "en": "Recruitment for the Posts in Management Assistant (Non-Technical - Segment 2) Service Category - 2026 in the Department of National Museums",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "vacancies",
+        "page": 21,
+        "number": "2506",
+        "closes": "2026-09-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-4386f6be",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "Efficiency Bar Examination III for Pirivena Teachers, Approved Appointment-Holding Teachers in Government-Approved Private Schools, and Approved Appointment-Holding Teachers in Assisted Special Schools - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "exams",
+        "page": 69,
+        "number": "2506",
+        "closes": "2026-10-12"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2506-228be823",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": null,
+      "headline": {
+        "en": "Sri Lanka Navy Regular & Volunteer Short Service and Direct Entry Officers Vacancies - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+      },
+      "data": {
+        "week": "2026-09-11",
+        "section": "vacancies",
+        "page": 40,
+        "number": "2506",
+        "closes": "2026-10-02"
+      },
+      "alert": false
     },
     {
       "id": "gazette-2505-107",
@@ -1768,6 +2226,113 @@
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JA-ELA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
+    },
+    {
+      "id": "weekly-2505-c5ccac72",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Environment",
+      "headline": {
+        "en": "Filling of vacancies for the Post of Field Assistant (Supervisory) in the Primary - Non-Technical Service Category of the Coast Conservation and Coastal Resources Management Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(04.09.2026)%20-(E)%20Press_1788868148.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.04%20Part%20I-II%20A%20(S)%20press_1790337191.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2004.09.2026%20tem._1789115076.pdf"
+      },
+      "data": {
+        "week": "2026-09-04",
+        "section": "vacancies",
+        "page": 6,
+        "number": "2505"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2505-b597135f",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to Grade III of the Post of Superintendent of Works in Supervisory Management Assistant Technical Service Category of Land Commissioner General's Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(04.09.2026)%20-(E)%20Press_1788868148.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.04%20Part%20I-II%20A%20(S)%20press_1790337191.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2004.09.2026%20tem._1789115076.pdf"
+      },
+      "data": {
+        "week": "2026-09-04",
+        "section": "exams",
+        "page": 25,
+        "number": "2505",
+        "closes": "2026-09-18"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2505-81a63185",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Homoeopathic Medical Council",
+      "headline": {
+        "en": "Recruitment to the Post of Homoeopathic Medical Officer at the Homoeopathic Medical Council",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(04.09.2026)%20-(E)%20Press_1788868148.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.04%20Part%20I-II%20A%20(S)%20press_1790337191.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2004.09.2026%20tem._1789115076.pdf"
+      },
+      "data": {
+        "week": "2026-09-04",
+        "section": "vacancies",
+        "page": 9,
+        "number": "2505",
+        "closes": "2026-09-18"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2505-1b160f5b",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Homeopathic Medical Council",
+      "headline": {
+        "en": "Third Examination for the Registration of Homeopathic Medical Practitioners - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-09-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(04.09.2026)%20-(E)%20Press_1788868148.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.04%20Part%20I-II%20A%20(S)%20press_1790337191.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2004.09.2026%20tem._1789115076.pdf"
+      },
+      "data": {
+        "week": "2026-09-04",
+        "section": "exams",
+        "page": 28,
+        "number": "2505",
+        "closes": "2026-09-18"
+      },
+      "alert": false
     },
     {
       "id": "gazette-2504-93",

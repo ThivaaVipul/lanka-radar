@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2507-e282b580",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": null,
+  "headline": {
+    "en": "Industrial Engineering Training Institute - Moratuwa Apprentice Recruitment Application",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-18",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-(E)%20(18.09.2026)%20-%20Press_1790593994.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.18%20Part%20I-II%20A%20(S)%20press_1790337247.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2018.09.2026%20PRESS_1790078064.pdf"
+  },
+  "data": {
+    "week": "2026-09-18",
+    "section": "exams",
+    "page": 14,
+    "number": "2507",
+    "closes": "2026-10-16"
+  },
+  "alert": false
+}

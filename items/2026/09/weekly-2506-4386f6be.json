@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2506-4386f6be",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Ministry of Education, Higher Education and Vocational Education",
+  "headline": {
+    "en": "Efficiency Bar Examination III for Pirivena Teachers, Approved Appointment-Holding Teachers in Government-Approved Private Schools, and Approved Appointment-Holding Teachers in Assisted Special Schools - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+  },
+  "data": {
+    "week": "2026-09-11",
+    "section": "exams",
+    "page": 69,
+    "number": "2506",
+    "closes": "2026-10-12"
+  },
+  "alert": false
+}

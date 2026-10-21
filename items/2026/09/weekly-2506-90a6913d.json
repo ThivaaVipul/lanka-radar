@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2506-90a6913d",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Ministry of Buddhasasana, Religious and Cultural Affairs",
+  "headline": {
+    "en": "Recruitment for the Posts in Management Assistant (Non-Technical - Segment 2) Service Category - 2026 in the Department of National Museums",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(E)%20(11.09.2026)%20-%20PRESS_1789552712.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.11%20Part%20I-II%20A%20(S)%20press_1790337220.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2011.09.2026%20PRESS_1789365794.pdf"
+  },
+  "data": {
+    "week": "2026-09-11",
+    "section": "vacancies",
+    "page": 21,
+    "number": "2506",
+    "closes": "2026-09-30"
+  },
+  "alert": false
+}

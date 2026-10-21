@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2510-e38dd29c",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Registrar General's Department",
+  "headline": {
+    "en": "Post of Registrar of Muslim Marriages (Sinhala)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-09",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+  },
+  "data": {
+    "week": "2026-10-09",
+    "section": "vacancies",
+    "page": 4,
+    "number": "2510",
+    "closes": "2026-11-09"
+  },
+  "alert": false
+}

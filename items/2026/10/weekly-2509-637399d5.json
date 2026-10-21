@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2509-637399d5",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Audit Service Commission",
+  "headline": {
+    "en": "Open Competitive Examination for Recruitment of Audit Officers to Class III of Grade II in field/ office-based service category of Sri Lanka State Audit Service - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(02.10.2026)%20-%20(E)%20Press_1791541787.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.02%20Part%20I-II%20A%20(S)%20Gazettes%20New%2013.10.2026_1791887273.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2002.10.2026%20PRESS%20PDF%20----_1792131944.pdf"
+  },
+  "data": {
+    "week": "2026-10-02",
+    "section": "exams",
+    "page": 38,
+    "number": "2509",
+    "closes": "2026-10-12"
+  },
+  "alert": false
+}

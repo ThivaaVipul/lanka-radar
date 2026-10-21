@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2508-5dea4425",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+  "headline": {
+    "en": "Recruitment to the Post of Driver (Grade III) on Open Basis - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-25",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+  },
+  "data": {
+    "week": "2026-09-25",
+    "section": "vacancies",
+    "page": 4,
+    "number": "2508",
+    "closes": "2026-10-30"
+  },
+  "alert": false
+}

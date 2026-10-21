@@ -1,0 +1,27 @@
+{
+  "id": "weekly-2508-2aaeaeea",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Ministry of Education, Higher Education and Vocational Education",
+  "headline": {
+    "en": "2nd Efficiency Bar Examination for Officers of the Sri Lanka Principals Service - 2026 (Officers in Grade II of the Sri Lanka Principals Service and officers appointed to Grade II of Class 2 of the Sri Lanka Principals Service on the Supernumerary basis must appear for the examination.)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-09-25",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(25.09.2026)%20-%20(E)%20Press_1791345164.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.09.25%20Part%20I-II%20A%20(S)%20Gazettes%20------------_1791444008.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2025.09.2026_1791541764.pdf"
+  },
+  "data": {
+    "week": "2026-09-25",
+    "section": "exams",
+    "page": 46,
+    "number": "2508",
+    "closes": "2026-10-26"
+  },
+  "alert": false
+}
