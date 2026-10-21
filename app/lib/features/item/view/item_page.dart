@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/links.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
+import 'package:lanka_radar/features/pdf/view/pdf_page.dart';
 
 /// One item: the headline with the Tamil one under it, the key numbers, and the
-/// official PDFs and page, which open in the browser.
+/// official PDFs, which open in the app (a weekly gazette notice's English one
+/// at its page), and the official page and price-list image, which open in
+/// the browser.
 class ItemPage extends StatelessWidget {
   const ItemPage({required this.item, this.open = openExternally, super.key});
 
@@ -87,7 +91,16 @@ class ItemPage extends StatelessWidget {
             children: [
               for (final (label, link) in buttonsFor(item))
                 FilledButton.tonal(
-                  onPressed: () => _open(context, link),
+                  onPressed: () => label.endsWith('PDF')
+                      ? Navigator.of(context).push(
+                          PdfPage.route(
+                            link,
+                            title: '${cardTitle(item)} ($label)',
+                            page: link == item.links['pdf_en'] ? _page : 1,
+                            open: open,
+                          ),
+                        )
+                      : _open(context, link),
                   child: Text(label),
                 ),
             ],
@@ -107,7 +120,14 @@ class ItemPage extends StatelessWidget {
     );
   }
 
-  /// No. 2509/59 . Published 8 Oct 2026 . Effective 30 Sep 2026
+  /// A weekly gazette notice's page in the English PDF.
+  int get _page => switch (item.data['page']) {
+    final int page when page > 0 => page,
+    _ => 1,
+  };
+
+  /// No. 2509/59 . Published 8 Oct 2026 . Effective 30 Sep 2026, and for a
+  /// weekly gazette notice . Closes 30 Oct
   String _details() {
     final number = item.data['number'];
     final effective = item.effective;
@@ -116,6 +136,8 @@ class ItemPage extends StatelessWidget {
       'Published ${shortDate(item.published)}',
       if (effective != null && effective != item.published)
         'Effective ${shortDate(effective)}',
+      if (item.closes case final closes?)
+        closingNote(closes, today: DateTime.now()),
     ].join(dot);
   }
 

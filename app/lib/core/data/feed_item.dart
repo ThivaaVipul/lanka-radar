@@ -94,6 +94,12 @@ final class FeedItem extends Equatable {
   /// When the phone first stored the item.
   final DateTime? firstSeen;
 
+  /// A weekly gazette notice's closing date for applications, if it gives one.
+  DateTime? get closes => switch (data['closes']) {
+    final String day => DateTime.tryParse(day),
+    _ => null,
+  };
+
   @override
   List<Object?> get props => [
     id,

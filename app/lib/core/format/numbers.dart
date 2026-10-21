@@ -1,13 +1,17 @@
-/// A price or rate as the app shows it: whole numbers with thousands separators
-/// (2,150), anything else with two decimals (336.39).
+/// A price or rate as the app shows it, with thousands separators: whole
+/// numbers as they are (2,150), anything else with two decimals (4,748.84).
 String amount(double value) {
-  if (value == value.roundToDouble()) {
-    final digits = value.round().abs().toString();
-    final grouped = digits.replaceAllMapped(
-      RegExp(r'\B(?=(\d{3})+$)'),
-      (match) => ',',
-    );
-    return value < 0 ? '-$grouped' : grouped;
-  }
-  return value.toStringAsFixed(2);
+  final whole = value == value.roundToDouble();
+  final text = whole
+      ? value.round().abs().toString()
+      : value.abs().toStringAsFixed(2);
+  final (digits, decimals) = switch (text.split('.')) {
+    [final digits, final decimals] => (digits, '.$decimals'),
+    _ => (text, ''),
+  };
+  final grouped = digits.replaceAllMapped(
+    RegExp(r'\B(?=(\d{3})+$)'),
+    (match) => ',',
+  );
+  return '${value < 0 ? '-' : ''}$grouped$decimals';
 }

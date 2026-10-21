@@ -50,6 +50,14 @@ List<DateTime> _days(Object? value) => [
       if (day is String) DateTime.parse(day),
 ]..sort();
 
+/// The weekly gazette's vacancies and examinations still open on [today], the
+/// soonest to close first.
+List<FeedItem> applicationsClosing(List<FeedItem> items, DateTime today) => [
+  for (final item in items)
+    if (item.source == 'weekly' && !(item.closes?.isBefore(today) ?? true))
+      item,
+]..sort((a, b) => a.closes!.compareTo(b.closes!));
+
 /// Three or more days off in a row, a weekend with a public holiday on or next
 /// to it.
 final class LongWeekend extends Equatable {

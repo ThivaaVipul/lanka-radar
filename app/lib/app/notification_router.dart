@@ -3,13 +3,15 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
+import 'package:lanka_radar/features/notices/view/week_page.dart';
 
-/// Opens what a tapped notification is about: the item over the home screen,
-/// or the Prices, Dates or Power tab for fuel prices, holidays and power
-/// cuts. A tap on the
-/// home-screen widget opens its tab the same way.
+/// Opens what a tapped notification is about: the item, or a weekly gazette's
+/// notices, over the home screen, or the Prices, Dates or Power tab for fuel
+/// prices, holidays and power cuts. A tap on the home-screen widget opens its
+/// tab the same way.
 class NotificationRouter {
   NotificationRouter(this._feed, this.tabs);
 
@@ -30,7 +32,11 @@ class NotificationRouter {
       case powerPayload:
         showTab(HomeTab.power);
       default:
-        await _item(itemIdFrom(payload));
+        if (weekFrom(payload) case final week?) {
+          _week(week);
+        } else {
+          await _item(itemIdFrom(payload));
+        }
     }
   }
 
@@ -45,6 +51,13 @@ class NotificationRouter {
     final navigator = navigatorKey.currentState;
     if (item != null && navigator != null) {
       unawaited(navigator.push(ItemPage.route(item)));
+    }
+  }
+
+  void _week(DateTime week) {
+    final navigator = navigatorKey.currentState;
+    if (navigator != null) {
+      unawaited(navigator.push(WeekPage.route(week)));
     }
   }
 

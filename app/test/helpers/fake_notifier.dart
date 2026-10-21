@@ -2,6 +2,7 @@ import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/power_alerts.dart';
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 
@@ -16,6 +17,7 @@ class FakeNotifier implements Notifier {
   var reminders = <HolidayReminder>[];
 
   final powerAlerts = <PowerAlert>[];
+  final weekly = <WeeklyAlert>[];
 
   /// The load shedding reminders scheduled now.
   var cutReminders = <CutReminder>[];
@@ -27,6 +29,10 @@ class FakeNotifier implements Notifier {
 
   @override
   Future<void> showItems(List<FeedItem> items) async => shown.add(items);
+
+  @override
+  Future<void> showWeekly(List<WeeklyAlert> alerts) async =>
+      weekly.addAll(alerts);
 
   @override
   Future<void> showFuelChange(String changes) async => fuelChanges.add(changes);

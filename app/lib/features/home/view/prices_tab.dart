@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
@@ -125,26 +126,15 @@ class PricesTab extends StatelessWidget {
                       ),
                   ],
                 ),
-              Section(
-                title: 'LP gas',
-                children: [
-                  ListTile(
-                    title: const Text('Litro price list'),
-                    subtitle: gas == null
-                        ? const Text('Not yet')
-                        : Text(
-                            'from '
-                            '${cardDate(gas.effective ?? gas.published, today: today)}',
-                          ),
-                    trailing: const Icon(Icons.open_in_new),
-                    onTap: gas?.links['image'] == null
-                        ? null
-                        : () => open(Uri.parse(gas!.links['image']!)),
-                    onLongPress: gas == null
-                        ? null
-                        : () => shareText(context, noticeShare(gas)),
-                  ),
-                ],
+              _GasSection(
+                gas: gas,
+                prices: gasPrices(
+                  state.items ?? const <FeedItem>[],
+                  state.gasDistrict,
+                ),
+                district: state.gasDistrict,
+                today: today,
+                open: open,
               ),
               if (priceOrders.isNotEmpty)
                 Section(
@@ -177,6 +167,98 @@ class PricesTab extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+/// Litro's LP gas prices in the district picked (tap it to pick another), the
+/// change from the list before, and the list's image.
+class _GasSection extends StatelessWidget {
+  const _GasSection({
+    required this.gas,
+    required this.prices,
+    required this.district,
+    required this.today,
+    required this.open,
+  });
+
+  /// The latest list, read or not.
+  final FeedItem? gas;
+  final GasPrices? prices;
+  final String district;
+  final DateTime today;
+  final OpenLink open;
+
+  @override
+  Widget build(BuildContext context) {
+    final gas = this.gas;
+    final prices = this.prices;
+    final since = prices == null
+        ? null
+        : 'since ${cardDate(prices.list.effective ?? prices.list.published, today: today)}';
+    return Section(
+      title: 'LP gas',
+      note: 'Litro',
+      children: [
+        ListTile(
+          leading: const Icon(Icons.place_outlined),
+          title: Text(district),
+          trailing: const Icon(Icons.expand_more),
+          onTap: () => _pick(context),
+        ),
+        if (prices != null)
+          for (final price in prices.prices)
+            _PriceRow(
+              name: price.size,
+              value: price.price,
+              before: price.before,
+              note: since,
+              share: noticeShare(prices.list),
+            ),
+        ListTile(
+          title: const Text('Price list'),
+          subtitle: gas == null
+              ? const Text('Not yet')
+              : Text(
+                  'from '
+                  '${cardDate(gas.effective ?? gas.published, today: today)}',
+                ),
+          trailing: const Icon(Icons.open_in_new),
+          onTap: gas?.links['image'] == null
+              ? null
+              : () => open(Uri.parse(gas!.links['image']!)),
+          onLongPress: gas == null
+              ? null
+              : () => shareText(context, noticeShare(gas)),
+        ),
+      ],
+    );
+  }
+
+  Future<void> _pick(BuildContext context) async {
+    final cubit = context.read<HomeCubit>();
+    final picked = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (context) => DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.6,
+        builder: (context, controller) => ListView(
+          controller: controller,
+          children: [
+            for (final name in gasDistricts)
+              ListTile(
+                title: Text(name),
+                trailing: name == district ? const Icon(Icons.check) : null,
+                onTap: () => Navigator.of(context).pop(name),
+              ),
+          ],
+        ),
+      ),
+    );
+    if (picked != null && picked != district) {
+      await cubit.setGasDistrict(picked);
+    }
   }
 }
 

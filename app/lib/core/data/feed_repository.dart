@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:lanka_radar/core/data/data_branch.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/rate_moves.dart';
 import 'package:lanka_radar/core/data/search_text.dart';
 
@@ -10,9 +11,10 @@ import 'package:lanka_radar/core/data/search_text.dart';
 ///
 /// A refresh reads `months/index.json` and downloads only the months whose hash
 /// changed, newest first, so a fresh install shows the latest items while the
-/// rest of the year fills in. Datasets and status come along with ETags. If a
-/// download fails, everything stored so far stays, and the next refresh picks
-/// up where this one stopped.
+/// rest of the year fills in. The gazettes' text, for search inside them, comes
+/// the same way from `texts/index.json`. Datasets and status come along with
+/// ETags. If a download fails, everything stored so far stays, and the next
+/// refresh picks up where this one stopped.
 class FeedRepository {
   FeedRepository({
     required AppDatabase database,
@@ -23,6 +25,7 @@ class FeedRepository {
        _now = now ?? DateTime.now;
 
   static const indexPath = 'months/index.json';
+  static const textsIndexPath = 'texts/index.json';
   static const usdLkrPath = 'datasets/usd-lkr.json';
   static const documents = [
     'datasets/holidays.json',
@@ -35,6 +38,7 @@ class FeedRepository {
   final DateTime Function() _now;
 
   static const _lastVisit = 'lastVisit';
+  static const _gasDistrict = 'gas.district';
   static const _recent = 'search.recent';
 
   /// How many recent searches are kept.
@@ -52,6 +56,26 @@ class FeedRepository {
       return const [];
     }
     return [for (final row in await _db.search(words)) _item(row)];
+  }
+
+  /// Items found by their text alone: every word of [query] starts a word in
+  /// it. Those in [excluding] (found by their title) are left out. Newest
+  /// first, each with the line of text around the first word.
+  Future<List<TextHit>> searchInside(
+    String query, {
+    Set<String> excluding = const {},
+  }) async {
+    final words = queryWords(query);
+    if (words.isEmpty) {
+      return const [];
+    }
+    return [
+      for (final (row, text) in await _db.searchTexts(
+        words,
+        excluding: excluding,
+      ))
+        TextHit(_item(row), lineAround(text.body, words) ?? ''),
+    ];
   }
 
   Future<FeedItem?> item(String id) async {
@@ -125,6 +149,13 @@ class FeedRepository {
     await _db.saveSetting(_recent, jsonEncode(recent));
   }
 
+  /// The district whose LP gas prices are shown.
+  Future<String> gasDistrict() async =>
+      await _db.setting(_gasDistrict) ?? defaultGasDistrict;
+
+  Future<void> setGasDistrict(String district) =>
+      _db.saveSetting(_gasDistrict, district);
+
   /// When the feed was last left, if ever: items that arrived after it are new.
   Future<DateTime?> lastVisit() async {
     final value = await _db.setting(_lastVisit);
@@ -172,6 +203,7 @@ class FeedRepository {
       }
       await _db.keepMonths({for (final entry in months) entry.month});
     }
+    await _refreshTexts(now);
     for (final path in documents) {
       final held = await _db.file(path);
       final Fetched? fetched;
@@ -203,6 +235,61 @@ class FeedRepository {
         fetchedAt: now,
       ),
     );
+  }
+
+  /// The months of gazette text whose hash changed. The index is saved last,
+  /// so a refresh that failed part way asks for it again.
+  Future<void> _refreshTexts(DateTime now) async {
+    final known = await _db.file(textsIndexPath);
+    final Fetched? index;
+    try {
+      index = await _branch.get(textsIndexPath, etag: known?.etag);
+    } on DataBranchException catch (error) {
+      if (error.statusCode != 404) {
+        rethrow;
+      }
+      // The workflow hasn't written any text yet.
+      return;
+    }
+    if (index == null) {
+      return;
+    }
+    final months = _months(index.body);
+    final held = await _db.textHashes();
+    for (final (:month, :hash) in months) {
+      if (held[month] == hash) {
+        continue;
+      }
+      final path = AppDatabase.textPath(month);
+      final file = await _branch.get(path);
+      if (file == null) {
+        continue;
+      }
+      await _db.replaceTextMonth(
+        month,
+        _textRows(file.body, month),
+        FileRow(path: path, hash: hash, fetchedAt: now),
+      );
+    }
+    await _db.keepTextMonths({for (final entry in months) entry.month});
+    await _db.saveFile(
+      FileRow(path: textsIndexPath, etag: index.etag, fetchedAt: now),
+    );
+  }
+
+  static List<TextsCompanion> _textRows(String body, String month) {
+    final json = jsonDecode(body) as Map<String, Object?>;
+    return [
+      for (final MapEntry(key: id, :value)
+          in (json['texts']! as Map<String, Object?>).entries)
+        if (value is String)
+          TextsCompanion.insert(
+            id: id,
+            month: month,
+            search: searchWords(value),
+            body: value,
+          ),
+    ];
   }
 
   static FeedItem _item(ItemRow row) => FeedItem.fromJson(

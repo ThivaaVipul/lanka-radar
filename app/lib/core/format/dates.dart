@@ -66,6 +66,18 @@ String clock(int minutes) =>
 String monthHeading(DateTime day) =>
     '${_monthNames[day.month - 1]} ${day.year}';
 
+/// When applications close: "Closes today", "Closes 6 Nov", or "Closed 6 Oct"
+/// once [closes] has passed [today].
+String closingNote(DateTime closes, {required DateTime today}) {
+  final day = DateTime(today.year, today.month, today.day);
+  if (closes.isBefore(day)) {
+    return 'Closed ${cardDate(closes, today: today)}';
+  }
+  return closes == day
+      ? 'Closes today'
+      : 'Closes ${cardDate(closes, today: today)}';
+}
+
 /// "today", "tomorrow" or "in 6 days", from [today] (a day) to [day].
 String inDays(DateTime day, {required DateTime today}) {
   final days = DateTime.utc(

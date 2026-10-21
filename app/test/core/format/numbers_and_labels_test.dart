@@ -9,6 +9,8 @@ void main() {
     expect(amount(2150), '2,150');
     expect(amount(1250000), '1,250,000');
     expect(amount(336.3944), '336.39');
+    expect(amount(4748.84), '4,748.84');
+    expect(amount(-1250.5), '-1,250.50');
   });
 
   test('fuel names shorten to their common names', () {

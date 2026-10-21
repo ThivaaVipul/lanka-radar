@@ -2,7 +2,7 @@
 
 Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, the weekly gazette's vacancies and examinations, price controls, fuel and LP gas prices, market prices, the USD/LKR rate, holidays and exam notices.
 
-A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
+A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you; it searches inside the gazettes and opens the official PDFs itself, keeping those opened for offline reading. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
 
 **Status:** in development (v1), Android only, for personal use. See [docs/PLAN.md](docs/PLAN.md).
 

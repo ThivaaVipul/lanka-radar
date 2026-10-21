@@ -133,9 +133,16 @@ class _SearchViewState extends State<_SearchView> {
           }
           final words = state.words;
           final only = state.only;
-          final notices = only == SearchGroup.notices
+          final all = only == SearchGroup.notices;
+          final notices = all
               ? results.notices
               : results.notices.take(SearchPage.noticesAtFirst).toList();
+          final inside = all
+              ? results.inside
+              : results.inside
+                    .take(SearchPage.noticesAtFirst - notices.length)
+                    .toList();
+          final shown = notices.length + inside.length;
           return ListView(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
             children: [
@@ -179,6 +186,13 @@ class _SearchViewState extends State<_SearchView> {
                                 highlight: words,
                                 onTap: () => _openItem(item),
                               ),
+                            for (final hit in inside)
+                              ItemTile(
+                                item: hit.item,
+                                highlight: words,
+                                line: hit.line,
+                                onTap: () => _openItem(hit.item),
+                              ),
                           ],
                           SearchGroup.dates => [
                             for (final holiday in results.dates)
@@ -191,14 +205,15 @@ class _SearchViewState extends State<_SearchView> {
                         },
                       ),
                       if (group == SearchGroup.notices &&
-                          notices.length < results.notices.length)
+                          shown < results.count(SearchGroup.notices))
                         Align(
                           alignment: AlignmentDirectional.centerStart,
                           child: TextButton(
                             onPressed: () =>
                                 cubit.showOnly(SearchGroup.notices),
                             child: Text(
-                              'Show all ${results.notices.length} notices',
+                              'Show all ${results.count(SearchGroup.notices)} '
+                              'notices',
                             ),
                           ),
                         ),

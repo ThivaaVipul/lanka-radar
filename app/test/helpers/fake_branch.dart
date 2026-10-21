@@ -36,6 +36,61 @@ Map<String, Object?> item(
   'alert': true,
 };
 
+/// A weekly gazette notice as the workflow writes it: a vacancy (jobs) or an
+/// examination (exams) of the gazette of [week].
+Map<String, Object?> notice(
+  String id,
+  String week, {
+  String topic = 'jobs',
+  String headline = 'Post of Registrar of Marriages',
+  String? closes,
+  int page = 4,
+}) => {
+  ...item(
+    id,
+    week,
+    topic: topic,
+    headline: headline,
+    issuer: 'Registrar General',
+  ),
+  'source': 'weekly',
+  'links': {
+    'page': 'https://documents.gov.lk/web/gazettes',
+    'pdf_en': 'https://documents.gov.lk/api/content-file-proxy?file=/iia.pdf',
+  },
+  'data': {
+    'week': week,
+    'section': topic == 'jobs' ? 'vacancies' : 'exams',
+    'page': page,
+    'closes': ?closes,
+  },
+  'alert': false,
+};
+
+/// A Litro price list read off its image: Colombo's prices as its key numbers,
+/// and [districts]' (12.5 kg, 5 kg, 2.3 kg) in its data.
+Map<String, Object?> gasList(String day, Map<String, List<num>> districts) => {
+  ...item(
+    'gas-litro-$day',
+    day,
+    topic: 'prices',
+    headline: 'Litro gas prices',
+    issuer: 'Litro Gas Lanka',
+  ),
+  'source': 'gas',
+  'effective': day,
+  'links': {'image': 'https://www.litrogas.com/list-$day.webp'},
+  'keyNumbers': [
+    for (final (index, size) in ['12.5 kg', '5 kg', '2.3 kg'].indexed)
+      {'label': size, 'value': districts['Colombo']![index], 'unit': 'LKR'},
+  ],
+  'data': {
+    'sizes': ['12.5 kg', '5 kg', '2.3 kg'],
+    'districts': districts,
+    'district': 'Colombo',
+  },
+};
+
 /// The data branch in memory. Each file's ETag follows its content, a matching
 /// If-None-Match gets 304, and every request is recorded.
 class FakeBranch {
@@ -44,12 +99,14 @@ class FakeBranch {
     files['datasets/usd-lkr.json'] = '{"schema": 1, "rates": []}';
     files['status.json'] = '{"schema": 1, "sources": {}}';
     _writeIndex();
+    _writeTextsIndex();
   }
 
   final files = <String, String>{};
   final requests = <String>[];
   final unchanged = <String>[];
   final _months = <String, List<Map<String, Object?>>>{};
+  final _texts = <String, Map<String, String>>{};
   bool offline = false;
 
   DataBranch get branch => DataBranch(
@@ -65,6 +122,32 @@ class FakeBranch {
       'items': items,
     });
     _writeIndex();
+  }
+
+  /// A month of gazette text, by item ID.
+  void putTexts(String month, Map<String, String> texts) {
+    _texts[month] = texts;
+    files['texts/$month.json'] = jsonEncode({
+      'schema': 1,
+      'month': month,
+      'texts': texts,
+    });
+    _writeTextsIndex();
+  }
+
+  void _writeTextsIndex() {
+    final months = _texts.keys.toList()..sort((a, b) => b.compareTo(a));
+    files['texts/index.json'] = jsonEncode({
+      'schema': 1,
+      'months': [
+        for (final month in months)
+          {
+            'month': month,
+            'count': _texts[month]!.length,
+            'hash': _etag(files['texts/$month.json']!),
+          },
+      ],
+    });
   }
 
   void dropMonth(String month) {

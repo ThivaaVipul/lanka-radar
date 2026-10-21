@@ -14,6 +14,7 @@ import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/data/phone_sources.dart';
 import 'package:lanka_radar/core/home_screen_widget.dart';
+import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 Future<void> main() async {
@@ -47,6 +48,7 @@ Future<void> main() async {
       feed: feed,
       now: now,
       alerts: AlertsRepository(database: database, notifier: notifier),
+      pdfs: PdfStore(database: database),
       info: AppInfo(version: '${package.version} (${package.buildNumber})'),
       tabs: tabs,
       navigatorKey: router.navigatorKey,

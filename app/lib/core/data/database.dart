@@ -33,6 +33,45 @@ class Items extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+/// A gazette's text, its first pages, for searching inside it: a row per item,
+/// from the data branch's `texts/` month files.
+@DataClassName('TextRow')
+class Texts extends Table {
+  TextColumn get id => text()();
+
+  /// The month file it came in, yyyy-MM.
+  TextColumn get month => text()();
+
+  /// The text as search keeps it (see searchWords).
+  TextColumn get search => text()();
+
+  /// The text as printed, for the line a search result shows.
+  TextColumn get body => text()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+/// PDFs kept on the phone after they were opened, so they open again offline.
+@DataClassName('PdfRow')
+class Pdfs extends Table {
+  TextColumn get url => text()();
+
+  /// The file's name in the app's PDF folder.
+  TextColumn get file => text()();
+
+  /// What it is, for the list of kept PDFs.
+  TextColumn get title => text()();
+  IntColumn get bytes => integer()();
+  DateTimeColumn get openedAt => dateTime()();
+
+  /// Kept however much space the others take.
+  BoolColumn get saved => boolean().withDefault(const Constant(false))();
+
+  @override
+  Set<Column> get primaryKey => {url};
+}
+
 /// Files read from the data branch: the ETag to ask "changed since?", the hash a
 /// month had in the index when it was read, and the body of the small files the
 /// app keeps whole (datasets, status).
@@ -83,12 +122,12 @@ class Rates extends Table {
   Set<Column> get primaryKey => {day};
 }
 
-@DriftDatabase(tables: [Items, Files, Settings, FuelPrices, Rates])
+@DriftDatabase(tables: [Items, Files, Settings, FuelPrices, Rates, Texts, Pdfs])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _open());
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -104,6 +143,10 @@ class AppDatabase extends _$AppDatabase {
         // Search learned the words on the cards (4), then to match words
         // from their start (5).
         await reindexSearch();
+      }
+      if (from < 6) {
+        await migrator.createTable(texts);
+        await migrator.createTable(pdfs);
       }
     },
   );
@@ -168,6 +211,87 @@ class AppDatabase extends _$AppDatabase {
     }
     return query.get();
   }
+
+  /// Items whose text (not counting those in [excluding]) has a word starting
+  /// with every one of [words], newest first, with the text; at most [limit].
+  Future<List<(ItemRow, TextRow)>> searchTexts(
+    List<String> words, {
+    Set<String> excluding = const {},
+    int limit = 50,
+  }) async {
+    final query = select(items).join([
+      innerJoin(texts, texts.id.equalsExp(items.id)),
+    ])..where(items.id.isNotIn(excluding));
+    for (final word in words) {
+      query.where(
+        texts.search.like('% ${_escape(word)}%', escapeChar: _likeEscape),
+      );
+    }
+    query
+      ..orderBy([
+        OrderingTerm.desc(items.published),
+        OrderingTerm.desc(items.id),
+      ])
+      ..limit(limit);
+    return [
+      for (final row in await query.get())
+        (row.readTable(items), row.readTable(texts)),
+    ];
+  }
+
+  Future<PdfRow?> pdf(String url) =>
+      (select(pdfs)..where((row) => row.url.equals(url))).getSingleOrNull();
+
+  /// The kept PDFs, the last opened first.
+  Stream<List<PdfRow>> watchPdfs() => (select(
+    pdfs,
+  )..orderBy([(row) => OrderingTerm.desc(row.openedAt)])).watch();
+
+  Future<List<PdfRow>> allPdfs() =>
+      (select(pdfs)..orderBy([(row) => OrderingTerm.desc(row.openedAt)])).get();
+
+  Future<void> savePdf(PdfRow row) => into(pdfs).insertOnConflictUpdate(row);
+
+  Future<void> deletePdf(String url) =>
+      (delete(pdfs)..where((row) => row.url.equals(url))).go();
+
+  /// The hash each stored text month had in the texts index, by month.
+  Future<Map<String, String>> textHashes() async {
+    final rows = await (select(
+      files,
+    )..where((row) => row.path.like('texts/%-%.json'))).get();
+    return {
+      for (final row in rows)
+        if (row.hash != null) _textMonthOf(row.path): row.hash!,
+    };
+  }
+
+  /// Makes a text month hold exactly [rows].
+  Future<void> replaceTextMonth(
+    String month,
+    List<TextsCompanion> rows,
+    FileRow file,
+  ) => transaction(() async {
+    await (delete(texts)..where((row) => row.month.equals(month))).go();
+    await batch((batch) => batch.insertAllOnConflictUpdate(texts, rows));
+    await saveFile(file);
+  });
+
+  /// Drops the texts and files of months the texts index no longer lists.
+  Future<void> keepTextMonths(Set<String> months) => transaction(() async {
+    await (delete(texts)..where((row) => row.month.isNotIn(months))).go();
+    final held = await textHashes();
+    for (final month in held.keys.where((month) => !months.contains(month))) {
+      await (delete(
+        files,
+      )..where((row) => row.path.equals(textPath(month)))).go();
+    }
+  });
+
+  static String textPath(String month) => 'texts/$month.json';
+
+  static String _textMonthOf(String path) =>
+      path.substring('texts/'.length, path.length - '.json'.length);
 
   Future<String?> setting(String key) async => (await (select(
     settings,
