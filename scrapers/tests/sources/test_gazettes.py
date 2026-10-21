@@ -303,11 +303,8 @@ def test_older_gazettes_get_their_pdfs_read_on_later_runs(
 def test_an_older_reading_gets_its_tamil_pdf_read_again(
     fixture_bytes: Callable[[str], bytes], store: Store
 ) -> None:
-    gazette = row("2509/59", "2026-10-08", "Election Commission", ("ENGLISH", "TAMIL"))
-    files = {
-        "en": "extra-gazette-content/G 59 (E).pdf",
-        "ta": "extra-gazette-content/G 59 (T).pdf",
-    }
+    gazette = row("2509/59", "2026-10-08", "Election Commission", ("TAMIL",))
+    files = {"ta": "extra-gazette-content/G 59 (T).pdf"}
     before = {"files": files, "title_en": "FILLING OF A VACANCY", "title_ta": None}
     store.write_state("gazette-pdfs", {"2509/59": before})
     web, calls = site(
@@ -379,11 +376,11 @@ BOTH = {"en": "G 01 (E).pdf", "ta": "G 01 (T).pdf"}
 @pytest.mark.parametrize(
     ("reading", "languages"),
     [
-        ({"title_ta": None}, ("ta",)),
+        # Before reader 6 kept its text, every English PDF has something to give.
+        ({"title_ta": None}, ("en", "ta")),
         ({"title_ta": "x", "numbers": [{"label": "a"}]}, ("en",)),
-        ({"title_ta": None, "numbers": [{"label": "a"}]}, ("en", "ta")),
-        ({"title_ta": "x"}, ()),
-        ({"reader": 2, "title_ta": None}, ("ta",)),
+        ({"title_ta": "x"}, ("en",)),
+        ({"reader": 2, "title_ta": None}, ("en", "ta")),
         ({"reader": gazettes.READER, "title_ta": None, "numbers": [{"label": "a"}]}, ()),
     ],
 )
@@ -414,6 +411,27 @@ def test_an_older_reading_with_prices_gets_its_english_pdf_read_again(
     assert reading["reader"] == gazettes.READER
 
 
+def test_the_english_text_is_kept_for_search_and_not_in_the_state(
+    fixture_bytes: Callable[[str], bytes], store: Store
+) -> None:
+    gazette = row("2504/03", "2026-08-31", "Ministry of Energy", ("ENGLISH",))
+    files = {"en": "extra-gazette-content/G 03 (E).pdf"}
+    # Read before reader 6, which keeps the text.
+    store.write_state("gazette-pdfs", {"2504/03": {"files": files, "reader": 5, "title_en": "X"}})
+    web, calls = site(
+        {1: answer([gazette], 1)}, pdfs={"(E)": fixture_bytes("gazette-2504-03-en.pdf")}
+    )
+
+    gazettes.run(web, store, date(2026, 9, 1))
+
+    reading = (store.read_state("gazette-pdfs") or {})["2504/03"]
+    text = (store.root / "text/2026/08/gazette-2504-03.txt").read_text("utf-8")
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 03 (E).pdf"]
+    assert "Lanka Petrol 92 Octane" in text
+    assert "text" not in reading
+    assert reading["reader"] == gazettes.READER
+
+
 def test_unknown_tamil_glyphs_are_recorded(
     fixture_bytes: Callable[[str], bytes], store: Store, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -441,7 +459,11 @@ def test_an_item_that_turns_out_routine_is_dropped(
 ) -> None:
     gazette = row("2510/01", "2026-10-12", "Sri Lanka Customs", ("ENGLISH",))
     web, _ = site({1: answer([gazette], 1)})
-    monkeypatch.setattr(gazettes, "read_pdfs", lambda web, gazette: {"files": gazette.files})
+    monkeypatch.setattr(
+        gazettes,
+        "read_pdfs",
+        lambda web, gazette, before=None: {"files": gazette.files, "reader": gazettes.READER},
+    )
     gazettes.run(web, store, date(2026, 10, 13))
     assert store.has_item("gazette-2510-01")
 

@@ -118,3 +118,33 @@ def test_files_are_written_with_lf_and_utf8(store: Store) -> None:
     raw = (store.root / "datasets" / "names.json").read_bytes()
     assert b"\r\n" not in raw
     assert thai.encode() in raw
+
+
+def test_texts_are_bundled_by_month_with_an_index(store: Store) -> None:
+    store.put_item(item("a", date(2026, 10, 2)))
+    assert store.put_text("a", date(2026, 10, 2), "Fuel  prices\nrevised")
+    assert not store.put_text("a", date(2026, 10, 2), "Fuel prices revised")
+    store.put_text("b", date(2026, 9, 30), "Customs notice")
+
+    assert store.write_texts()
+    assert not store.write_texts()
+
+    october = json.loads((store.root / "texts" / "2026-10.json").read_text(encoding="utf-8"))
+    assert october == {"schema": 1, "month": "2026-10", "texts": {"a": "Fuel prices revised"}}
+    index = json.loads((store.root / "texts" / "index.json").read_text(encoding="utf-8"))
+    assert [(entry["month"], entry["count"]) for entry in index["months"]] == [
+        ("2026-10", 1),
+        ("2026-09", 1),
+    ]
+
+
+def test_dropping_an_item_drops_its_text(store: Store) -> None:
+    store.put_item(item("a", date(2026, 10, 2)))
+    store.put_text("a", date(2026, 10, 2), "text")
+    store.write_texts()
+
+    store.drop_item("a")
+    store.write_texts()
+
+    assert not store.has_text("a")
+    assert not (store.root / "texts" / "2026-10.json").exists()

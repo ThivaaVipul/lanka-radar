@@ -1,56 +1,46 @@
 """Extraordinary gazettes from the Department of Government Printing (documents.gov.lk).
 
-The site is a Next.js app. Its gazette table loads through a server action named
-TableDataAction that answers with JSON, PDF file names included, so a plain POST with
-the action's ID reads the list 100 gazettes at a time. A rebuild of the site changes
-that ID; the scraper then finds the new one in the site's scripts and keeps it in state/.
+The list is read 100 gazettes at a time through the site's TableDataAction (see
+documents.py); after a rebuild of the site the new action ID is kept in state/.
 
 Only gazettes from the groups that touch daily life become feed items: prices, taxes
 and imports; energy and utilities; wages and labour; elections. Each item's English and
-Tamil PDFs are read once (see pdfs.py) for the title on page 1 and, in price gazettes,
-the price table; a run reads at most PDF_BUDGET gazettes, newest first. When the reader
-improves (READER), an older reading gets the PDFs it could gain from read again once.
+Tamil PDFs are read once (see pdfs.py) for the title on page 1, in price gazettes the
+price table, and the English one's first pages as text for search (kept in text/); a
+run reads at most PDF_BUDGET gazettes, newest first. When the reader improves (READER),
+an older reading gets the PDFs it could gain from read again once.
 """
 
 from __future__ import annotations
 
-import json
-import re
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from typing import Any
-from urllib.parse import quote
 
 import httpx
 
-from lanka_radar import pdfs
+from lanka_radar import documents, pdfs
 from lanka_radar.items import Item, KeyNumber
 from lanka_radar.store import Store
 from lanka_radar.web import Web
 
 NAME = "gazettes"
-SITE = "https://documents.gov.lk"
-LIST_PAGE = f"{SITE}/web/extra_gazettes"
+LIST_PAGE = f"{documents.SITE}/web/extra_gazettes"
 # The internal endpoint the server action forwards to; the site's own page sends it.
 ENDPOINT = "http://gvp-api:4500/website-data/extra-gazette/get-all"
-KNOWN_ACTION = "40f4893d604b59b307fb0473d42e9ac093be1e1655"
+KNOWN_ACTION = documents.KNOWN_ACTION
 PAGE_SIZE = 100
-ANSWER_ATTEMPTS = 3
 # PDFs read per run, newest first; history catches up over a few runs.
 PDF_BUDGET = 40
 PDF_STATE = "gazette-pdfs"
 # The PDF reader's version, kept with each reading: 2 reads the Tamil of Arial Unicode
 # PDFs; 3 knows two more of its glyphs and gives shorter price labels; 4 knows nine more
 # glyphs (ksha, nnu, tuu, nuu, yii, luu, vuu, sii and h with pulli); 5 drops a space drawn
-# inside the letter before it.
-READER = 5
+# inside the letter before it; 6 keeps the English PDF's text for search.
+READER = 6
+TEXT_READER = 6
 HISTORY_START = date(2026, 1, 1)
 RECHECK = timedelta(days=21)
-
-LANGUAGES = {"ENGLISH": "en", "TAMIL": "ta", "SINHALA": "si"}
-
-_ACTION = re.compile(r'createServerReference\)\("([0-9a-f]{40,})",[^"]*"TableDataAction"')
-_CHUNK = re.compile(r"/_next/static/chunks/[^\"'\s]+\.js")
 
 
 @dataclass(frozen=True)
@@ -111,17 +101,8 @@ GROUPS = (
 
 def parse(text: str) -> tuple[list[Gazette], int]:
     """Reads one TableDataAction answer: the gazettes and how many pages there are."""
-    # Rows are separated by "\n" only. splitlines() would also split on characters such
-    # as U+2028 that can appear inside a description and cut a row in half.
-    for line in text.split("\n"):
-        try:
-            payload = json.loads(line.partition(":")[2])
-        except json.JSONDecodeError:
-            continue
-        if isinstance(payload, dict) and isinstance(payload.get("data"), list):
-            pages = int(payload.get("pagination", {}).get("totalPages", 1))
-            return [_gazette(row) for row in payload["data"]], pages
-    raise ValueError(f"no gazette data in the answer: {text[:120]!r}")
+    rows, pages = documents.parse_table(text)
+    return [_gazette(row) for row in rows], pages
 
 
 def merge(gazettes: list[Gazette]) -> list[Gazette]:
@@ -159,10 +140,6 @@ def item_id(gazette: Gazette) -> str:
     return f"gazette-{gazette.number.replace('/', '-')}"
 
 
-def pdf_link(path: str) -> str:
-    return f"{SITE}/api/content-file-proxy?file=/{quote(path, safe='/()')}"
-
-
 def headline(gazette: Gazette, title: str | None) -> str:
     """The list's description when it names a subject ("Ministry of Energy - Revise the
     Fuel Price"), otherwise the PDF's own title, otherwise whatever the list has."""
@@ -186,7 +163,10 @@ def item_for(gazette: Gazette, group: str, reading: dict[str, Any] | None = None
     priced = "consumer affairs" in text or "price" in text or bool(numbers)
     topic = "prices" if priced else "gazettes"
     links = {"page": LIST_PAGE}
-    links |= {f"pdf_{language}": pdf_link(path) for language, path in sorted(gazette.files.items())}
+    links |= {
+        f"pdf_{language}": documents.pdf_link(path)
+        for language, path in sorted(gazette.files.items())
+    }
     data: dict[str, Any] = {"number": gazette.number, "group": group}
     data["languages"] = sorted(gazette.files)
     if reading.get("title_en"):
@@ -222,7 +202,7 @@ def read_pdfs(
             continue
         web.pause(1.0)
         try:
-            data = web.get(pdf_link(path)).content
+            data = web.get(documents.pdf_link(path)).content
         except httpx.HTTPError:
             return None
         reading.pop(f"error_{language}", None)
@@ -243,16 +223,20 @@ def read_pdfs(
         if found.unknown:
             # Glyphs to add to pdfs.ARIAL_TAMIL: until then this Tamil title stays out.
             reading["unknown_glyphs"] = list(found.unknown)
+        if found.text:
+            reading["text"] = found.text  # taken out by run() into the store's text/
     return reading
 
 
 def stale(reading: dict[str, Any], files: dict[str, str]) -> tuple[str, ...]:
     """The PDFs to read again for a reading an older reader made: the Tamil one when it
-    gave no Tamil title, the English one when it gave prices (their labels improved)."""
-    if reading.get("reader", 1) >= READER:
+    gave no Tamil title, the English one when it gave prices (their labels improved) or
+    before the reader kept its text."""
+    reader = reading.get("reader", 1)
+    if reader >= READER:
         return ()
     languages = []
-    if "en" in files and reading.get("numbers"):
+    if "en" in files and (reading.get("numbers") or reader < TEXT_READER):
         languages.append("en")
     if "ta" in files and not reading.get("title_ta"):
         languages.append("ta")
@@ -260,44 +244,9 @@ def stale(reading: dict[str, Any], files: dict[str, str]) -> tuple[str, ...]:
 
 
 def fetch_page(web: Web, action: str, page: int) -> tuple[list[Gazette], int]:
-    """One page of the list. The site sometimes answers briefly without data (its back end
-    hiccups or throttles a burst), so such an answer is retried after a pause."""
-    for attempt in range(1, ANSWER_ATTEMPTS + 1):
-        try:
-            return parse(_post_page(web, action, page).text)
-        except ValueError:
-            if attempt == ANSWER_ATTEMPTS:
-                raise
-            web.pause(10.0 * attempt)
-    raise RuntimeError("unreachable")
-
-
-def _post_page(web: Web, action: str, page: int) -> httpx.Response:
-    body = [
-        {
-            "apiEndpoint": ENDPOINT,
-            "page": page,
-            "limit": PAGE_SIZE,
-            "q": "",
-            "search": "",
-            "forwarded": {},
-        }
-    ]
-    headers = {
-        "next-action": action,
-        "accept": "text/x-component",
-        "content-type": "text/plain;charset=UTF-8",
-    }
-    return web.post(LIST_PAGE, content=json.dumps(body), headers=headers)
-
-
-def find_action(web: Web) -> str:
-    """Finds the TableDataAction ID in the site's scripts, after a rebuild changed it."""
-    for chunk in sorted(set(_CHUNK.findall(web.get(LIST_PAGE).text))):
-        match = _ACTION.search(web.get(SITE + chunk).text)
-        if match:
-            return match.group(1)
-    raise ValueError("TableDataAction not found in the site's scripts")
+    """One page of the list."""
+    rows, pages = documents.fetch_table(web, LIST_PAGE, ENDPOINT, action, page, PAGE_SIZE)
+    return [_gazette(row) for row in rows], pages
 
 
 def run(web: Web, store: Store, today: date) -> int:
@@ -315,7 +264,7 @@ def run(web: Web, store: Store, today: date) -> int:
     try:
         found, pages = fetch_page(web, action, 1)
     except (httpx.HTTPStatusError, ValueError):
-        action = find_action(web)
+        action = documents.find_action(web, LIST_PAGE)
         print(f"gazettes: the site has a new action ID, {action}")
         found, pages = fetch_page(web, action, 1)
     page = 1
@@ -345,6 +294,9 @@ def run(web: Web, store: Store, today: date) -> int:
         else:
             reading = read_pdfs(web, gazette, before=readings[gazette.number])
         if reading is not None:
+            text = reading.pop("text", None)
+            if text:
+                store.put_text(item_id(gazette), gazette.day, text)
             readings[gazette.number] = reading
     store.write_state(PDF_STATE, readings)
 
@@ -371,9 +323,9 @@ def run(web: Web, store: Store, today: date) -> int:
 
 def _gazette(row: dict[str, Any]) -> Gazette:
     files = {
-        LANGUAGES[content["language"]]: content["uploadedFile"]
+        documents.LANGUAGES[content["language"]]: content["uploadedFile"]
         for content in row.get("contents") or []
-        if content.get("language") in LANGUAGES and content.get("uploadedFile")
+        if content.get("language") in documents.LANGUAGES and content.get("uploadedFile")
     }
     return Gazette(
         row["gazetteNoText"].strip(),

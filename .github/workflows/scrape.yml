@@ -33,6 +33,12 @@ jobs:
 
       - run: pip install ./scrapers
 
+      # OCR for Litro's price list, which is an image.
+      - name: Install Tesseract
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends tesseract-ocr tesseract-ocr-eng
+
       - name: Check out the data branch
         run: |
           if git fetch --quiet --depth 1 origin data; then

@@ -5,6 +5,9 @@ Layout:
   latest.json                   the newest items, newest first
   months/<yyyy>-<mm>.json       every item of a month, newest first, for the app's history
   months/index.json             each month's item count and file hash
+  text/<yyyy>/<mm>/<id>.txt     an item's text for search (a gazette's first pages)
+  texts/<yyyy>-<mm>.json        every text of a month, by item ID, for the app
+  texts/index.json              each month's text count and file hash
   datasets/<name>.json          values the app shows (USD/LKR, holidays)
   status.json                   per-source run history
   state/<name>.json             the scrapers' own bookkeeping, not for the app
@@ -14,7 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -39,11 +42,30 @@ class Store:
         return any(self.root.glob(f"items/*/*/{item_id}.json"))
 
     def drop_item(self, item_id: str) -> bool:
-        """Removes an item that turned out not to belong in the feed; True if one was there."""
+        """Removes an item that turned out not to belong in the feed, and its text; True if
+        one was there."""
         paths = list(self.root.glob(f"items/*/*/{item_id}.json"))
-        for path in paths:
+        for path in [*paths, *self.root.glob(f"text/*/*/{item_id}.txt")]:
             path.unlink()
         return bool(paths)
+
+    def read_items(self, prefix: str) -> list[dict[str, Any]]:
+        """The stored items whose ID starts with `prefix`, oldest first."""
+        items = [_read_json(path) for path in self.root.glob(f"items/*/*/{prefix}*.json")]
+        return sorted(items, key=_by_date)
+
+    def put_text(self, item_id: str, day: date, text: str) -> bool:
+        """Keeps an item's text for search; True when it is new or changed."""
+        path = self.root / "text" / f"{day:%Y}" / f"{day:%m}" / f"{item_id}.txt"
+        text = " ".join(text.split())
+        if path.exists() and path.read_text(encoding="utf-8") == text:
+            return False
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8", newline="\n")
+        return True
+
+    def has_text(self, item_id: str) -> bool:
+        return any(self.root.glob(f"text/*/*/{item_id}.txt"))
 
     def write_latest(self) -> bool:
         items = [_read_json(path) for path in self.root.glob("items/*/*/*.json")]
@@ -74,6 +96,29 @@ class Store:
                 path.unlink()
                 changed = True
         changed |= _write_json(folder / "index.json", {"schema": SCHEMA, "months": index})
+        return changed
+
+    def write_texts(self) -> bool:
+        """The texts bundled by month, with an index of each month's count and file hash,
+        as write_months does for items. True when anything changed."""
+        months: dict[str, dict[str, str]] = {}
+        for path in sorted(self.root.glob("text/*/*/*.txt")):
+            month = f"{path.parent.parent.name}-{path.parent.name}"
+            months.setdefault(month, {})[path.stem] = path.read_text(encoding="utf-8")
+        folder = self.root / "texts"
+        changed = False
+        index = []
+        for month, texts in sorted(months.items(), reverse=True):
+            path = folder / f"{month}.json"
+            changed |= _write_json(path, {"schema": SCHEMA, "month": month, "texts": texts})
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+            index.append({"month": month, "count": len(texts), "hash": digest})
+        for path in folder.glob("*-*.json"):
+            if path.stem not in months:
+                path.unlink()
+                changed = True
+        if index or folder.exists():
+            changed |= _write_json(folder / "index.json", {"schema": SCHEMA, "months": index})
         return changed
 
     def read_dataset(self, name: str) -> dict[str, Any] | None:
