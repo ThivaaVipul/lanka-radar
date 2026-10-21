@@ -171,9 +171,9 @@ class PricesTab extends StatelessWidget {
   }
 }
 
-/// LP gas prices in the district picked (tap it to pick another): Litro's,
-/// then Laugfs's, each size against the prices before, and each company's own
-/// list a tap on its name away.
+/// LP gas prices in the district picked (picked across from the title): a card
+/// for each company, Litro's and Laugfs's, with its sizes against the prices
+/// before; a tap on a card opens the company's own price list.
 class _GasSection extends StatelessWidget {
   const _GasSection({
     required this.gas,
@@ -196,44 +196,40 @@ class _GasSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final gas = this.gas;
     final image = gas?.links['image'];
-    final laugfsSince = laugfs?.since;
     return Section(
       title: 'LP gas',
+      card: false,
+      action: _DistrictButton(district: district, onTap: () => _pick(context)),
       children: [
-        ListTile(
-          leading: const Icon(Icons.place_outlined),
-          title: Text(district),
-          trailing: const Icon(Icons.expand_more),
-          onTap: () => _pick(context),
-        ),
-        _Company(
-          name: 'Litro',
-          note: gas == null
-              ? 'not yet'
-              : 'from ${cardDate(gas.effective ?? gas.published, today: today)}',
-          onTap: image == null ? null : () => open(Uri.parse(image)),
-          onLongPress: gas == null
-              ? null
-              : () => shareText(context, noticeShare(gas)),
-        ),
-        for (final price in litro?.prices ?? const <GasPrice>[])
-          _PriceRow(
-            name: price.size,
-            value: price.price,
-            before: price.before,
-            share: gas == null ? null : noticeShare(gas),
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: _GasCard(
+                  name: 'Litro',
+                  since: gas == null ? null : gas.effective ?? gas.published,
+                  prices: litro?.prices,
+                  today: today,
+                  onTap: image == null ? null : () => open(Uri.parse(image)),
+                  onLongPress: gas == null
+                      ? null
+                      : () => shareText(context, noticeShare(gas)),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _GasCard(
+                  name: 'Laugfs',
+                  since: laugfs?.since,
+                  prices: laugfs?.prices,
+                  today: today,
+                  onTap: () => open(Uri.parse(laugfsPage)),
+                ),
+              ),
+            ],
           ),
-        _Company(
-          name: 'Laugfs',
-          note: laugfs == null
-              ? 'not yet'
-              : laugfsSince == null
-              ? null
-              : 'since ${cardDate(laugfsSince, today: today)}',
-          onTap: () => open(Uri.parse(laugfsPage)),
         ),
-        for (final price in laugfs?.prices ?? const <GasPrice>[])
-          _PriceRow(name: price.size, value: price.price, before: price.before),
       ],
     );
   }
@@ -266,18 +262,57 @@ class _GasSection extends StatelessWidget {
   }
 }
 
-/// An LP gas company's name over its prices, with when they started; a tap
-/// opens its own price list.
-class _Company extends StatelessWidget {
-  const _Company({
+/// The district LP gas prices are shown for; a tap picks another.
+class _DistrictButton extends StatelessWidget {
+  const _DistrictButton({required this.district, required this.onTap});
+
+  final String district;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final color = theme.colorScheme.primary;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.place_outlined, size: 16, color: color),
+            const SizedBox(width: 4),
+            Text(
+              district,
+              style: theme.textTheme.labelLarge?.copyWith(color: color),
+            ),
+            Icon(Icons.expand_more, size: 18, color: color),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// One LP gas company's prices: its name and when they started over its sizes,
+/// each against the price before. A tap opens the company's own price list.
+class _GasCard extends StatelessWidget {
+  const _GasCard({
     required this.name,
-    required this.note,
+    required this.since,
+    required this.prices,
+    required this.today,
     required this.onTap,
     this.onLongPress,
   });
 
   final String name;
-  final String? note;
+  final DateTime? since;
+
+  /// Null until the company's prices have been read.
+  final List<GasPrice>? prices;
+  final DateTime today;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
 
@@ -285,26 +320,78 @@ class _Company extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final muted = theme.colorScheme.onSurfaceVariant;
-    return InkWell(
-      onTap: onTap,
-      onLongPress: onLongPress,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: [
-            Text(name, style: theme.textTheme.titleSmall),
-            if (note case final note?) ...[
-              const SizedBox(width: 8),
-              Text(
-                note,
-                style: theme.textTheme.labelMedium?.copyWith(color: muted),
+    final since = this.since;
+    final prices = this.prices;
+    return Card(
+      margin: EdgeInsets.zero,
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 14, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(name, style: theme.textTheme.titleSmall),
+                  ),
+                  if (onTap != null)
+                    Icon(Icons.open_in_new, size: 16, color: muted),
+                ],
               ),
+              const SizedBox(height: 2),
+              Text(
+                since == null ? ' ' : cardDate(since, today: today),
+                style: theme.textTheme.labelSmall?.copyWith(color: muted),
+              ),
+              const SizedBox(height: 8),
+              if (prices == null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Text(
+                    'Not yet',
+                    style: theme.textTheme.bodyMedium?.copyWith(color: muted),
+                  ),
+                )
+              else
+                for (final price in prices)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          price.size,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: muted,
+                          ),
+                        ),
+                        const Spacer(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              amount(price.price),
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            if (price.before case final before?
+                                when before != price.price)
+                              Trend(
+                                change: price.price - before,
+                                text: 'was ${amount(before)}',
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
             ],
-            const Spacer(),
-            if (onTap != null) Icon(Icons.open_in_new, size: 18, color: muted),
-          ],
+          ),
         ),
       ),
     );
