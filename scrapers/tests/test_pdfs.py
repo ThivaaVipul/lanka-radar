@@ -135,6 +135,18 @@ def test_glyphs_are_put_in_reading_order() -> None:
     assert line.trusted
 
 
+def test_a_space_drawn_inside_a_letter_is_dropped() -> None:
+    # 2474/25's title: a stray space set over ma split "mi" into "m i".
+    ma = glyphs(chr(0x0BAE))
+    slip = chars(" ", "ArialUnicodeMS", x=0.5)
+    row = ma + [{**slip[0], "x1": 3.0}] + glyphs(I_SIGN + KA, x=5.0)
+
+    [line] = pdfs.lines_of(row)
+
+    assert line.text == chr(0x0BAE) + I_SIGN + KA
+    assert line.trusted
+
+
 def test_glyphs_that_make_no_tamil_word_are_not_trusted() -> None:
     [line] = pdfs.lines_of(glyphs(I_SIGN + KA))
 

@@ -362,18 +362,27 @@ def _runs(row: Sequence[dict[str, Any]]) -> list[tuple[str, list[dict[str, Any]]
 
 def _join(chars: Sequence[dict[str, Any]]) -> str:
     """The run's text, with a space wherever the gap between letters is word-sized (but
-    never before a Tamil sign that follows its letter, which a font may set apart)."""
+    never before a Tamil sign that follows its letter, which a font may set apart). A space
+    drawn inside the letter before it is a typing slip, not a word break, and is dropped."""
     text = ""
-    for before, char in zip([None, *chars], chars, strict=False):
+    before: dict[str, Any] | None = None
+    for char in chars:
+        if char["text"] == " " and before is not None and _inside(char, before):
+            continue
         sign = char["text"][:1] in _TRAILING_SIGNS
         if before is not None and _gap(before, char) and not sign:
             text += " "
         text += char["text"]
+        before = char
     return text
 
 
 def _gap(before: dict[str, Any], char: dict[str, Any]) -> bool:
     return bool(char["x0"] - before["x1"] > char["size"] * 0.25)
+
+
+def _inside(char: dict[str, Any], before: dict[str, Any]) -> bool:
+    return bool(before["x1"] - char["x0"] > char["size"] * 0.25)
 
 
 def _reading_order(text: str) -> str:

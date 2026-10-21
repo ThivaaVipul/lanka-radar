@@ -1,4 +1,5 @@
-# Runs the scrapers every 3 hours and commits what they find to the data branch.
+# Runs the scrapers every hour (GitHub starts scheduled runs late and skips some, so
+# in practice every few hours) and commits what they find to the data branch.
 #
 # The data branch holds data only and never merges into main. A source that fails
 # 3 runs in a row fails the run once (GitHub emails you); status.json records the rest.

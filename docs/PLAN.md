@@ -1,7 +1,7 @@
 # Lanka Radar plan
 
-Living document, updated as work proceeds. Last updated: 2026-10-19.
-Status: **M0 to M8 built: the app is released (v0.14.0 the latest) and in daily use. Left: M7's two weeks of daily use, tuning topics and alerts; ideas for afterwards are under Later.**
+Living document, updated as work proceeds. Last updated: 2026-10-21.
+Status: **M0 to M8 built: the app is released (v0.14.1 the latest) and in daily use. Left: M7's two weeks of daily use, tuning topics and alerts, and M9 (weekly gazette notices, Litro prices, gazette text search, a PDF viewer, smaller APKs) alongside it; ideas for afterwards are under Later.**
 
 A personal Android app that watches Sri Lankan official sources (gazettes, price controls, fuel, exchange rates, holidays, exam notices) and tells you when something new lands. GitHub Actions does most of the watching and the app reads what it publishes; the two sources that only answer inside Sri Lanka are read by the app itself.
 
@@ -66,6 +66,17 @@ A personal Android app that watches Sri Lankan official sources (gazettes, price
   - Alerts (M8h2b): an upcoming cut alerts when a sync first sees it and again about 30 minutes before it starts; a cut on now at a place alerts when a sync first sees it; nothing when power comes back. All are dropped in quiet hours. A "Power cuts" switch in Alerts (on) and its own channel.
   - Tests use a made-up account and invented entries; no real account number or calendar goes in the repo.
   - Changed the same day, before merging: EDLCare put the account calendar behind a Cloudflare Turnstile captcha (a ticket for one account, valid 5 minutes), so it can't be read in the background. Instead, each place's load shedding group is found from its point against EDLCare's public group outlines (`/demand-mgmt-clusters?groupId=`), matched on the phone, and the groups' slots come from the public schedule (`/load-shedding-events`, today and tomorrow). No account number. Per-meter maintenance notices are lost; the map still shows maintenance that is on.
+
+- **Weekly gazettes, Litro, text search, PDF viewer and APKs (M9 grilling, 2026-10-21):**
+  - Weekly gazettes: Part I Section (IIA) of each Friday's gazette, its English PDF (it comes out about five days after the gazette's date), from September 2026. One item per notice: "Posts - Vacant" notices under Jobs, "Examinations, Results of Examinations" notices under Exams. The headline is the department and the post as printed; notices with the same title in one week are one item. Each keeps its application closing date ("on or before 06.11.2026") and its page in the PDF. English only; the Tamil and Sinhala PDFs are linked when they are out.
+  - Closing dates show on the row ("Closes 6 Nov") and open notices are listed in Dates under "Applications closing", with add to calendar; no reminder.
+  - One notification per weekly gazette ("This week's gazette: 6 vacancies, 3 exams"), under the Jobs and Exams switches, opening the list; the notices themselves don't alert one by one.
+  - Litro gas: the price-list image is read with OCR (Tesseract, installed on GitHub's runner only) into 25 districts by 3 sizes (12.5 kg, 5 kg, 2.3 kg), checked (every district, numbers, the sizes in order) before use; when the check fails the item stays a link to the image, as before. The lists already stored are read once too. In the app you pick your district (Colombo at first) on the gas row in Prices; Prices and the gas alert show its three sizes and the change, and the item page the whole table.
+  - Search inside gazettes: the English PDF's text, its first 10 pages, kept on the data branch by month and downloaded by the phone for offline search. The 2026 gazettes are read once more for it (a reader version bump, newest first, at the usual pace). Title matches come first; a gazette found only by its text follows, with one short line around the word, highlighted.
+  - PDF viewer: the PDF buttons open an in-app viewer (pdfrx, already in the app) with Share and Open in another app; a weekly notice opens at its page. Every PDF opened is kept on the phone, the oldest removed past about 200 MB; a Saved mark keeps one. A Storage row in Settings shows the space, lists the kept PDFs and clears them.
+  - Smaller APKs: each release publishes one arm64-v8a APK (about a third of the 83 MB universal one) and no universal APK; 32-bit phones are left out. It is built with `--target-platform android-arm64` rather than `--split-per-abi` (which adds 2000 to the version code), so the version codes go on as before and it updates over the universal APK.
+  - Also: the two Tamil titles a stray space broke (a space drawn inside the letter before it), and the scrape workflow's comment, which still says every 3 hours.
+  - Three pull requests: M9a fixes and APKs (no app change), M9b the workflow's new data (weekly notices, Litro prices, gazette text), M9c the app (gas district, closing dates and the weekly alert, the PDF viewer, text search).
 
 ### Defaults (accepted 2026-10-16)
 
@@ -243,6 +254,14 @@ Nine pull requests, each its own release:
   - [x] M8i1, the widget: Petrol 92, Diesel, USD/LKR and the next holiday, a line for a power cut at a place, wallpaper colours, taps open the tabs, updated by each sync
   - [x] M8i2, sharing: long-press a notice, a price or a place with a cut to share it as text with the official link
 
+### M9: Weekly gazettes, Litro, text search, PDF viewer
+
+Three pull requests, alongside M7's two weeks:
+
+- [ ] M9a, fixes and smaller APKs: the stray space in Tamil titles, the scrape workflow's comment, an arm64 APK instead of the universal one
+- [ ] M9b, new data from the workflow: weekly gazette vacancies and exams (from September), Litro prices read from the image, the gazettes' English text (first 10 pages)
+- [ ] M9c, the app: your district's gas prices, closing dates on rows and in Dates, one alert per weekly gazette, the in-app PDF viewer with offline copies, search inside gazettes
+
 ## Open questions
 
 None right now.
@@ -253,12 +272,9 @@ None right now.
 - Sinhala headlines (the official Sinhala PDFs make this easy)
 - AI summaries, if headlines turn out not to be enough (a small model inside the workflow, or a free API key)
 - Public channels (Facebook Page, WhatsApp Channel) and a web page
-- LP gas prices read from Litro's image
 - HARTI's daily wholesale prices from the economic centres; supermarket prices (Keells, Cargills, Glomark), if a fair way to read them turns up
-- Weekly gazettes (their vacancies first), Acts and Bills; water interruptions, if the Water Board starts publishing them; Laugfs gas
+- More of the weekly gazettes (beyond vacancies and exams), Acts and Bills; water interruptions, if the Water Board starts publishing them; Laugfs gas
 - OCR (Tesseract, on GitHub's servers) for Tamil PDFs in a font the reader doesn't know, if one shows up
-- Search inside the gazettes' text (the workflow would keep each PDF's text)
-- An in-app PDF viewer that keeps offline copies
 
 ## Log
 
@@ -308,3 +324,5 @@ None right now.
 | 2026-10-20 | M8h2b: power cut alerts, under a Power cuts switch in Alerts (on) and their own channel; a tap opens Power. A sync compares what it finds with what was last seen (`alerts.powerSeen`): a cut on now at a place alerts once, one notification a place; load shedding seen for the first time alerts once, one notification for each set of places, its slots together ("Load shedding at Home and Family", "Today 19:30 to 20:30, Tomorrow 16:30 to 17:30"). Load shedding that starts keeps its slot's key, so it doesn't alert again as a cut. What the app shows counts as seen, and the first look after the update only records what is there. In quiet hours these are dropped, not held. A reminder goes out 30 minutes before each slot ("Load shedding at Home at 19:30", "Until 20:30"), set again after every change and sync, never in quiet hours. Inexact alarms showed a window of up to an hour in Android's alarm list, so the reminders are exact (`USE_EXACT_ALARM` from Android 13, `SCHEDULE_EXACT_ALARM` on Android 12, both granted without asking; the app isn't on Play, whose review `USE_EXACT_ALARM` would need); holiday reminders stay inexact. A new place in none of the other places' groups took long to get its group, so the rest of the groups are read four at a time, and the place's row says "Finding its load shedding group" while a lookup is due. |
 | 2026-10-20 | Small fixes. Nine more Arial Unicode Tamil glyphs held back the Tamil titles of 35 gazettes once the backlog was read: ksha (8064), nnu (8078), tuu (8081), nuu (8083), yii (8091), luu (8101), vuu (8108), sii (8110) and h with pulli (8133), each read off the printed title it held back (Thunukkai, Mutur, Eravur, Abdullah, ...) and in the font's order; reader version 4 reads them again. Notice search matched inside words ("rice" found every "price"); it now matches words from their start: the search text keeps its words one space apart with punctuation dropped (the slash kept, for o/l and 2509/31), worked out again for stored items (schema 5), and each query word must start a word. |
 | 2026-10-21 | Reader version 4 re-read nothing: with no backlog the scrape lists only the last three weeks, and every gazette it could improve was older, so none came into view. The gazettes state now keeps the reader version it ran with, and a different one reads the whole year again, as a backlog does, until those readings are done (21 on the data branch: 12 Tamil titles, 9 price labels). |
+| 2026-10-21 | M9 grilled; the decisions are under "Weekly gazettes, Litro, text search, PDF viewer and APKs (M9 grilling)". Checked first: the weekly gazette list comes from the same TableDataAction with the endpoint `gazette/get-all-gazette-dates` (one row a week, each with its parts' PDFs by section and language), so it loads from GitHub like the extraordinary ones; Litro's list is one clean table image; the release APK had grown to 83 MB (three ABIs, PDFium); GitHub ran the hourly scrape about five times a day, kept as it is (an outside trigger would break "only GitHub and the app"). |
+| 2026-10-21 | M9a. The last two Tamil titles held back (2474/25 Minuwangoda, 2477/33 Bingiriya) had a space character drawn over the letter ma, which split "mi" into "m i" and made the line untrusted; a space drawn inside the letter before it is now dropped, and reader version 5 reads those PDFs again (13 downloads: 4 Tamil, 9 price lists). Releases are built for arm64 only (`--target-platform android-arm64`, keeping the version codes; `--split-per-abi` would add 2000 to them). The scrape workflow's comment says hourly. |
