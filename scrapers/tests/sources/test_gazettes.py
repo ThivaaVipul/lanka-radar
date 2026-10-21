@@ -201,6 +201,7 @@ def test_reads_back_to_january_then_rechecks_three_weeks(store: Store) -> None:
         "action": gazettes.KNOWN_ACTION,
         "newest": "2026-03-10",
         "backlog": 0,
+        "reader": gazettes.READER,
     }
 
     calls.clear()
@@ -325,6 +326,51 @@ def test_an_older_reading_gets_its_tamil_pdf_read_again(
     calls.clear()
     gazettes.run(web, store, date(2026, 10, 10))
     assert pdf_calls(calls) == []
+
+
+def test_a_reader_bump_reads_the_whole_year_again_once(
+    fixture_bytes: Callable[[str], bytes], store: Store
+) -> None:
+    pages = {
+        1: answer(
+            [
+                row("2512/01", "2026-10-19", "Election Commission"),
+                row("2505/02", "2026-09-01", "Election Commission"),
+            ],
+            2,
+        ),
+        2: answer([row("2509/59", "2026-08-01", "Election Commission", ("TAMIL",))], 2),
+    }
+    files = {"ta": "extra-gazette-content/G 59 (T).pdf"}
+    store.write_state(
+        "gazette-pdfs",
+        {
+            "2512/01": {"files": {}, "reader": 3},
+            "2505/02": {"files": {}, "reader": 3},
+            "2509/59": {"files": files, "reader": 3, "title_ta": None},
+        },
+    )
+    # A state from before the bump, with nothing left to read then.
+    store.write_state(
+        "gazettes", {"action": gazettes.KNOWN_ACTION, "newest": "2026-10-19", "backlog": 0}
+    )
+    web, calls = site(pages, pdfs={"(T)": fixture_bytes("gazette-2509-59-ta.pdf")})
+    tamil = json.loads(fixture_bytes("expected_titles.json"))["gazette-2509-59-ta.pdf"]
+
+    gazettes.run(web, store, date(2026, 10, 21))
+
+    reading = (store.read_state("gazette-pdfs") or {})["2509/59"]
+    assert [call for call in calls if isinstance(call, tuple)] == [
+        (gazettes.KNOWN_ACTION, 1),
+        (gazettes.KNOWN_ACTION, 2),
+    ]
+    assert pdf_calls(calls) == ["/extra-gazette-content/G 59 (T).pdf"]
+    assert reading["title_ta"] == tamil
+    assert reading["reader"] == gazettes.READER
+
+    calls.clear()
+    gazettes.run(web, store, date(2026, 10, 22))
+    assert calls == [(gazettes.KNOWN_ACTION, 1)]
 
 
 BOTH = {"en": "G 01 (E).pdf", "ta": "G 01 (T).pdf"}
