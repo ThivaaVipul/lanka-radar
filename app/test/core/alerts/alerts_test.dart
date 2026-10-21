@@ -7,6 +7,7 @@ import 'package:lanka_radar/core/alerts/fuel_alerts.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
 import 'package:lanka_radar/core/alerts/quiet_hours.dart';
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
@@ -397,6 +398,52 @@ void main() {
       expect(await fakeAlerts(database).lastSync(), now);
     });
 
+    void publishWeekly() => remote.putMonth('2026-10', [
+      item('gazette-2510-20', '2026-10-12', group: 'labour'),
+      notice('weekly-2510-a', '2026-10-09'),
+      notice('weekly-2510-b', '2026-10-09'),
+      notice('weekly-2510-c', '2026-10-09', topic: 'exams'),
+    ]);
+
+    test("a weekly gazette's notices alert once, together", () async {
+      await sync();
+      publishWeekly();
+      now = now.add(const Duration(hours: 3));
+
+      await sync();
+
+      expect(notifier.shown, isEmpty);
+      expect(notifier.weekly, [
+        WeeklyAlert(week: DateTime(2026, 10, 9), vacancies: 2, exams: 1),
+      ]);
+
+      now = now.add(const Duration(hours: 3));
+      await sync();
+      expect(notifier.weekly, hasLength(1));
+    });
+
+    test("a Litro list alerts with the district picked's prices", () async {
+      await sync();
+      remote.putMonth('2026-10', [
+        item('gazette-2510-20', '2026-10-12', group: 'labour'),
+        gasList('2026-10-14', {
+          'Colombo': [4365, 1750, 815],
+          'Jaffna': [4748.84, 1977.13, 999.25],
+        }),
+      ]);
+      await FeedRepository(
+        database: database,
+        remote: remote.branch,
+      ).setGasDistrict('Jaffna');
+      now = now.add(const Duration(hours: 3));
+
+      await sync();
+
+      final list = notifier.shown.single.single;
+      expect(list.data['district'], 'Jaffna');
+      expect(notificationBody(list), startsWith('Jaffna: 12.5 kg 4,748.84'));
+    });
+
     group('in quiet hours', () {
       setUp(() => now = DateTime(2026, 10, 15, 21));
 
@@ -452,6 +499,20 @@ void main() {
         now = DateTime(2026, 10, 16, 6, 40);
         await sync();
         expect(notifier.fuelChanges, ['Petrol 92 399 (was 414)']);
+      });
+
+      test("a weekly gazette's alert waits for the end too", () async {
+        await sync();
+        publishWeekly();
+        now = DateTime(2026, 10, 15, 23, 30);
+        await sync();
+        expect(notifier.weekly, isEmpty);
+
+        now = DateTime(2026, 10, 16, 6, 40);
+        await sync();
+        expect(notifier.weekly, [
+          WeeklyAlert(week: DateTime(2026, 10, 9), vacancies: 2, exams: 1),
+        ]);
       });
 
       test('alerts go out at once with quiet hours off', () async {

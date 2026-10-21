@@ -11,6 +11,7 @@ import 'package:lanka_radar/features/home/view/dates_tab.dart';
 import 'package:lanka_radar/features/home/view/notices_tab.dart';
 import 'package:lanka_radar/features/home/view/prices_tab.dart';
 import 'package:lanka_radar/features/home/view/today_tab.dart';
+import 'package:lanka_radar/features/pdf/view/offline_pdfs_page.dart';
 import 'package:lanka_radar/features/power/cubit/power_cubit.dart';
 import 'package:lanka_radar/features/power/view/power_tab.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
@@ -117,6 +118,10 @@ class _HomeViewState extends State<_HomeView> {
               onSelected: (route) => Navigator.of(context).push(route()),
               itemBuilder: (context) => const [
                 PopupMenuItem(value: AlertsPage.route, child: Text('Alerts')),
+                PopupMenuItem(
+                  value: OfflinePdfsPage.route,
+                  child: Text('Offline PDFs'),
+                ),
                 PopupMenuItem(value: SourcesPage.route, child: Text('Sources')),
                 PopupMenuItem(value: AboutPage.route, child: Text('About')),
               ],

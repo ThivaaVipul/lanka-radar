@@ -47,7 +47,8 @@ final _year = RegExp(r'\b20\d\d\b');
 /// timetable"), otherwise the official title without its boilerplate.
 String cardTitle(FeedItem item) {
   final numbers = item.keyNumbers;
-  if (item.topic == 'prices' && numbers.isNotEmpty) {
+  // Litro's prices are by district: the list keeps its own title.
+  if (item.topic == 'prices' && numbers.isNotEmpty && item.source != 'gas') {
     final more = numbers.length > 1 ? ', and ${numbers.length - 1} more' : '';
     return '${priceChange(numbers.first)}$more';
   }

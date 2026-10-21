@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
+import 'package:lanka_radar/core/data/gas_prices.dart';
 import 'package:lanka_radar/core/data/health.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
@@ -46,10 +47,11 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> watch() async {
     await _alerts.appShown(_now());
     final since = await _feed.lastVisit();
+    final district = await _feed.gasDistrict();
     if (isClosed) {
       return;
     }
-    emit(state.copyWith(newSince: () => since));
+    emit(state.copyWith(newSince: () => since, gasDistrict: district));
     _items = _feed.watchItems().listen((items) {
       emit(state.copyWith(items: items));
       unawaited(_loadNowCard());
@@ -61,6 +63,14 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> refresh() => _refresh(_feed.refresh, _phone.refresh);
 
   void showTopic(String? topic) => emit(state.copyWith(topic: () => topic));
+
+  /// Shows LP gas prices for [district], here and in the gas alert.
+  Future<void> setGasDistrict(String district) async {
+    await _feed.setGasDistrict(district);
+    if (!isClosed) {
+      emit(state.copyWith(gasDistrict: district));
+    }
+  }
 
   /// Leaving the feed: what is on it now stops being new, and background syncs
   /// may alert again.

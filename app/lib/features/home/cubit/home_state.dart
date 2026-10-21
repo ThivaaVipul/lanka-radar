@@ -9,6 +9,7 @@ final class HomeState extends Equatable {
     this.newSince,
     this.nowCard,
     this.health,
+    this.gasDistrict = defaultGasDistrict,
   });
 
   /// How far back a new item may have been published: history filling in is
@@ -35,6 +36,9 @@ final class HomeState extends Equatable {
   /// Every source's health, for the app bar's warning.
   final Health? health;
 
+  /// The district whose LP gas prices Prices shows.
+  final String gasDistrict;
+
   List<FeedItem>? get visibleItems => topic == null
       ? items
       : [
@@ -46,11 +50,13 @@ final class HomeState extends Equatable {
   static const latestOnToday = 5;
 
   /// What Today lists: what arrived since the last visit, or the latest few when
-  /// nothing has. Never election notices, which fold away in Notices.
+  /// nothing has. Never election notices, which fold away in Notices, nor the
+  /// weekly gazette's vacancies and exams, which alert once a week and are in
+  /// Notices and Dates.
   List<FeedItem> get todayItems {
     final notices = [
       for (final item in items ?? const <FeedItem>[])
-        if (!isElectionNotice(item)) item,
+        if (_onToday(item)) item,
     ];
     final fresh = [
       for (final item in notices)
@@ -61,8 +67,11 @@ final class HomeState extends Equatable {
 
   /// Whether Today lists new items rather than the latest ones.
   bool get todayHasNew => (items ?? const <FeedItem>[]).any(
-    (item) => !isElectionNotice(item) && isNew(item),
+    (item) => _onToday(item) && isNew(item),
   );
+
+  static bool _onToday(FeedItem item) =>
+      !isElectionNotice(item) && item.source != 'weekly';
 
   bool isNew(FeedItem item) {
     final since = newSince;
@@ -81,6 +90,7 @@ final class HomeState extends Equatable {
     DateTime? Function()? newSince,
     NowData? nowCard,
     Health? health,
+    String? gasDistrict,
   }) => HomeState(
     items: items ?? this.items,
     refreshing: refreshing ?? this.refreshing,
@@ -89,6 +99,7 @@ final class HomeState extends Equatable {
     newSince: newSince != null ? newSince() : this.newSince,
     nowCard: nowCard ?? this.nowCard,
     health: health ?? this.health,
+    gasDistrict: gasDistrict ?? this.gasDistrict,
   );
 
   @override
@@ -100,5 +111,6 @@ final class HomeState extends Equatable {
     newSince,
     nowCard,
     health,
+    gasDistrict,
   ];
 }

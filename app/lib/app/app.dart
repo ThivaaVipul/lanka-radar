@@ -7,6 +7,7 @@ import 'package:lanka_radar/core/alerts/alerts_repository.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/now_repository.dart';
 import 'package:lanka_radar/core/home_screen_widget.dart';
+import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:lanka_radar/core/sharing.dart';
 import 'package:lanka_radar/features/home/view/home_page.dart';
 
@@ -15,6 +16,7 @@ class LankaRadarApp extends StatelessWidget {
     required this.feed,
     required this.now,
     required this.alerts,
+    required this.pdfs,
     required this.tabs,
     this.info = const AppInfo(version: ''),
     this.homeWidget = const HomeScreenWidget(),
@@ -26,6 +28,7 @@ class LankaRadarApp extends StatelessWidget {
   final FeedRepository feed;
   final NowRepository now;
   final AlertsRepository alerts;
+  final PdfStore pdfs;
 
   /// The home screen's tab, which notifications can change.
   final TabSelection tabs;
@@ -43,6 +46,7 @@ class LankaRadarApp extends StatelessWidget {
         RepositoryProvider.value(value: feed),
         RepositoryProvider.value(value: now),
         RepositoryProvider.value(value: alerts),
+        RepositoryProvider.value(value: pdfs),
         RepositoryProvider.value(value: info),
         RepositoryProvider.value(value: homeWidget),
         RepositoryProvider.value(value: sharing),

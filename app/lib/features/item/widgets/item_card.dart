@@ -3,6 +3,7 @@ import 'package:lanka_radar/app/share.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/numbers.dart';
 import 'package:lanka_radar/core/format/share_texts.dart';
@@ -18,6 +19,7 @@ class ItemTile extends StatelessWidget {
     this.isNew = false,
     this.onTap,
     this.highlight = const [],
+    this.line,
     super.key,
   });
 
@@ -27,6 +29,9 @@ class ItemTile extends StatelessWidget {
 
   /// Words to pick out in the title, from a search.
   final List<String> highlight;
+
+  /// A line of the item's text that a search found its words in.
+  final String? line;
 
   @override
   Widget build(BuildContext context) {
@@ -102,12 +107,31 @@ class ItemTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  if (item.issuer case final issuer?) ...[
+                  if (_meta(item) case final meta when meta.isNotEmpty) ...[
                     const SizedBox(height: 3),
                     Text(
-                      issuer,
+                      meta,
                       style: muted,
                       maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                  if (line case final line? when line.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Text.rich(
+                      highlighted(
+                        line,
+                        highlight,
+                        strong: TextStyle(
+                          color: colors.onSurface,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: colors.onSurfaceVariant,
+                        height: 1.35,
+                      ),
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
@@ -120,6 +144,14 @@ class ItemTile extends StatelessWidget {
     );
   }
 }
+
+/// Under a row's title: who published it, and for a weekly gazette notice when
+/// applications close.
+String _meta(FeedItem item) => [
+  ?item.issuer,
+  if (item.closes case final closes?)
+    closingNote(closes, today: DateTime.now()),
+].join(dot);
 
 /// Rows on one surface, with hairlines between them that start where the text
 /// does.

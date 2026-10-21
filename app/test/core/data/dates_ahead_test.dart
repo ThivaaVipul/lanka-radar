@@ -3,6 +3,8 @@ import 'package:lanka_radar/core/data/dates_ahead.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
 
+import '../../helpers/fake_branch.dart';
+
 FeedItem exam(String id, String title, String published, List<String> days) =>
     FeedItem(
       id: id,
@@ -131,5 +133,27 @@ void main() {
       expect(weekends.single.first, DateTime(2026, 11, 7));
       expect(weekends.single.tentative, isTrue);
     });
+  });
+
+  test("the weekly gazette's applications still open, soonest to close "
+      'first', () {
+    final items = [
+      for (final json in [
+        notice('weekly-2510-a', '2026-10-09', closes: '2026-11-09'),
+        notice('weekly-2510-b', '2026-10-09', closes: '2026-10-30'),
+        notice('weekly-2509-a', '2026-10-02', closes: '2026-10-16'),
+        notice('weekly-2510-c', '2026-10-09'),
+        item('gazette-2510-20', '2026-10-12'),
+      ])
+        FeedItem.fromJson(json),
+    ];
+
+    expect(
+      [
+        for (final item in applicationsClosing(items, DateTime(2026, 10, 20)))
+          item.id,
+      ],
+      ['weekly-2510-b', 'weekly-2510-a'],
+    );
   });
 }

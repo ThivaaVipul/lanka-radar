@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 import 'package:lanka_radar/core/format/topics.dart';
@@ -32,6 +33,63 @@ List<String> queryWords(String query) => [
   for (final word in searchWords(query).split(' '))
     if (word.isNotEmpty) word,
 ];
+
+/// An item found by its text rather than its title, with the line of text
+/// around the first word found.
+final class TextHit extends Equatable {
+  const TextHit(this.item, this.line);
+
+  final FeedItem item;
+  final String line;
+
+  @override
+  List<Object?> get props => [item, line];
+}
+
+/// The line of [text] around the first place one of [words] starts a word:
+/// about [before] characters before it and [after] after, cut at spaces, with
+/// "..." where it was cut. Null when no word is found.
+String? lineAround(
+  String text,
+  List<String> words, {
+  int before = 40,
+  int after = 110,
+}) {
+  final lower = text.toLowerCase();
+  int? at;
+  for (final word in words) {
+    final match = RegExp(
+      r'(^|[^\p{L}\p{M}\p{N}])' + RegExp.escape(word),
+      unicode: true,
+    ).firstMatch(lower);
+    if (match != null) {
+      final start = match.start + match[1]!.length;
+      at = at == null || start < at ? start : at;
+    }
+  }
+  if (at == null || lower.length != text.length) {
+    return at == null ? null : text.substring(0, text.length.clamp(0, after));
+  }
+  var start = at - before;
+  if (start <= 0) {
+    start = 0;
+  } else {
+    final space = text.indexOf(' ', start);
+    start = space < 0 || space >= at ? start : space + 1;
+  }
+  var end = at + after;
+  if (end >= text.length) {
+    end = text.length;
+  } else {
+    final space = text.lastIndexOf(' ', end);
+    end = space > at ? space : end;
+  }
+  return [
+    if (start > 0) '...',
+    text.substring(start, end).trim(),
+    if (end < text.length) '...',
+  ].join();
+}
 
 /// What search matches an item by, in lower case: its headlines, issuer and
 /// gazette number, what its card shows (the topic, price labels long and

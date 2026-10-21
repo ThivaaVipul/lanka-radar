@@ -37,9 +37,14 @@ class SearchCubit extends Cubit<SearchState> {
       emit(state.copyWith(results: () => null, only: () => null));
       return;
     }
+    final notices = await _feed.search(query);
     final results = searchEverything(
       words: words,
-      notices: await _feed.search(query),
+      notices: notices,
+      inside: await _feed.searchInside(
+        query,
+        excluding: {for (final item in notices) item.id},
+      ),
       now: _now,
       holidays: _holidays,
     );

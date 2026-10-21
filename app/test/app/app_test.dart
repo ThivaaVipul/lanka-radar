@@ -1,18 +1,24 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:lanka_radar/app/app.dart';
 import 'package:lanka_radar/app/home_tabs.dart';
 import 'package:lanka_radar/app/notification_router.dart';
 import 'package:lanka_radar/core/alerts/notifier.dart';
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_repository.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
 import 'package:lanka_radar/core/format/dates.dart';
+import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:lanka_radar/features/alerts/view/alerts_page.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 import 'package:lanka_radar/features/item/widgets/item_card.dart';
+import 'package:lanka_radar/features/notices/view/week_page.dart';
 import 'package:lanka_radar/features/power/widgets/osm.dart';
 import 'package:lanka_radar/features/power/widgets/place_row.dart';
 import 'package:lanka_radar/features/search/view/search_page.dart';
@@ -27,15 +33,20 @@ void main() {
   late FakeBranch remote;
   late TabSelection tabs;
   late FakeSharing sharing;
+  late Directory pdfFolder;
 
   setUp(() {
     database = memoryDatabase();
     remote = FakeBranch();
     tabs = TabSelection();
     sharing = FakeSharing();
+    pdfFolder = Directory.systemTemp.createTempSync('lanka-radar-pdfs');
   });
 
-  tearDown(() => database.close());
+  tearDown(() async {
+    await database.close();
+    pdfFolder.deleteSync(recursive: true);
+  });
 
   Future<void> open(
     WidgetTester tester, {
@@ -56,6 +67,11 @@ void main() {
           feed: feed,
           now: now,
           alerts: fakeAlerts(database),
+          pdfs: PdfStore(
+            database: database,
+            client: MockClient((request) async => http.Response('', 404)),
+            folder: () async => pdfFolder,
+          ),
           tabs: router?.tabs ?? tabs,
           sharing: sharing,
           navigatorKey: router?.navigatorKey,
@@ -314,7 +330,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Fuel'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('Price orders'), 200);
-    expect(find.text('Litro price list'), findsOneWidget);
+    expect(find.text('Price list'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Dates'));
     await tester.pumpAndSettle();
@@ -439,6 +455,114 @@ void main() {
     await tester.enterText(find.byType(TextField), 'nothing like this');
     await settle(tester);
     expect(find.text('No matches'), findsOneWidget);
+  });
+
+  testWidgets('search finds a gazette by its text, with the line it is in', (
+    tester,
+  ) async {
+    remote
+      ..putMonth('2026-10', [
+        item('gazette-2510-20', '2026-10-12', headline: 'Customs notification'),
+      ])
+      ..putTexts('2026-10', {
+        'gazette-2510-20':
+            'The import of rice from Kilinochchi is exempted from the levy.',
+      });
+    await open(tester);
+
+    await tester.tap(find.byTooltip('Search'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'kilinochchi');
+    await settle(tester);
+
+    expect(find.text('Customs notification'), findsOneWidget);
+    expect(
+      find.textContaining(
+        'The import of rice from Kilinochchi',
+        findRichText: true,
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets("a weekly gazette's notification opens its notices", (
+    tester,
+  ) async {
+    remote.putMonth('2026-10', [
+      notice('weekly-2510-a', '2026-10-09', headline: 'Post of Registrar'),
+      notice(
+        'weekly-2510-c',
+        '2026-10-09',
+        topic: 'exams',
+        headline: 'Examination for Excise Guards',
+        page: 35,
+      ),
+    ]);
+    final notifications = router();
+    await open(tester, router: notifications);
+
+    await tester.runAsync(
+      () => notifications.open(weeklyPayload(DateTime(2026, 10, 9))),
+    );
+    await settle(tester);
+
+    expect(find.byType(WeekPage), findsOneWidget);
+    expect(find.text('Gazette of 9 Oct 2026'), findsOneWidget);
+    expect(find.text('Vacancies'), findsOneWidget);
+    expect(find.text('Examinations'), findsOneWidget);
+    expect(find.text('Post of Registrar'), findsOneWidget);
+  });
+
+  testWidgets('Dates lists the applications still open', (tester) async {
+    remote.putMonth('2026-10', [
+      notice(
+        'weekly-2510-a',
+        '2026-10-09',
+        headline: 'Post of Registrar',
+        closes: '2099-01-15',
+      ),
+    ]);
+    await open(tester);
+
+    await showTab(tester, HomeTab.dates);
+
+    expect(find.text('Applications closing'), findsOneWidget);
+    expect(find.text('Post of Registrar'), findsOneWidget);
+    expect(find.text('Thu 15 Jan'), findsOneWidget);
+  });
+
+  testWidgets('LP gas shows the district picked', (tester) async {
+    remote.putMonth('2026-10', [
+      gasList('2026-10-06', {
+        'Colombo': [4365, 1750, 815],
+        'Jaffna': [4748.84, 1977.13, 999.25],
+      }),
+    ]);
+    await open(tester);
+    await showTab(tester, HomeTab.prices);
+    await tester.scrollUntilVisible(find.text('Price list'), 200);
+
+    expect(find.text('Colombo'), findsOneWidget);
+    expect(find.text('4,365'), findsOneWidget);
+
+    await tester.tap(find.text('Colombo'));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Jaffna'),
+      100,
+      scrollable: find.byType(Scrollable).last,
+    );
+    await tester.tap(find.text('Jaffna'));
+    await settle(tester);
+
+    expect(find.text('4,748.84'), findsOneWidget);
+    expect(
+      await FeedRepository(
+        database: database,
+        remote: remote.branch,
+      ).gasDistrict(),
+      'Jaffna',
+    );
   });
 
   testWidgets('says so when there is nothing yet', (tester) async {

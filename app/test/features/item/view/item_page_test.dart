@@ -1,8 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:lanka_radar/app/theme.dart';
+import 'package:lanka_radar/core/data/database.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
+import 'package:lanka_radar/core/pdf_store.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
+import 'package:lanka_radar/features/pdf/view/pdf_page.dart';
+
+import '../../../helpers/fake_branch.dart';
 
 // Tamil text built from code points, so this file stays plain ASCII.
 final tamil = String.fromCharCodes([0x0B9A, 0x0BC1, 0x0B99, 0x0BCD, 0x0B95]);
@@ -42,18 +52,39 @@ FeedItem fuelRevision({Map<String, String>? links}) => FeedItem(
 
 void main() {
   late List<Uri> opened;
+  late AppDatabase database;
+  late Directory folder;
+
+  setUp(() {
+    database = memoryDatabase();
+    folder = Directory.systemTemp.createTempSync('lanka-radar-pdfs');
+  });
+
+  tearDown(() async {
+    await database.close();
+    folder.deleteSync(recursive: true);
+  });
 
   Future<void> show(WidgetTester tester, FeedItem item) async {
     opened = [];
+    // Nothing downloads here: the viewer says so and offers another app.
+    final store = PdfStore(
+      database: database,
+      client: MockClient((request) async => http.Response('', 404)),
+      folder: () async => folder,
+    );
     await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        home: ItemPage(
-          item: item,
-          open: (link) async {
-            opened.add(link);
-            return true;
-          },
+      RepositoryProvider.value(
+        value: store,
+        child: MaterialApp(
+          theme: AppTheme.light,
+          home: ItemPage(
+            item: item,
+            open: (link) async {
+              opened.add(link);
+              return true;
+            },
+          ),
         ),
       ),
     );
@@ -73,16 +104,50 @@ void main() {
   });
 
   testWidgets('offers the English and Tamil PDFs, not the Sinhala one, and '
-      'opens them', (tester) async {
+      'opens them in the app', (tester) async {
     await show(tester, fuelRevision());
 
     expect(find.text('English PDF'), findsOneWidget);
     expect(find.text('Tamil PDF'), findsOneWidget);
     expect(find.text('Sinhala PDF'), findsNothing);
 
-    await tester.tap(find.text('Tamil PDF'));
     await tester.tap(find.text('Official page'));
-    expect(opened, [Uri.parse(tamilPdf), Uri.parse(page)]);
+    expect(opened, [Uri.parse(page)]);
+
+    await tester.tap(find.text('Tamil PDF'));
+    await tester.pumpAndSettle();
+    final viewer = tester.widget<PdfPage>(find.byType(PdfPage));
+    expect(viewer.url, tamilPdf);
+    expect(viewer.page, 1);
+    expect(find.text("Couldn't download it"), findsOneWidget);
+
+    await tester.tap(find.text('Open in another app'));
+    await tester.pump();
+    expect(opened.last, Uri.parse(tamilPdf));
+  });
+
+  testWidgets('a weekly notice says when it closes, and its English PDF '
+      'opens at its page', (tester) async {
+    await show(
+      tester,
+      FeedItem(
+        id: 'weekly-2510-0f2c19aa',
+        source: 'weekly',
+        topic: 'exams',
+        issuer: 'Sri Lanka Excise Department',
+        headlineEn: 'Recruitment to the Post of Excise Guard Driver - 2026',
+        published: DateTime(2026, 10, 9),
+        links: const {'page': page, 'pdf_en': english, 'pdf_si': sinhala},
+        data: const {'page': 35, 'closes': '2026-10-30'},
+      ),
+    );
+
+    expect(find.textContaining('30 Oct'), findsOneWidget);
+
+    await tester.tap(find.text('English PDF'));
+    await tester.pumpAndSettle();
+
+    expect(tester.widget<PdfPage>(find.byType(PdfPage)).page, 35);
   });
 
   testWidgets('offers the Sinhala PDF when it is the only one', (tester) async {

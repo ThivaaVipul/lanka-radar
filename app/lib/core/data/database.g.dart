@@ -1488,6 +1488,721 @@ class RatesCompanion extends UpdateCompanion<RateRow> {
   }
 }
 
+class $TextsTable extends Texts with TableInfo<$TextsTable, TextRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TextsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _monthMeta = const VerificationMeta('month');
+  @override
+  late final GeneratedColumn<String> month = GeneratedColumn<String>(
+    'month',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _searchMeta = const VerificationMeta('search');
+  @override
+  late final GeneratedColumn<String> search = GeneratedColumn<String>(
+    'search',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bodyMeta = const VerificationMeta('body');
+  @override
+  late final GeneratedColumn<String> body = GeneratedColumn<String>(
+    'body',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, month, search, body];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'texts';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TextRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('month')) {
+      context.handle(
+        _monthMeta,
+        month.isAcceptableOrUnknown(data['month']!, _monthMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_monthMeta);
+    }
+    if (data.containsKey('search')) {
+      context.handle(
+        _searchMeta,
+        search.isAcceptableOrUnknown(data['search']!, _searchMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_searchMeta);
+    }
+    if (data.containsKey('body')) {
+      context.handle(
+        _bodyMeta,
+        body.isAcceptableOrUnknown(data['body']!, _bodyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bodyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TextRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TextRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      month: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}month'],
+      )!,
+      search: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}search'],
+      )!,
+      body: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}body'],
+      )!,
+    );
+  }
+
+  @override
+  $TextsTable createAlias(String alias) {
+    return $TextsTable(attachedDatabase, alias);
+  }
+}
+
+class TextRow extends DataClass implements Insertable<TextRow> {
+  final String id;
+
+  /// The month file it came in, yyyy-MM.
+  final String month;
+
+  /// The text as search keeps it (see searchWords).
+  final String search;
+
+  /// The text as printed, for the line a search result shows.
+  final String body;
+  const TextRow({
+    required this.id,
+    required this.month,
+    required this.search,
+    required this.body,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['month'] = Variable<String>(month);
+    map['search'] = Variable<String>(search);
+    map['body'] = Variable<String>(body);
+    return map;
+  }
+
+  TextsCompanion toCompanion(bool nullToAbsent) {
+    return TextsCompanion(
+      id: Value(id),
+      month: Value(month),
+      search: Value(search),
+      body: Value(body),
+    );
+  }
+
+  factory TextRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TextRow(
+      id: serializer.fromJson<String>(json['id']),
+      month: serializer.fromJson<String>(json['month']),
+      search: serializer.fromJson<String>(json['search']),
+      body: serializer.fromJson<String>(json['body']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'month': serializer.toJson<String>(month),
+      'search': serializer.toJson<String>(search),
+      'body': serializer.toJson<String>(body),
+    };
+  }
+
+  TextRow copyWith({String? id, String? month, String? search, String? body}) =>
+      TextRow(
+        id: id ?? this.id,
+        month: month ?? this.month,
+        search: search ?? this.search,
+        body: body ?? this.body,
+      );
+  TextRow copyWithCompanion(TextsCompanion data) {
+    return TextRow(
+      id: data.id.present ? data.id.value : this.id,
+      month: data.month.present ? data.month.value : this.month,
+      search: data.search.present ? data.search.value : this.search,
+      body: data.body.present ? data.body.value : this.body,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TextRow(')
+          ..write('id: $id, ')
+          ..write('month: $month, ')
+          ..write('search: $search, ')
+          ..write('body: $body')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, month, search, body);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TextRow &&
+          other.id == this.id &&
+          other.month == this.month &&
+          other.search == this.search &&
+          other.body == this.body);
+}
+
+class TextsCompanion extends UpdateCompanion<TextRow> {
+  final Value<String> id;
+  final Value<String> month;
+  final Value<String> search;
+  final Value<String> body;
+  final Value<int> rowid;
+  const TextsCompanion({
+    this.id = const Value.absent(),
+    this.month = const Value.absent(),
+    this.search = const Value.absent(),
+    this.body = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TextsCompanion.insert({
+    required String id,
+    required String month,
+    required String search,
+    required String body,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       month = Value(month),
+       search = Value(search),
+       body = Value(body);
+  static Insertable<TextRow> custom({
+    Expression<String>? id,
+    Expression<String>? month,
+    Expression<String>? search,
+    Expression<String>? body,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (month != null) 'month': month,
+      if (search != null) 'search': search,
+      if (body != null) 'body': body,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TextsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? month,
+    Value<String>? search,
+    Value<String>? body,
+    Value<int>? rowid,
+  }) {
+    return TextsCompanion(
+      id: id ?? this.id,
+      month: month ?? this.month,
+      search: search ?? this.search,
+      body: body ?? this.body,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (month.present) {
+      map['month'] = Variable<String>(month.value);
+    }
+    if (search.present) {
+      map['search'] = Variable<String>(search.value);
+    }
+    if (body.present) {
+      map['body'] = Variable<String>(body.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TextsCompanion(')
+          ..write('id: $id, ')
+          ..write('month: $month, ')
+          ..write('search: $search, ')
+          ..write('body: $body, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $PdfsTable extends Pdfs with TableInfo<$PdfsTable, PdfRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PdfsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _urlMeta = const VerificationMeta('url');
+  @override
+  late final GeneratedColumn<String> url = GeneratedColumn<String>(
+    'url',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fileMeta = const VerificationMeta('file');
+  @override
+  late final GeneratedColumn<String> file = GeneratedColumn<String>(
+    'file',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bytesMeta = const VerificationMeta('bytes');
+  @override
+  late final GeneratedColumn<int> bytes = GeneratedColumn<int>(
+    'bytes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _openedAtMeta = const VerificationMeta(
+    'openedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> openedAt = GeneratedColumn<DateTime>(
+    'opened_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _savedMeta = const VerificationMeta('saved');
+  @override
+  late final GeneratedColumn<bool> saved = GeneratedColumn<bool>(
+    'saved',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("saved" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    url,
+    file,
+    title,
+    bytes,
+    openedAt,
+    saved,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'pdfs';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PdfRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('url')) {
+      context.handle(
+        _urlMeta,
+        url.isAcceptableOrUnknown(data['url']!, _urlMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_urlMeta);
+    }
+    if (data.containsKey('file')) {
+      context.handle(
+        _fileMeta,
+        file.isAcceptableOrUnknown(data['file']!, _fileMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_fileMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('bytes')) {
+      context.handle(
+        _bytesMeta,
+        bytes.isAcceptableOrUnknown(data['bytes']!, _bytesMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bytesMeta);
+    }
+    if (data.containsKey('opened_at')) {
+      context.handle(
+        _openedAtMeta,
+        openedAt.isAcceptableOrUnknown(data['opened_at']!, _openedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_openedAtMeta);
+    }
+    if (data.containsKey('saved')) {
+      context.handle(
+        _savedMeta,
+        saved.isAcceptableOrUnknown(data['saved']!, _savedMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {url};
+  @override
+  PdfRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PdfRow(
+      url: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}url'],
+      )!,
+      file: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}file'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      bytes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}bytes'],
+      )!,
+      openedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}opened_at'],
+      )!,
+      saved: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}saved'],
+      )!,
+    );
+  }
+
+  @override
+  $PdfsTable createAlias(String alias) {
+    return $PdfsTable(attachedDatabase, alias);
+  }
+}
+
+class PdfRow extends DataClass implements Insertable<PdfRow> {
+  final String url;
+
+  /// The file's name in the app's PDF folder.
+  final String file;
+
+  /// What it is, for the list of kept PDFs.
+  final String title;
+  final int bytes;
+  final DateTime openedAt;
+
+  /// Kept however much space the others take.
+  final bool saved;
+  const PdfRow({
+    required this.url,
+    required this.file,
+    required this.title,
+    required this.bytes,
+    required this.openedAt,
+    required this.saved,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['url'] = Variable<String>(url);
+    map['file'] = Variable<String>(file);
+    map['title'] = Variable<String>(title);
+    map['bytes'] = Variable<int>(bytes);
+    map['opened_at'] = Variable<DateTime>(openedAt);
+    map['saved'] = Variable<bool>(saved);
+    return map;
+  }
+
+  PdfsCompanion toCompanion(bool nullToAbsent) {
+    return PdfsCompanion(
+      url: Value(url),
+      file: Value(file),
+      title: Value(title),
+      bytes: Value(bytes),
+      openedAt: Value(openedAt),
+      saved: Value(saved),
+    );
+  }
+
+  factory PdfRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PdfRow(
+      url: serializer.fromJson<String>(json['url']),
+      file: serializer.fromJson<String>(json['file']),
+      title: serializer.fromJson<String>(json['title']),
+      bytes: serializer.fromJson<int>(json['bytes']),
+      openedAt: serializer.fromJson<DateTime>(json['openedAt']),
+      saved: serializer.fromJson<bool>(json['saved']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'url': serializer.toJson<String>(url),
+      'file': serializer.toJson<String>(file),
+      'title': serializer.toJson<String>(title),
+      'bytes': serializer.toJson<int>(bytes),
+      'openedAt': serializer.toJson<DateTime>(openedAt),
+      'saved': serializer.toJson<bool>(saved),
+    };
+  }
+
+  PdfRow copyWith({
+    String? url,
+    String? file,
+    String? title,
+    int? bytes,
+    DateTime? openedAt,
+    bool? saved,
+  }) => PdfRow(
+    url: url ?? this.url,
+    file: file ?? this.file,
+    title: title ?? this.title,
+    bytes: bytes ?? this.bytes,
+    openedAt: openedAt ?? this.openedAt,
+    saved: saved ?? this.saved,
+  );
+  PdfRow copyWithCompanion(PdfsCompanion data) {
+    return PdfRow(
+      url: data.url.present ? data.url.value : this.url,
+      file: data.file.present ? data.file.value : this.file,
+      title: data.title.present ? data.title.value : this.title,
+      bytes: data.bytes.present ? data.bytes.value : this.bytes,
+      openedAt: data.openedAt.present ? data.openedAt.value : this.openedAt,
+      saved: data.saved.present ? data.saved.value : this.saved,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PdfRow(')
+          ..write('url: $url, ')
+          ..write('file: $file, ')
+          ..write('title: $title, ')
+          ..write('bytes: $bytes, ')
+          ..write('openedAt: $openedAt, ')
+          ..write('saved: $saved')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(url, file, title, bytes, openedAt, saved);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PdfRow &&
+          other.url == this.url &&
+          other.file == this.file &&
+          other.title == this.title &&
+          other.bytes == this.bytes &&
+          other.openedAt == this.openedAt &&
+          other.saved == this.saved);
+}
+
+class PdfsCompanion extends UpdateCompanion<PdfRow> {
+  final Value<String> url;
+  final Value<String> file;
+  final Value<String> title;
+  final Value<int> bytes;
+  final Value<DateTime> openedAt;
+  final Value<bool> saved;
+  final Value<int> rowid;
+  const PdfsCompanion({
+    this.url = const Value.absent(),
+    this.file = const Value.absent(),
+    this.title = const Value.absent(),
+    this.bytes = const Value.absent(),
+    this.openedAt = const Value.absent(),
+    this.saved = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PdfsCompanion.insert({
+    required String url,
+    required String file,
+    required String title,
+    required int bytes,
+    required DateTime openedAt,
+    this.saved = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : url = Value(url),
+       file = Value(file),
+       title = Value(title),
+       bytes = Value(bytes),
+       openedAt = Value(openedAt);
+  static Insertable<PdfRow> custom({
+    Expression<String>? url,
+    Expression<String>? file,
+    Expression<String>? title,
+    Expression<int>? bytes,
+    Expression<DateTime>? openedAt,
+    Expression<bool>? saved,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (url != null) 'url': url,
+      if (file != null) 'file': file,
+      if (title != null) 'title': title,
+      if (bytes != null) 'bytes': bytes,
+      if (openedAt != null) 'opened_at': openedAt,
+      if (saved != null) 'saved': saved,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PdfsCompanion copyWith({
+    Value<String>? url,
+    Value<String>? file,
+    Value<String>? title,
+    Value<int>? bytes,
+    Value<DateTime>? openedAt,
+    Value<bool>? saved,
+    Value<int>? rowid,
+  }) {
+    return PdfsCompanion(
+      url: url ?? this.url,
+      file: file ?? this.file,
+      title: title ?? this.title,
+      bytes: bytes ?? this.bytes,
+      openedAt: openedAt ?? this.openedAt,
+      saved: saved ?? this.saved,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (url.present) {
+      map['url'] = Variable<String>(url.value);
+    }
+    if (file.present) {
+      map['file'] = Variable<String>(file.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (bytes.present) {
+      map['bytes'] = Variable<int>(bytes.value);
+    }
+    if (openedAt.present) {
+      map['opened_at'] = Variable<DateTime>(openedAt.value);
+    }
+    if (saved.present) {
+      map['saved'] = Variable<bool>(saved.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PdfsCompanion(')
+          ..write('url: $url, ')
+          ..write('file: $file, ')
+          ..write('title: $title, ')
+          ..write('bytes: $bytes, ')
+          ..write('openedAt: $openedAt, ')
+          ..write('saved: $saved, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -1496,6 +2211,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $SettingsTable settings = $SettingsTable(this);
   late final $FuelPricesTable fuelPrices = $FuelPricesTable(this);
   late final $RatesTable rates = $RatesTable(this);
+  late final $TextsTable texts = $TextsTable(this);
+  late final $PdfsTable pdfs = $PdfsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1506,6 +2223,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     settings,
     fuelPrices,
     rates,
+    texts,
+    pdfs,
   ];
 }
 
@@ -2359,6 +3078,391 @@ typedef $$RatesTableProcessedTableManager =
       RateRow,
       PrefetchHooks Function()
     >;
+typedef $$TextsTableCreateCompanionBuilder =
+    TextsCompanion Function({
+      required String id,
+      required String month,
+      required String search,
+      required String body,
+      Value<int> rowid,
+    });
+typedef $$TextsTableUpdateCompanionBuilder =
+    TextsCompanion Function({
+      Value<String> id,
+      Value<String> month,
+      Value<String> search,
+      Value<String> body,
+      Value<int> rowid,
+    });
+
+class $$TextsTableFilterComposer extends Composer<_$AppDatabase, $TextsTable> {
+  $$TextsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get month => $composableBuilder(
+    column: $table.month,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get search => $composableBuilder(
+    column: $table.search,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TextsTableOrderingComposer
+    extends Composer<_$AppDatabase, $TextsTable> {
+  $$TextsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get month => $composableBuilder(
+    column: $table.month,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get search => $composableBuilder(
+    column: $table.search,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TextsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $TextsTable> {
+  $$TextsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get month =>
+      $composableBuilder(column: $table.month, builder: (column) => column);
+
+  GeneratedColumn<String> get search =>
+      $composableBuilder(column: $table.search, builder: (column) => column);
+
+  GeneratedColumn<String> get body =>
+      $composableBuilder(column: $table.body, builder: (column) => column);
+}
+
+class $$TextsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $TextsTable,
+          TextRow,
+          $$TextsTableFilterComposer,
+          $$TextsTableOrderingComposer,
+          $$TextsTableAnnotationComposer,
+          $$TextsTableCreateCompanionBuilder,
+          $$TextsTableUpdateCompanionBuilder,
+          (TextRow, BaseReferences<_$AppDatabase, $TextsTable, TextRow>),
+          TextRow,
+          PrefetchHooks Function()
+        > {
+  $$TextsTableTableManager(_$AppDatabase db, $TextsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TextsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TextsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TextsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> month = const Value.absent(),
+                Value<String> search = const Value.absent(),
+                Value<String> body = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TextsCompanion(
+                id: id,
+                month: month,
+                search: search,
+                body: body,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String month,
+                required String search,
+                required String body,
+                Value<int> rowid = const Value.absent(),
+              }) => TextsCompanion.insert(
+                id: id,
+                month: month,
+                search: search,
+                body: body,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TextsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $TextsTable,
+      TextRow,
+      $$TextsTableFilterComposer,
+      $$TextsTableOrderingComposer,
+      $$TextsTableAnnotationComposer,
+      $$TextsTableCreateCompanionBuilder,
+      $$TextsTableUpdateCompanionBuilder,
+      (TextRow, BaseReferences<_$AppDatabase, $TextsTable, TextRow>),
+      TextRow,
+      PrefetchHooks Function()
+    >;
+typedef $$PdfsTableCreateCompanionBuilder =
+    PdfsCompanion Function({
+      required String url,
+      required String file,
+      required String title,
+      required int bytes,
+      required DateTime openedAt,
+      Value<bool> saved,
+      Value<int> rowid,
+    });
+typedef $$PdfsTableUpdateCompanionBuilder =
+    PdfsCompanion Function({
+      Value<String> url,
+      Value<String> file,
+      Value<String> title,
+      Value<int> bytes,
+      Value<DateTime> openedAt,
+      Value<bool> saved,
+      Value<int> rowid,
+    });
+
+class $$PdfsTableFilterComposer extends Composer<_$AppDatabase, $PdfsTable> {
+  $$PdfsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get url => $composableBuilder(
+    column: $table.url,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get file => $composableBuilder(
+    column: $table.file,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bytes => $composableBuilder(
+    column: $table.bytes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get openedAt => $composableBuilder(
+    column: $table.openedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get saved => $composableBuilder(
+    column: $table.saved,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$PdfsTableOrderingComposer extends Composer<_$AppDatabase, $PdfsTable> {
+  $$PdfsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get url => $composableBuilder(
+    column: $table.url,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get file => $composableBuilder(
+    column: $table.file,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bytes => $composableBuilder(
+    column: $table.bytes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get openedAt => $composableBuilder(
+    column: $table.openedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get saved => $composableBuilder(
+    column: $table.saved,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PdfsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PdfsTable> {
+  $$PdfsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get url =>
+      $composableBuilder(column: $table.url, builder: (column) => column);
+
+  GeneratedColumn<String> get file =>
+      $composableBuilder(column: $table.file, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<int> get bytes =>
+      $composableBuilder(column: $table.bytes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get openedAt =>
+      $composableBuilder(column: $table.openedAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get saved =>
+      $composableBuilder(column: $table.saved, builder: (column) => column);
+}
+
+class $$PdfsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PdfsTable,
+          PdfRow,
+          $$PdfsTableFilterComposer,
+          $$PdfsTableOrderingComposer,
+          $$PdfsTableAnnotationComposer,
+          $$PdfsTableCreateCompanionBuilder,
+          $$PdfsTableUpdateCompanionBuilder,
+          (PdfRow, BaseReferences<_$AppDatabase, $PdfsTable, PdfRow>),
+          PdfRow,
+          PrefetchHooks Function()
+        > {
+  $$PdfsTableTableManager(_$AppDatabase db, $PdfsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PdfsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PdfsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PdfsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> url = const Value.absent(),
+                Value<String> file = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<int> bytes = const Value.absent(),
+                Value<DateTime> openedAt = const Value.absent(),
+                Value<bool> saved = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PdfsCompanion(
+                url: url,
+                file: file,
+                title: title,
+                bytes: bytes,
+                openedAt: openedAt,
+                saved: saved,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String url,
+                required String file,
+                required String title,
+                required int bytes,
+                required DateTime openedAt,
+                Value<bool> saved = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PdfsCompanion.insert(
+                url: url,
+                file: file,
+                title: title,
+                bytes: bytes,
+                openedAt: openedAt,
+                saved: saved,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PdfsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PdfsTable,
+      PdfRow,
+      $$PdfsTableFilterComposer,
+      $$PdfsTableOrderingComposer,
+      $$PdfsTableAnnotationComposer,
+      $$PdfsTableCreateCompanionBuilder,
+      $$PdfsTableUpdateCompanionBuilder,
+      (PdfRow, BaseReferences<_$AppDatabase, $PdfsTable, PdfRow>),
+      PdfRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2373,4 +3477,7 @@ class $AppDatabaseManager {
       $$FuelPricesTableTableManager(_db, _db.fuelPrices);
   $$RatesTableTableManager get rates =>
       $$RatesTableTableManager(_db, _db.rates);
+  $$TextsTableTableManager get texts =>
+      $$TextsTableTableManager(_db, _db.texts);
+  $$PdfsTableTableManager get pdfs => $$PdfsTableTableManager(_db, _db.pdfs);
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:lanka_radar/core/alerts/holiday_reminders.dart';
 import 'package:lanka_radar/core/alerts/power_alerts.dart';
+import 'package:lanka_radar/core/alerts/weekly_alerts.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
@@ -13,6 +14,9 @@ import 'package:timezone/timezone.dart' as tz;
 abstract interface class Notifier {
   /// One notification per item, stacked under the app; tapping one opens it.
   Future<void> showItems(List<FeedItem> items);
+
+  /// One notification for each weekly gazette's vacancies and examinations.
+  Future<void> showWeekly(List<WeeklyAlert> alerts);
 
   /// A change in CEYPETCO's fuel prices; a later change replaces it, and
   /// tapping it opens the fuel prices.
@@ -51,9 +55,10 @@ String? itemIdFrom(String? payload) =>
     ? payload.substring('item:'.length)
     : null;
 
-/// What an item's notification says under its headline: its first key numbers,
-/// or the topic and who published it.
+/// What an item's notification says under its headline: its first key numbers
+/// (a Litro list's for its district), or the topic and who published it.
 String notificationBody(FeedItem item) {
+  final district = item.source == 'gas' ? item.data['district'] : null;
   final numbers = [
     for (final number in item.keyNumbers.take(3))
       [
@@ -62,7 +67,10 @@ String notificationBody(FeedItem item) {
         if (number.previous != null) '(was ${amount(number.previous!)})',
       ].join(' '),
   ];
-  return numbers.isEmpty ? itemMeta(item) : numbers.join(', ');
+  if (numbers.isEmpty) {
+    return itemMeta(item);
+  }
+  return [if (district is String) '$district:', numbers.join(', ')].join(' ');
 }
 
 /// What an item's notification shows pulled down, under who published it: the
@@ -182,6 +190,26 @@ class LocalNotifier implements Notifier {
             setAsGroupSummary: true,
           ),
         ),
+      );
+    }
+  }
+
+  @override
+  Future<void> showWeekly(List<WeeklyAlert> alerts) async {
+    for (final alert in alerts) {
+      await _plugin.show(
+        id: notificationId(weeklyPayload(alert.week)),
+        title: alert.title,
+        body: alert.body,
+        notificationDetails: const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _channel,
+            _channelName,
+            channelDescription: _channelText,
+            groupKey: _group,
+          ),
+        ),
+        payload: weeklyPayload(alert.week),
       );
     }
   }

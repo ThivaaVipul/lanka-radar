@@ -4,6 +4,7 @@ import 'package:lanka_radar/core/calendar.dart';
 import 'package:lanka_radar/core/data/dates_ahead.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/power_cuts.dart';
+import 'package:lanka_radar/core/format/card_lines.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/headlines.dart';
 import 'package:lanka_radar/core/format/outages.dart';
@@ -12,9 +13,9 @@ import 'package:lanka_radar/features/home/widgets/pieces.dart';
 import 'package:lanka_radar/features/item/view/item_page.dart';
 
 /// Dates: the load shedding ahead at the places watched, the school exams
-/// ahead (their days read from the timetables), the long weekends and the
-/// year's remaining holidays, each with a countdown and a way into the phone's
-/// calendar.
+/// ahead (their days read from the timetables), the weekly gazette's
+/// applications still open, the long weekends and the year's remaining
+/// holidays, each with a countdown and a way into the phone's calendar.
 class DatesTab extends StatelessWidget {
   const DatesTab({this.addToCalendar = addToPhoneCalendar, super.key});
 
@@ -31,6 +32,10 @@ class DatesTab extends StatelessWidget {
         final today = DateTime.now();
         final day = DateTime(today.year, today.month, today.day);
         final exams = upcomingExams(state.items ?? const <FeedItem>[], day);
+        final closing = applicationsClosing(
+          state.items ?? const <FeedItem>[],
+          day,
+        );
         final weekends = longWeekends(now.holidays, day);
         final cuts = cutsAhead(now.power);
         Future<void> add(CalendarEvent event) async {
@@ -96,6 +101,30 @@ class DatesTab extends StatelessWidget {
                           first: exam.first,
                           last: exam.last,
                           description: exam.item.headlineEn,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            if (closing.isNotEmpty)
+              Section(
+                title: 'Applications closing',
+                children: [
+                  for (final item in closing)
+                    _DateRow(
+                      first: item.closes!,
+                      last: item.closes!,
+                      today: day,
+                      title: cardTitle(item),
+                      subtitle: item.issuer,
+                      onTap: () =>
+                          Navigator.of(context).push(ItemPage.route(item)),
+                      onAdd: () => add(
+                        CalendarEvent(
+                          title: 'Applications close: ${cardTitle(item)}',
+                          first: item.closes!,
+                          last: item.closes!,
+                          description: item.issuer,
                         ),
                       ),
                     ),
@@ -227,9 +256,16 @@ class _DateRow extends StatelessWidget {
                   Text(
                     tentative ? '$title (tentative)' : title,
                     style: theme.textTheme.bodyLarge,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   if (subtitle case final subtitle? when subtitle.isNotEmpty)
-                    Text(subtitle, style: muted),
+                    Text(
+                      subtitle,
+                      style: muted,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                 ],
               ),
             ),

@@ -44,4 +44,25 @@ void main() {
       isNot(contains('dollar')),
     );
   });
+  group('a line around what search found', () {
+    const text =
+        'GAZETTE EXTRAORDINARY Customs Ordinance (Chapter 235) ORDER UNDER '
+        'SECTION 10A. By virtue of the powers vested in me, the import of '
+        'Kilinochchi rice is exempted from the special commodity levy until '
+        'the end of the year.';
+
+    test('cuts at spaces around the first word found, with dots', () {
+      expect(
+        lineAround(text, ['kilinochchi']),
+        '...the powers vested in me, the import of Kilinochchi rice is exempted '
+        'from the special commodity levy until the end of the year.',
+      );
+    });
+
+    test('starts at the start, finds words from their start only', () {
+      expect(lineAround(text, ['gazette'])!.startsWith('GAZETTE'), isTrue);
+      expect(lineAround(text, ['rice'])!.contains('Kilinochchi rice'), isTrue);
+      expect(lineAround('Price list', ['rice']), isNull);
+    });
+  });
 }

@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:lanka_radar/core/data/feed_item.dart';
 import 'package:lanka_radar/core/data/market_prices.dart';
 import 'package:lanka_radar/core/data/now_data.dart';
+import 'package:lanka_radar/core/data/search_text.dart';
 import 'package:lanka_radar/core/format/dates.dart';
 import 'package:lanka_radar/core/format/labels.dart';
 
@@ -72,23 +73,30 @@ final class SearchResults extends Equatable {
   const SearchResults({
     this.prices = const [],
     this.notices = const [],
+    this.inside = const [],
     this.dates = const [],
   });
 
   final List<PriceHit> prices;
+
+  /// Notices found by their title, issuer or number.
   final List<FeedItem> notices;
+
+  /// Notices found only by their text, listed after [notices].
+  final List<TextHit> inside;
   final List<HolidayNow> dates;
 
-  bool get isEmpty => prices.isEmpty && notices.isEmpty && dates.isEmpty;
+  bool get isEmpty =>
+      prices.isEmpty && notices.isEmpty && inside.isEmpty && dates.isEmpty;
 
   int count(SearchGroup group) => switch (group) {
     SearchGroup.prices => prices.length,
-    SearchGroup.notices => notices.length,
+    SearchGroup.notices => notices.length + inside.length,
     SearchGroup.dates => dates.length,
   };
 
   @override
-  List<Object?> get props => [prices, notices, dates];
+  List<Object?> get props => [prices, notices, inside, dates];
 }
 
 /// The words of a query, in lower case.
@@ -97,14 +105,16 @@ List<String> searchWords(String query) => [
     if (word.isNotEmpty) word,
 ];
 
-/// Puts the results together: [notices] are the stored items the query found;
-/// the current prices and the [holidays] ahead are matched here, each by its
-/// name and the usual ways of asking for it.
+/// Puts the results together: [notices] are the stored items the query found,
+/// [inside] those found only by their text; the current prices and the
+/// [holidays] ahead are matched here, each by its name and the usual ways of
+/// asking for it.
 SearchResults searchEverything({
   required List<String> words,
   required List<FeedItem> notices,
   required NowData? now,
   required List<HolidayNow> holidays,
+  List<TextHit> inside = const [],
 }) {
   bool matches(String text) {
     final lower = text.toLowerCase();
@@ -132,6 +142,7 @@ SearchResults searchEverything({
               OrderPriceHit(order, number),
     ],
     notices: notices,
+    inside: inside,
     dates: [
       for (final holiday in holidays)
         if (matches(

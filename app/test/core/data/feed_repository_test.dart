@@ -43,6 +43,7 @@ void main() {
       'months/index.json',
       'months/2026-10.json',
       'months/2026-09.json',
+      FeedRepository.textsIndexPath,
       ...FeedRepository.documents,
     ]);
     expect(await feed.lastRefresh(), now);
@@ -70,7 +71,11 @@ void main() {
 
     await feed.refresh();
 
-    expect(remote.requests, ['months/index.json', ...FeedRepository.documents]);
+    expect(remote.requests, [
+      'months/index.json',
+      FeedRepository.textsIndexPath,
+      ...FeedRepository.documents,
+    ]);
     expect(remote.unchanged, remote.requests);
   });
 
@@ -361,6 +366,66 @@ void main() {
       await feed.updatePhoneItems();
 
       expect(await feed.item(move), isNull);
+    });
+  });
+
+  group("the gazettes' text", () {
+    setUp(() {
+      remote.putTexts('2026-10', {
+        'gazette-2510-20':
+            'By virtue of the powers vested in me, the import of rice from '
+            'Kilinochchi is exempted from the special commodity levy.',
+        'exam-2479': 'A Headline for the examination at Kilinochchi.',
+      });
+    });
+
+    test('is stored, and finds what titles do not', () async {
+      await feed.refresh();
+
+      final hits = await feed.searchInside('kilinochchi rice');
+      expect([for (final hit in hits) hit.item.id], ['gazette-2510-20']);
+      expect(hits.single.line, contains('import of rice from Kilinochchi'));
+      expect(await feed.searchInside('levy'), hasLength(1));
+      expect(await feed.searchInside('evy'), isEmpty);
+    });
+
+    test('leaves out what the title search found', () async {
+      await feed.refresh();
+
+      final hits = await feed.searchInside(
+        'kilinochchi',
+        excluding: {'exam-2479'},
+      );
+
+      expect([for (final hit in hits) hit.item.id], ['gazette-2510-20']);
+    });
+
+    test('only a changed month is downloaded, and a month gone goes', () async {
+      await feed.refresh();
+      remote.requests.clear();
+
+      await feed.refresh();
+      expect(
+        remote.requests.where((path) => path.startsWith('texts/20')),
+        isEmpty,
+      );
+
+      remote
+        ..putTexts('2026-09', {'gazette-2509-59': 'Kandy council vacancy.'})
+        ..files.remove('texts/2026-10.json');
+      final index =
+          jsonDecode(remote.files['texts/index.json']!) as Map<String, Object?>;
+      remote.files['texts/index.json'] = jsonEncode({
+        ...index,
+        'months': [
+          for (final month in index['months']! as List<Object?>)
+            if ((month! as Map<String, Object?>)['month'] != '2026-10') month,
+        ],
+      });
+      await feed.refresh();
+
+      expect(await feed.searchInside('kilinochchi'), isEmpty);
+      expect(await feed.searchInside('kandy'), hasLength(1));
     });
   });
 }
