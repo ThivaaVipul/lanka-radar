@@ -23,8 +23,13 @@
     },
     {
       "month": "2026-06",
-      "count": 5,
-      "hash": "8dc54b8e37d4caa5"
+      "count": 30,
+      "hash": "de6cfa978fba7c04"
+    },
+    {
+      "month": "2026-05",
+      "count": 15,
+      "hash": "6de44c7049684666"
     }
   ]
 }
