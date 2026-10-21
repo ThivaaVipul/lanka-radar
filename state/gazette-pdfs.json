@@ -1,10 +1,13 @@
 {
   "2510/19": {
     "files": {
-      "ta": "extra-gazette-content/PG 8064  (T)_1792132049.pdf"
+      "ta": "extra-gazette-content/PG 8064  (T)_1792132049.pdf",
+      "en": "extra-gazette-content/PG 8064 (E)_1792574996.pdf",
+      "si": "extra-gazette-content/PG 8064 (S)_1792575052.pdf"
     },
-    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மாலிம்பட பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
-    "reader": 2
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MALIMBADA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மாலிம்பட பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/01": {
     "files": {
@@ -432,8 +435,12 @@
     "reader": 2
   },
   "2506/116": {
-    "files": {},
-    "reader": 2
+    "files": {
+      "en": "extra-gazette-content/G 47954 (E)_1792574647.pdf",
+      "si": "extra-gazette-content/G 47954 (S)_1792574659.pdf"
+    },
+    "reader": 6,
+    "title_en": "CENTRAL BANK OF SRI LANKA ACT, No. 16 OF 2023"
   },
   "2506/102": {
     "files": {
@@ -1236,7 +1243,7 @@
       "en": "extra-gazette-content/G47623(E)  [I - I] Revised edition_1787210226.pdf",
       "si": "extra-gazette-content/G47673(S)  [I - I]  - [Industrial Disputes ]_1787210313.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
   },
   "2501/03": {
@@ -1259,7 +1266,7 @@
       "en": "extra-gazette-content/PG 7882 (E)_1786603513.pdf",
       "ta": "extra-gazette-content/PG 7882  (T)_1786611060.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Walikamam North Pradeshiya Sabha",
     "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வலிகாமம் வடக்கு பிரதேச சபை"
   },
@@ -1269,15 +1276,18 @@
       "en": "extra-gazette-content/PG 7887 (E)_1786525531.pdf",
       "ta": "extra-gazette-content/PG 7887  (T)_1786611200.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM SOUTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், வலிகாமம் தெற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
   },
   "2510/44": {
     "files": {
-      "ta": "extra-gazette-content/PG 8070 (T)_1792146463.pdf"
+      "ta": "extra-gazette-content/PG 8070 (T)_1792146463.pdf",
+      "en": "extra-gazette-content/PG 8070 (E)_1792575343.pdf",
+      "si": "extra-gazette-content/PG 8070 (S)_1792575356.pdf"
     },
-    "reader": 3,
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE GALIGAMUWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கலிகமுவ பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/43": {
@@ -1300,7 +1310,7 @@
       "en": "extra-gazette-content/PG 7886 (E)_1786525400.pdf",
       "ta": "extra-gazette-content/PG 7886  (T)_1787040331.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DELFT PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ், நெடுந்தீவு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1310,7 +1320,7 @@
       "en": "extra-gazette-content/PG 7885 (E)_1786611176.pdf",
       "ta": "extra-gazette-content/PG 7885 (T)_1787567551.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM SOUTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வலிகாமம் தெற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1320,7 +1330,7 @@
       "en": "extra-gazette-content/PG 7879 (E)_1786603282.pdf",
       "ta": "extra-gazette-content/PG 7879 (T)_1787730095.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வலிகாமம் தென்மேற்கு பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1330,7 +1340,7 @@
       "en": "extra-gazette-content/PG 7884 (E)_1786603621.pdf",
       "ta": "extra-gazette-content/PG 7884 (T)_1787294501.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வலிகாமம் தென்மேற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1340,7 +1350,7 @@
       "en": "extra-gazette-content/PG 7880 (E)_1786603416.pdf",
       "ta": "extra-gazette-content/PG 7880  (T)_1786611040.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Walikamam South West Pradeshiya Sabha",
     "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வலிகாமம் தென்மேற்கு பிரதேச சபை"
   },
@@ -1350,7 +1360,7 @@
       "en": "extra-gazette-content/PG 7883 (E)_1786603565.pdf",
       "ta": "extra-gazette-content/PG 7883  (T)_1787294484.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Walikamam East Pradeshiya Sabha",
     "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வலிகாமம் கிழக்கு பிரதேச சபை"
   },
@@ -1360,7 +1370,7 @@
       "en": "extra-gazette-content/PG 7876 (E)_1786525260.pdf",
       "ta": "extra-gazette-content/PG 7876 (T) New_1786610823.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DEHIATHTHAKANDIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் தெஹிஅத்தகண்டிய பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1370,7 +1380,7 @@
       "en": "extra-gazette-content/PG 7877 (E)_1786603205.pdf",
       "ta": "extra-gazette-content/PG 7877 (T)_1787567391.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANTHAI WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மாந்தை மேற்கு பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1380,7 +1390,7 @@
       "si": "extra-gazette-content/G 47610 (S)_1786536084.pdf",
       "en": "extra-gazette-content/G 47610 (E)_1786536095.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "VALUE ADDED TAX ACT, No. 14 of 2002",
     "title_ta": "2002 ஆம் ஆண்டின் 14 ஆம் இலக்க, பெறுமதி சேர் வரிச் சட்டம்"
   },
@@ -1390,7 +1400,7 @@
       "si": "extra-gazette-content/PG 7872  (S)_1786531989.pdf",
       "ta": "extra-gazette-content/PG 7872  (T)_1787055302.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF VICE CHAIRMAN OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017",
     "title_ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க, உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்ட உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 66ஆ(2) என்னும் பிரிவின் கீழ் அக்கரைப்பற்று பிரதேச சபையின் துணைத் தவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1400,7 +1410,7 @@
       "ta": "extra-gazette-content/2500-70_T_1786339996.pdf",
       "en": "extra-gazette-content/2500-70_E_1786340010.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF DEPUTY MAYOR OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017",
     "title_ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்ட உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 66ஆ(2) என்னும் பிரிவின் கீழ், நீர்கொழும்பு மாநகர சபையின் பிரதி மாநகர முதல்வர் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
   },
@@ -1410,7 +1420,7 @@
       "ta": "extra-gazette-content/2500-42_T_1786339392.pdf",
       "en": "extra-gazette-content/2500-42_E_1786339402.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PUTTALAM MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) என்னும் பிரிவின் கீழ் புத்தளம் மாநகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1420,7 +1430,7 @@
       "en": "extra-gazette-content/PG 7863 (E)_1787032340.pdf",
       "ta": "extra-gazette-content/2500-16_T_1786339354.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA SOUTH TAMIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) என்னும் பிரிவின் கீழ் வவுனியா தெற்கு தமிழ் பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1440,7 +1450,7 @@
       "ta": "extra-gazette-content/2499-71_T_1786348446.pdf",
       "en": "extra-gazette-content/2499-71_E_1786348457.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DERANIYAGALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், தெரணியகலை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
   },
@@ -1450,7 +1460,7 @@
       "en": "extra-gazette-content/G 47221 (E)_1786514637.pdf",
       "ta": "extra-gazette-content/G 47221 (T) Fuel_1786610692.pdf"
     },
-    "reader": 5,
+    "reader": 6,
     "title_en": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)",
     "title_ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டத்தின் 66 1 (a) ஆம் பிரிவின் கீழான கட்டளைகள்",
     "numbers": [
@@ -1474,7 +1484,7 @@
       "ta": "extra-gazette-content/2499-52_T_1786348400.pdf",
       "en": "extra-gazette-content/2499-52_E_1786348409.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Vavuniya South Tamil Pradeshiya Sabha",
     "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் வவுனியா தெற்கு தமிழ் பிரதேச சபை"
   },
@@ -1484,7 +1494,7 @@
       "ta": "extra-gazette-content/PG 7855 (T) IV(B)  66à®(1) à® 262 Filling a vacancy_1786364583.pdf",
       "si": "extra-gazette-content/2499-22_S_1786332370.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING THE VACANCY IN THE POST OF VICE CHAIRMAN OF THE KINNIYA URBAN COUNCIL AND ADDALAICHENAI PRADESHIYA SABHA UNDER SECTION (66)(G) OF THE LOCAL AUTHORITIES (ELECTIONS) ACT, 2012 (CHAPTER 262) AS AMENDED BY THE LOCAL AUTHORITIES (ELECTIONS) ACT, No. 22 OF 2012",
     "title_ta": "2012 ஆம் ஆண்டின் 22 ஆம் இலக்க, உள்ளூர் அதிகார சபைகள் (திருத்தச்) சட்டத்தினால் திருத்தி அமைக்கப்பட்ட (262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66(எ) ஆம் பிரிவின் கீழ் கிண்ணியா நகர சபை மற்றும் அட்டாளைச்சேனை பிரதேச சபையின் உபதவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -1497,7 +1507,7 @@
       "ta": "extra-gazette-content/2499-26_T_1786332646.pdf",
       "en": "extra-gazette-content/2499-26_E_1786332660.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kothmale Pradeshiya Sabha",
     "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் கொத்மலை பிரதேச சபை"
   },
@@ -1507,7 +1517,7 @@
       "ta": "extra-gazette-content/2499-25_T_1786332569.pdf",
       "en": "extra-gazette-content/2499-25_E_1786332578.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KOTAPOLA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் கொட்டபொல பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1524,7 +1534,7 @@
       "ta": "extra-gazette-content/2499-23_T_1786332450.pdf",
       "en": "extra-gazette-content/2499-23_E_1786332460.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF CHAIRMAN OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66B (2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTIONS (AMENDMENT) ACT, No. 16 OF 2017",
     "title_ta": "2017 ஆம் ஆண்டின் 16 ஆம் இலக்க உள்ளூர் அதிகார சபைகள் தேர்தல்கள் (திருத்தச்) சட்டத்தினால் திருத்தப்பட்ட உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 66ஆ(2) என்னும் பிரிவின் கீழ், அக்கரைப்பற்று பிரதேச சபையின் தவிசாளர் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
   },
@@ -1534,7 +1544,7 @@
       "si": "extra-gazette-content/2499-04_S_1786327798.pdf",
       "en": "extra-gazette-content/2499-04_E_1786327810.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE",
     "title_ta": "கொக்கோ, ஏலம், மிளகு பயிரிடுதலுக்கும் உற்பத்திக்குமான தொழிலின் வேலையாட்களுக்கு செலுத்தத்தக்க விசேட படி"
   },
@@ -1544,7 +1554,7 @@
       "ta": "extra-gazette-content/2499-06_T_1786328009.pdf",
       "en": "extra-gazette-content/2499-06_E_1786328020.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KEKIRAWA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கெக்கிராவ பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -1556,7 +1566,7 @@
       "si": "extra-gazette-content/G47098(S)(C)  [I - I]_1786340280.pdf",
       "en": "extra-gazette-content/G47098(E)(C)  [I - I]_1786340294.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
   },
   "2499/07": {
@@ -1564,7 +1574,7 @@
       "si": "extra-gazette-content/2499-07_S_1786328081.pdf",
       "en": "extra-gazette-content/2499-07_E_1786328093.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MAYOR OF THE NEGOMBO MUNICIPAL COUNCIL UNDER SECTION 66B (2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTION (AMENDMENT) ACT, No. 16 OF 2017"
   },
   "2499/12": {
@@ -1573,7 +1583,7 @@
       "ta": "extra-gazette-content/2499-12_T_1790068390.pdf",
       "en": "extra-gazette-content/2499-12_E_1790068400.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE JAFFNA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் யாழ்ப்பாணம் மாநகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -1586,7 +1596,7 @@
       "ta": "extra-gazette-content/2499-13_T_1786331610.pdf",
       "en": "extra-gazette-content/2499-13_E_1786331620.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AKKARAIPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் அக்கரைப்பற்று பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1596,7 +1606,7 @@
       "ta": "extra-gazette-content/2499-14_T_1786331741.pdf",
       "en": "extra-gazette-content/2499-14_E_1786331753.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MINIPE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1) (ஆ) ஆம் பிரிவின் கீழ், மினிப்பே பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்."
   },
@@ -1606,7 +1616,7 @@
       "ta": "extra-gazette-content/2499-16_T_1786331964.pdf",
       "en": "extra-gazette-content/2499-16_E_1786331979.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PATHAHEWAHETA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பாத்தஹேவாஹெட்ட பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -1619,7 +1629,7 @@
       "ta": "extra-gazette-content/2498-77_T_1785746616.pdf",
       "en": "extra-gazette-content/2498-77_E_1785746629.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KINNIYA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கிண்ணியா நகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1629,7 +1639,7 @@
       "ta": "extra-gazette-content/2498-79_T_1785746757.pdf",
       "en": "extra-gazette-content/2498-79_E_1785746767.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE COLOMBO MUNICIPAL COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் கொழும்பு மாநகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -1642,7 +1652,7 @@
       "ta": "extra-gazette-content/2498-78_T_1785746683.pdf",
       "en": "extra-gazette-content/2498-78_E_1785746694.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KATANA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) ஆம் பிரிவின் கீழ் கட்டானை பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
@@ -1651,7 +1661,7 @@
       "si": "extra-gazette-content/2498-57_S_1786349253.pdf",
       "en": "extra-gazette-content/2498-57_E_1786349281.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
   },
   "2498/13": {
@@ -3376,7 +3386,7 @@
       "si": "extra-gazette-content/PG 7878 (S)_1786532046.pdf",
       "en": "extra-gazette-content/PG 7878 (E)_1786532062.pdf"
     },
-    "reader": 3,
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANNAR PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) என்னும் பிரிவின் கீழ் மன்னார் பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
@@ -3756,9 +3766,11 @@
   },
   "2510/61": {
     "files": {
-      "ta": "extra-gazette-content/PG 8074 (T) IV(B)  66à®(1) à® 262 Filling a vacancy_1792234925.pdf"
+      "ta": "extra-gazette-content/PG 8074 (T) IV(B)  66à®(1) à® 262 Filling a vacancy_1792234925.pdf",
+      "en": "extra-gazette-content/PG 8074 (E)_1792577209.pdf"
     },
-    "reader": 3,
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடுநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/42": {

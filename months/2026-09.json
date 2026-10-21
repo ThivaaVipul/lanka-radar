@@ -1026,12 +1026,18 @@
       "published": "2026-09-18",
       "effective": null,
       "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes"
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047954%20(E)_1792574647.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047954%20(S)_1792574659.pdf"
       },
       "data": {
         "number": "2506/116",
         "group": "prices-taxes",
-        "languages": []
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "CENTRAL BANK OF SRI LANKA ACT, No. 16 OF 2023"
       },
       "alert": true
     },
