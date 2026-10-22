@@ -22,6 +22,343 @@
       "alert": true
     },
     {
+      "id": "gazette-2511-10",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொத்துவில் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-19",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208088%20%20(T)_1792577649.pdf"
+      },
+      "data": {
+        "number": "2511/10",
+        "group": "elections",
+        "languages": [
+          "ta"
+        ]
+      },
+      "alert": true
+    },
+    {
+      "id": "weekly-2511-dd6d524b",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Constitutional Council",
+      "headline": {
+        "en": "Extension of The Closing Date For Applications",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 24,
+        "number": "2511",
+        "closes": "2026-11-10"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-ca81ee27",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+      "headline": {
+        "en": "Open Recruitment to the Post of Office Employee Assistant (Grade III) -2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 46,
+        "number": "2511",
+        "closes": "2026-11-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-c0fe990a",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Foreign Service",
+      "headline": {
+        "en": "Open Competitive Examination for Recruitment to Grade III of The Sri Lanka Foreign Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 52,
+        "number": "2511",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-9d6a390c",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+      "headline": {
+        "en": "Open Recruitment to the Post of Management Assistant Grade III - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 40,
+        "number": "2511",
+        "closes": "2026-11-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-887b3310",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Department of Animal Production and Health",
+      "headline": {
+        "en": "Open/limited interview for Recruitment to the post of Laboratory Aide, Grade III of the Primary Grade Semi-Skilled Service Category - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 28,
+        "number": "2511",
+        "closes": "2026-11-13"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-8157947e",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Excise Department of Sri Lanka",
+      "headline": {
+        "en": "Recruitment for Language Translator (Sinhala / Tamil - Tamil / Sinhala) Class 1",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 25,
+        "number": "2511",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-6782115e",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Excise Department of Sri Lanka",
+      "headline": {
+        "en": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 26,
+        "number": "2511",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-45143a19",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Appointment of members to the Boards of Review (Panel) required to establish Agrarian Boards of Review",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 24,
+        "number": "2511",
+        "closes": "2026-11-10"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-43e2af27",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Recruitment to the post of Plumber in the Primary Semi-skilled Service Category- 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "vacancies",
+        "page": 7,
+        "number": "2511",
+        "closes": "2026-11-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-35e0d1fa",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Department of Census and Statistics",
+      "headline": {
+        "en": "First Efficiency Bar Examination for Grade II Statistical Officers in the Department of Census and Statistics - 2017 (2026)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 34,
+        "number": "2511",
+        "closes": "2026-11-13"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-0e50b913",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "The Chiththa Advanced Psychological Studies Open Institute of Sri Lanka",
+      "headline": {
+        "en": "Diploma in Business and Marketing Strategy Consulting 2026/2027 (Main Intake)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 24,
+        "number": "2511",
+        "closes": "2026-11-10"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2511-09c5153f",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Sri Lanka Excise Department",
+      "headline": {
+        "en": "Technical Officer - Grade III - 01 Post",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-16",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+      },
+      "data": {
+        "week": "2026-10-16",
+        "section": "exams",
+        "page": 27,
+        "number": "2511",
+        "closes": "2026-10-30"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2510-61",
       "source": "gazettes",
       "topic": "gazettes",
@@ -112,7 +449,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy  - Aranayake P.S",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் அரநாயக்க பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -133,6 +470,80 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE ARANAYAKE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-41",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Filling of a vacancy - Karachchi P.S",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208067%20(E)_1792655744.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208067%20(S)_1792655759.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208067%20(T)_1792395999.pdf"
+      },
+      "data": {
+        "number": "2510/41",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-38",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Central Bank of Sri Lanka",
+      "headline": {
+        "en": "Central Bank of Sri Lanka - Concellation of the Licence of Associated Motor Finance Company P.L.C",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2510/38",
+        "group": "prices-taxes",
+        "languages": []
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-21",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "M/of Energy",
+      "headline": {
+        "en": "M/of Energy - Sri Lanka Sustainable Energy Authority Act No 35 of 2007",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2510/21",
+        "group": "energy",
+        "languages": []
       },
       "alert": true
     },
@@ -191,6 +602,28 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MALIMBADA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-18",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a vacancy -Narwood P.S",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-12",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2510/18",
+        "group": "elections",
+        "languages": []
       },
       "alert": true
     },
@@ -722,12 +1155,18 @@
       "published": "2026-10-07",
       "effective": null,
       "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes"
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48089%20(E)%20%5BI%20-I%5D%20(2)_1792659830.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48089%20%7BS%7D%20%5BI%20-I%5D%20(1)_1792659823.pdf"
       },
       "data": {
         "number": "2509/32",
         "group": "labour",
-        "languages": []
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notification WAGES BOARD FOR THE HOTEL AND CATERING TRADE"
       },
       "alert": true
     },

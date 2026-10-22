@@ -11,12 +11,18 @@
   "published": "2026-10-07",
   "effective": null,
   "links": {
-    "page": "https://documents.gov.lk/web/extra_gazettes"
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48089%20(E)%20%5BI%20-I%5D%20(2)_1792659830.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48089%20%7BS%7D%20%5BI%20-I%5D%20(1)_1792659823.pdf"
   },
   "data": {
     "number": "2509/32",
     "group": "labour",
-    "languages": []
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notification WAGES BOARD FOR THE HOTEL AND CATERING TRADE"
   },
   "alert": true
 }

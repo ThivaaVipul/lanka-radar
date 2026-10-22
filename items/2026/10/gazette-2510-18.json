@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2510-18",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a vacancy -Narwood P.S",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2510/18",
+    "group": "elections",
+    "languages": []
+  },
+  "alert": true
+}

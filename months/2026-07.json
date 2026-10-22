@@ -1199,9 +1199,9 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_E_1786355848.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_S_1786355824.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_T_1786355838.pdf"
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_E_1785733429.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_S_1785733414.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2497-03_T%20(2)_1785735576.pdf"
       },
       "data": {
         "number": "2497/03",

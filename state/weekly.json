@@ -382,6 +382,110 @@
         "weekly-2505-b597135f",
         "weekly-2505-1b160f5b"
       ]
+    },
+    "2026-10-16": {
+      "file": "gazette-content/I-II(A) - (16.10.2026)_Tem. (E) full_1792644874.pdf",
+      "reader": 1,
+      "number": "2511",
+      "notices": [
+        {
+          "section": "vacancies",
+          "title": "Recruitment to the post of Plumber in the Primary Semi-skilled Service Category- 2026",
+          "page": 7,
+          "issuer": "Department of Labour",
+          "closes": "2026-11-16"
+        },
+        {
+          "section": "exams",
+          "title": "Extension of The Closing Date For Applications",
+          "page": 24,
+          "issuer": "Constitutional Council",
+          "closes": "2026-11-10"
+        },
+        {
+          "section": "exams",
+          "title": "Appointment of members to the Boards of Review (Panel) required to establish Agrarian Boards of Review",
+          "page": 24,
+          "closes": "2026-11-10"
+        },
+        {
+          "section": "exams",
+          "title": "Diploma in Business and Marketing Strategy Consulting 2026/2027 (Main Intake)",
+          "page": 24,
+          "issuer": "The Chiththa Advanced Psychological Studies Open Institute of Sri Lanka",
+          "closes": "2026-11-10"
+        },
+        {
+          "section": "exams",
+          "title": "Recruitment for Language Translator (Sinhala / Tamil - Tamil / Sinhala) Class 1",
+          "page": 25,
+          "issuer": "Excise Department of Sri Lanka",
+          "closes": "2026-10-30"
+        },
+        {
+          "section": "exams",
+          "title": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
+          "page": 26,
+          "issuer": "Excise Department of Sri Lanka",
+          "closes": "2026-10-30"
+        },
+        {
+          "section": "exams",
+          "title": "Technical Officer - Grade III - 01 Post",
+          "page": 27,
+          "issuer": "Sri Lanka Excise Department",
+          "closes": "2026-10-30"
+        },
+        {
+          "section": "exams",
+          "title": "Open/limited interview for Recruitment to the post of Laboratory Aide, Grade III of the Primary Grade Semi-Skilled Service Category - 2026",
+          "page": 28,
+          "issuer": "Department of Animal Production and Health",
+          "closes": "2026-11-13"
+        },
+        {
+          "section": "exams",
+          "title": "First Efficiency Bar Examination for Grade II Statistical Officers in the Department of Census and Statistics - 2017 (2026)",
+          "page": 34,
+          "issuer": "Department of Census and Statistics",
+          "closes": "2026-11-13"
+        },
+        {
+          "section": "exams",
+          "title": "Open Recruitment to the Post of Management Assistant Grade III - 2026",
+          "page": 40,
+          "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+          "closes": "2026-11-16"
+        },
+        {
+          "section": "exams",
+          "title": "Open Recruitment to the Post of Office Employee Assistant (Grade III) -2026",
+          "page": 46,
+          "issuer": "Commission to Investigate Allegations of Bribery or Corruption",
+          "closes": "2026-11-16"
+        },
+        {
+          "section": "exams",
+          "title": "Open Competitive Examination for Recruitment to Grade III of The Sri Lanka Foreign Service - 2026",
+          "page": 52,
+          "issuer": "Sri Lanka Foreign Service",
+          "closes": "2026-10-30"
+        }
+      ],
+      "items": [
+        "weekly-2511-43e2af27",
+        "weekly-2511-dd6d524b",
+        "weekly-2511-45143a19",
+        "weekly-2511-0e50b913",
+        "weekly-2511-8157947e",
+        "weekly-2511-6782115e",
+        "weekly-2511-09c5153f",
+        "weekly-2511-887b3310",
+        "weekly-2511-35e0d1fa",
+        "weekly-2511-9d6a390c",
+        "weekly-2511-ca81ee27",
+        "weekly-2511-c0fe990a"
+      ]
     }
   }
 }
