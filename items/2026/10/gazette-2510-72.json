@@ -1,0 +1,28 @@
+{
+  "id": "gazette-2510-72",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-15",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(E)_1792669974.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(S)_1792669966.pdf"
+  },
+  "data": {
+    "number": "2510/72",
+    "group": "elections",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "alert": true
+}

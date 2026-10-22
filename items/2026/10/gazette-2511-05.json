@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2511-05",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy",
+    "ta": "ச.வ.-பி 5/2025 2024 ஆம் ஆண்டின் 36 ஆம் இலக்க, இலங்கை மின்சாரச் சட்டம்"
+  },
+  "keyNumbers": [],
+  "published": "2026-10-19",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20%20(T)%20%20I-I%20Elacrticity%20Act_1792669792.pdf"
+  },
+  "data": {
+    "number": "2511/05",
+    "group": "energy",
+    "languages": [
+      "ta"
+    ]
+  },
+  "alert": true
+}

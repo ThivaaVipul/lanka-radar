@@ -1,0 +1,28 @@
+{
+  "id": "gazette-2510-45",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Labour",
+  "headline": {
+    "en": "SPECIAL ALLOWANCE PAYBLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-13",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48280(E)%20%5BI%20-%20I%5D_1792652962.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48280%20%5BS%5D%20%5B1-1%5D_1792652945.pdf"
+  },
+  "data": {
+    "number": "2510/45",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "SPECIAL ALLOWANCE PAYBLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
+  },
+  "alert": true
+}
