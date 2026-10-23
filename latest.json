@@ -498,7 +498,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பியகம பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-10-15",
@@ -506,14 +506,16 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(E)_1792669974.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(S)_1792669966.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(S)_1792669966.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208079%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%86%20262%20Filling%20a%20vacancy%20copy_1792751081.pdf"
       },
       "data": {
         "number": "2510/72",
         "group": "elections",
         "languages": [
           "en",
-          "si"
+          "si",
+          "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
@@ -526,7 +528,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மண்முனைப்பற்று பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-10-15",
@@ -534,14 +536,16 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208078%20(E)_1792666261.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208078%20(S)_1792666252.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208078%20(S)_1792666252.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208078%20(T)%20IV(B)%20%2066%C3%A0%C2%AE%C2%85(1)%20%C3%A0%C2%AE%C2%86%20262%20Filling%20a%20vacancy%20copy_1792751065.pdf"
       },
       "data": {
         "number": "2510/71",
         "group": "elections",
         "languages": [
           "en",
-          "si"
+          "si",
+          "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
@@ -785,21 +789,26 @@
       "issuer": "Central Bank of Sri Lanka",
       "headline": {
         "en": "Central Bank of Sri Lanka - Concellation of the Licence of Associated Motor Finance Company P.L.C",
-        "ta": null
+        "ta": "அறிவித்தல்"
       },
       "keyNumbers": [],
       "published": "2026-10-13",
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(S)_1792743319.pdf"
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(E)_1792750812.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(S)_1792743319.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(T)%20I-I%20Central%20Bank_1792750826.pdf"
       },
       "data": {
         "number": "2510/38",
         "group": "prices-taxes",
         "languages": [
-          "si"
-        ]
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "Notification"
       },
       "alert": true
     },

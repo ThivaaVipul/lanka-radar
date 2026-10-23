@@ -4118,9 +4118,13 @@
   },
   "2510/38": {
     "files": {
-      "si": "extra-gazette-content/G 48080 (S)_1792743319.pdf"
+      "si": "extra-gazette-content/G 48080 (S)_1792743319.pdf",
+      "en": "extra-gazette-content/G 48080 (E)_1792750812.pdf",
+      "ta": "extra-gazette-content/G 48080 (T) I-I Central Bank_1792750826.pdf"
     },
-    "reader": 6
+    "reader": 6,
+    "title_en": "Notification",
+    "title_ta": "அறிவித்தல்"
   },
   "2510/41": {
     "files": {
@@ -4171,18 +4175,22 @@
   "2510/71": {
     "files": {
       "si": "extra-gazette-content/PG 8078 (S)_1792666252.pdf",
-      "en": "extra-gazette-content/PG 8078 (E)_1792666261.pdf"
+      "en": "extra-gazette-content/PG 8078 (E)_1792666261.pdf",
+      "ta": "extra-gazette-content/PG 8078 (T) IV(B)  66à®(1) à® 262 Filling a vacancy copy_1792751065.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மண்முனைப்பற்று பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/72": {
     "files": {
+      "si": "extra-gazette-content/PG 8079 (S)_1792669966.pdf",
       "en": "extra-gazette-content/PG 8079 (E)_1792669974.pdf",
-      "si": "extra-gazette-content/PG 8079 (S)_1792669966.pdf"
+      "ta": "extra-gazette-content/PG 8079 (T) IV(B)  66à®(1) à® 262 Filling a vacancy copy_1792751081.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பியகம பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/70": {
     "files": {

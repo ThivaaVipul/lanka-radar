@@ -5,21 +5,26 @@
   "issuer": "Central Bank of Sri Lanka",
   "headline": {
     "en": "Central Bank of Sri Lanka - Concellation of the Licence of Associated Motor Finance Company P.L.C",
-    "ta": null
+    "ta": "அறிவித்தல்"
   },
   "keyNumbers": [],
   "published": "2026-10-13",
   "effective": null,
   "links": {
     "page": "https://documents.gov.lk/web/extra_gazettes",
-    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(S)_1792743319.pdf"
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(E)_1792750812.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(S)_1792743319.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(T)%20I-I%20Central%20Bank_1792750826.pdf"
   },
   "data": {
     "number": "2510/38",
     "group": "prices-taxes",
     "languages": [
-      "si"
-    ]
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "Notification"
   },
   "alert": true
 }
