@@ -4117,7 +4117,9 @@
     "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொத்துவில் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/38": {
-    "files": {},
+    "files": {
+      "si": "extra-gazette-content/G 48080 (S)_1792743319.pdf"
+    },
     "reader": 6
   },
   "2510/41": {
@@ -4155,9 +4157,12 @@
   },
   "2510/73": {
     "files": {
+      "si": "extra-gazette-content/PG 8080 (S)_1792743561.pdf",
+      "en": "extra-gazette-content/PG 8080 (E)_1792743571.pdf",
       "ta": "extra-gazette-content/PG 8077 (T)_1792669897.pdf"
     },
     "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கோறளைப்பற்று மேற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
       8085
@@ -4203,5 +4208,30 @@
     },
     "reader": 6,
     "title_en": "SPECIAL ALLOWANCE PAYBLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
+  },
+  "2511/01": {
+    "files": {
+      "si": "extra-gazette-content/G 48301 (S)_1792742112.pdf",
+      "ta": "extra-gazette-content/G 48301 (T)_1792742122.pdf",
+      "en": "extra-gazette-content/G 48301 (E)_1792742132.pdf"
+    },
+    "reader": 6,
+    "title_en": "CUSTOMS NOTIFICATION (GENERAL) Customs Ordinance (Chapter 235) RATES OF EXCHANGE",
+    "title_ta": "சுங்க அறிவித்தல் (பொது) சுங்கக் கட்டளைச் சட்டம் (அத்தியாயம் 235) அந்நியச் செலாவணி வீதம்"
+  },
+  "2510/69": {
+    "files": {
+      "si": "extra-gazette-content/PG 8076 (S)_1792743500.pdf",
+      "en": "extra-gazette-content/PG 8076 (E)_1792743512.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SEETHAWAKA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2510/74": {
+    "files": {
+      "en": "extra-gazette-content/PG 8081 (E)_1792743642.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   }
 }

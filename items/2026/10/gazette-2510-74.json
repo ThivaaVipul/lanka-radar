@@ -1,0 +1,26 @@
+{
+  "id": "gazette-2510-74",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-15",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208081%20(E)_1792743642.pdf"
+  },
+  "data": {
+    "number": "2510/74",
+    "group": "elections",
+    "languages": [
+      "en"
+    ],
+    "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "alert": true
+}

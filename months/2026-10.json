@@ -437,12 +437,38 @@
       "alert": true
     },
     {
+      "id": "gazette-2510-74",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-15",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208081%20(E)_1792743642.pdf"
+      },
+      "data": {
+        "number": "2510/74",
+        "group": "elections",
+        "languages": [
+          "en"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2510-73",
       "source": "gazettes",
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கோறளைப்பற்று மேற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -450,14 +476,19 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208080%20(E)_1792743571.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208080%20(S)_1792743561.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208077%20(T)_1792669897.pdf"
       },
       "data": {
         "number": "2510/73",
         "group": "elections",
         "languages": [
+          "en",
+          "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BIYAGAMA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -539,6 +570,34 @@
         "languages": [
           "ta"
         ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2510-69",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SEETHAWAKA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-15",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208076%20(E)_1792743512.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208076%20(S)_1792743500.pdf"
+      },
+      "data": {
+        "number": "2510/69",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SEETHAWAKA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -733,12 +792,15 @@
       "published": "2026-10-13",
       "effective": null,
       "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes"
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048080%20(S)_1792743319.pdf"
       },
       "data": {
         "number": "2510/38",
         "group": "prices-taxes",
-        "languages": []
+        "languages": [
+          "si"
+        ]
       },
       "alert": true
     },
