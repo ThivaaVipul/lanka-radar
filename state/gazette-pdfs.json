@@ -94,10 +94,12 @@
   "2509/03": {
     "files": {
       "si": "extra-gazette-content/PG 8046 (S)_1791618410.pdf",
-      "en": "extra-gazette-content/PG 8046 (E)_1791618418.pdf"
+      "en": "extra-gazette-content/PG 8046 (E)_1791618418.pdf",
+      "ta": "extra-gazette-content/PG 8046 (T)_1792830601.pdf"
     },
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALIKAMAM NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-    "reader": 6
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வலிகாமம் வடக்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2509/06": {
     "files": {
