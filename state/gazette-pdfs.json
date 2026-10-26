@@ -4148,9 +4148,12 @@
   },
   "2511/05": {
     "files": {
-      "ta": "extra-gazette-content/G 48288  (T)  I-I Elacrticity Act_1792669792.pdf"
+      "ta": "extra-gazette-content/G 48288  (T)  I-I Elacrticity Act_1792669792.pdf",
+      "si": "extra-gazette-content/G 48288 - (S)  I - I Electiricity Act_1792988835.pdf",
+      "en": "extra-gazette-content/G 48288 - I (I) (E) Electricity Act_1792988845.pdf"
     },
     "reader": 6,
+    "title_en": null,
     "title_ta": "ச.வ.-பி 5/2025 2024 ஆம் ஆண்டின் 36 ஆம் இலக்க, இலங்கை மின்சாரச் சட்டம்"
   },
   "2510/76": {
@@ -4196,9 +4199,12 @@
   },
   "2510/70": {
     "files": {
-      "ta": "extra-gazette-content/PG 8077 (T)_1792666360.pdf"
+      "ta": "extra-gazette-content/PG 8077 (T)_1792666360.pdf",
+      "si": "extra-gazette-content/PG 8077 - Filling Vacancy - IV-B - (S) 66A(1)(b)_1792988871.pdf",
+      "en": "extra-gazette-content/PG 8077 (E)  IV (B) Filling of a Vacancy 66A(1) (b)_1792988879.pdf"
     },
     "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KORALAI PATTU WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கோறளைப்பற்று மேற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்",
     "unknown_glyphs": [
       8085

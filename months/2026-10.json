@@ -60,12 +60,16 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20-%20I%20(I)%20(E)%20Electricity%20Act_1792988845.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20-%20(S)%20%20I%20-%20I%20Electiricity%20Act_1792988835.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20%20(T)%20%20I-I%20Elacrticity%20Act_1792669792.pdf"
       },
       "data": {
         "number": "2511/05",
         "group": "energy",
         "languages": [
+          "en",
+          "si",
           "ta"
         ]
       },
@@ -558,7 +562,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KORALAI PATTU WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கோறளைப்பற்று மேற்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -566,14 +570,19 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208077%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1792988879.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208077%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1792988871.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208077%20(T)_1792666360.pdf"
       },
       "data": {
         "number": "2510/70",
         "group": "elections",
         "languages": [
+          "en",
+          "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KORALAI PATTU WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },

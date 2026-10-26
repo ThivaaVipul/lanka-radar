@@ -12,12 +12,16 @@
   "effective": null,
   "links": {
     "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20-%20I%20(I)%20(E)%20Electricity%20Act_1792988845.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20-%20(S)%20%20I%20-%20I%20Electiricity%20Act_1792988835.pdf",
     "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048288%20%20(T)%20%20I-I%20Elacrticity%20Act_1792669792.pdf"
   },
   "data": {
     "number": "2511/05",
     "group": "energy",
     "languages": [
+      "en",
+      "si",
       "ta"
     ]
   },
