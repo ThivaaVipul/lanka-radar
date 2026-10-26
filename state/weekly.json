@@ -384,7 +384,7 @@
       ]
     },
     "2026-10-16": {
-      "file": "gazette-content/I-II(A) - (16.10.2026)_Tem. (E) full_1792644874.pdf",
+      "file": "gazette-content/I-II(A) - (16.10.2026)_Press (E)_1793011759.pdf",
       "reader": 1,
       "number": "2511",
       "notices": [
@@ -396,51 +396,51 @@
           "closes": "2026-11-16"
         },
         {
-          "section": "exams",
+          "section": "vacancies",
           "title": "Extension of The Closing Date For Applications",
           "page": 24,
           "issuer": "Constitutional Council",
           "closes": "2026-11-10"
         },
         {
-          "section": "exams",
+          "section": "vacancies",
           "title": "Appointment of members to the Boards of Review (Panel) required to establish Agrarian Boards of Review",
           "page": 24,
           "closes": "2026-11-10"
         },
         {
-          "section": "exams",
-          "title": "Diploma in Business and Marketing Strategy Consulting 2026/2027 (Main Intake)",
+          "section": "vacancies",
+          "title": "Recruitment for Language Translator (Sinhala / Tamil - Tamil / Sinhala) Class 1",
           "page": 24,
-          "issuer": "The Chiththa Advanced Psychological Studies Open Institute of Sri Lanka",
+          "issuer": "Excise Department of Sri Lanka",
           "closes": "2026-11-10"
         },
         {
-          "section": "exams",
-          "title": "Recruitment for Language Translator (Sinhala / Tamil - Tamil / Sinhala) Class 1",
+          "section": "vacancies",
+          "title": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
           "page": 25,
           "issuer": "Excise Department of Sri Lanka",
           "closes": "2026-10-30"
         },
         {
-          "section": "exams",
-          "title": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
-          "page": 26,
-          "issuer": "Excise Department of Sri Lanka",
-          "closes": "2026-10-30"
-        },
-        {
-          "section": "exams",
+          "section": "vacancies",
           "title": "Technical Officer - Grade III - 01 Post",
-          "page": 27,
+          "page": 26,
           "issuer": "Sri Lanka Excise Department",
           "closes": "2026-10-30"
         },
         {
-          "section": "exams",
+          "section": "vacancies",
           "title": "Open/limited interview for Recruitment to the post of Laboratory Aide, Grade III of the Primary Grade Semi-Skilled Service Category - 2026",
-          "page": 28,
+          "page": 27,
           "issuer": "Department of Animal Production and Health",
+          "closes": "2026-11-13"
+        },
+        {
+          "section": "exams",
+          "title": "Diploma in Business and Marketing Strategy Consulting 2026/2027 (Main Intake)",
+          "page": 33,
+          "issuer": "The Chiththa Advanced Psychological Studies Open Institute of Sri Lanka",
           "closes": "2026-11-13"
         },
         {
@@ -476,11 +476,11 @@
         "weekly-2511-43e2af27",
         "weekly-2511-dd6d524b",
         "weekly-2511-45143a19",
-        "weekly-2511-0e50b913",
         "weekly-2511-8157947e",
         "weekly-2511-6782115e",
         "weekly-2511-09c5153f",
         "weekly-2511-887b3310",
+        "weekly-2511-0e50b913",
         "weekly-2511-35e0d1fa",
         "weekly-2511-9d6a390c",
         "weekly-2511-ca81ee27",

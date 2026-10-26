@@ -1,7 +1,7 @@
 {
   "id": "weekly-2511-6782115e",
   "source": "weekly",
-  "topic": "exams",
+  "topic": "jobs",
   "issuer": "Excise Department of Sri Lanka",
   "headline": {
     "en": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
@@ -12,13 +12,13 @@
   "effective": null,
   "links": {
     "page": "https://documents.gov.lk/web/gazettes",
-    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
     "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
   },
   "data": {
     "week": "2026-10-16",
-    "section": "exams",
-    "page": 26,
+    "section": "vacancies",
+    "page": 25,
     "number": "2511",
     "closes": "2026-10-30"
   },

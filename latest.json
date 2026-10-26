@@ -21,6 +21,34 @@
       "alert": true
     },
     {
+      "id": "gazette-2511-24",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SAMMANTHURAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-20",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1793002951.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1793002943.pdf"
+      },
+      "data": {
+        "number": "2511/24",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SAMMANTHURAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2511-10",
       "source": "gazettes",
       "topic": "gazettes",
@@ -77,7 +105,7 @@
     {
       "id": "weekly-2511-dd6d524b",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": "Constitutional Council",
       "headline": {
         "en": "Extension of The Closing Date For Applications",
@@ -88,12 +116,12 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
+        "section": "vacancies",
         "page": 24,
         "number": "2511",
         "closes": "2026-11-10"
@@ -114,7 +142,7 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
@@ -140,7 +168,7 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
@@ -166,7 +194,7 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
@@ -181,7 +209,7 @@
     {
       "id": "weekly-2511-887b3310",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": "Department of Animal Production and Health",
       "headline": {
         "en": "Open/limited interview for Recruitment to the post of Laboratory Aide, Grade III of the Primary Grade Semi-Skilled Service Category - 2026",
@@ -192,13 +220,13 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
-        "page": 28,
+        "section": "vacancies",
+        "page": 27,
         "number": "2511",
         "closes": "2026-11-13"
       },
@@ -207,7 +235,7 @@
     {
       "id": "weekly-2511-8157947e",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": "Excise Department of Sri Lanka",
       "headline": {
         "en": "Recruitment for Language Translator (Sinhala / Tamil - Tamil / Sinhala) Class 1",
@@ -218,22 +246,22 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
-        "page": 25,
+        "section": "vacancies",
+        "page": 24,
         "number": "2511",
-        "closes": "2026-10-30"
+        "closes": "2026-11-10"
       },
       "alert": false
     },
     {
       "id": "weekly-2511-6782115e",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": "Excise Department of Sri Lanka",
       "headline": {
         "en": "Recruitment for the Post of Polonnaruwa Circuit Bungalow Keeper",
@@ -244,13 +272,13 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
-        "page": 26,
+        "section": "vacancies",
+        "page": 25,
         "number": "2511",
         "closes": "2026-10-30"
       },
@@ -259,7 +287,7 @@
     {
       "id": "weekly-2511-45143a19",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": null,
       "headline": {
         "en": "Appointment of members to the Boards of Review (Panel) required to establish Agrarian Boards of Review",
@@ -270,12 +298,12 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
+        "section": "vacancies",
         "page": 24,
         "number": "2511",
         "closes": "2026-11-10"
@@ -296,7 +324,7 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
@@ -322,7 +350,7 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
@@ -348,22 +376,22 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
         "section": "exams",
-        "page": 24,
+        "page": 33,
         "number": "2511",
-        "closes": "2026-11-10"
+        "closes": "2026-11-13"
       },
       "alert": false
     },
     {
       "id": "weekly-2511-09c5153f",
       "source": "weekly",
-      "topic": "exams",
+      "topic": "jobs",
       "issuer": "Sri Lanka Excise Department",
       "headline": {
         "en": "Technical Officer - Grade III - 01 Post",
@@ -374,13 +402,13 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Tem.%20(E)%20full_1792644874.pdf",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
       },
       "data": {
         "week": "2026-10-16",
-        "section": "exams",
-        "page": 27,
+        "section": "vacancies",
+        "page": 26,
         "number": "2511",
         "closes": "2026-10-30"
       },
@@ -420,7 +448,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வெங்கலச்செட்டிகுளம் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -428,14 +456,19 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208082%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1793002903.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208082%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1793002892.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208082%20(T)_1792666391.pdf"
       },
       "data": {
         "number": "2510/75",
         "group": "elections",
         "languages": [
+          "en",
+          "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -1082,7 +1115,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1108,7 +1142,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1134,7 +1169,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1160,7 +1196,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1186,7 +1223,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1212,7 +1250,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1237,7 +1276,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1263,7 +1303,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1289,7 +1330,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1315,7 +1357,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -1341,7 +1384,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(09.10.2026)%20-%20Press%20(E)_1792148816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.09%20Part%20I-II%20A%20(S)%20press-_1792405264.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2009.10.2026%20Press_1792997331.pdf"
       },
       "data": {
         "week": "2026-10-09",
@@ -5775,36 +5819,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DEVINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2501-94",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "Election Commission - Filling of a Vacancy in the office of member of the Kinniya U.C",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கிண்ணியா நகர சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-14",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(E)_1787129790.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(S)_1787129775.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207905%20(T)%20IV(B)_1787559695.pdf"
-      },
-      "data": {
-        "number": "2501/94",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KINNIYA URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     }

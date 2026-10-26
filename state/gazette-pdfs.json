@@ -4212,9 +4212,12 @@
   },
   "2510/75": {
     "files": {
-      "ta": "extra-gazette-content/PG 8082 (T)_1792666391.pdf"
+      "ta": "extra-gazette-content/PG 8082 (T)_1792666391.pdf",
+      "si": "extra-gazette-content/PG 8082 - Filling Vacancy - IV-B - (S) 66A(1)(b)_1793002892.pdf",
+      "en": "extra-gazette-content/PG 8082 (E)  IV (B) Filling of a Vacancy 66A(1) (b)_1793002903.pdf"
     },
     "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வெங்கலச்செட்டிகுளம் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/45": {
@@ -4249,5 +4252,13 @@
     },
     "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2511/24": {
+    "files": {
+      "si": "extra-gazette-content/PG 8091 - Filling Vacancy - IV-B - (S) 66A(1)(b)_1793002943.pdf",
+      "en": "extra-gazette-content/PG 8091 (E)  IV (B) Filling of a Vacancy 66A(1) (b)_1793002951.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SAMMANTHURAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   }
 }
