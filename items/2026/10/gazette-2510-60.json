@@ -1,0 +1,22 @@
+{
+  "id": "gazette-2510-60",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Elections Commission",
+  "headline": {
+    "en": "Elections Commission - Filling of a vacancy - Madurawela p.s",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-14",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes"
+  },
+  "data": {
+    "number": "2510/60",
+    "group": "elections",
+    "languages": []
+  },
+  "alert": true
+}

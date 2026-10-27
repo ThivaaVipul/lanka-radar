@@ -11,12 +11,18 @@
   "published": "2026-10-12",
   "effective": null,
   "links": {
-    "page": "https://documents.gov.lk/web/extra_gazettes"
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208063%20(E)_1793080529.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208063%20(S)_1793080522.pdf"
   },
   "data": {
     "number": "2510/18",
     "group": "elections",
-    "languages": []
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NORWOOD PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   },
   "alert": true
 }
