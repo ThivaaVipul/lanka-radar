@@ -56,7 +56,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SAMMANTHURAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் சம்மாந்துறை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-10-20",
@@ -64,14 +64,16 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1793002951.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1793002943.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1793002943.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208091%20(T)_1793189508.pdf"
       },
       "data": {
         "number": "2511/24",
         "group": "elections",
         "languages": [
           "en",
-          "si"
+          "si",
+          "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SAMMANTHURAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
