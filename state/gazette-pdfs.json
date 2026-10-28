@@ -4282,8 +4282,12 @@
     "title_ta": "சுங்க அறிவித்தல் (பொது) சுங்கக் கட்டளைச் சட்டம் (அத்தியாயம் 235) அந்நியச் செலாவணி வீதம்"
   },
   "2511/48": {
-    "files": {},
-    "reader": 6
+    "files": {
+      "si": "extra-gazette-content/PG 8098 (S)_1793169361.pdf",
+      "en": "extra-gazette-content/PG 8098 (E)_1793169369.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DEHIATHTHAKANDIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   },
   "2510/60": {
     "files": {},
