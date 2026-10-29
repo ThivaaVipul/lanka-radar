@@ -1,0 +1,26 @@
+{
+  "id": "gazette-2511-51",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Central Bank of S/L",
+  "headline": {
+    "en": "Central Bank of S/L - Financial Transactions Reporting Act No, 06 of 2026 - Rules -",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-22",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048292%20(E)_1793179180.pdf"
+  },
+  "data": {
+    "number": "2511/51",
+    "group": "prices-taxes",
+    "languages": [
+      "en"
+    ],
+    "title": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006"
+  },
+  "alert": true
+}

@@ -4115,9 +4115,12 @@
   },
   "2511/10": {
     "files": {
-      "ta": "extra-gazette-content/PG 8088  (T)_1792577649.pdf"
+      "ta": "extra-gazette-content/PG 8088  (T)_1792577649.pdf",
+      "si": "extra-gazette-content/PG 8088  (S)_1793253039.pdf",
+      "en": "extra-gazette-content/PG 8088 (E)_1793253048.pdf"
     },
     "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POTUVIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
     "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொத்துவில் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/38": {
@@ -4292,6 +4295,21 @@
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DEHIATHTHAKANDIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   },
   "2510/60": {
+    "files": {
+      "si": "extra-gazette-content/PG 8073  (S)_1793252513.pdf",
+      "en": "extra-gazette-content/PG 8073 (E)_1793252525.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MADURAWALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2511/51": {
+    "files": {
+      "en": "extra-gazette-content/G 48292 (E)_1793179180.pdf"
+    },
+    "reader": 6,
+    "title_en": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006"
+  },
+  "2508/26": {
     "files": {},
     "reader": 6
   }

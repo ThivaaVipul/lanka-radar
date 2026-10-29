@@ -3,6 +3,32 @@
   "month": "2026-10",
   "items": [
     {
+      "id": "gazette-2511-51",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Central Bank of S/L",
+      "headline": {
+        "en": "Central Bank of S/L - Financial Transactions Reporting Act No, 06 of 2026 - Rules -",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-22",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048292%20(E)_1793179180.pdf"
+      },
+      "data": {
+        "number": "2511/51",
+        "group": "prices-taxes",
+        "languages": [
+          "en"
+        ],
+        "title": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1792579132",
       "source": "jobs",
       "topic": "jobs",
@@ -50,6 +76,28 @@
       "alert": true
     },
     {
+      "id": "gazette-2508-26",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission - Revision of Electoral Registers",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-21",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2508/26",
+        "group": "elections",
+        "languages": []
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2511-24",
       "source": "gazettes",
       "topic": "gazettes",
@@ -85,7 +133,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POTUVIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொத்துவில் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -93,14 +141,19 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208088%20(E)_1793253048.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208088%20%20(S)_1793253039.pdf",
         "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208088%20%20(T)_1792577649.pdf"
       },
       "data": {
         "number": "2511/10",
         "group": "elections",
         "languages": [
+          "en",
+          "si",
           "ta"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POTUVIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
@@ -148,7 +201,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -174,7 +228,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -200,7 +255,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -226,7 +282,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -252,7 +309,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -278,7 +336,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -304,7 +363,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -330,7 +390,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -356,7 +417,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -382,7 +444,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -408,7 +471,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -434,7 +498,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(16.10.2026)_Press%20(E)_1793011759.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.16%20Part%20I-II%20A%20(S)%20Gazettes%201_1792472480.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2016.10.2026_1793254195.pdf"
       },
       "data": {
         "week": "2026-10-16",
@@ -724,12 +789,18 @@
       "published": "2026-10-14",
       "effective": null,
       "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes"
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208073%20(E)_1793252525.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208073%20%20(S)_1793252513.pdf"
       },
       "data": {
         "number": "2510/60",
         "group": "elections",
-        "languages": []
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MADURAWALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
