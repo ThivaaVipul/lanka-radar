@@ -4296,11 +4296,13 @@
   },
   "2510/60": {
     "files": {
+      "ta": "extra-gazette-content/PG 8073 (T)_1793272103.pdf",
       "si": "extra-gazette-content/PG 8073  (S)_1793252513.pdf",
       "en": "extra-gazette-content/PG 8073 (E)_1793252525.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MADURAWALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MADURAWALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் மதுராவல பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/51": {
     "files": {
@@ -4312,5 +4314,13 @@
   "2508/26": {
     "files": {},
     "reader": 6
+  },
+  "2511/78": {
+    "files": {
+      "si": "extra-gazette-content/PG 8102 (S)_1793272169.pdf",
+      "en": "extra-gazette-content/PG 8102 (E)_1793272177.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   }
 }
