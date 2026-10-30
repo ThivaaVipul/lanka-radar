@@ -22,18 +22,22 @@
   "2510/20": {
     "files": {
       "si": "extra-gazette-content/PG 8065  (S)_1792132119.pdf",
-      "en": "extra-gazette-content/PG 8065 (E)_1792132899.pdf"
+      "en": "extra-gazette-content/PG 8065 (E)_1792132899.pdf",
+      "ta": "extra-gazette-content/PG 8065  (T)_1793357350.pdf"
     },
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDAPALATHA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-    "reader": 6
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடபலாத பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2509/58": {
     "files": {
       "si": "extra-gazette-content/PG 8056 (S)_1791958471.pdf",
-      "en": "extra-gazette-content/PG 8056 (E)_1792041896.pdf"
+      "en": "extra-gazette-content/PG 8056 (E)_1792041896.pdf",
+      "ta": "extra-gazette-content/PG 8056 (T)_1793357303.pdf"
     },
+    "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDADUMBARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-    "reader": 6
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடதும்பர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2509/59": {
     "files": {
@@ -4076,10 +4080,12 @@
   "2510/16": {
     "files": {
       "si": "extra-gazette-content/PG 8061 (S)_1792390808.pdf",
-      "en": "extra-gazette-content/PG 8061 (E)_1792390816.pdf"
+      "en": "extra-gazette-content/PG 8061 (E)_1792390816.pdf",
+      "ta": "extra-gazette-content/PG 8061 (T)_1793357319.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் தம்புள்ள மாநகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/13": {
     "files": {
@@ -4156,10 +4162,12 @@
   "2510/18": {
     "files": {
       "si": "extra-gazette-content/PG 8063 (S)_1793080522.pdf",
-      "en": "extra-gazette-content/PG 8063 (E)_1793080529.pdf"
+      "en": "extra-gazette-content/PG 8063 (E)_1793080529.pdf",
+      "ta": "extra-gazette-content/PG 8063  (T)_1793357335.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NORWOOD PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NORWOOD PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் நோர்வூட் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/05": {
     "files": {
@@ -4263,7 +4271,8 @@
   "2510/74": {
     "files": {
       "en": "extra-gazette-content/PG 8081 (E)_1792743642.pdf",
-      "ta": "extra-gazette-content/PG 8081 (T)_1793089015.pdf"
+      "ta": "extra-gazette-content/PG 8081 (T)_1793089015.pdf",
+      "si": "extra-gazette-content/PG 8081 (S)_1793357366.pdf"
     },
     "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VENGALACHEDDIKULAM PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
@@ -4324,27 +4333,41 @@
   "2511/78": {
     "files": {
       "si": "extra-gazette-content/PG 8102 (S)_1793272169.pdf",
-      "en": "extra-gazette-content/PG 8102 (E)_1793272177.pdf"
+      "en": "extra-gazette-content/PG 8102 (E)_1793272177.pdf",
+      "ta": "extra-gazette-content/PG 8102 (T) New_1793357415.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வத்தளை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/77": {
     "files": {
-      "si": "extra-gazette-content/PG 8101  (S)_1793341013.pdf"
+      "si": "extra-gazette-content/PG 8101  (S)_1793341013.pdf",
+      "en": "extra-gazette-content/PG 8101 (E)_1793346026.pdf",
+      "ta": "extra-gazette-content/PG 8101 (T)_1793357398.pdf"
     },
-    "reader": 6
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POLONNARUWA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொலன்னறுவை மாநகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/79": {
     "files": {
-      "si": "extra-gazette-content/PG 8103 (S)_1793341064.pdf"
+      "si": "extra-gazette-content/PG 8103 (S)_1793341064.pdf",
+      "en": "extra-gazette-content/PG 8103 (E)_1793346043.pdf",
+      "ta": "extra-gazette-content/PG 8103 (T)_1793357485.pdf"
     },
-    "reader": 6
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வத்தளை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/80": {
     "files": {
-      "si": "extra-gazette-content/PG 8104  (S)_1793341096.pdf"
+      "si": "extra-gazette-content/PG 8104  (S)_1793341096.pdf",
+      "en": "extra-gazette-content/PG 8104 (E)_1793346058.pdf",
+      "ta": "extra-gazette-content/PG 8104 (T)_1793357504.pdf"
     },
-    "reader": 6
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE CHAVAKACHCHERI URBAN COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் சாவகச்சேரி நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   }
 }
