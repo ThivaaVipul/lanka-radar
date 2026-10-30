@@ -4082,8 +4082,14 @@
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMBULLA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   },
   "2510/13": {
-    "files": {},
-    "reader": 3
+    "files": {
+      "si": "extra-gazette-content/PG 8059 (S)_1793338537.pdf",
+      "ta": "extra-gazette-content/PG 8059 (T)_1793338545.pdf",
+      "en": "extra-gazette-content/PG 8059 (E)_1793338553.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POTUVIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொத்துவில் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2509/32": {
     "files": {
@@ -4115,7 +4121,7 @@
   },
   "2511/10": {
     "files": {
-      "ta": "extra-gazette-content/PG 8088  (T)_1792577649.pdf",
+      "ta": "extra-gazette-content/PG 8088  (T)_1793342688.pdf",
       "si": "extra-gazette-content/PG 8088  (S)_1793253039.pdf",
       "en": "extra-gazette-content/PG 8088 (E)_1793253048.pdf"
     },
@@ -4322,5 +4328,23 @@
     },
     "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2511/77": {
+    "files": {
+      "si": "extra-gazette-content/PG 8101  (S)_1793341013.pdf"
+    },
+    "reader": 6
+  },
+  "2511/79": {
+    "files": {
+      "si": "extra-gazette-content/PG 8103 (S)_1793341064.pdf"
+    },
+    "reader": 6
+  },
+  "2511/80": {
+    "files": {
+      "si": "extra-gazette-content/PG 8104  (S)_1793341096.pdf"
+    },
+    "reader": 6
   }
 }

@@ -1,0 +1,25 @@
+{
+  "id": "gazette-2511-77",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Election Commission",
+  "headline": {
+    "en": "Election Commission",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208101%20%20(S)_1793341013.pdf"
+  },
+  "data": {
+    "number": "2511/77",
+    "group": "elections",
+    "languages": [
+      "si"
+    ]
+  },
+  "alert": true
+}
