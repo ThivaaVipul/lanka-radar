@@ -1,52 +1,52 @@
 {
   "schema": 1,
-  "checked": "2026-10-30T19:24:39Z",
+  "checked": "2026-10-30T23:48:27Z",
   "sources": {
     "holidays": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "gazettes": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "exams": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "gas": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "jobs": {
-      "lastRun": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
       "lastSuccess": "2026-10-24T05:55:42Z",
       "lastError": "ConnectTimeout: timed out",
-      "failures": 32
+      "failures": 33
     },
     "weekly": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     },
     "laugfs": {
-      "lastRun": "2026-10-30T19:24:39Z",
-      "lastSuccess": "2026-10-30T19:24:39Z",
+      "lastRun": "2026-10-30T23:48:27Z",
+      "lastSuccess": "2026-10-30T23:48:27Z",
       "lastError": null,
       "failures": 0
     }
