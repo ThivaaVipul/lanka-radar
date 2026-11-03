@@ -11,12 +11,15 @@
   "published": "2026-10-12",
   "effective": null,
   "links": {
-    "page": "https://documents.gov.lk/web/extra_gazettes"
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048088%20(S)_1793707749.pdf"
   },
   "data": {
     "number": "2510/21",
     "group": "energy",
-    "languages": []
+    "languages": [
+      "si"
+    ]
   },
   "alert": true
 }

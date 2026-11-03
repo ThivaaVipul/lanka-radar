@@ -4156,7 +4156,9 @@
     "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2510/21": {
-    "files": {},
+    "files": {
+      "si": "extra-gazette-content/G 48088 (S)_1793707749.pdf"
+    },
     "reader": 6
   },
   "2510/18": {
@@ -4373,10 +4375,12 @@
   "2512/28": {
     "files": {
       "si": "extra-gazette-content/PG 8116 -  IV-B - (S)_1793687173.pdf",
-      "en": "extra-gazette-content/PG 8116 (E)_1793687182.pdf"
+      "en": "extra-gazette-content/PG 8116 (E)_1793687182.pdf",
+      "ta": "extra-gazette-content/PG 8116 (T)_1793692086.pdf"
     },
     "reader": 6,
-    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council"
+    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council",
+    "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் கண்டி மாநகர சபை"
   },
   "2512/05": {
     "files": {

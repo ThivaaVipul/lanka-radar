@@ -5,7 +5,7 @@
   "issuer": "Election Commission",
   "headline": {
     "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council",
-    "ta": null
+    "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் கண்டி மாநகர சபை"
   },
   "keyNumbers": [],
   "published": "2026-10-28",
@@ -13,14 +13,16 @@
   "links": {
     "page": "https://documents.gov.lk/web/extra_gazettes",
     "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20(E)_1793687182.pdf",
-    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20-%20%20IV-B%20-%20(S)_1793687173.pdf"
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20-%20%20IV-B%20-%20(S)_1793687173.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20(T)_1793692086.pdf"
   },
   "data": {
     "number": "2512/28",
     "group": "elections",
     "languages": [
       "en",
-      "si"
+      "si",
+      "ta"
     ],
     "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council"
   },
