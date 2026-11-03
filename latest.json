@@ -2,6 +2,298 @@
   "schema": 1,
   "items": [
     {
+      "id": "gazette-2512-28",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20(E)_1793687182.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20-%20%20IV-B%20-%20(S)_1793687173.pdf"
+      },
+      "data": {
+        "number": "2512/28",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-06",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-26",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208109%20(E)_1793252661.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208109%20%20(S)_1793252647.pdf"
+      },
+      "data": {
+        "number": "2512/06",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-05",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் யட்டிநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-26",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20(E)_1793252591.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20%20(S)_1793252581.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20(T)_1793357522.pdf"
+      },
+      "data": {
+        "number": "2512/05",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "weekly-2512-f0011d39",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Jus Tice and National Integration",
+      "headline": {
+        "en": "Recruitment to the Post of Labour Tribunal Assistant Secretary",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2512",
+        "closes": "2026-11-23"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-d0de3f8a",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Audit Service Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Senior Assistant Auditor General in Class I of the Executive Service Category of the Sri Lanka State Audit Service on Direct Stream -2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 10,
+        "number": "2512",
+        "closes": "2026-11-23"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-8a7fe027",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Recruitment to the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 17,
+        "number": "2512",
+        "closes": "2026-11-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-84dce94b",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Limited Competitive Examination for the Recruitment to Posts of Grade III in Sri Lanka Technological Service in the Irrigation Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "exams",
+        "page": 21,
+        "number": "2512",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-84148196",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Public Services Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Chief Editor in Sinhala Dictionary Office and to the Post of Chief Editor in Sinhala Encyclopedia Office (on Contract Basis) of the Department of Culture Affairs",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 16,
+        "number": "2512",
+        "closes": "2026-11-06"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-51aeb33e",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": null,
+      "headline": {
+        "en": "Applications for the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 19,
+        "number": "2512"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-510770c6",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Justice and National Integration",
+      "headline": {
+        "en": "For the Post of Labour Tribunal Assistant Secretary",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 5,
+        "number": "2512"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-3e3a52cb",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Department of Examinations, Sri Lanka",
+      "headline": {
+        "en": "Open Competitive Examination for the Recruitment to the Post of Grade III of Examination Data Assistant (Departmental) of Management Assistant Non-Technical - Segment 2 Service Category - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "exams",
+        "page": 30,
+        "number": "2512",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2511-80",
       "source": "gazettes",
       "topic": "gazettes",
@@ -5519,342 +5811,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANNAR PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-10",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் உடுநுவர பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-01",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207944%20(E)_1788857137.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207944%20%20(S)_1788857110.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207944%20%20(T)_1788857126.pdf"
-      },
-      "data": {
-        "number": "2504/10",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE UDUNUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-09",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PASBAGE KORALE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் பஸ்பாகே கோரளை பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-01",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207943%20(E)_1788857046.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207943%20(S)_1788857027.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207943%20(T)_1788868374.pdf"
-      },
-      "data": {
-        "number": "2504/09",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PASBAGE KORALE PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-03",
-      "source": "gazettes",
-      "topic": "prices",
-      "issuer": "Ministry of Energy",
-      "headline": {
-        "en": "Ministry of Energy - Revise the Fuel Price",
-        "ta": "1961 ஆம் ஆண்டின் 28 ஆம் இலக்க இலங்கை பெற்றோலியக் கூட்டுத்தாபனச் சட்டத்தின் 66 1 (a) ஆம் பிரிவின் கீழான கட்டளைகள்"
-      },
-      "keyNumbers": [
-        {
-          "label": "Lanka Petrol 92 Octane",
-          "value": 399.0,
-          "unit": "LKR",
-          "previous": 414.0
-        },
-        {
-          "label": "Lanka Petrol 95 Octane Euro 4",
-          "value": 475.0,
-          "unit": "LKR",
-          "previous": 495.0
-        }
-      ],
-      "published": "2026-08-31",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20%20%20(E)_1789115277.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20(S)%20New_1789384074.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047828%20(T)_1789039371.pdf"
-      },
-      "data": {
-        "number": "2504/03",
-        "group": "energy",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2503-16",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THUNUKKAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் துணுக்காய் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-26",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(E)_1788177446.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(S)_1788177437.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047758%20(T)_1788263805.pdf"
-      },
-      "data": {
-        "number": "2503/16",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THUNUKKAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-71",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Department of Census and Statistics",
-      "headline": {
-        "en": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)",
-        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண் (அடிப்படை : 2021 = 100)"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-22",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(E)_1787653270.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(S)_1787653255.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047746%20(T)_1787730057.pdf"
-      },
-      "data": {
-        "number": "2502/71",
-        "group": "prices-taxes",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-56",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Revocation of Order made under Section 4(1)",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47720(E)(C)%20%20%5BI%20-%20I%5D_1788858551.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47720(S)(C)%20%20%5BI%20-%20I%5D_1788858537.pdf"
-      },
-      "data": {
-        "number": "2502/56",
-        "group": "labour",
-        "languages": [
-          "en",
-          "si"
-        ],
-        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Revocation of Order made under Section 4(1)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-54",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Department of Labour",
-      "headline": {
-        "en": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE",
-        "ta": "கொக்கோ, ஏலம், மிளகு பயிரிடுதலுக்கும் உற்பத்திக்குமான தொழிலின் வேலையாட்களுக்கு செலுத்தத்தக்க விசேட படி"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(E)_1787995572.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(S)_1787995557.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2047712%20(T)_1788263785.pdf"
-      },
-      "data": {
-        "number": "2502/54",
-        "group": "labour",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "SPECIAL ALLOWANCE PAYABLE TO WORKERS IN THE COCOA, CARDAMOM AND PEPPER GROWING AND MANUFACTURING TRADE"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-52",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "Ministry of Labour",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47719(S(C))%20%20%5BI%20-%20I%5D_1788858500.pdf"
-      },
-      "data": {
-        "number": "2502/52",
-        "group": "labour",
-        "languages": [
-          "si"
-        ]
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-49",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA SOUTH TAMIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வவுனியா தெற்கு தமிழ் பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20(E)_1787737816.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20%20(S)_1787737805.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207932%20%20(T)_1787730207.pdf"
-      },
-      "data": {
-        "number": "2502/49",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA SOUTH TAMIL PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-48",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kotikawatta Mulleriyawa Pradeshiya Sabha",
-        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் கொட்டிகாவத்த முல்லேரியாவ பிரதேச சபை"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20(E)_1787995977.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20(S)_1787995962.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207931%20%20(T)_1788510359.pdf"
-      },
-      "data": {
-        "number": "2502/48",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kotikawatta Mulleriyawa Pradeshiya Sabha"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2502-47",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE HIKKADUWA URBAN COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் ஹிக்கடுவை நகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-08-21",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20(E)_1787995889.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20%20(S)_1787995876.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207928%20%20(T)_1788510342.pdf"
-      },
-      "data": {
-        "number": "2502/47",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE HIKKADUWA URBAN COUNCIL UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     }

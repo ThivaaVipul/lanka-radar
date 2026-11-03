@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2512-8a7fe027",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Ministry of Health and Mass Media",
+  "headline": {
+    "en": "Recruitment to the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+  },
+  "data": {
+    "week": "2026-10-23",
+    "section": "vacancies",
+    "page": 17,
+    "number": "2512",
+    "closes": "2026-11-16"
+  },
+  "alert": false
+}

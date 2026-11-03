@@ -3,6 +3,298 @@
   "month": "2026-10",
   "items": [
     {
+      "id": "gazette-2512-28",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20(E)_1793687182.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208116%20-%20%20IV-B%20-%20(S)_1793687173.pdf"
+      },
+      "data": {
+        "number": "2512/28",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Kandy Municipal Council"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-06",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-26",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208109%20(E)_1793252661.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208109%20%20(S)_1793252647.pdf"
+      },
+      "data": {
+        "number": "2512/06",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-05",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் யட்டிநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-26",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20(E)_1793252591.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20%20(S)_1793252581.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208108%20%20(T)_1793357522.pdf"
+      },
+      "data": {
+        "number": "2512/05",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "weekly-2512-f0011d39",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Jus Tice and National Integration",
+      "headline": {
+        "en": "Recruitment to the Post of Labour Tribunal Assistant Secretary",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2512",
+        "closes": "2026-11-23"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-d0de3f8a",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Audit Service Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Senior Assistant Auditor General in Class I of the Executive Service Category of the Sri Lanka State Audit Service on Direct Stream -2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 10,
+        "number": "2512",
+        "closes": "2026-11-23"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-8a7fe027",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Recruitment to the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 17,
+        "number": "2512",
+        "closes": "2026-11-16"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-84dce94b",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Limited Competitive Examination for the Recruitment to Posts of Grade III in Sri Lanka Technological Service in the Irrigation Department - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "exams",
+        "page": 21,
+        "number": "2512",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-84148196",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Public Services Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Chief Editor in Sinhala Dictionary Office and to the Post of Chief Editor in Sinhala Encyclopedia Office (on Contract Basis) of the Department of Culture Affairs",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 16,
+        "number": "2512",
+        "closes": "2026-11-06"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-51aeb33e",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": null,
+      "headline": {
+        "en": "Applications for the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 19,
+        "number": "2512"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-510770c6",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Justice and National Integration",
+      "headline": {
+        "en": "For the Post of Labour Tribunal Assistant Secretary",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "vacancies",
+        "page": 5,
+        "number": "2512"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2512-3e3a52cb",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Department of Examinations, Sri Lanka",
+      "headline": {
+        "en": "Open Competitive Examination for the Recruitment to the Post of Grade III of Examination Data Assistant (Departmental) of Management Assistant Non-Technical - Segment 2 Service Category - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+      },
+      "data": {
+        "week": "2026-10-23",
+        "section": "exams",
+        "page": 30,
+        "number": "2512",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2511-80",
       "source": "gazettes",
       "topic": "gazettes",

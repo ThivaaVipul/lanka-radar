@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2512-3e3a52cb",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Department of Examinations, Sri Lanka",
+  "headline": {
+    "en": "Open Competitive Examination for the Recruitment to the Post of Grade III of Examination Data Assistant (Departmental) of Management Assistant Non-Technical - Segment 2 Service Category - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-23",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20%20%20Part%20I-II%20A%20(S)%20Gazettes_1793428247.pdf"
+  },
+  "data": {
+    "week": "2026-10-23",
+    "section": "exams",
+    "page": 30,
+    "number": "2512",
+    "closes": "2026-11-20"
+  },
+  "alert": false
+}

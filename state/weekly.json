@@ -486,6 +486,75 @@
         "weekly-2511-ca81ee27",
         "weekly-2511-c0fe990a"
       ]
+    },
+    "2026-10-23": {
+      "file": "gazette-content/I-II(A) - (23.10.2026) - Press (E)_1793687259.pdf",
+      "reader": 1,
+      "number": "2512",
+      "notices": [
+        {
+          "section": "vacancies",
+          "title": "Recruitment to the Post of Labour Tribunal Assistant Secretary",
+          "page": 4,
+          "issuer": "Ministry of Jus Tice and National Integration",
+          "closes": "2026-11-23"
+        },
+        {
+          "section": "vacancies",
+          "title": "For the Post of Labour Tribunal Assistant Secretary",
+          "page": 5,
+          "issuer": "Ministry of Justice and National Integration"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment to the Post of Senior Assistant Auditor General in Class I of the Executive Service Category of the Sri Lanka State Audit Service on Direct Stream -2026",
+          "page": 10,
+          "issuer": "Audit Service Commission",
+          "closes": "2026-11-23"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment to the Post of Chief Editor in Sinhala Dictionary Office and to the Post of Chief Editor in Sinhala Encyclopedia Office (on Contract Basis) of the Department of Culture Affairs",
+          "page": 16,
+          "issuer": "Public Services Commission",
+          "closes": "2026-11-06"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment to the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+          "page": 17,
+          "issuer": "Ministry of Health and Mass Media",
+          "closes": "2026-11-16"
+        },
+        {
+          "section": "vacancies",
+          "title": "Applications for the Post of Medical Officer (Primary Grade) in the Sri Lanka Ayurvedic Medical Service - 2026",
+          "page": 19
+        },
+        {
+          "section": "exams",
+          "title": "Limited Competitive Examination for the Recruitment to Posts of Grade III in Sri Lanka Technological Service in the Irrigation Department - 2026",
+          "page": 21,
+          "closes": "2026-11-20"
+        },
+        {
+          "section": "exams",
+          "title": "Open Competitive Examination for the Recruitment to the Post of Grade III of Examination Data Assistant (Departmental) of Management Assistant Non-Technical - Segment 2 Service Category - 2026",
+          "page": 30,
+          "issuer": "Department of Examinations, Sri Lanka",
+          "closes": "2026-11-20"
+        }
+      ],
+      "items": [
+        "weekly-2512-f0011d39",
+        "weekly-2512-510770c6",
+        "weekly-2512-d0de3f8a",
+        "weekly-2512-84148196",
+        "weekly-2512-8a7fe027",
+        "weekly-2512-51aeb33e",
+        "weekly-2512-84dce94b",
+        "weekly-2512-3e3a52cb"
+      ]
     }
   }
 }
