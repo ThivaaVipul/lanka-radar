@@ -2,6 +2,48 @@
   "schema": 1,
   "items": [
     {
+      "id": "exam-2483",
+      "source": "exams",
+      "topic": "exams",
+      "issuer": "Department of Examinations",
+      "headline": {
+        "en": "Special Notice",
+        "ta": "விசேட அறிவித்தல்;"
+      },
+      "keyNumbers": [],
+      "published": "2026-11-05",
+      "effective": null,
+      "links": {
+        "page": "https://www.doenets.lk/news",
+        "pdf_en": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855945501.pdf",
+        "pdf_si": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855949225.pdf",
+        "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855953284.pdf"
+      },
+      "data": {
+        "kind": "notice"
+      },
+      "alert": true
+    },
+    {
+      "id": "jobs-psc-1793614382",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Internal Recruitment of Post of the Assistant Superintendent of Prison (Disciplinary) - Appointment Date:2026.11.02",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-02",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1793614382-Web-Publishing---Eng.pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
+      "alert": true
+    },
+    {
       "id": "gazette-2512-28",
       "source": "gazettes",
       "topic": "gazettes",
@@ -5747,66 +5789,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MASKELIYA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-14",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் நானாட்டான் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-01",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207948%20(E)_1788519228.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207948%20%20(S)_1788519216.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207948%20(T)_1788779972.pdf"
-      },
-      "data": {
-        "number": "2504/14",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-13",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் நானாட்டான் பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-01",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207947%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)(b)_1788521496.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207947%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1788521486.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207947%20(T)_1788779944.pdf"
-      },
-      "data": {
-        "number": "2504/13",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE NANATTAN PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     }

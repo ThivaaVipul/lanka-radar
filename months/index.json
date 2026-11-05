@@ -2,6 +2,11 @@
   "schema": 1,
   "months": [
     {
+      "month": "2026-11",
+      "count": 2,
+      "hash": "38067ec065220135"
+    },
+    {
       "month": "2026-10",
       "count": 101,
       "hash": "2e295f50e4919f8e"

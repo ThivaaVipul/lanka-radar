@@ -1,0 +1,23 @@
+{
+  "id": "exam-2483",
+  "source": "exams",
+  "topic": "exams",
+  "issuer": "Department of Examinations",
+  "headline": {
+    "en": "Special Notice",
+    "ta": "விசேட அறிவித்தல்;"
+  },
+  "keyNumbers": [],
+  "published": "2026-11-05",
+  "effective": null,
+  "links": {
+    "page": "https://www.doenets.lk/news",
+    "pdf_en": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855945501.pdf",
+    "pdf_si": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855949225.pdf",
+    "pdf_ta": "https://www.doenets.lk/images/resources/NEWS/Special%20Notice%20IRD_1793855953284.pdf"
+  },
+  "data": {
+    "kind": "notice"
+  },
+  "alert": true
+}
