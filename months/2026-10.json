@@ -3,6 +3,92 @@
   "month": "2026-10",
   "items": [
     {
+      "id": "gazette-2512-46",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SERUWILA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208125%20(E)_1793868254.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208125%20(S)_1793868265.pdf"
+      },
+      "data": {
+        "number": "2512/46",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SERUWILA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-45",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KOTMALE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208124%20(E)_1793868161.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208124%20%20(S)_1793868149.pdf"
+      },
+      "data": {
+        "number": "2512/45",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KOTMALE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-44",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVUPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் போரதீவுப்பற்று பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208123%20(E)_1793868069.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208123%20(S)_1793868085.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208123%20(T)_1793868096.pdf"
+      },
+      "data": {
+        "number": "2512/44",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVUPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2512-28",
       "source": "gazettes",
       "topic": "gazettes",
@@ -413,6 +499,60 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POLONNARUWA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2511-76",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BELIATTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-23",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208100%20(E)_1793867997.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208100%20(S)_1793868014.pdf"
+      },
+      "data": {
+        "number": "2511/76",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BELIATTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2511-55",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Central Bank of Srl Lanka Financial Transactions Reporting Act, No 06 of 2006",
+      "headline": {
+        "en": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-22",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048398%20(E)_1793793028.pdf"
+      },
+      "data": {
+        "number": "2511/55",
+        "group": "prices-taxes",
+        "languages": [
+          "en"
+        ],
+        "title": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006"
       },
       "alert": true
     },
