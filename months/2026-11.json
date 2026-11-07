@@ -26,6 +26,62 @@
       "alert": true
     },
     {
+      "id": "gazette-2513-30",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AKKARAIPATTU MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208135%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1794051016.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208135%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1794051009.pdf"
+      },
+      "data": {
+        "number": "2513/30",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AKKARAIPATTU MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2513-28",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMANA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy_1794050978.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)_1794050971.pdf"
+      },
+      "data": {
+        "number": "2513/28",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMANA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1793614382",
       "source": "jobs",
       "topic": "jobs",
