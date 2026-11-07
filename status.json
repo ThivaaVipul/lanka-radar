@@ -1,52 +1,52 @@
 {
   "schema": 1,
-  "checked": "2026-11-07T16:27:57Z",
+  "checked": "2026-11-07T20:54:03Z",
   "sources": {
     "holidays": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "rates": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "gazettes": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "exams": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "gas": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "jobs": {
-      "lastRun": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
       "lastSuccess": "2026-11-07T10:12:42Z",
       "lastError": "ConnectError: [Errno 111] Connection refused",
-      "failures": 1
+      "failures": 2
     },
     "weekly": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     },
     "laugfs": {
-      "lastRun": "2026-11-07T16:27:57Z",
-      "lastSuccess": "2026-11-07T16:27:57Z",
+      "lastRun": "2026-11-07T20:54:03Z",
+      "lastSuccess": "2026-11-07T20:54:03Z",
       "lastError": null,
       "failures": 0
     }
