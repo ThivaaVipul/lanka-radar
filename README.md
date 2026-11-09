@@ -1,133 +1,180 @@
-# Lanka Radar
+<p align="center">
+  <img src="docs/readme/banner.png" alt="Lanka Radar: Sri Lanka's official updates, on your phone as they land" width="100%">
+</p>
 
-Tells you when Sri Lankan official sources publish something new: extraordinary gazettes, the weekly gazette's vacancies and examinations, price controls, fuel and LP gas prices, market prices, the USD/LKR rate, holidays and exam notices.
+<p align="center">
+  <a href="https://github.com/ThivaaVipul/lanka-radar/releases/latest"><img src="https://img.shields.io/github/v/release/ThivaaVipul/lanka-radar?style=flat-square&label=release&color=0F766E" alt="Latest release"></a>
+  <a href="https://github.com/ThivaaVipul/lanka-radar/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ThivaaVipul/lanka-radar/ci.yml?branch=main&style=flat-square&label=CI" alt="CI status"></a>
+  <img src="https://img.shields.io/badge/Android-7.0%2B-0F766E?style=flat-square" alt="Android 7.0 or newer">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/ThivaaVipul/lanka-radar?style=flat-square&color=0F766E" alt="MIT license"></a>
+</p>
 
-A GitHub Actions workflow checks the sources every hour and commits what it finds to the `data` branch as JSON. The Android app reads that JSON, keeps an offline copy and notifies you; it searches inside the gazettes and opens the official PDFs itself, keeping those opened for offline reading. Two sources only answer inside Sri Lanka, so the app reads those itself on the phone. No servers, no accounts.
+<p align="center">
+  Fuel and gas prices, the rupee, market and wholesale prices, gazettes, exams, jobs, holidays and power cuts.<br>
+  Lanka Radar reads Sri Lanka's official sources every hour and tells you what changed.
+</p>
 
-**Status:** in development (v1), Android only, for personal use. See [docs/PLAN.md](docs/PLAN.md).
+<p align="center">
+  <a href="https://github.com/ThivaaVipul/lanka-radar/releases/latest"><b>Download the APK</b></a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#what-it-watches">What it watches</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#how-it-works">How it works</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="docs/DEVELOPMENT.md">Build it yourself</a>
+</p>
 
-## Requirements
+## One look, everything that changed
 
-- Python 3.12 or newer
-- Flutter 3.44 (stable channel), Dart 3.12
-- JDK 17 or newer
-- Android SDK
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/today-dark.png">
+        <img src="docs/readme/today-light.png" alt="Today: the next power cut, fuel, USD/LKR, the next holiday and the week ahead" width="230">
+      </picture>
+      <br><b>Today</b>
+      <br><sub>The next power cut, the numbers that matter and the week ahead</sub>
+    </td>
+    <td align="center" width="33%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/prices-dark.png">
+        <img src="docs/readme/prices-light.png" alt="Prices: fuel with step sparklines and USD/LKR over 30 days" width="230">
+      </picture>
+      <br><b>Prices</b>
+      <br><sub>Fuel, USD/LKR, LP gas, market and wholesale, each with its history</sub>
+    </td>
+    <td align="center" width="33%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/notices-dark.png">
+        <img src="docs/readme/notices-light.png" alt="Notices: gazettes, exams and jobs on a timeline by day" width="230">
+      </picture>
+      <br><b>Notices</b>
+      <br><sub>Gazettes, exams and jobs on a timeline, each weekly gazette folded</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/dates-dark.png">
+        <img src="docs/readme/dates-light.png" alt="Dates: a month calendar with holidays, exams, closing dates and power cuts" width="230">
+      </picture>
+      <br><b>Dates</b>
+      <br><sub>Holidays, exams, closing dates and power cuts on one calendar</sub>
+    </td>
+    <td align="center">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/power-dark.png">
+        <img src="docs/readme/power-light.png" alt="Power: load shedding at a place, today and tomorrow as 24 hours" width="230">
+      </picture>
+      <br><b>Power</b>
+      <br><sub>Outages and load shedding at up to three of your places</sub>
+    </td>
+    <td align="center">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/readme/sources-dark.png">
+        <img src="docs/readme/sources-light.png" alt="Sources: every source on a radar, nearer the centre the fresher" width="230">
+      </picture>
+      <br><b>Sources</b>
+      <br><sub>Every source on a radar: the nearer the centre, the fresher</sub>
+    </td>
+  </tr>
+</table>
 
-## Getting started
+<p align="center"><sub>Real prices and notices from 9 November 2026. The place and its load shedding are samples. The app follows your phone's light or dark theme, as these pictures follow yours.</sub></p>
+
+## In motion
+
+<p align="center">
+  <img src="docs/readme/cut.gif" alt="The next power cut on Today: a lit bulb in a ring that counts down" width="560">
+  <br><sub>The next power cut counts down on Today, its bulb lit until the power goes.</sub>
+</p>
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/readme/radar.gif" alt="The Sources radar sweeping, each source a blip" width="340">
+      <br><sub>The sweep: each blip is a source, lit as the sweep passes</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/readme/chart.gif" alt="A finger sliding along the USD/LKR chart, reading each day" width="340">
+      <br><sub>Slide along any chart to read a day, with a light tick on each point</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/readme/calendar.gif" alt="Picking a day on the calendar and swiping to the next month" width="340">
+      <br><sub>Tap a day, swipe the months; long weekends show as a band</sub>
+    </td>
+    <td align="center">
+      <img src="docs/readme/prices.gif" alt="The section names on Prices jumping to Wholesale and back to Fuel" width="340">
+      <br><sub>Section names that jump to a section and follow the scroll</sub>
+    </td>
+  </tr>
+</table>
+
+## What it watches
+
+| What | From | In the app |
+| --- | --- | --- |
+| Fuel prices | CEYPETCO | Every product and its history; an alert when one changes |
+| USD/LKR | Central Bank of Sri Lanka | The day's rate and its last 30 days; an alert when it moves 2% in a week |
+| LP gas | Litro and Laugfs | Your district's prices from both, side by side; an alert on a new list |
+| Market prices | Central Bank's Daily Price Report | Everyday food at Pettah, Dambulla, Narahenpita and Negombo |
+| Wholesale prices | HARTI | Vegetables at ten economic centres, rice and dried foods at Pettah |
+| Gazettes | Department of Government Printing | Price orders and daily-life gazettes in English and Tamil, searchable inside |
+| Vacancies and exams | The weekly gazette | Each notice with its closing date, one alert a week |
+| School exams | Department of Examinations | Notices, timetables and exam days on the calendar |
+| Jobs | Public Service Commission | New recruitments |
+| Holidays | Public holiday calendar | Long weekends, and a reminder the evening before |
+| Power cuts | CEB (EDLCare) | Outages and load shedding at your places, with 30 minutes' notice |
+
+## How it works
+
+```mermaid
+flowchart LR
+    sites["Official sites<br>gazettes, exams, jobs,<br>LP gas, holidays"]
+    actions["GitHub Actions<br>every hour"]
+    data[("data branch<br>JSON")]
+    phone["Lanka Radar<br>on your phone"]
+    local["Sources only reachable<br>in Sri Lanka: fuel, USD/LKR,<br>market, wholesale, power"]
+    alerts["Alerts"]
+    sites --> actions --> data --> phone --> alerts
+    local --> phone
+```
+
+- **Every hour** a GitHub Actions workflow reads the sources and commits what changed to the `data` branch as JSON. Each gazette's PDF is read once, for its English and Tamil titles, its price tables and the text of its first pages.
+- **On the phone** the app syncs with that branch in the background and reads the sources that only answer inside Sri Lanka itself. Everything stays offline: search goes inside the gazettes, and the official PDFs open in the app.
+- **Alerts** are local notifications from that sync: a price change, a new gazette or exam notice, a holiday tomorrow, a power cut at your place. Each kind has its own switch, and quiet hours hold them overnight.
+
+## Private by design
+
+- No account, no sign-in, no ads, no analytics.
+- No server of its own: just GitHub, the official sources and OpenStreetMap's tiles for the map.
+- Your places stay on your phone. Sharing a power cut names the CEB area, never your place.
+
+## Install
+
+1. Download the APK from the [latest release](https://github.com/ThivaaVipul/lanka-radar/releases/latest). It needs Android 7.0 or newer on a 64-bit (arm64) phone.
+2. Open it and allow installs from your browser or file manager when Android asks.
+3. For alerts on time, set the app's battery use to **No restrictions** (on Xiaomi phones, turn on **Autostart** too).
+
+A new release installs over the old one and keeps your data.
+
+## Build it yourself
 
 ```bash
-git clone <repo-url> lanka-radar
-cd lanka-radar
-python -m venv scrapers/.venv
-source scrapers/.venv/bin/activate      # Windows (Git Bash): source scrapers/.venv/Scripts/activate
-pip install -e "scrapers[dev]"
-
-cd app
+git clone https://github.com/ThivaaVipul/lanka-radar.git
+cd lanka-radar/app
 flutter pub get
 flutter run
 ```
 
-## Development
+The scrapers, the data branch, tests and releases are in [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md); the plan and every decision behind it in [docs/PLAN.md](docs/PLAN.md).
 
-| Task | Command |
-| --- | --- |
-| Python format | `ruff format .` (repo root) |
-| Python lint | `ruff check .` |
-| Scraper tests | `pytest scrapers` |
-| Release tooling tests | `pytest scripts/release` |
-| Run the scrapers live | `python -m lanka_radar run --data <scratch folder>` |
-| App format | `dart format lib test` (in `app/`) |
-| App analyze | `flutter analyze` |
-| App tests | `flutter test` |
-| App debug build | `flutter build apk --debug` |
-| Regenerate the database code | `dart run build_runner build` (in `app/`, after changing the drift tables) |
+## Credits
 
-CI (`.github/workflows/ci.yml`) runs all of these on every push to `main` and every pull request.
-
-## Layout
-
-```text
-scrapers/          Python package that reads the sources (runs on GitHub Actions)
-app/               Flutter app, Android only
-scripts/release/   works out the next version and release notes
-docs/              plan
-```
-
-## Data
-
-The scrape workflow (`.github/workflows/scrape.yml`) runs every hour and commits to the `data` branch, which never merges into `main`:
-
-| File | What it holds |
-| --- | --- |
-| `latest.json` | the newest 200 feed items, newest first |
-| `items/<yyyy>/<mm>/<id>.json` | every feed item, one file each |
-| `months/<yyyy>-<mm>.json` | every feed item of that month, newest first: the app's history |
-| `months/index.json` | each month's item count and file hash, so the app downloads only the months that changed |
-| `datasets/usd-lkr.json` | Frankfurter's copy of CBSL's daily USD/LKR rate since 1 January 2026, a backup that often runs days behind |
-| `datasets/holidays.json` | public holidays from 2026 on, Poya days included |
-| `status.json` | each source's last run, last success and last error |
-| `state/<name>.json` | the scrapers' own bookkeeping, not for the app |
-
-Feed items are news: a gazette (fuel price revisions included), a USD/LKR move of 2% or more in a week, an exam notice. Gazettes become items only when they belong to a daily-life group: prices, taxes and imports; energy and utilities; wages and labour; elections. Exam notices become items for school exams (O/L, A/L, Grade 5 scholarship, GIT) and the department's own press releases and notices; a timetable's exam days, read once from its PDF, go in its data as `days`. The weekly gazette's Part I (IIA) brings one item per vacancy (under jobs) and per examination notice (under exams), with its page in the PDF and the closing date for applications. A new Litro price list is an item too, its prices read off the list's image with OCR (Tesseract, on GitHub's runner) for every district and cylinder size. Laugfs's price list is a table on its site: its current prices are a dataset, and a change becomes an item.
-
-Each gazette item's PDFs are read once: the title on page 1 becomes the headline when the list only names the issuer, and in price gazettes (CAA orders, fuel revisions) the price table becomes key numbers. The English PDF's first 10 pages are kept as text (`texts/`, by month) so the app can search inside gazettes. Tamil titles come from an old Bamini-encoded font, converted to Unicode with Open-Tamil, or from Arial Unicode MS, whose text in these PDFs is scrambled, so it is read from the glyph IDs instead.
-
-CEYPETCO's fuel prices, CBSL's rate search and CBSL's Daily Price Report only answer inside Sri Lanka, so the workflow (on GitHub's servers abroad) can't read them. The app reads them on the phone during its sync: the fuel prices fill its Now card (fuel price changes reach the feed as fuel revision gazettes), the same-day USD/LKR rate makes the same rate items, with the same IDs, as the workflow's backup copy, so a copy from either side is recognized, and each weekday's price report (a PDF, read with PDFium) adds the retail prices of everyday food at Pettah, Dambulla, Narahenpita and Negombo to the Prices tab. HARTI's daily bulletin (also a PDF, also out of reach from GitHub) adds the wholesale prices of vegetables at ten economic centres and of rice and dried foods at Pettah. A source that fails 3 runs in a row fails the workflow once, so GitHub emails you; after that its failures are only recorded in `status.json`, and the app flags the source.
-
-## Git workflow
-
-- `main` is always releasable. Work happens on short branches named `feat/...`, `fix/...`, `docs/...` or `chore/...` and lands through a pull request once CI passes.
-- Pull requests are squash-merged, so each becomes one commit on `main` whose message is the PR title. Titles follow [Conventional Commits](https://www.conventionalcommits.org/), checked by `.github/workflows/pr-title.yml`.
-- The `data` branch belongs to the scrape workflow. Never commit to it by hand or merge it into `main`.
-- Version tags (`vX.Y.Z`) are created only by the release workflow.
-
-## Releases
-
-Every push to `main` that ships a change publishes a release (`.github/workflows/release.yml`). The commit types since the last tag decide the version:
-
-| Commit type | Release |
-| --- | --- |
-| `fix`, `perf`, `revert` | patch (0.1.1) |
-| `feat` | minor (0.2.0) |
-| `feat!:` or a `BREAKING CHANGE:` footer | major (1.0.0) |
-| `docs`, `chore`, `ci`, `test`, `refactor`, `style`, `build` | none |
-
-- Only commits that change `app/` count, so scraper and tooling work never publishes an app release.
-- The first release uses the version in `app/pubspec.yaml` once there is a `feat` or `fix` to ship. A pubspec version above the computed one wins, so a version can still be forced by hand.
-- The Android version code is `major * 1000000 + minor * 1000 + patch`, so it always grows.
-- Each release carries the signed `lanka-radar-X.Y.Z.apk` (for 64-bit ARM phones) and `SHA256SUMS.txt`. Notes come from `CHANGELOG.md` when it has a section for the version, otherwise from the commits.
-
-### Signing key (one time)
-
-Android only installs an update signed with the same key as the installed app, so every release uses one key. Create it once and keep a backup somewhere safe:
-
-```bash
-keytool -genkeypair -v -keystore lanka-radar-upload.jks -alias upload -keyalg RSA -keysize 4096 -validity 10000
-```
-
-Then add four repository secrets (Settings > Secrets and variables > Actions):
-
-| Secret | Value |
-| --- | --- |
-| `ANDROID_KEYSTORE_BASE64` | output of `base64 -w0 lanka-radar-upload.jks` |
-| `ANDROID_KEYSTORE_PASSWORD` | the keystore password |
-| `ANDROID_KEY_ALIAS` | `upload` |
-| `ANDROID_KEY_PASSWORD` | the key password |
-
-Until they exist, a release that is due is skipped with a warning instead of failing. For local release builds, create `app/android/key.properties` (gitignored):
-
-```properties
-storePassword=...
-keyPassword=...
-keyAlias=upload
-storeFile=/absolute/path/to/lanka-radar-upload.jks
-```
-
-Without that file, release builds are signed with the debug key.
-
-## Sources
-
-Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro and Laugfs, exchange rates and market prices from the Central Bank of Sri Lanka, exam notices from the Department of Examinations, recruitments from the Public Service Commission, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to the official source.
+Gazettes from the Department of Government Printing, fuel prices from CEYPETCO, LP gas prices from Litro and Laugfs, exchange rates and market prices from the Central Bank of Sri Lanka, wholesale prices from HARTI, exam notices from the Department of Examinations, recruitments from the Public Service Commission, power cuts from the CEB's EDLCare, and holidays from Google's public Sri Lanka holiday calendar. Lanka Radar is not affiliated with any of them, and every item links to its official source.
 
 ## License
 

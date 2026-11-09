@@ -274,7 +274,7 @@ Three pull requests, each with its tests:
 
 ### M7: Releases and field test
 
-- [x] Create the signing key and add the four repository secrets (you, once; README has the steps)
+- [x] Create the signing key and add the four repository secrets (you, once; docs/DEVELOPMENT.md has the steps)
 - [x] First release installed from GitHub Releases (v0.1.0), and an update installs over it (v0.2.0)
 - [x] An app icon: a radar sweep, as an adaptive icon with a themed-icon layer, and the same radar as the notification icon
 - [ ] Two weeks of daily use; tune topics and alerts
