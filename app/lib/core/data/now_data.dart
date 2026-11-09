@@ -346,7 +346,8 @@ List<HolidayNow> _holidays(
 }
 
 /// USD/LKR's move over the last week, in percent: the latest rate against the
-/// last one at least 7 days before it. Null without one that old.
+/// last one at least 7 days before it. Null without one that old, and for a
+/// move under 0.05%, which would show as "0.0%" with an arrow.
 double? weekMove(List<RateNow> rates) {
   if (rates.isEmpty) {
     return null;
@@ -355,7 +356,8 @@ double? weekMove(List<RateNow> rates) {
   final weekBefore = latest.day.subtract(const Duration(days: 7));
   for (final rate in rates) {
     if (!rate.day.isAfter(weekBefore)) {
-      return (latest.rate / rate.rate - 1) * 100;
+      final move = (latest.rate / rate.rate - 1) * 100;
+      return move.abs() < 0.05 ? null : move;
     }
   }
   return null;

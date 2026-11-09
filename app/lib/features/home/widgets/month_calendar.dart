@@ -59,7 +59,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final month = _month(_page);
-    final picked = widget.events[_picked] ?? const <DayEvent>[];
+    final picked = daySummary(widget.events[_picked]);
     final off = {
       for (final weekend in widget.weekends)
         for (
