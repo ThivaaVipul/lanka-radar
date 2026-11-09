@@ -37,6 +37,15 @@ void main() {
     expect(weekMove(const []), isNull);
   });
 
+  test('a week move that rounds to 0.0% is no move', () {
+    final rates = [
+      RateNow(day: DateTime(2026, 11, 9), rate: 332.56),
+      RateNow(day: DateTime(2026, 11, 2), rate: 332.66),
+    ];
+
+    expect(weekMove(rates), isNull);
+  });
+
   test('days to go read naturally', () {
     final today = DateTime(2026, 10, 19, 15);
     expect(inDays(DateTime(2026, 10, 19), today: today), 'today');

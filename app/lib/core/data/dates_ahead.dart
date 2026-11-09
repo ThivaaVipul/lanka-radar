@@ -165,6 +165,26 @@ Map<DateTime, List<DayEvent>> dayEvents({
   return days;
 }
 
+/// A day's events as lines, for a calendar: its closing dates counted into
+/// one ("6 applications close").
+List<DayEvent> daySummary(List<DayEvent>? events) {
+  if (events == null) {
+    return const [];
+  }
+  final closing = events.where((event) => event.mark == DayMark.closing);
+  return [
+    for (final event in events)
+      if (event.mark != DayMark.closing) event,
+    if (closing.isNotEmpty)
+      (
+        mark: DayMark.closing,
+        name: closing.length == 1
+            ? 'An application closes'
+            : '${closing.length} applications close',
+      ),
+  ]..sort((a, b) => a.mark.index.compareTo(b.mark.index));
+}
+
 DateTime _day(DateTime time) => DateTime(time.year, time.month, time.day);
 
 /// [day] moved by whole days, safe across daylight saving.

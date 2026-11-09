@@ -66,7 +66,7 @@ class WeekStrip extends StatelessWidget {
     ];
     final week = [
       for (final day in days)
-        if (_summary(events[day]) case final summary when summary.isNotEmpty)
+        if (daySummary(events[day]) case final summary when summary.isNotEmpty)
           for (final event in summary) (day, event),
     ];
     return Card(
@@ -151,25 +151,6 @@ class WeekStrip extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// A day's events as lines: closing dates counted into one.
-  static List<DayEvent> _summary(List<DayEvent>? events) {
-    if (events == null) {
-      return const [];
-    }
-    final closing = events.where((event) => event.mark == DayMark.closing);
-    return [
-      for (final event in events)
-        if (event.mark != DayMark.closing) event,
-      if (closing.isNotEmpty)
-        (
-          mark: DayMark.closing,
-          name: closing.length == 1
-              ? 'An application closes'
-              : '${closing.length} applications close',
-        ),
-    ]..sort((a, b) => a.mark.index.compareTo(b.mark.index));
   }
 }
 

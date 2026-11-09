@@ -198,4 +198,22 @@ void main() {
     );
     expect(events[DateTime(2026, 10, 25)]!.single.mark, DayMark.exam);
   });
+
+  test("a day's summary counts its closing dates into one line", () {
+    const closes = (mark: DayMark.closing, name: 'Applications close');
+    const cut = (mark: DayMark.cut, name: 'Load shedding at Home');
+
+    expect(daySummary(null), isEmpty);
+    expect(
+      [
+        for (final event in daySummary([closes, cut, closes, closes]))
+          (event.mark, event.name),
+      ],
+      [
+        (DayMark.closing, '3 applications close'),
+        (DayMark.cut, 'Load shedding at Home'),
+      ],
+    );
+    expect(daySummary([closes]).single.name, 'An application closes');
+  });
 }
