@@ -50,7 +50,7 @@ jobs:
           HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
         run: |
           if [ "$DUE" = "true" ] && [ "$HAS_KEY" != "true" ]; then
-            echo "::warning::A release is due, but the signing key secrets are missing (README, Releases)."
+            echo "::warning::A release is due, but the signing key secrets are missing (docs/DEVELOPMENT.md, Releases)."
             echo "release=false" >> "$GITHUB_OUTPUT"
           else
             echo "release=$DUE" >> "$GITHUB_OUTPUT"

@@ -41,7 +41,7 @@ Scraper tests live in `scrapers/tests/` and run on saved fixtures in `scrapers/t
 ## Git workflow and releases
 
 - Branches `feat/...`, `fix/...`, `docs/...`, `chore/...` off `main`; a pull request, CI green, then squash merge with a Conventional Commit title.
-- The commit type decides the release (README, Releases): `feat` is minor, `fix`/`perf`/`revert` patch, `!` or `BREAKING CHANGE:` major, everything else none. Pick the type honestly. Only commits that change `app/` count toward releases.
+- The commit type decides the release (docs/DEVELOPMENT.md, Releases): `feat` is minor, `fix`/`perf`/`revert` patch, `!` or `BREAKING CHANGE:` major, everything else none. Pick the type honestly. Only commits that change `app/` count toward releases.
 - Never commit to `data`, never create `v*` tags by hand, and never change the version in `app/pubspec.yaml` unless asked to force one.
 - Release logic lives in `scripts/release/` (Python, standard library only). Change it test-first in `scripts/release/test_version.py`.
 
