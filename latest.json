@@ -2,6 +2,25 @@
   "schema": 1,
   "items": [
     {
+      "id": "jobs-psc-1794291621",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Legal Officer at Ministry of Public Administration (Provincial Councial & Local Government Division) - 2025(Open Basis)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-10",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1794291621-Legal-Officer-Pubad-English-.pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
+      "alert": true
+    },
+    {
       "id": "gazette-2514-02",
       "source": "gazettes",
       "topic": "gazettes",
@@ -100,7 +119,7 @@
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy_1794050978.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)_1794050971.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20(T)_1794206034.pdf"
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208134%20(T)%20new_1794295916.pdf"
       },
       "data": {
         "number": "2513/28",
@@ -5722,36 +5741,6 @@
           "en"
         ],
         "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2504-88",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "TO FILLING THE VACANCIES IN THE POST OF VICE CHAIRMAN OF THE KINNIYA URBAN COUNCIL AND ADDALACHCHENAI PRADESHIYA SABHA UNDER SECTION 66(G) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச்சட்ட அறிவித்தல் (262 ஆம் அத்தியாயம்) உள்ளூர் அதிகாரசபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66(எ) பிரிவின் கீழ் கிண்ணியா நகர சபை மற்றும் அட்டாளைச்சேனை பிரதேச சபையின் உபதவிசாளர் பதவிக்கான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-04",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207962%20%20(E)_1789539785.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207962%20(S)_1789539776.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207962%20(T)_1789733589.pdf"
-      },
-      "data": {
-        "number": "2504/88",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "TO FILLING THE VACANCIES IN THE POST OF VICE CHAIRMAN OF THE KINNIYA URBAN COUNCIL AND ADDALACHCHENAI PRADESHIYA SABHA UNDER SECTION 66(G) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     }
