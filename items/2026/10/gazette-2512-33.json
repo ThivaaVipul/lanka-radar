@@ -1,0 +1,28 @@
+{
+  "id": "gazette-2512-33",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-28",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48411(E)(C)%20%20%5BI%20-%20I%5D_1794386611.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48411(S)(C)%20%20%5BI%20-%20I%5D_1794386603.pdf"
+  },
+  "data": {
+    "number": "2512/33",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
+  },
+  "alert": true
+}

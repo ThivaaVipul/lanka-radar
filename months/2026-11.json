@@ -135,6 +135,34 @@
       "alert": true
     },
     {
+      "id": "gazette-2513-26",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Notices under the Local Authorities Elections Ordinance LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Notices under Section 66g",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-04",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48494(E)(C)%20%20%5BIV%20-%20B%5D_1794386863.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48494(S)(C)%20%20%5BIV%20-%20B%5D_1794386851.pdf"
+      },
+      "data": {
+        "number": "2513/26",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "Notices under the Local Authorities Elections Ordinance LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Notices under Section 66g"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1793614382",
       "source": "jobs",
       "topic": "jobs",

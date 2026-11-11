@@ -1,0 +1,28 @@
+{
+  "id": "gazette-2512-47",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-31",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48439(E)(C)%20%20%5BI%20-%20I%5D_1794386786.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48439(S)(C)%20%20%5BI%20-%20I%5D_1794386777.pdf"
+  },
+  "data": {
+    "number": "2512/47",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE"
+  },
+  "alert": true
+}

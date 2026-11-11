@@ -3,6 +3,34 @@
   "month": "2026-10",
   "items": [
     {
+      "id": "gazette-2512-47",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-31",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48439(E)(C)%20%20%5BI%20-%20I%5D_1794386786.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48439(S)(C)%20%20%5BI%20-%20I%5D_1794386777.pdf"
+      },
+      "data": {
+        "number": "2512/47",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2512-46",
       "source": "gazettes",
       "topic": "gazettes",
@@ -87,6 +115,34 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVUPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2512-33",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-28",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48411(E)(C)%20%20%5BI%20-%20I%5D_1794386611.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48411(S)(C)%20%20%5BI%20-%20I%5D_1794386603.pdf"
+      },
+      "data": {
+        "number": "2512/33",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
       },
       "alert": true
     },
