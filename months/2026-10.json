@@ -31,6 +31,299 @@
       "alert": true
     },
     {
+      "id": "weekly-2513-fd3ddc9b",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Recruitment of Graduates for the Orientation and Coordination Course for the Post of Radiographer belonging to the Service of Professions Supplementary to Medicine - 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 4,
+        "number": "2513",
+        "closes": "2026-11-15"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-f90c6712",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Refrigeration and Air Conditioning Sector - Full Time Courses",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "exams",
+        "page": 93,
+        "number": "2513"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-f2108a0c",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Ministry of Education, Higher Education and Vocational Education",
+      "headline": {
+        "en": "Department of Technical Education and Training",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 30,
+        "number": "2513",
+        "closes": "2026-12-07"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-f1accec9",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": null,
+      "headline": {
+        "en": "Recruitment for vacancies in the Office Employees' Service",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 11,
+        "number": "2513",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-d18df5ae",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Food Technology Sector - Full time Courses",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "exams",
+        "page": 101,
+        "number": "2513"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-c20fbf5b",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Agriculture Plantation and Livestock Sector-Part Time Courses",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "exams",
+        "page": 95,
+        "number": "2513"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-992126d7",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": "Ministry of Health and Mass Media",
+      "headline": {
+        "en": "Recruitment to the Post of Health Driver in the Ministry of Health and Mass Media/ Institutions under the Ministry of Health and Mass Media - 2026 (Open)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "exams",
+        "page": 104,
+        "number": "2513",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-69d40a72",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Registrar General's Department",
+      "headline": {
+        "en": "Recruitment to Grade III of the Office Employees' Service of the Combined Service",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 8,
+        "number": "2513",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-6088f8ae",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Department of the Registrar General",
+      "headline": {
+        "en": "Recruitment To Posts In Grade III Of The Office Employees' Service of The Combined Service",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 11,
+        "number": "2513",
+        "closes": "2026-11-20"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-42909c4e",
+      "source": "weekly",
+      "topic": "jobs",
+      "issuer": "Health Service Committee of the Public Service Commission",
+      "headline": {
+        "en": "Notification on Recruitment of Dental Surgeons to Grade II of the Ministry of Health and Mass",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "vacancies",
+        "page": 21,
+        "number": "2513",
+        "closes": "2026-12-07"
+      },
+      "alert": false
+    },
+    {
+      "id": "weekly-2513-3f6e0fd1",
+      "source": "weekly",
+      "topic": "exams",
+      "issuer": null,
+      "headline": {
+        "en": "Details of courses to be conducted in Colleges of Technology/ Technical Colleges NVQ Level 3/4 courses in the Academic Year 2027",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-30",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+      },
+      "data": {
+        "week": "2026-10-30",
+        "section": "exams",
+        "page": 41,
+        "number": "2513"
+      },
+      "alert": false
+    },
+    {
       "id": "gazette-2512-46",
       "source": "gazettes",
       "topic": "gazettes",

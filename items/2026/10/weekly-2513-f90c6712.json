@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2513-f90c6712",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": null,
+  "headline": {
+    "en": "Refrigeration and Air Conditioning Sector - Full Time Courses",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-30",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+  },
+  "data": {
+    "week": "2026-10-30",
+    "section": "exams",
+    "page": 93,
+    "number": "2513"
+  },
+  "alert": false
+}

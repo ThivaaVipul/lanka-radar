@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2513-3f6e0fd1",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": null,
+  "headline": {
+    "en": "Details of courses to be conducted in Colleges of Technology/ Technical Colleges NVQ Level 3/4 courses in the Academic Year 2027",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-10-30",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(30.10.2026)%20_%20Press%20(E)_1794546779.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.30%20Part%20I-II%20A%20(S)%20press_1793965300.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2030.10.2026%20PRESS_1794048868.pdf"
+  },
+  "data": {
+    "week": "2026-10-30",
+    "section": "exams",
+    "page": 41,
+    "number": "2513"
+  },
+  "alert": false
+}

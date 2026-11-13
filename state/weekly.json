@@ -555,6 +555,94 @@
         "weekly-2512-84dce94b",
         "weekly-2512-3e3a52cb"
       ]
+    },
+    "2026-10-30": {
+      "file": "gazette-content/I-II(A) - (30.10.2026) _ Press (E)_1794546779.pdf",
+      "reader": 1,
+      "number": "2513",
+      "notices": [
+        {
+          "section": "vacancies",
+          "title": "Recruitment of Graduates for the Orientation and Coordination Course for the Post of Radiographer belonging to the Service of Professions Supplementary to Medicine - 2026",
+          "page": 4,
+          "issuer": "Ministry of Health and Mass Media",
+          "closes": "2026-11-15"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment to Grade III of the Office Employees' Service of the Combined Service",
+          "page": 8,
+          "issuer": "Registrar General's Department",
+          "closes": "2026-11-20"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment for vacancies in the Office Employees' Service",
+          "page": 11,
+          "closes": "2026-11-20"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment To Posts In Grade III Of The Office Employees' Service of The Combined Service",
+          "page": 11,
+          "issuer": "Department of the Registrar General",
+          "closes": "2026-11-20"
+        },
+        {
+          "section": "vacancies",
+          "title": "Notification on Recruitment of Dental Surgeons to Grade II of the Ministry of Health and Mass",
+          "page": 21,
+          "issuer": "Health Service Committee of the Public Service Commission",
+          "closes": "2026-12-07"
+        },
+        {
+          "section": "vacancies",
+          "title": "Department of Technical Education and Training",
+          "page": 30,
+          "issuer": "Ministry of Education, Higher Education and Vocational Education",
+          "closes": "2026-12-07"
+        },
+        {
+          "section": "exams",
+          "title": "Details of courses to be conducted in Colleges of Technology/ Technical Colleges NVQ Level 3/4 courses in the Academic Year 2027",
+          "page": 41
+        },
+        {
+          "section": "exams",
+          "title": "Refrigeration and Air Conditioning Sector - Full Time Courses",
+          "page": 93
+        },
+        {
+          "section": "exams",
+          "title": "Agriculture Plantation and Livestock Sector-Part Time Courses",
+          "page": 95
+        },
+        {
+          "section": "exams",
+          "title": "Food Technology Sector - Full time Courses",
+          "page": 101
+        },
+        {
+          "section": "exams",
+          "title": "Recruitment to the Post of Health Driver in the Ministry of Health and Mass Media/ Institutions under the Ministry of Health and Mass Media - 2026 (Open)",
+          "page": 104,
+          "issuer": "Ministry of Health and Mass Media",
+          "closes": "2026-11-20"
+        }
+      ],
+      "items": [
+        "weekly-2513-fd3ddc9b",
+        "weekly-2513-69d40a72",
+        "weekly-2513-f1accec9",
+        "weekly-2513-6088f8ae",
+        "weekly-2513-42909c4e",
+        "weekly-2513-f2108a0c",
+        "weekly-2513-3f6e0fd1",
+        "weekly-2513-f90c6712",
+        "weekly-2513-c20fbf5b",
+        "weekly-2513-d18df5ae",
+        "weekly-2513-992126d7"
+      ]
     }
   }
 }
