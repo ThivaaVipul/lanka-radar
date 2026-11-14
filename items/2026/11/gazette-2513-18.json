@@ -1,0 +1,30 @@
+{
+  "id": "gazette-2513-18",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE BRICK AND TILE MANUFACTURING TRADE",
+    "ta": "சம்பளச் சபைகள் கட்டளைச் சட்டம் அறிவித்தல் செங்கல்லும் ஓடும் உற்பத்தித் தொழிலுக்கான சம்பளச் சபை"
+  },
+  "keyNumbers": [],
+  "published": "2026-11-03",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(E)%20%5BI%20-%20I%5D%20%20%20-%20%20%5BIndustrial%20Disputes%5D_1794631633.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(S)%20%20%5BI%20-%20I%5D%20%20-%20Industrial%20Disputes%20-%20Extraordinary_1794631613.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(T)%20SEC%20I-I_1794631624.pdf"
+  },
+  "data": {
+    "number": "2513/18",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE BRICK AND TILE MANUFACTURING TRADE"
+  },
+  "alert": true
+}

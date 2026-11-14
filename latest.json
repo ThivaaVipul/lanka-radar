@@ -2,6 +2,332 @@
   "schema": 1,
   "items": [
     {
+      "id": "gas-laugfs-2026-11-14",
+      "source": "laugfs",
+      "topic": "prices",
+      "issuer": "Laugfs Gas",
+      "headline": {
+        "en": "Laugfs gas prices from 14 Nov 2026",
+        "ta": null
+      },
+      "keyNumbers": [
+        {
+          "label": "12.5 kg",
+          "value": 6740.0,
+          "unit": "LKR",
+          "previous": 4965.0
+        },
+        {
+          "label": "5 kg",
+          "value": 2720.0,
+          "unit": "LKR",
+          "previous": 1988.0
+        },
+        {
+          "label": "2 kg",
+          "value": 1088.0,
+          "unit": "LKR",
+          "previous": 795.0
+        }
+      ],
+      "published": "2026-11-14",
+      "effective": "2026-11-14",
+      "links": {
+        "page": "https://www.laugfsgas.lk/pricelist.php"
+      },
+      "data": {
+        "sizes": [
+          "12.5 kg",
+          "5 kg",
+          "2 kg"
+        ],
+        "districts": {
+          "Ampara": [
+            7086.0,
+            2928.0,
+            1171.0
+          ],
+          "Anuradhapura": [
+            6925.0,
+            2831.0,
+            1133.0
+          ],
+          "Badulla": [
+            7027.0,
+            2892.0,
+            1159.0
+          ],
+          "Batticaloa": [
+            7040.0,
+            2901.0,
+            1160.0
+          ],
+          "Colombo": [
+            6740.0,
+            2720.0,
+            1088.0
+          ],
+          "Galle": [
+            6839.0,
+            2780.0,
+            1113.0
+          ],
+          "Gampaha": [
+            6740.0,
+            2720.0,
+            1088.0
+          ],
+          "Hambantota": [
+            6926.0,
+            2831.0,
+            1133.0
+          ],
+          "Jaffna": [
+            7111.0,
+            2943.0,
+            1181.0
+          ],
+          "Kalutara": [
+            6801.0,
+            2755.0,
+            1103.0
+          ],
+          "Kandy": [
+            6863.0,
+            2794.0,
+            1117.0
+          ],
+          "Kegalle": [
+            6782.0,
+            2745.0,
+            1098.0
+          ],
+          "Kilinochchi": [
+            7043.0,
+            2902.0,
+            1161.0
+          ],
+          "Kurunegala": [
+            6830.0,
+            2774.0,
+            1113.0
+          ],
+          "Mannar": [
+            6993.0,
+            2872.0,
+            1149.0
+          ],
+          "Matale": [
+            6890.0,
+            2810.0,
+            1128.0
+          ],
+          "Matara": [
+            6872.0,
+            2799.0,
+            1120.0
+          ],
+          "Monaragala": [
+            7024.0,
+            2890.0,
+            1160.0
+          ],
+          "Mullaitivu": [
+            7043.0,
+            2902.0,
+            1161.0
+          ],
+          "Nuwara Eliya": [
+            6959.0,
+            2851.0,
+            1143.0
+          ],
+          "Polonnaruwa": [
+            6908.0,
+            2821.0,
+            1128.0
+          ],
+          "Puttalam": [
+            6827.0,
+            2772.0,
+            1109.0
+          ],
+          "Ratnapura": [
+            6854.0,
+            2788.0,
+            1119.0
+          ],
+          "Trincomalee": [
+            6967.0,
+            2856.0,
+            1145.0
+          ],
+          "Vavuniya": [
+            6993.0,
+            2872.0,
+            1149.0
+          ]
+        },
+        "before": {
+          "Ampara": [
+            5310.0,
+            2195.0,
+            878.0
+          ],
+          "Anuradhapura": [
+            5149.0,
+            2098.0,
+            840.0
+          ],
+          "Badulla": [
+            5252.0,
+            2160.0,
+            866.0
+          ],
+          "Batticaloa": [
+            5265.0,
+            2168.0,
+            867.0
+          ],
+          "Colombo": [
+            4965.0,
+            1988.0,
+            795.0
+          ],
+          "Galle": [
+            5064.0,
+            2047.0,
+            820.0
+          ],
+          "Gampaha": [
+            4965.0,
+            1988.0,
+            795.0
+          ],
+          "Hambantota": [
+            5150.0,
+            2098.0,
+            840.0
+          ],
+          "Jaffna": [
+            5336.0,
+            2210.0,
+            888.0
+          ],
+          "Kalutara": [
+            5026.0,
+            2023.0,
+            810.0
+          ],
+          "Kandy": [
+            5088.0,
+            2061.0,
+            824.0
+          ],
+          "Kegalle": [
+            5007.0,
+            2013.0,
+            805.0
+          ],
+          "Kilinochchi": [
+            5268.0,
+            2170.0,
+            868.0
+          ],
+          "Kurunegala": [
+            5054.0,
+            2042.0,
+            820.0
+          ],
+          "Mannar": [
+            5218.0,
+            2140.0,
+            856.0
+          ],
+          "Matale": [
+            5114.0,
+            2077.0,
+            835.0
+          ],
+          "Matara": [
+            5096.0,
+            2066.0,
+            827.0
+          ],
+          "Monaragala": [
+            5249.0,
+            2158.0,
+            867.0
+          ],
+          "Mullaitivu": [
+            5268.0,
+            2169.0,
+            868.0
+          ],
+          "Nuwara Eliya": [
+            5184.0,
+            2119.0,
+            850.0
+          ],
+          "Polonnaruwa": [
+            5132.0,
+            2088.0,
+            835.0
+          ],
+          "Puttalam": [
+            5052.0,
+            2040.0,
+            816.0
+          ],
+          "Ratnapura": [
+            5078.0,
+            2056.0,
+            826.0
+          ],
+          "Trincomalee": [
+            5191.0,
+            2124.0,
+            852.0
+          ],
+          "Vavuniya": [
+            5218.0,
+            2140.0,
+            856.0
+          ]
+        },
+        "district": "Colombo"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2514-44",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF CHAIRMAN OF THE MAHARA PRADESHIYA SABHA UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTION (AMENDMENT) ACT, No. 16 OF 2017",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208156%20(E)%20%20IV%20(B)%20Filling%20of%20a%20Vacancy%2066A(1)%20(b)_1794654667.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208156%20-%20Filling%20Vacancy%20-%20IV-B%20-%20(S)%2066A(1)(b)_1794654659.pdf"
+      },
+      "data": {
+        "number": "2514/44",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF CHAIRMAN OF THE MAHARA PRADESHIYA SABHA UNDER SECTION 66B(2) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) AS AMENDED BY LOCAL AUTHORITIES ELECTION (AMENDMENT) ACT, No. 16 OF 2017"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1794477003",
       "source": "jobs",
       "topic": "jobs",
@@ -18,6 +344,34 @@
         "page": "https://psc.gov.lk/index.php?lang=en"
       },
       "data": {},
+      "alert": true
+    },
+    {
+      "id": "gazette-2514-28",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20(E)_1794654620.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20%20%20(S)_1794654611.pdf"
+      },
+      "data": {
+        "number": "2514/28",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha"
+      },
       "alert": true
     },
     {
@@ -98,7 +452,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE AKKARAIPATTU MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Akkaraipattu M.C.",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் அக்கரைப்பற்று மாநகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -128,7 +482,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE DAMANA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Damana P.S.",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் தமன பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -181,6 +535,36 @@
       "alert": true
     },
     {
+      "id": "gazette-2513-18",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Ministry of Labour",
+      "headline": {
+        "en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE BRICK AND TILE MANUFACTURING TRADE",
+        "ta": "சம்பளச் சபைகள் கட்டளைச் சட்டம் அறிவித்தல் செங்கல்லும் ஓடும் உற்பத்தித் தொழிலுக்கான சம்பளச் சபை"
+      },
+      "keyNumbers": [],
+      "published": "2026-11-03",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(E)%20%5BI%20-%20I%5D%20%20%20-%20%20%5BIndustrial%20Disputes%5D_1794631633.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(S)%20%20%5BI%20-%20I%5D%20%20-%20Industrial%20Disputes%20-%20Extraordinary_1794631613.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48493%20%20(T)%20SEC%20I-I_1794631624.pdf"
+      },
+      "data": {
+        "number": "2513/18",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE BRICK AND TILE MANUFACTURING TRADE"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1793614382",
       "source": "jobs",
       "topic": "jobs",
@@ -200,12 +584,72 @@
       "alert": true
     },
     {
+      "id": "gazette-2513-05",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Filling of a vacancy karachchi P.S",
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
+      },
+      "keyNumbers": [],
+      "published": "2026-11-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208130%20(E)_1793955116.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208130%20-(S)_1793955127.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208130%20(T)_1794206011.pdf"
+      },
+      "data": {
+        "number": "2513/05",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2513-02",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Trade and Investment Policy",
+      "headline": {
+        "en": "Department of Trade and Investment Policy - Special Commodity leavy Act No 48 of 2007",
+        "ta": "2007 ஆம் ஆண்டின் 48 ஆம் இலக்க விசேட வியாபாரப் பண்ட அறவீட்டுச் சட்டம் பிரிவு 2 இன் கீழான கட்டளை"
+      },
+      "keyNumbers": [],
+      "published": "2026-11-02",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208133%20%20(E)_1794643075.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208133%20(S)_1794569786.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208133%20(T)_1794636649.pdf"
+      },
+      "data": {
+        "number": "2513/02",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "Special Commodity Levy Act, No. 48 of 2007 Order under Section 2"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2512-47",
       "source": "gazettes",
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE",
+        "en": "Ministry of Labour - The wages bords Ordinace wages Board for the Coconut Growing Trade",
         "ta": null
       },
       "keyNumbers": [],
@@ -526,7 +970,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SERUWILA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of vacancy Seruwila P.S",
         "ta": null
       },
       "keyNumbers": [],
@@ -554,7 +998,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KOTMALE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of vacancy - kotmale P.S",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கொத்மலை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -584,7 +1028,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVUPATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Porathivupattu P.S",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் போரதீவுப்பற்று பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -612,7 +1056,7 @@
       "id": "gazette-2512-33",
       "source": "gazettes",
       "topic": "gazettes",
-      "issuer": "Ministry of Labour",
+      "issuer": "Ministry of Labour- Industrial Dispute between\n1 ) U.L. Jayaeera and Orel Corporation (Pvt) Ltd\n2) Harbour Managment Soceity and Ceylon Fishery Harbour Corporation",
       "headline": {
         "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)",
         "ta": null
@@ -667,12 +1111,42 @@
       "alert": true
     },
     {
+      "id": "gazette-2512-20",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Department of Labour",
+      "headline": {
+        "en": "Department of Labour - wages Board Ordinance wages Boards for the motor Transport Trade",
+        "ta": "சம்பளச்சபைகள் கட்டளைச் சட்டம் மோட்டார் போக்குவரத்துத் தொழில்"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-27",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(E)%20%5BI-I%5D%20-%20Wages%20Board_1794631559.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(S)%20%5BI-I%5D%20-%20Wages%20Board_1794631544.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(T)%20%5BI-I%5D%20-%20Wages%20Board_1794631552.pdf"
+      },
+      "data": {
+        "number": "2512/20",
+        "group": "labour",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE MOTOR TRANSPORT TRADE"
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2512-06",
       "source": "gazettes",
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy  - Vavuniya North P.S",
         "ta": null
       },
       "keyNumbers": [],
@@ -700,7 +1174,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE YATINUWARA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy  - Yatinuwara P.S",
         "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(அ) என்னும் பிரிவின் கீழ் யட்டிநுவர பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -739,7 +1213,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -765,7 +1240,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -791,7 +1267,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -817,7 +1294,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -843,7 +1321,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -869,7 +1348,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -894,7 +1374,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -919,7 +1400,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(23.10.2026)%20-%20Press%20(E)_1793687259.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.10.23%20Part%20I-II%20A%20(S)%20press_1793965272.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%2023.10.2026%20press_1794643048.pdf"
       },
       "data": {
         "week": "2026-10-23",
@@ -996,7 +1478,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WATTALA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Wattala P.S",
         "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வத்தளை பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -1026,7 +1508,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POLONNARUWA MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Polonnaruwa M/C",
         "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பொலன்னறுவை மாநகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
@@ -1056,7 +1538,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BELIATTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "en": "Election Commission - Filling of a vacancy - Beliatta P.S",
         "ta": null
       },
       "keyNumbers": [],
@@ -1101,6 +1583,36 @@
           "en"
         ],
         "title": "L. D.-B 3/2006 (II) FINANCIAL TRANSACTIONS REPORTING ACT, No. 6 OF 2006"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2511-52",
+      "source": "gazettes",
+      "topic": "prices",
+      "issuer": "De. of Census and Statistics",
+      "headline": {
+        "en": "De. of Census and Statistics - National Consumer Price Index - September 2026",
+        "ta": "தொகைமதிப்பு மற்றும் புள்ளிவிபரத் திணைக்களத்தால் கணிக்கப்படும் தேசிய நுகர்வோர் விலைச்சுட்டெண் (அடிப்படை : 2021 = 100)"
+      },
+      "keyNumbers": [],
+      "published": "2026-10-22",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048362%20(E)_1793687081.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048362%20(S)_1793687074.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048362%20(T)_1793692051.pdf"
+      },
+      "data": {
+        "number": "2511/52",
+        "group": "prices-taxes",
+        "languages": [
+          "en",
+          "si",
+          "ta"
+        ],
+        "title": "NATIONAL CONSUMER PRICE INDEX COMPUTED BY THE DEPARTMENT OF CENSUS AND STATISTICS (Base : 2021 = 100)"
       },
       "alert": true
     },
@@ -1205,7 +1717,7 @@
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "Ministry of Labour",
+        "en": "Ministry of Labour - Industrial Dispute",
         "ta": null
       },
       "keyNumbers": [],
@@ -1230,7 +1742,7 @@
       "topic": "gazettes",
       "issuer": "Ministry of Labour",
       "headline": {
-        "en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131",
+        "en": "Ministry of Labour - Collective Agreement",
         "ta": null
       },
       "keyNumbers": [],
@@ -1336,6 +1848,28 @@
           "si",
           "ta"
         ]
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2511-02",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Elections Commission",
+      "headline": {
+        "en": "Elections Commission - Order under Article 98 (8) of the Constitution Revision or Electoral Registers for the year 2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-10-19",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes"
+      },
+      "data": {
+        "number": "2511/02",
+        "group": "elections",
+        "languages": []
       },
       "alert": true
     },
@@ -5470,265 +6004,6 @@
           "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POONAKARY PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-90",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207979%20(E)_1789462373.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207979%20-(S)_1789462385.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207979%20(T)_1789462407.pdf"
-      },
-      "data": {
-        "number": "2505/90",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-89",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SORANATHOTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் சொரணாதோட்டை பிரதேச சபை உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207978%20(E)_1789552779.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207978%20%20(S)_1789552769.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207978%20%20(T)_1789733618.pdf"
-      },
-      "data": {
-        "number": "2505/89",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE SORANATHOTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-88",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207977%20(E)_1789474050.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207977%20-(S)_1789474014.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207977%20(T)_1789474036.pdf"
-      },
-      "data": {
-        "number": "2505/88",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-87",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கரைச்சி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207976%20%20(E)_1789470859.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207976%20%20(S)_1789470836.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207976%20%20(T)_1789470849.pdf"
-      },
-      "data": {
-        "number": "2505/87",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KARACHCHI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-86",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POONAKARY PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பூநகரி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-10",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207975%20(E)_1789462257.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207975%20-(S)_1789462274.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207975%20(T)%20I_1789462292.pdf"
-      },
-      "data": {
-        "number": "2505/86",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE POONAKARY PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-80",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Election Commission",
-      "headline": {
-        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PACHCHILAIPALLI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": "(262 ஆம் அத்தியாயமான) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பச்சிலைப்பள்ளி பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
-      },
-      "keyNumbers": [],
-      "published": "2026-09-09",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207972%20(E)_1789386848.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207972%20%20(S)_1789386839.pdf",
-        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%207972%20%20(T)_1789470802.pdf"
-      },
-      "data": {
-        "number": "2505/80",
-        "group": "elections",
-        "languages": [
-          "en",
-          "si",
-          "ta"
-        ],
-        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PACHCHILAIPALLI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-60",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "M/ of Labour",
-      "headline": {
-        "en": "M/ of Labour - Industrial Dispute",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-09-08",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47826%20%20(E)%20I-I%20%20%20-%20%20%5BIndustrial%20Disputes%5D_1791871119.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47826%20(S)(PM)%20%20%5BI%20-%20I%5D%20%20-%20Industrial%20Disputes%20-%20Extraordinary_1791871105.pdf"
-      },
-      "data": {
-        "number": "2505/60",
-        "group": "labour",
-        "languages": [
-          "en",
-          "si"
-        ],
-        "title": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131 OF THE LEGISLATIVE ENACTMENTS OF CEYLON (1956 REVISED EDITION) Order under Section 4(1)"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-59",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "THE INDUSTRIAL DISPUTES ACT - CHAPTER 131",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-09-08",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47825(E)%20(131)%20%20Industrial%20Disputes_1790140592.pdf"
-      },
-      "data": {
-        "number": "2505/59",
-        "group": "labour",
-        "languages": [
-          "en"
-        ],
-        "title": "THE INDUSTRIAL DISPUTES ACT - CHAPTER 131"
-      },
-      "alert": true
-    },
-    {
-      "id": "gazette-2505-58",
-      "source": "gazettes",
-      "topic": "gazettes",
-      "issuer": "Ministry of Labour",
-      "headline": {
-        "en": "Ministry of Labour",
-        "ta": null
-      },
-      "keyNumbers": [],
-      "published": "2026-09-08",
-      "effective": null,
-      "links": {
-        "page": "https://documents.gov.lk/web/extra_gazettes",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G47824%20(S)(PM)%20%20%5BI%20-%20I%5D%20%20-%20Industrial%20Disputes%20-%20Extraordinary_1789981106.pdf"
-      },
-      "data": {
-        "number": "2505/58",
-        "group": "labour",
-        "languages": [
-          "si"
-        ]
       },
       "alert": true
     }

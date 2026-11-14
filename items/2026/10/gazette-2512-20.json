@@ -1,0 +1,30 @@
+{
+  "id": "gazette-2512-20",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Labour",
+  "headline": {
+    "en": "Department of Labour - wages Board Ordinance wages Boards for the motor Transport Trade",
+    "ta": "சம்பளச்சபைகள் கட்டளைச் சட்டம் மோட்டார் போக்குவரத்துத் தொழில்"
+  },
+  "keyNumbers": [],
+  "published": "2026-10-27",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(E)%20%5BI-I%5D%20-%20Wages%20Board_1794631559.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(S)%20%5BI-I%5D%20-%20Wages%20Board_1794631544.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48419%20(T)%20%5BI-I%5D%20-%20Wages%20Board_1794631552.pdf"
+  },
+  "data": {
+    "number": "2512/20",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARD FOR THE MOTOR TRANSPORT TRADE"
+  },
+  "alert": true
+}
