@@ -4395,10 +4395,12 @@
   "2512/06": {
     "files": {
       "si": "extra-gazette-content/PG 8109  (S)_1793252647.pdf",
-      "en": "extra-gazette-content/PG 8109 (E)_1793252661.pdf"
+      "en": "extra-gazette-content/PG 8109 (E)_1793252661.pdf",
+      "ta": "extra-gazette-content/PG 8109 (T)_1794817527.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE VAVUNIYA NORTH PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் வவுனியா வடக்கு பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/29": {
     "files": {
@@ -4497,10 +4499,12 @@
   "2512/47": {
     "files": {
       "si": "extra-gazette-content/G48439(S)(C)  [I - I]_1794386777.pdf",
-      "en": "extra-gazette-content/G48439(E)(C)  [I - I]_1794386786.pdf"
+      "en": "extra-gazette-content/G48439(E)(C)  [I - I]_1794386786.pdf",
+      "ta": "extra-gazette-content/G48439 (T) SEC I-I_1794810547.pdf"
     },
     "reader": 6,
-    "title_en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE"
+    "title_en": "WAGES BOARDS ORDINANCE Notiﬁcation WAGES BOARDS FOR THE COCONUT GROWING TRADE",
+    "title_ta": "சம்பளச் சபைகள் கட்டளைச் சட்டம் அறிவித்தல் தெங்கு வளர்த்தல் தொழிலுக்கான சம்பளச் சபை"
   },
   "2512/33": {
     "files": {
@@ -4581,5 +4585,52 @@
   "2511/02": {
     "files": {},
     "reader": 6
+  },
+  "2514/32": {
+    "files": {
+      "si": "extra-gazette-content/PG 8150  (S)_1794817671.pdf",
+      "en": "extra-gazette-content/PG 8150 (E)_1794817681.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BOPE PODDALA PRADESHIYA SABHA UNDER SECTION 66A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/33": {
+    "files": {
+      "si": "extra-gazette-content/PG 8151  (S)_1794817730.pdf",
+      "en": "extra-gazette-content/PG 8151 (E)_1794817738.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALAPANE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/30": {
+    "files": {
+      "si": "extra-gazette-content/PG 8149 (S)_1794817623.pdf",
+      "en": "extra-gazette-content/PG 8149 (E)_1794817633.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE WALAPANE PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/26": {
+    "files": {
+      "si": "extra-gazette-content/PG 8143  (S)_1794817575.pdf",
+      "en": "extra-gazette-content/PG 8143 (E)_1794817590.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE MANMUNAI SOUTH WEST PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/29": {
+    "files": {
+      "si": "extra-gazette-content/PG 8147 (S)_1794828007.pdf",
+      "en": "extra-gazette-content/PG 8147 (E)_1794828014.pdf"
+    },
+    "reader": 6,
+    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha"
+  },
+  "2512/32": {
+    "files": {
+      "en": "extra-gazette-content/G48410(E) [I - I] - [Industrial Disputes]_1794810527.pdf"
+    },
+    "reader": 6,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
   }
 }
