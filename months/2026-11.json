@@ -547,6 +547,31 @@
       "alert": true
     },
     {
+      "id": "gazette-2514-27",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "Election Commission",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-11",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20%20(S)_1794887721.pdf"
+      },
+      "data": {
+        "number": "2514/27",
+        "group": "elections",
+        "languages": [
+          "si"
+        ]
+      },
+      "alert": true
+    },
+    {
       "id": "gazette-2514-26",
       "source": "gazettes",
       "topic": "gazettes",
