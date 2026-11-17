@@ -4446,10 +4446,12 @@
   "2511/76": {
     "files": {
       "en": "extra-gazette-content/PG 8100 (E)_1793867997.pdf",
-      "si": "extra-gazette-content/PG 8100 (S)_1793868014.pdf"
+      "si": "extra-gazette-content/PG 8100 (S)_1793868014.pdf",
+      "ta": "extra-gazette-content/PG 8100 (T)_1794915688.pdf"
     },
     "reader": 6,
-    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BELIATTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE BELIATTA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+    "title_ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் பெலிஅத்த பிரதேச சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
   },
   "2511/55": {
     "files": {
@@ -4635,8 +4637,26 @@
   },
   "2514/27": {
     "files": {
-      "si": "extra-gazette-content/PG 8148  (S)_1794887721.pdf"
+      "si": "extra-gazette-content/PG 8148  (S)_1794887721.pdf",
+      "en": "extra-gazette-content/PG 8148 (E)_1794915784.pdf"
     },
-    "reader": 6
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KANDY MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/39": {
+    "files": {
+      "si": "extra-gazette-content/PG 8153 (S)_1794898833.pdf",
+      "en": "extra-gazette-content/PG 8153 (E)_1794898841.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THUNUKKAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/40": {
+    "files": {
+      "si": "extra-gazette-content/PG 8154 (S)_1794898914.pdf",
+      "en": "extra-gazette-content/PG 8154 (E)_1794898921.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVU PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
   }
 }

@@ -388,6 +388,62 @@
       "alert": true
     },
     {
+      "id": "gazette-2514-40",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVU PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208154%20(E)_1794898921.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208154%20(S)_1794898914.pdf"
+      },
+      "data": {
+        "number": "2514/40",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVU PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
+      "id": "gazette-2514-39",
+      "source": "gazettes",
+      "topic": "gazettes",
+      "issuer": "Election Commission",
+      "headline": {
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THUNUKKAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-13",
+      "effective": null,
+      "links": {
+        "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208153%20(E)_1794898841.pdf",
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208153%20(S)_1794898833.pdf"
+      },
+      "data": {
+        "number": "2514/39",
+        "group": "elections",
+        "languages": [
+          "en",
+          "si"
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE THUNUKKAI PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+      },
+      "alert": true
+    },
+    {
       "id": "jobs-psc-1794477003",
       "source": "jobs",
       "topic": "jobs",
@@ -552,7 +608,7 @@
       "topic": "gazettes",
       "issuer": "Election Commission",
       "headline": {
-        "en": "Election Commission",
+        "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KANDY MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
         "ta": null
       },
       "keyNumbers": [],
@@ -560,14 +616,17 @@
       "effective": null,
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
+        "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20(E)_1794915784.pdf",
         "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20%20(S)_1794887721.pdf"
       },
       "data": {
         "number": "2514/27",
         "group": "elections",
         "languages": [
+          "en",
           "si"
-        ]
+        ],
+        "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KANDY MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
       "alert": true
     },
