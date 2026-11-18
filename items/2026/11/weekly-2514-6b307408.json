@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2514-6b307408",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Sri Lanka Railway Department",
+  "headline": {
+    "en": "Recruitment to the Training Period for Appointment on Open Basis to Grade III of the Posts of Railway Technical Management Assistant (Mechanical) under the Scheme of Recruitment (MT -02) for the Service Category of Management Assistant Technical Segment - 02 of the Railway Department - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-11-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+  },
+  "data": {
+    "week": "2026-11-06",
+    "section": "exams",
+    "page": 21,
+    "number": "2514",
+    "closes": "2026-12-07"
+  },
+  "alert": false
+}

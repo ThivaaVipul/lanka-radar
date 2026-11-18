@@ -1,0 +1,26 @@
+{
+  "id": "weekly-2514-875b3473",
+  "source": "weekly",
+  "topic": "jobs",
+  "issuer": "Ministry of Science and Technology",
+  "headline": {
+    "en": "Recruitment for the post of Lecturer (Grade II of Field/ Office-Based Officer Segment 01 Service Category) of the Sri Lanka Planetarium under the Ministry of Science and Technology on Open Basis - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-11-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+  },
+  "data": {
+    "week": "2026-11-06",
+    "section": "vacancies",
+    "page": 8,
+    "number": "2514",
+    "closes": "2026-11-30"
+  },
+  "alert": false
+}

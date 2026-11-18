@@ -4623,10 +4623,12 @@
   "2514/29": {
     "files": {
       "si": "extra-gazette-content/PG 8147 (S)_1794828007.pdf",
-      "en": "extra-gazette-content/PG 8147 (E)_1794828014.pdf"
+      "en": "extra-gazette-content/PG 8147 (E)_1794828014.pdf",
+      "ta": "extra-gazette-content/PG 8147 (T)_1795003778.pdf"
     },
     "reader": 6,
-    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha"
+    "title_en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha",
+    "title_ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் தவலம பிரதேச சபை"
   },
   "2512/32": {
     "files": {
@@ -4658,5 +4660,44 @@
     },
     "reader": 6,
     "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE PORATHIVU PATTU PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/45": {
+    "files": {
+      "si": "extra-gazette-content/PG 8155 (S)_1794986787.pdf",
+      "en": "extra-gazette-content/PG 8155 (E)_1794986799.pdf"
+    },
+    "reader": 6,
+    "title_en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KURUWITA PRADESHIYA SABHA UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
+  },
+  "2514/25": {
+    "files": {
+      "si": "extra-gazette-content/G48528 {S} [I -I] (1)_1794986320.pdf",
+      "ta": "extra-gazette-content/G48528 (T) SEC I-I_1794986329.pdf",
+      "en": "extra-gazette-content/G48528 (E) [I -I] (2)_1794986336.pdf"
+    },
+    "reader": 6,
+    "title_en": "WAGES BOARDS ORDINANCE Notification WAGES BOARD FOR THE RETAIL AND WHOLESALE TRADE",
+    "title_ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவித்தல் சில்லறை மற்றும் மொத்த விற்பனைத் தொழில்"
+  },
+  "2513/14": {
+    "files": {
+      "en": "extra-gazette-content/G48489(E)(C)  [I - I]_1794986264.pdf"
+    },
+    "reader": 6,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT – CHAPTER 131"
+  },
+  "2512/51": {
+    "files": {
+      "en": "extra-gazette-content/G48423(E) [I - I] - [Industrial Disputes]_1794986228.pdf"
+    },
+    "reader": 6,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT, CHAPTER 131"
+  },
+  "2512/50": {
+    "files": {
+      "en": "extra-gazette-content/G48422(E)(C)  [I - I]_1794986185.pdf"
+    },
+    "reader": 6,
+    "title_en": "THE INDUSTRIAL DISPUTES ACT – CHAPTER 131"
   }
 }

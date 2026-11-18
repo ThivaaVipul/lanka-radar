@@ -1,0 +1,25 @@
+{
+  "id": "weekly-2514-9c3a5f8b",
+  "source": "weekly",
+  "topic": "exams",
+  "issuer": "Ministry of Finance Planning and Economic Development Excise Department of Sri Lanka",
+  "headline": {
+    "en": "Open Competitive Examination for Recruitment to the Post of Inspector of Excise in the Excise Department of Sri Lanka - 2026",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-11-06",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+  },
+  "data": {
+    "week": "2026-11-06",
+    "section": "exams",
+    "page": 35,
+    "number": "2514"
+  },
+  "alert": false
+}

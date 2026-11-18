@@ -643,6 +643,60 @@
         "weekly-2513-d18df5ae",
         "weekly-2513-992126d7"
       ]
+    },
+    "2026-11-06": {
+      "file": "gazette-content/I-II(A) - (06.11.2026) - Press (E)_1794997061.pdf",
+      "reader": 1,
+      "number": "2514",
+      "notices": [
+        {
+          "section": "vacancies",
+          "title": "Recruitment for the post of Lecturer (Grade II of Field/ Office-Based Officer Segment 01 Service Category) of the Sri Lanka Planetarium under the Ministry of Science and Technology on Open Basis - 2026",
+          "page": 8,
+          "issuer": "Ministry of Science and Technology",
+          "closes": "2026-11-30"
+        },
+        {
+          "section": "vacancies",
+          "title": "Recruitment for the Post of Lecturer - Grade II of the Sri Lanka Planetarium",
+          "page": 10
+        },
+        {
+          "section": "exams",
+          "title": "Publishing of Vacancies for the Recruitment of the officers to the Grade III of the Sri Lanka Principals Service - 2025/2026",
+          "page": 20,
+          "issuer": "Ministry of Education, Higher Education and Vocational Education",
+          "closes": "2026-12-07"
+        },
+        {
+          "section": "exams",
+          "title": "Recruitment to the Training Period for Appointment on Open Basis to Grade III of the Posts of Railway Technical Management Assistant (Mechanical) under the Scheme of Recruitment (MT -02) for the Service Category of Management Assistant Technical Segment - 02 of the Railway Department - 2026",
+          "page": 21,
+          "issuer": "Sri Lanka Railway Department",
+          "closes": "2026-12-07"
+        },
+        {
+          "section": "exams",
+          "title": "National Institute of Sports Science Diploma In Sports 2026/2027",
+          "page": 31,
+          "issuer": "Ministry of Youth Affairs and Sports",
+          "closes": "2026-12-01"
+        },
+        {
+          "section": "exams",
+          "title": "Open Competitive Examination for Recruitment to the Post of Inspector of Excise in the Excise Department of Sri Lanka - 2026",
+          "page": 35,
+          "issuer": "Ministry of Finance Planning and Economic Development Excise Department of Sri Lanka"
+        }
+      ],
+      "items": [
+        "weekly-2514-875b3473",
+        "weekly-2514-9e47cfac",
+        "weekly-2514-eb5a0431",
+        "weekly-2514-6b307408",
+        "weekly-2514-17b9c42b",
+        "weekly-2514-9c3a5f8b"
+      ]
     }
   }
 }

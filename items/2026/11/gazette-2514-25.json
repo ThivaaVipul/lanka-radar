@@ -1,0 +1,30 @@
+{
+  "id": "gazette-2514-25",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Ministry of Labour",
+  "headline": {
+    "en": "WAGES BOARDS ORDINANCE Notification WAGES BOARD FOR THE RETAIL AND WHOLESALE TRADE",
+    "ta": "சம்பளச்சபைகள் கட்டளைச்சட்டம் அறிவித்தல் சில்லறை மற்றும் மொத்த விற்பனைத் தொழில்"
+  },
+  "keyNumbers": [],
+  "published": "2026-11-11",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48528%20(E)%20%5BI%20-I%5D%20(2)_1794986336.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48528%20%7BS%7D%20%5BI%20-I%5D%20(1)_1794986320.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G48528%20(T)%20SEC%20I-I_1794986329.pdf"
+  },
+  "data": {
+    "number": "2514/25",
+    "group": "labour",
+    "languages": [
+      "en",
+      "si",
+      "ta"
+    ],
+    "title": "WAGES BOARDS ORDINANCE Notification WAGES BOARD FOR THE RETAIL AND WHOLESALE TRADE"
+  },
+  "alert": true
+}
