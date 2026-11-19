@@ -3,6 +3,25 @@
   "month": "2026-11",
   "items": [
     {
+      "id": "jobs-psc-1795080610",
+      "source": "jobs",
+      "topic": "jobs",
+      "issuer": "Public Service Commission",
+      "headline": {
+        "en": "Recruitment to the Post of Assistant Registrar General (Registrar Service Class I Grade III) in Department of Registrar General's - Merit Stream -2026",
+        "ta": null
+      },
+      "keyNumbers": [],
+      "published": "2026-11-19",
+      "effective": null,
+      "links": {
+        "pdf_en": "https://psc.gov.lk/images/latest_document/psc_announcements/2026/1795080610-Web-update---Excise---Eng..pdf",
+        "page": "https://psc.gov.lk/index.php?lang=en"
+      },
+      "data": {},
+      "alert": true
+    },
+    {
       "id": "gas-laugfs-2026-11-18",
       "source": "laugfs",
       "topic": "prices",
@@ -909,7 +928,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha",
-        "ta": null
+        "ta": "உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் (262 ஆம் அத்தியாயம்) 10அ(1)(அ) ஆம் பிரிவின் கீழான அறிவித்தல் தவலம பிரதேச சபை"
       },
       "keyNumbers": [],
       "published": "2026-11-11",
@@ -917,14 +936,16 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20(E)_1794654620.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20%20%20(S)_1794654611.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20%20%20(S)_1794654611.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208146%20(T)_1795087708.pdf"
       },
       "data": {
         "number": "2514/28",
         "group": "elections",
         "languages": [
           "en",
-          "si"
+          "si",
+          "ta"
         ],
         "title": "NOTICE UNDER SECTION 10A(1)(a) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262) Thawalama Pradeshiya Sabha"
       },
@@ -937,7 +958,7 @@
       "issuer": "Election Commission",
       "headline": {
         "en": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KANDY MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)",
-        "ta": null
+        "ta": "(262 ஆம் அத்தியாயம்) உள்ளூர் அதிகார சபைகள் தேர்தல்கள் கட்டளைச் சட்டத்தின் 66அ(1)(ஆ) ஆம் பிரிவின் கீழ் கண்டி மாநகர சபையின் உறுப்பினர் ஒருவரின் பதவியிலான வெற்றிடத்தை நிரப்புதல்"
       },
       "keyNumbers": [],
       "published": "2026-11-11",
@@ -945,14 +966,16 @@
       "links": {
         "page": "https://documents.gov.lk/web/extra_gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20(E)_1794915784.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20%20(S)_1794887721.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20%20(S)_1794887721.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208148%20(T)_1795087728.pdf"
       },
       "data": {
         "number": "2514/27",
         "group": "elections",
         "languages": [
           "en",
-          "si"
+          "si",
+          "ta"
         ],
         "title": "FILLING OF A VACANCY IN THE OFFICE OF MEMBER OF THE KANDY MUNICIPAL COUNCIL UNDER SECTION 66A(1)(b) OF THE LOCAL AUTHORITIES ELECTIONS ORDINANCE (CHAPTER 262)"
       },
@@ -1080,7 +1103,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",
@@ -1106,7 +1130,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",
@@ -1131,7 +1156,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",
@@ -1156,7 +1182,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",
@@ -1182,7 +1209,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",
@@ -1208,7 +1236,8 @@
       "links": {
         "page": "https://documents.gov.lk/web/gazettes",
         "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+        "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+        "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
       },
       "data": {
         "week": "2026-11-06",

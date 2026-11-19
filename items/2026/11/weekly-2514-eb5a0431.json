@@ -13,7 +13,8 @@
   "links": {
     "page": "https://documents.gov.lk/web/gazettes",
     "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II(A)%20-%20(06.11.2026)%20-%20Press%20(E)_1794997061.pdf",
-    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf"
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/2026.11.06%20Part%20I-II%20A%20(S)%20press_1794896741.pdf",
+    "pdf_ta": "https://documents.gov.lk/api/content-file-proxy?file=/gazette-content/I-II%20A%20(T)%202026.11.06%20%20B%2082845_1795090072.pdf"
   },
   "data": {
     "week": "2026-11-06",
