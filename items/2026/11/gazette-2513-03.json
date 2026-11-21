@@ -1,0 +1,53 @@
+{
+  "id": "gazette-2513-03",
+  "source": "gazettes",
+  "topic": "prices",
+  "issuer": "Ministry of Energy",
+  "headline": {
+    "en": "Ministry of Energy - Ceylon Petrolium Corporation Act No 8 of 1961 - Revise the Fuel Price",
+    "ta": null
+  },
+  "keyNumbers": [
+    {
+      "label": "Lanka Auto Diesel",
+      "value": 397.0,
+      "unit": "LKR",
+      "previous": 392.0
+    },
+    {
+      "label": "Lanka Super Diesel 4 Star Euro 4",
+      "value": 543.0,
+      "unit": "LKR",
+      "previous": 528.0
+    },
+    {
+      "label": "Lanka Petrol 92 Octane",
+      "value": 424.0,
+      "unit": "LKR",
+      "previous": 414.0
+    },
+    {
+      "label": "Lanka Petrol 92 Octane Euro 4",
+      "value": 490.0,
+      "unit": "LKR",
+      "previous": 475.0
+    }
+  ],
+  "published": "2026-11-02",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048541-%20I%20(I)%20(E)%20Ceylon%20Petrolium%20Cop.%20Act%2C%20No.28%20of%201961_1795251352.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/G%2048541%20(S)%20New_1795251344.pdf"
+  },
+  "data": {
+    "number": "2513/03",
+    "group": "energy",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)"
+  },
+  "alert": true
+}

@@ -1,0 +1,28 @@
+{
+  "id": "gazette-2514-31",
+  "source": "gazettes",
+  "topic": "gazettes",
+  "issuer": "Department of Trade and Investment Policy",
+  "headline": {
+    "en": "Department of Trade and Investment Policy - Special Commodity leavy Act No 48 of 2007",
+    "ta": null
+  },
+  "keyNumbers": [],
+  "published": "2026-11-12",
+  "effective": null,
+  "links": {
+    "page": "https://documents.gov.lk/web/extra_gazettes",
+    "pdf_en": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208152%20-%20I%20(I)%20(E)%20Special%20Commodity%20Levy.%20Act%2C%20No.48%20of%202007_1795251678.pdf",
+    "pdf_si": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/PG%208152%20(S)_1795251671.pdf"
+  },
+  "data": {
+    "number": "2514/31",
+    "group": "prices-taxes",
+    "languages": [
+      "en",
+      "si"
+    ],
+    "title": "SPECIAL COMMODITY LEVY ACT, No. 48 OF 2007 Order under Section 2"
+  },
+  "alert": true
+}

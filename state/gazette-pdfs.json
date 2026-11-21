@@ -4703,5 +4703,47 @@
     },
     "reader": 6,
     "title_en": "THE INDUSTRIAL DISPUTES ACT – CHAPTER 131"
+  },
+  "2514/31": {
+    "files": {
+      "si": "extra-gazette-content/PG 8152 (S)_1795251671.pdf",
+      "en": "extra-gazette-content/PG 8152 - I (I) (E) Special Commodity Levy. Act, No.48 of 2007_1795251678.pdf"
+    },
+    "reader": 6,
+    "title_en": "SPECIAL COMMODITY LEVY ACT, No. 48 OF 2007 Order under Section 2"
+  },
+  "2513/03": {
+    "files": {
+      "si": "extra-gazette-content/G 48541 (S) New_1795251344.pdf",
+      "en": "extra-gazette-content/G 48541- I (I) (E) Ceylon Petrolium Cop. Act, No.28 of 1961_1795251352.pdf"
+    },
+    "reader": 6,
+    "title_en": "CEYLON PETROLEUM CORPORATION ACT, No. 28 OF 1961 Order under Section 66(1)(a)",
+    "numbers": [
+      {
+        "label": "Lanka Auto Diesel",
+        "value": 397.0,
+        "unit": "LKR",
+        "previous": 392.0
+      },
+      {
+        "label": "Lanka Super Diesel 4 Star Euro 4",
+        "value": 543.0,
+        "unit": "LKR",
+        "previous": 528.0
+      },
+      {
+        "label": "Lanka Petrol 92 Octane",
+        "value": 424.0,
+        "unit": "LKR",
+        "previous": 414.0
+      },
+      {
+        "label": "Lanka Petrol 92 Octane Euro 4",
+        "value": 490.0,
+        "unit": "LKR",
+        "previous": 475.0
+      }
+    ]
   }
 }
